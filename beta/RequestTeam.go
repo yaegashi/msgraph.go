@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // TeamRequestBuilder is request builder for Team
 type TeamRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *TeamRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Team
+func (r *TeamRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Team
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Team
+func (r *TeamRequest) BatchUpdate(batch *BatchRequest, reqObj *Team) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Team
+func (r *TeamRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type TeamCloneRequestBuilder struct{ BaseRequestBuilder }
 
@@ -61,6 +84,11 @@ func (b *TeamCloneRequestBuilder) Request() *TeamCloneRequest {
 //
 func (r *TeamCloneRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *TeamCloneRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -90,6 +118,11 @@ func (r *TeamArchiveRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *TeamArchiveRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type TeamUnarchiveRequestBuilder struct{ BaseRequestBuilder }
 
 // Unarchive action undocumented
@@ -113,4 +146,9 @@ func (b *TeamUnarchiveRequestBuilder) Request() *TeamUnarchiveRequest {
 //
 func (r *TeamUnarchiveRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *TeamUnarchiveRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

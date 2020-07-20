@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -117,6 +118,22 @@ func (r *SecurityAlertsCollectionRequest) Add(ctx context.Context, reqObj *Alert
 	return
 }
 
+// BatchGet adds Get operation to Batch for Alert collection
+func (r *SecurityAlertsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Alert
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Alert collection
+func (r *SecurityAlertsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Alert) error {
+	var resObj []Alert
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // CloudAppSecurityProfiles returns request builder for CloudAppSecurityProfile collection
 func (b *SecurityRequestBuilder) CloudAppSecurityProfiles() *SecurityCloudAppSecurityProfilesCollectionRequestBuilder {
 	bb := &SecurityCloudAppSecurityProfilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -217,6 +234,22 @@ func (r *SecurityCloudAppSecurityProfilesCollectionRequest) Get(ctx context.Cont
 func (r *SecurityCloudAppSecurityProfilesCollectionRequest) Add(ctx context.Context, reqObj *CloudAppSecurityProfile) (resObj *CloudAppSecurityProfile, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for CloudAppSecurityProfile collection
+func (r *SecurityCloudAppSecurityProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []CloudAppSecurityProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for CloudAppSecurityProfile collection
+func (r *SecurityCloudAppSecurityProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *CloudAppSecurityProfile) error {
+	var resObj []CloudAppSecurityProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DomainSecurityProfiles returns request builder for DomainSecurityProfile collection
@@ -321,6 +354,22 @@ func (r *SecurityDomainSecurityProfilesCollectionRequest) Add(ctx context.Contex
 	return
 }
 
+// BatchGet adds Get operation to Batch for DomainSecurityProfile collection
+func (r *SecurityDomainSecurityProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DomainSecurityProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DomainSecurityProfile collection
+func (r *SecurityDomainSecurityProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DomainSecurityProfile) error {
+	var resObj []DomainSecurityProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // FileSecurityProfiles returns request builder for FileSecurityProfile collection
 func (b *SecurityRequestBuilder) FileSecurityProfiles() *SecurityFileSecurityProfilesCollectionRequestBuilder {
 	bb := &SecurityFileSecurityProfilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -421,6 +470,22 @@ func (r *SecurityFileSecurityProfilesCollectionRequest) Get(ctx context.Context)
 func (r *SecurityFileSecurityProfilesCollectionRequest) Add(ctx context.Context, reqObj *FileSecurityProfile) (resObj *FileSecurityProfile, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for FileSecurityProfile collection
+func (r *SecurityFileSecurityProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []FileSecurityProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for FileSecurityProfile collection
+func (r *SecurityFileSecurityProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *FileSecurityProfile) error {
+	var resObj []FileSecurityProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // HostSecurityProfiles returns request builder for HostSecurityProfile collection
@@ -525,6 +590,22 @@ func (r *SecurityHostSecurityProfilesCollectionRequest) Add(ctx context.Context,
 	return
 }
 
+// BatchGet adds Get operation to Batch for HostSecurityProfile collection
+func (r *SecurityHostSecurityProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []HostSecurityProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for HostSecurityProfile collection
+func (r *SecurityHostSecurityProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *HostSecurityProfile) error {
+	var resObj []HostSecurityProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // IPSecurityProfiles returns request builder for IPSecurityProfile collection
 func (b *SecurityRequestBuilder) IPSecurityProfiles() *SecurityIPSecurityProfilesCollectionRequestBuilder {
 	bb := &SecurityIPSecurityProfilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -625,6 +706,22 @@ func (r *SecurityIPSecurityProfilesCollectionRequest) Get(ctx context.Context) (
 func (r *SecurityIPSecurityProfilesCollectionRequest) Add(ctx context.Context, reqObj *IPSecurityProfile) (resObj *IPSecurityProfile, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for IPSecurityProfile collection
+func (r *SecurityIPSecurityProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []IPSecurityProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for IPSecurityProfile collection
+func (r *SecurityIPSecurityProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *IPSecurityProfile) error {
+	var resObj []IPSecurityProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ProviderTenantSettings returns request builder for ProviderTenantSetting collection
@@ -729,6 +826,22 @@ func (r *SecurityProviderTenantSettingsCollectionRequest) Add(ctx context.Contex
 	return
 }
 
+// BatchGet adds Get operation to Batch for ProviderTenantSetting collection
+func (r *SecurityProviderTenantSettingsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ProviderTenantSetting
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ProviderTenantSetting collection
+func (r *SecurityProviderTenantSettingsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ProviderTenantSetting) error {
+	var resObj []ProviderTenantSetting
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SecureScoreControlProfiles returns request builder for SecureScoreControlProfile collection
 func (b *SecurityRequestBuilder) SecureScoreControlProfiles() *SecuritySecureScoreControlProfilesCollectionRequestBuilder {
 	bb := &SecuritySecureScoreControlProfilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -829,6 +942,22 @@ func (r *SecuritySecureScoreControlProfilesCollectionRequest) Get(ctx context.Co
 func (r *SecuritySecureScoreControlProfilesCollectionRequest) Add(ctx context.Context, reqObj *SecureScoreControlProfile) (resObj *SecureScoreControlProfile, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SecureScoreControlProfile collection
+func (r *SecuritySecureScoreControlProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SecureScoreControlProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SecureScoreControlProfile collection
+func (r *SecuritySecureScoreControlProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SecureScoreControlProfile) error {
+	var resObj []SecureScoreControlProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SecureScores returns request builder for SecureScore collection
@@ -933,6 +1062,22 @@ func (r *SecuritySecureScoresCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// BatchGet adds Get operation to Batch for SecureScore collection
+func (r *SecuritySecureScoresCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SecureScore
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SecureScore collection
+func (r *SecuritySecureScoresCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SecureScore) error {
+	var resObj []SecureScore
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SecurityActions returns request builder for SecurityAction collection
 func (b *SecurityRequestBuilder) SecurityActions() *SecuritySecurityActionsCollectionRequestBuilder {
 	bb := &SecuritySecurityActionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1033,6 +1178,22 @@ func (r *SecuritySecurityActionsCollectionRequest) Get(ctx context.Context) ([]S
 func (r *SecuritySecurityActionsCollectionRequest) Add(ctx context.Context, reqObj *SecurityAction) (resObj *SecurityAction, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SecurityAction collection
+func (r *SecuritySecurityActionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SecurityAction
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SecurityAction collection
+func (r *SecuritySecurityActionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SecurityAction) error {
+	var resObj []SecurityAction
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // TiIndicators returns request builder for TiIndicator collection
@@ -1137,6 +1298,22 @@ func (r *SecurityTiIndicatorsCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// BatchGet adds Get operation to Batch for TiIndicator collection
+func (r *SecurityTiIndicatorsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TiIndicator
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TiIndicator collection
+func (r *SecurityTiIndicatorsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TiIndicator) error {
+	var resObj []TiIndicator
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // UserSecurityProfiles returns request builder for UserSecurityProfile collection
 func (b *SecurityRequestBuilder) UserSecurityProfiles() *SecurityUserSecurityProfilesCollectionRequestBuilder {
 	bb := &SecurityUserSecurityProfilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1237,6 +1414,22 @@ func (r *SecurityUserSecurityProfilesCollectionRequest) Get(ctx context.Context)
 func (r *SecurityUserSecurityProfilesCollectionRequest) Add(ctx context.Context, reqObj *UserSecurityProfile) (resObj *UserSecurityProfile, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for UserSecurityProfile collection
+func (r *SecurityUserSecurityProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []UserSecurityProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for UserSecurityProfile collection
+func (r *SecurityUserSecurityProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *UserSecurityProfile) error {
+	var resObj []UserSecurityProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SettingStates returns request builder for SecurityBaselineSettingState collection
@@ -1341,6 +1534,22 @@ func (r *SecurityBaselineStateSettingStatesCollectionRequest) Add(ctx context.Co
 	return
 }
 
+// BatchGet adds Get operation to Batch for SecurityBaselineSettingState collection
+func (r *SecurityBaselineStateSettingStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SecurityBaselineSettingState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SecurityBaselineSettingState collection
+func (r *SecurityBaselineStateSettingStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SecurityBaselineSettingState) error {
+	var resObj []SecurityBaselineSettingState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // CategoryDeviceStateSummaries returns request builder for SecurityBaselineCategoryStateSummary collection
 func (b *SecurityBaselineTemplateRequestBuilder) CategoryDeviceStateSummaries() *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequestBuilder {
 	bb := &SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1441,6 +1650,22 @@ func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) 
 func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) Add(ctx context.Context, reqObj *SecurityBaselineCategoryStateSummary) (resObj *SecurityBaselineCategoryStateSummary, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SecurityBaselineCategoryStateSummary collection
+func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SecurityBaselineCategoryStateSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SecurityBaselineCategoryStateSummary collection
+func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SecurityBaselineCategoryStateSummary) error {
+	var resObj []SecurityBaselineCategoryStateSummary
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeviceStateSummary is navigation property
@@ -1550,4 +1775,20 @@ func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Get(ctx context.
 func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Add(ctx context.Context, reqObj *SecurityBaselineDeviceState) (resObj *SecurityBaselineDeviceState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SecurityBaselineDeviceState collection
+func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SecurityBaselineDeviceState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SecurityBaselineDeviceState collection
+func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SecurityBaselineDeviceState) error {
+	var resObj []SecurityBaselineDeviceState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

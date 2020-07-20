@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // SingleValueLegacyExtendedPropertyRequestBuilder is request builder for SingleValueLegacyExtendedProperty
 type SingleValueLegacyExtendedPropertyRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *SingleValueLegacyExtendedPropertyRequest) Update(ctx context.Context, r
 // Delete performs DELETE request for SingleValueLegacyExtendedProperty
 func (r *SingleValueLegacyExtendedPropertyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SingleValueLegacyExtendedProperty
+func (r *SingleValueLegacyExtendedPropertyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SingleValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SingleValueLegacyExtendedProperty
+func (r *SingleValueLegacyExtendedPropertyRequest) BatchUpdate(batch *BatchRequest, reqObj *SingleValueLegacyExtendedProperty) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SingleValueLegacyExtendedProperty
+func (r *SingleValueLegacyExtendedPropertyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -175,6 +176,22 @@ func (r *SynchronizationJobsCollectionRequest) Add(ctx context.Context, reqObj *
 	return
 }
 
+// BatchGet adds Get operation to Batch for SynchronizationJob collection
+func (r *SynchronizationJobsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SynchronizationJob
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SynchronizationJob collection
+func (r *SynchronizationJobsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SynchronizationJob) error {
+	var resObj []SynchronizationJob
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Templates returns request builder for SynchronizationTemplate collection
 func (b *SynchronizationRequestBuilder) Templates() *SynchronizationTemplatesCollectionRequestBuilder {
 	bb := &SynchronizationTemplatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -275,6 +292,22 @@ func (r *SynchronizationTemplatesCollectionRequest) Get(ctx context.Context) ([]
 func (r *SynchronizationTemplatesCollectionRequest) Add(ctx context.Context, reqObj *SynchronizationTemplate) (resObj *SynchronizationTemplate, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SynchronizationTemplate collection
+func (r *SynchronizationTemplatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SynchronizationTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SynchronizationTemplate collection
+func (r *SynchronizationTemplatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SynchronizationTemplate) error {
+	var resObj []SynchronizationTemplate
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Schema is navigation property
@@ -384,6 +417,22 @@ func (r *SynchronizationSchemaDirectoriesCollectionRequest) Get(ctx context.Cont
 func (r *SynchronizationSchemaDirectoriesCollectionRequest) Add(ctx context.Context, reqObj *DirectoryDefinition) (resObj *DirectoryDefinition, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DirectoryDefinition collection
+func (r *SynchronizationSchemaDirectoriesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryDefinition collection
+func (r *SynchronizationSchemaDirectoriesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryDefinition) error {
+	var resObj []DirectoryDefinition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Schema is navigation property

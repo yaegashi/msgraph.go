@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ExtensionRequestBuilder is request builder for Extension
 type ExtensionRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *ExtensionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Extension
+func (r *ExtensionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Extension
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Extension
+func (r *ExtensionRequest) BatchUpdate(batch *BatchRequest, reqObj *Extension) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Extension
+func (r *ExtensionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ExtensionPropertyRequestBuilder is request builder for ExtensionProperty
 type ExtensionPropertyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *ExtensionPropertyRequest) Update(ctx context.Context, reqObj *Extension
 // Delete performs DELETE request for ExtensionProperty
 func (r *ExtensionPropertyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ExtensionProperty
+func (r *ExtensionPropertyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ExtensionProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ExtensionProperty
+func (r *ExtensionPropertyRequest) BatchUpdate(batch *BatchRequest, reqObj *ExtensionProperty) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ExtensionProperty
+func (r *ExtensionPropertyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

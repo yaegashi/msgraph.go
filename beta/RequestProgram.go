@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ProgramRequestBuilder is request builder for Program
 type ProgramRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *ProgramRequest) Update(ctx context.Context, reqObj *Program) error {
 // Delete performs DELETE request for Program
 func (r *ProgramRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Program
+func (r *ProgramRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Program
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Program
+func (r *ProgramRequest) BatchUpdate(batch *BatchRequest, reqObj *Program) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Program
+func (r *ProgramRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ProgramControlRequestBuilder is request builder for ProgramControl
@@ -70,6 +93,26 @@ func (r *ProgramControlRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ProgramControl
+func (r *ProgramControlRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ProgramControl
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ProgramControl
+func (r *ProgramControlRequest) BatchUpdate(batch *BatchRequest, reqObj *ProgramControl) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ProgramControl
+func (r *ProgramControlRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ProgramControlTypeRequestBuilder is request builder for ProgramControlType
 type ProgramControlTypeRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,4 +144,24 @@ func (r *ProgramControlTypeRequest) Update(ctx context.Context, reqObj *ProgramC
 // Delete performs DELETE request for ProgramControlType
 func (r *ProgramControlTypeRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ProgramControlType
+func (r *ProgramControlTypeRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ProgramControlType
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ProgramControlType
+func (r *ProgramControlTypeRequest) BatchUpdate(batch *BatchRequest, reqObj *ProgramControlType) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ProgramControlType
+func (r *ProgramControlTypeRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

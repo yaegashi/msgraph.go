@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsDaysRequestBuilder struct{ BaseRequestBuilder }
@@ -29,4 +32,10 @@ func (b *WorkbookFunctionsDaysRequestBuilder) Request() *WorkbookFunctionsDaysRe
 func (r *WorkbookFunctionsDaysRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsDaysRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

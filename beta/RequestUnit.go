@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // UnitOfMeasureRequestBuilder is request builder for UnitOfMeasure
 type UnitOfMeasureRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *UnitOfMeasureRequest) Update(ctx context.Context, reqObj *UnitOfMeasure
 // Delete performs DELETE request for UnitOfMeasure
 func (r *UnitOfMeasureRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for UnitOfMeasure
+func (r *UnitOfMeasureRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj UnitOfMeasure
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for UnitOfMeasure
+func (r *UnitOfMeasureRequest) BatchUpdate(batch *BatchRequest, reqObj *UnitOfMeasure) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for UnitOfMeasure
+func (r *UnitOfMeasureRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

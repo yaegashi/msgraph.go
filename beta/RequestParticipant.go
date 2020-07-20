@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ParticipantRequestBuilder is request builder for Participant
 type ParticipantRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *ParticipantRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Participant
+func (r *ParticipantRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Participant
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Participant
+func (r *ParticipantRequest) BatchUpdate(batch *BatchRequest, reqObj *Participant) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Participant
+func (r *ParticipantRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type ParticipantCollectionInviteRequestBuilder struct{ BaseRequestBuilder }
 
@@ -62,6 +85,12 @@ func (b *ParticipantCollectionInviteRequestBuilder) Request() *ParticipantCollec
 func (r *ParticipantCollectionInviteRequest) Post(ctx context.Context) (resObj *InviteParticipantsOperation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *ParticipantCollectionInviteRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *InviteParticipantsOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -92,6 +121,12 @@ func (r *ParticipantCollectionMuteAllRequest) Post(ctx context.Context) (resObj 
 }
 
 //
+func (r *ParticipantCollectionMuteAllRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *MuteParticipantsOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type ParticipantMuteRequestBuilder struct{ BaseRequestBuilder }
 
 // Mute action undocumented
@@ -116,4 +151,10 @@ func (b *ParticipantMuteRequestBuilder) Request() *ParticipantMuteRequest {
 func (r *ParticipantMuteRequest) Post(ctx context.Context) (resObj *MuteParticipantOperation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *ParticipantMuteRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *MuteParticipantOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *AndroidCertificateProfileBaseRequest) Delete(ctx context.Context) error
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidCertificateProfileBase
+func (r *AndroidCertificateProfileBaseRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidCertificateProfileBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidCertificateProfileBase
+func (r *AndroidCertificateProfileBaseRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidCertificateProfileBase) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidCertificateProfileBase
+func (r *AndroidCertificateProfileBaseRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidDeviceOwnerCertificateProfileBaseRequestBuilder is request builder for AndroidDeviceOwnerCertificateProfileBase
 type AndroidDeviceOwnerCertificateProfileBaseRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *AndroidDeviceOwnerCertificateProfileBaseRequest) Update(ctx context.Con
 // Delete performs DELETE request for AndroidDeviceOwnerCertificateProfileBase
 func (r *AndroidDeviceOwnerCertificateProfileBaseRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidDeviceOwnerCertificateProfileBase
+func (r *AndroidDeviceOwnerCertificateProfileBaseRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidDeviceOwnerCertificateProfileBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidDeviceOwnerCertificateProfileBase
+func (r *AndroidDeviceOwnerCertificateProfileBaseRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidDeviceOwnerCertificateProfileBase) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidDeviceOwnerCertificateProfileBase
+func (r *AndroidDeviceOwnerCertificateProfileBaseRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidDeviceOwnerEnrollmentProfileRequestBuilder is request builder for AndroidDeviceOwnerEnrollmentProfile
@@ -110,6 +151,26 @@ func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Delete(ctx context.Context)
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidDeviceOwnerEnrollmentProfile
+func (r *AndroidDeviceOwnerEnrollmentProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidDeviceOwnerEnrollmentProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidDeviceOwnerEnrollmentProfile
+func (r *AndroidDeviceOwnerEnrollmentProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidDeviceOwnerEnrollmentProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidDeviceOwnerEnrollmentProfile
+func (r *AndroidDeviceOwnerEnrollmentProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidDeviceOwnerEnterpriseWiFiConfigurationRequestBuilder is request builder for AndroidDeviceOwnerEnterpriseWiFiConfiguration
 type AndroidDeviceOwnerEnterpriseWiFiConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -141,6 +202,26 @@ func (r *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest) Update(ctx contex
 // Delete performs DELETE request for AndroidDeviceOwnerEnterpriseWiFiConfiguration
 func (r *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidDeviceOwnerEnterpriseWiFiConfiguration
+func (r *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidDeviceOwnerEnterpriseWiFiConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidDeviceOwnerEnterpriseWiFiConfiguration
+func (r *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidDeviceOwnerEnterpriseWiFiConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidDeviceOwnerEnterpriseWiFiConfiguration
+func (r *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidDeviceOwnerScepCertificateProfileRequestBuilder is request builder for AndroidDeviceOwnerScepCertificateProfile
@@ -176,6 +257,26 @@ func (r *AndroidDeviceOwnerScepCertificateProfileRequest) Delete(ctx context.Con
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidDeviceOwnerScepCertificateProfile
+func (r *AndroidDeviceOwnerScepCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidDeviceOwnerScepCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidDeviceOwnerScepCertificateProfile
+func (r *AndroidDeviceOwnerScepCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidDeviceOwnerScepCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidDeviceOwnerScepCertificateProfile
+func (r *AndroidDeviceOwnerScepCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidDeviceOwnerTrustedRootCertificateRequestBuilder is request builder for AndroidDeviceOwnerTrustedRootCertificate
 type AndroidDeviceOwnerTrustedRootCertificateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -207,6 +308,26 @@ func (r *AndroidDeviceOwnerTrustedRootCertificateRequest) Update(ctx context.Con
 // Delete performs DELETE request for AndroidDeviceOwnerTrustedRootCertificate
 func (r *AndroidDeviceOwnerTrustedRootCertificateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidDeviceOwnerTrustedRootCertificate
+func (r *AndroidDeviceOwnerTrustedRootCertificateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidDeviceOwnerTrustedRootCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidDeviceOwnerTrustedRootCertificate
+func (r *AndroidDeviceOwnerTrustedRootCertificateRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidDeviceOwnerTrustedRootCertificate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidDeviceOwnerTrustedRootCertificate
+func (r *AndroidDeviceOwnerTrustedRootCertificateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidDeviceOwnerVPNConfigurationRequestBuilder is request builder for AndroidDeviceOwnerVPNConfiguration
@@ -242,6 +363,26 @@ func (r *AndroidDeviceOwnerVPNConfigurationRequest) Delete(ctx context.Context) 
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidDeviceOwnerVPNConfiguration
+func (r *AndroidDeviceOwnerVPNConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidDeviceOwnerVPNConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidDeviceOwnerVPNConfiguration
+func (r *AndroidDeviceOwnerVPNConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidDeviceOwnerVPNConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidDeviceOwnerVPNConfiguration
+func (r *AndroidDeviceOwnerVPNConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidEasEmailProfileConfigurationRequestBuilder is request builder for AndroidEasEmailProfileConfiguration
 type AndroidEasEmailProfileConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -273,6 +414,26 @@ func (r *AndroidEasEmailProfileConfigurationRequest) Update(ctx context.Context,
 // Delete performs DELETE request for AndroidEasEmailProfileConfiguration
 func (r *AndroidEasEmailProfileConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidEasEmailProfileConfiguration
+func (r *AndroidEasEmailProfileConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidEasEmailProfileConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidEasEmailProfileConfiguration
+func (r *AndroidEasEmailProfileConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidEasEmailProfileConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidEasEmailProfileConfiguration
+func (r *AndroidEasEmailProfileConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidEnterpriseWiFiConfigurationRequestBuilder is request builder for AndroidEnterpriseWiFiConfiguration
@@ -308,6 +469,26 @@ func (r *AndroidEnterpriseWiFiConfigurationRequest) Delete(ctx context.Context) 
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidEnterpriseWiFiConfiguration
+func (r *AndroidEnterpriseWiFiConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidEnterpriseWiFiConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidEnterpriseWiFiConfiguration
+func (r *AndroidEnterpriseWiFiConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidEnterpriseWiFiConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidEnterpriseWiFiConfiguration
+func (r *AndroidEnterpriseWiFiConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidForWorkAppConfigurationSchemaRequestBuilder is request builder for AndroidForWorkAppConfigurationSchema
 type AndroidForWorkAppConfigurationSchemaRequestBuilder struct{ BaseRequestBuilder }
 
@@ -339,6 +520,26 @@ func (r *AndroidForWorkAppConfigurationSchemaRequest) Update(ctx context.Context
 // Delete performs DELETE request for AndroidForWorkAppConfigurationSchema
 func (r *AndroidForWorkAppConfigurationSchemaRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidForWorkAppConfigurationSchema
+func (r *AndroidForWorkAppConfigurationSchemaRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidForWorkAppConfigurationSchema
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidForWorkAppConfigurationSchema
+func (r *AndroidForWorkAppConfigurationSchemaRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidForWorkAppConfigurationSchema) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidForWorkAppConfigurationSchema
+func (r *AndroidForWorkAppConfigurationSchemaRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidForWorkCertificateProfileBaseRequestBuilder is request builder for AndroidForWorkCertificateProfileBase
@@ -374,6 +575,26 @@ func (r *AndroidForWorkCertificateProfileBaseRequest) Delete(ctx context.Context
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidForWorkCertificateProfileBase
+func (r *AndroidForWorkCertificateProfileBaseRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidForWorkCertificateProfileBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidForWorkCertificateProfileBase
+func (r *AndroidForWorkCertificateProfileBaseRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidForWorkCertificateProfileBase) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidForWorkCertificateProfileBase
+func (r *AndroidForWorkCertificateProfileBaseRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidForWorkEasEmailProfileBaseRequestBuilder is request builder for AndroidForWorkEasEmailProfileBase
 type AndroidForWorkEasEmailProfileBaseRequestBuilder struct{ BaseRequestBuilder }
 
@@ -405,6 +626,26 @@ func (r *AndroidForWorkEasEmailProfileBaseRequest) Update(ctx context.Context, r
 // Delete performs DELETE request for AndroidForWorkEasEmailProfileBase
 func (r *AndroidForWorkEasEmailProfileBaseRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidForWorkEasEmailProfileBase
+func (r *AndroidForWorkEasEmailProfileBaseRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidForWorkEasEmailProfileBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidForWorkEasEmailProfileBase
+func (r *AndroidForWorkEasEmailProfileBaseRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidForWorkEasEmailProfileBase) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidForWorkEasEmailProfileBase
+func (r *AndroidForWorkEasEmailProfileBaseRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidForWorkEnrollmentProfileRequestBuilder is request builder for AndroidForWorkEnrollmentProfile
@@ -440,6 +681,26 @@ func (r *AndroidForWorkEnrollmentProfileRequest) Delete(ctx context.Context) err
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidForWorkEnrollmentProfile
+func (r *AndroidForWorkEnrollmentProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidForWorkEnrollmentProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidForWorkEnrollmentProfile
+func (r *AndroidForWorkEnrollmentProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidForWorkEnrollmentProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidForWorkEnrollmentProfile
+func (r *AndroidForWorkEnrollmentProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidForWorkEnterpriseWiFiConfigurationRequestBuilder is request builder for AndroidForWorkEnterpriseWiFiConfiguration
 type AndroidForWorkEnterpriseWiFiConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -471,6 +732,26 @@ func (r *AndroidForWorkEnterpriseWiFiConfigurationRequest) Update(ctx context.Co
 // Delete performs DELETE request for AndroidForWorkEnterpriseWiFiConfiguration
 func (r *AndroidForWorkEnterpriseWiFiConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidForWorkEnterpriseWiFiConfiguration
+func (r *AndroidForWorkEnterpriseWiFiConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidForWorkEnterpriseWiFiConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidForWorkEnterpriseWiFiConfiguration
+func (r *AndroidForWorkEnterpriseWiFiConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidForWorkEnterpriseWiFiConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidForWorkEnterpriseWiFiConfiguration
+func (r *AndroidForWorkEnterpriseWiFiConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidForWorkImportedPFXCertificateProfileRequestBuilder is request builder for AndroidForWorkImportedPFXCertificateProfile
@@ -506,6 +787,26 @@ func (r *AndroidForWorkImportedPFXCertificateProfileRequest) Delete(ctx context.
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidForWorkImportedPFXCertificateProfile
+func (r *AndroidForWorkImportedPFXCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidForWorkImportedPFXCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidForWorkImportedPFXCertificateProfile
+func (r *AndroidForWorkImportedPFXCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidForWorkImportedPFXCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidForWorkImportedPFXCertificateProfile
+func (r *AndroidForWorkImportedPFXCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidForWorkPkcsCertificateProfileRequestBuilder is request builder for AndroidForWorkPkcsCertificateProfile
 type AndroidForWorkPkcsCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -537,6 +838,26 @@ func (r *AndroidForWorkPkcsCertificateProfileRequest) Update(ctx context.Context
 // Delete performs DELETE request for AndroidForWorkPkcsCertificateProfile
 func (r *AndroidForWorkPkcsCertificateProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidForWorkPkcsCertificateProfile
+func (r *AndroidForWorkPkcsCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidForWorkPkcsCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidForWorkPkcsCertificateProfile
+func (r *AndroidForWorkPkcsCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidForWorkPkcsCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidForWorkPkcsCertificateProfile
+func (r *AndroidForWorkPkcsCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidForWorkScepCertificateProfileRequestBuilder is request builder for AndroidForWorkScepCertificateProfile
@@ -572,6 +893,26 @@ func (r *AndroidForWorkScepCertificateProfileRequest) Delete(ctx context.Context
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidForWorkScepCertificateProfile
+func (r *AndroidForWorkScepCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidForWorkScepCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidForWorkScepCertificateProfile
+func (r *AndroidForWorkScepCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidForWorkScepCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidForWorkScepCertificateProfile
+func (r *AndroidForWorkScepCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidForWorkSettingsRequestBuilder is request builder for AndroidForWorkSettings
 type AndroidForWorkSettingsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -603,6 +944,26 @@ func (r *AndroidForWorkSettingsRequest) Update(ctx context.Context, reqObj *Andr
 // Delete performs DELETE request for AndroidForWorkSettings
 func (r *AndroidForWorkSettingsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidForWorkSettings
+func (r *AndroidForWorkSettingsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidForWorkSettings
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidForWorkSettings
+func (r *AndroidForWorkSettingsRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidForWorkSettings) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidForWorkSettings
+func (r *AndroidForWorkSettingsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidForWorkTrustedRootCertificateRequestBuilder is request builder for AndroidForWorkTrustedRootCertificate
@@ -638,6 +999,26 @@ func (r *AndroidForWorkTrustedRootCertificateRequest) Delete(ctx context.Context
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidForWorkTrustedRootCertificate
+func (r *AndroidForWorkTrustedRootCertificateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidForWorkTrustedRootCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidForWorkTrustedRootCertificate
+func (r *AndroidForWorkTrustedRootCertificateRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidForWorkTrustedRootCertificate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidForWorkTrustedRootCertificate
+func (r *AndroidForWorkTrustedRootCertificateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidForWorkVPNConfigurationRequestBuilder is request builder for AndroidForWorkVPNConfiguration
 type AndroidForWorkVPNConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -669,6 +1050,26 @@ func (r *AndroidForWorkVPNConfigurationRequest) Update(ctx context.Context, reqO
 // Delete performs DELETE request for AndroidForWorkVPNConfiguration
 func (r *AndroidForWorkVPNConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidForWorkVPNConfiguration
+func (r *AndroidForWorkVPNConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidForWorkVPNConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidForWorkVPNConfiguration
+func (r *AndroidForWorkVPNConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidForWorkVPNConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidForWorkVPNConfiguration
+func (r *AndroidForWorkVPNConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidImportedPFXCertificateProfileRequestBuilder is request builder for AndroidImportedPFXCertificateProfile
@@ -704,6 +1105,26 @@ func (r *AndroidImportedPFXCertificateProfileRequest) Delete(ctx context.Context
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidImportedPFXCertificateProfile
+func (r *AndroidImportedPFXCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidImportedPFXCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidImportedPFXCertificateProfile
+func (r *AndroidImportedPFXCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidImportedPFXCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidImportedPFXCertificateProfile
+func (r *AndroidImportedPFXCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidManagedAppProtectionRequestBuilder is request builder for AndroidManagedAppProtection
 type AndroidManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -735,6 +1156,26 @@ func (r *AndroidManagedAppProtectionRequest) Update(ctx context.Context, reqObj 
 // Delete performs DELETE request for AndroidManagedAppProtection
 func (r *AndroidManagedAppProtectionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidManagedAppProtection
+func (r *AndroidManagedAppProtectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidManagedAppProtection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidManagedAppProtection
+func (r *AndroidManagedAppProtectionRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidManagedAppProtection) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidManagedAppProtection
+func (r *AndroidManagedAppProtectionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder is request builder for AndroidManagedStoreAccountEnterpriseSettings
@@ -770,6 +1211,26 @@ func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Delete(ctx context
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidManagedStoreAccountEnterpriseSettings
+func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidManagedStoreAccountEnterpriseSettings
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidManagedStoreAccountEnterpriseSettings
+func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidManagedStoreAccountEnterpriseSettings) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidManagedStoreAccountEnterpriseSettings
+func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidManagedStoreAppConfigurationSchemaRequestBuilder is request builder for AndroidManagedStoreAppConfigurationSchema
 type AndroidManagedStoreAppConfigurationSchemaRequestBuilder struct{ BaseRequestBuilder }
 
@@ -801,6 +1262,26 @@ func (r *AndroidManagedStoreAppConfigurationSchemaRequest) Update(ctx context.Co
 // Delete performs DELETE request for AndroidManagedStoreAppConfigurationSchema
 func (r *AndroidManagedStoreAppConfigurationSchemaRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidManagedStoreAppConfigurationSchema
+func (r *AndroidManagedStoreAppConfigurationSchemaRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidManagedStoreAppConfigurationSchema
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidManagedStoreAppConfigurationSchema
+func (r *AndroidManagedStoreAppConfigurationSchemaRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidManagedStoreAppConfigurationSchema) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidManagedStoreAppConfigurationSchema
+func (r *AndroidManagedStoreAppConfigurationSchemaRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidPkcsCertificateProfileRequestBuilder is request builder for AndroidPkcsCertificateProfile
@@ -836,6 +1317,26 @@ func (r *AndroidPkcsCertificateProfileRequest) Delete(ctx context.Context) error
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidPkcsCertificateProfile
+func (r *AndroidPkcsCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidPkcsCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidPkcsCertificateProfile
+func (r *AndroidPkcsCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidPkcsCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidPkcsCertificateProfile
+func (r *AndroidPkcsCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidScepCertificateProfileRequestBuilder is request builder for AndroidScepCertificateProfile
 type AndroidScepCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -867,6 +1368,26 @@ func (r *AndroidScepCertificateProfileRequest) Update(ctx context.Context, reqOb
 // Delete performs DELETE request for AndroidScepCertificateProfile
 func (r *AndroidScepCertificateProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidScepCertificateProfile
+func (r *AndroidScepCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidScepCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidScepCertificateProfile
+func (r *AndroidScepCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidScepCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidScepCertificateProfile
+func (r *AndroidScepCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidTrustedRootCertificateRequestBuilder is request builder for AndroidTrustedRootCertificate
@@ -902,6 +1423,26 @@ func (r *AndroidTrustedRootCertificateRequest) Delete(ctx context.Context) error
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidTrustedRootCertificate
+func (r *AndroidTrustedRootCertificateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidTrustedRootCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidTrustedRootCertificate
+func (r *AndroidTrustedRootCertificateRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidTrustedRootCertificate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidTrustedRootCertificate
+func (r *AndroidTrustedRootCertificateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidVPNConfigurationRequestBuilder is request builder for AndroidVPNConfiguration
 type AndroidVPNConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -933,6 +1474,26 @@ func (r *AndroidVPNConfigurationRequest) Update(ctx context.Context, reqObj *And
 // Delete performs DELETE request for AndroidVPNConfiguration
 func (r *AndroidVPNConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidVPNConfiguration
+func (r *AndroidVPNConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidVPNConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidVPNConfiguration
+func (r *AndroidVPNConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidVPNConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidVPNConfiguration
+func (r *AndroidVPNConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidWorkProfileCertificateProfileBaseRequestBuilder is request builder for AndroidWorkProfileCertificateProfileBase
@@ -968,6 +1529,26 @@ func (r *AndroidWorkProfileCertificateProfileBaseRequest) Delete(ctx context.Con
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidWorkProfileCertificateProfileBase
+func (r *AndroidWorkProfileCertificateProfileBaseRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidWorkProfileCertificateProfileBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidWorkProfileCertificateProfileBase
+func (r *AndroidWorkProfileCertificateProfileBaseRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidWorkProfileCertificateProfileBase) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidWorkProfileCertificateProfileBase
+func (r *AndroidWorkProfileCertificateProfileBaseRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidWorkProfileEasEmailProfileBaseRequestBuilder is request builder for AndroidWorkProfileEasEmailProfileBase
 type AndroidWorkProfileEasEmailProfileBaseRequestBuilder struct{ BaseRequestBuilder }
 
@@ -999,6 +1580,26 @@ func (r *AndroidWorkProfileEasEmailProfileBaseRequest) Update(ctx context.Contex
 // Delete performs DELETE request for AndroidWorkProfileEasEmailProfileBase
 func (r *AndroidWorkProfileEasEmailProfileBaseRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidWorkProfileEasEmailProfileBase
+func (r *AndroidWorkProfileEasEmailProfileBaseRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidWorkProfileEasEmailProfileBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidWorkProfileEasEmailProfileBase
+func (r *AndroidWorkProfileEasEmailProfileBaseRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidWorkProfileEasEmailProfileBase) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidWorkProfileEasEmailProfileBase
+func (r *AndroidWorkProfileEasEmailProfileBaseRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidWorkProfileEnterpriseWiFiConfigurationRequestBuilder is request builder for AndroidWorkProfileEnterpriseWiFiConfiguration
@@ -1034,6 +1635,26 @@ func (r *AndroidWorkProfileEnterpriseWiFiConfigurationRequest) Delete(ctx contex
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidWorkProfileEnterpriseWiFiConfiguration
+func (r *AndroidWorkProfileEnterpriseWiFiConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidWorkProfileEnterpriseWiFiConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidWorkProfileEnterpriseWiFiConfiguration
+func (r *AndroidWorkProfileEnterpriseWiFiConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidWorkProfileEnterpriseWiFiConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidWorkProfileEnterpriseWiFiConfiguration
+func (r *AndroidWorkProfileEnterpriseWiFiConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidWorkProfilePkcsCertificateProfileRequestBuilder is request builder for AndroidWorkProfilePkcsCertificateProfile
 type AndroidWorkProfilePkcsCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1065,6 +1686,26 @@ func (r *AndroidWorkProfilePkcsCertificateProfileRequest) Update(ctx context.Con
 // Delete performs DELETE request for AndroidWorkProfilePkcsCertificateProfile
 func (r *AndroidWorkProfilePkcsCertificateProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidWorkProfilePkcsCertificateProfile
+func (r *AndroidWorkProfilePkcsCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidWorkProfilePkcsCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidWorkProfilePkcsCertificateProfile
+func (r *AndroidWorkProfilePkcsCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidWorkProfilePkcsCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidWorkProfilePkcsCertificateProfile
+func (r *AndroidWorkProfilePkcsCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AndroidWorkProfileScepCertificateProfileRequestBuilder is request builder for AndroidWorkProfileScepCertificateProfile
@@ -1100,6 +1741,26 @@ func (r *AndroidWorkProfileScepCertificateProfileRequest) Delete(ctx context.Con
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidWorkProfileScepCertificateProfile
+func (r *AndroidWorkProfileScepCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidWorkProfileScepCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidWorkProfileScepCertificateProfile
+func (r *AndroidWorkProfileScepCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidWorkProfileScepCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidWorkProfileScepCertificateProfile
+func (r *AndroidWorkProfileScepCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidWorkProfileTrustedRootCertificateRequestBuilder is request builder for AndroidWorkProfileTrustedRootCertificate
 type AndroidWorkProfileTrustedRootCertificateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1133,6 +1794,26 @@ func (r *AndroidWorkProfileTrustedRootCertificateRequest) Delete(ctx context.Con
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AndroidWorkProfileTrustedRootCertificate
+func (r *AndroidWorkProfileTrustedRootCertificateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidWorkProfileTrustedRootCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidWorkProfileTrustedRootCertificate
+func (r *AndroidWorkProfileTrustedRootCertificateRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidWorkProfileTrustedRootCertificate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidWorkProfileTrustedRootCertificate
+func (r *AndroidWorkProfileTrustedRootCertificateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AndroidWorkProfileVPNConfigurationRequestBuilder is request builder for AndroidWorkProfileVPNConfiguration
 type AndroidWorkProfileVPNConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1164,6 +1845,26 @@ func (r *AndroidWorkProfileVPNConfigurationRequest) Update(ctx context.Context, 
 // Delete performs DELETE request for AndroidWorkProfileVPNConfiguration
 func (r *AndroidWorkProfileVPNConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AndroidWorkProfileVPNConfiguration
+func (r *AndroidWorkProfileVPNConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AndroidWorkProfileVPNConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AndroidWorkProfileVPNConfiguration
+func (r *AndroidWorkProfileVPNConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *AndroidWorkProfileVPNConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AndroidWorkProfileVPNConfiguration
+func (r *AndroidWorkProfileVPNConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -1253,6 +1954,12 @@ func (r *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest) Post(ctx c
 }
 
 //
+func (r *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []HasPayloadLinkResultItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequestBuilder struct{ BaseRequestBuilder }
 
 // RevokeToken action undocumented
@@ -1276,6 +1983,11 @@ func (b *AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequestBuilder) Request()
 //
 func (r *AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1305,6 +2017,11 @@ func (r *AndroidDeviceOwnerEnrollmentProfileCreateTokenRequest) Post(ctx context
 }
 
 //
+func (r *AndroidDeviceOwnerEnrollmentProfileCreateTokenRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type AndroidForWorkEnrollmentProfileRevokeTokenRequestBuilder struct{ BaseRequestBuilder }
 
 // RevokeToken action undocumented
@@ -1331,6 +2048,11 @@ func (r *AndroidForWorkEnrollmentProfileRevokeTokenRequest) Post(ctx context.Con
 }
 
 //
+func (r *AndroidForWorkEnrollmentProfileRevokeTokenRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type AndroidForWorkEnrollmentProfileCreateTokenRequestBuilder struct{ BaseRequestBuilder }
 
 // CreateToken action undocumented
@@ -1354,6 +2076,11 @@ func (b *AndroidForWorkEnrollmentProfileCreateTokenRequestBuilder) Request() *An
 //
 func (r *AndroidForWorkEnrollmentProfileCreateTokenRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *AndroidForWorkEnrollmentProfileCreateTokenRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1384,6 +2111,12 @@ func (r *AndroidForWorkSettingsRequestSignupURLRequest) Post(ctx context.Context
 }
 
 //
+func (r *AndroidForWorkSettingsRequestSignupURLRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *string
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type AndroidForWorkSettingsCompleteSignupRequestBuilder struct{ BaseRequestBuilder }
 
 // CompleteSignup action undocumented
@@ -1407,6 +2140,11 @@ func (b *AndroidForWorkSettingsCompleteSignupRequestBuilder) Request() *AndroidF
 //
 func (r *AndroidForWorkSettingsCompleteSignupRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *AndroidForWorkSettingsCompleteSignupRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1436,6 +2174,11 @@ func (r *AndroidForWorkSettingsSyncAppsRequest) Post(ctx context.Context) error 
 }
 
 //
+func (r *AndroidForWorkSettingsSyncAppsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type AndroidForWorkSettingsUnbindRequestBuilder struct{ BaseRequestBuilder }
 
 // Unbind action undocumented
@@ -1462,6 +2205,11 @@ func (r *AndroidForWorkSettingsUnbindRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *AndroidForWorkSettingsUnbindRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequestBuilder struct{ BaseRequestBuilder }
 
 // ApproveApps action undocumented
@@ -1485,6 +2233,11 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequestBuilder) 
 //
 func (r *AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1515,6 +2268,12 @@ func (r *AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequest) Po
 }
 
 //
+func (r *AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *string
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequestBuilder struct{ BaseRequestBuilder }
 
 // CompleteSignup action undocumented
@@ -1538,6 +2297,11 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequestBuilde
 //
 func (r *AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1567,6 +2331,11 @@ func (r *AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequest) Post(ctx c
 }
 
 //
+func (r *AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type AndroidManagedStoreAccountEnterpriseSettingsUnbindRequestBuilder struct{ BaseRequestBuilder }
 
 // Unbind action undocumented
@@ -1590,6 +2359,11 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsUnbindRequestBuilder) Reque
 //
 func (r *AndroidManagedStoreAccountEnterpriseSettingsUnbindRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *AndroidManagedStoreAccountEnterpriseSettingsUnbindRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1620,6 +2394,12 @@ func (r *AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenReq
 }
 
 //
+func (r *AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *string
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilder struct{ BaseRequestBuilder }
 
 // SetAndroidDeviceOwnerFullyManagedEnrollmentState action undocumented
@@ -1643,4 +2423,9 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyM
 //
 func (r *AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManagedEnrollmentStateRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManagedEnrollmentStateRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // AdministrativeUnitRequestBuilder is request builder for AdministrativeUnit
 type AdministrativeUnitRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *AdministrativeUnitRequest) Update(ctx context.Context, reqObj *Administ
 // Delete performs DELETE request for AdministrativeUnit
 func (r *AdministrativeUnitRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AdministrativeUnit
+func (r *AdministrativeUnitRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AdministrativeUnit
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AdministrativeUnit
+func (r *AdministrativeUnitRequest) BatchUpdate(batch *BatchRequest, reqObj *AdministrativeUnit) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AdministrativeUnit
+func (r *AdministrativeUnitRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

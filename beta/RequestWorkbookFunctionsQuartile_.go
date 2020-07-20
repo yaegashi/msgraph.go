@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsQuartile_ExcRequestBuilder struct{ BaseRequestBuilder }
@@ -32,6 +35,12 @@ func (r *WorkbookFunctionsQuartile_ExcRequest) Post(ctx context.Context) (resObj
 }
 
 //
+func (r *WorkbookFunctionsQuartile_ExcRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsQuartile_IncRequestBuilder struct{ BaseRequestBuilder }
 
 // Quartile_Inc action undocumented
@@ -56,4 +65,10 @@ func (b *WorkbookFunctionsQuartile_IncRequestBuilder) Request() *WorkbookFunctio
 func (r *WorkbookFunctionsQuartile_IncRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsQuartile_IncRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsSumRequestBuilder struct{ BaseRequestBuilder }
@@ -29,6 +32,12 @@ func (b *WorkbookFunctionsSumRequestBuilder) Request() *WorkbookFunctionsSumRequ
 func (r *WorkbookFunctionsSumRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsSumRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -59,6 +68,12 @@ func (r *WorkbookFunctionsSumIfRequest) Post(ctx context.Context) (resObj *Workb
 }
 
 //
+func (r *WorkbookFunctionsSumIfRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsSumIfsRequestBuilder struct{ BaseRequestBuilder }
 
 // SumIfs action undocumented
@@ -86,6 +101,12 @@ func (r *WorkbookFunctionsSumIfsRequest) Post(ctx context.Context) (resObj *Work
 }
 
 //
+func (r *WorkbookFunctionsSumIfsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsSumSqRequestBuilder struct{ BaseRequestBuilder }
 
 // SumSq action undocumented
@@ -110,4 +131,10 @@ func (b *WorkbookFunctionsSumSqRequestBuilder) Request() *WorkbookFunctionsSumSq
 func (r *WorkbookFunctionsSumSqRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsSumSqRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

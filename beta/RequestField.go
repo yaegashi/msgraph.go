@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // FieldValueSetRequestBuilder is request builder for FieldValueSet
 type FieldValueSetRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *FieldValueSetRequest) Update(ctx context.Context, reqObj *FieldValueSet
 // Delete performs DELETE request for FieldValueSet
 func (r *FieldValueSetRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for FieldValueSet
+func (r *FieldValueSetRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj FieldValueSet
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for FieldValueSet
+func (r *FieldValueSetRequest) BatchUpdate(batch *BatchRequest, reqObj *FieldValueSet) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for FieldValueSet
+func (r *FieldValueSetRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

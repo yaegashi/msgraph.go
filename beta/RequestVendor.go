@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // VendorRequestBuilder is request builder for Vendor
 type VendorRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *VendorRequest) Update(ctx context.Context, reqObj *Vendor) error {
 // Delete performs DELETE request for Vendor
 func (r *VendorRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Vendor
+func (r *VendorRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Vendor
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Vendor
+func (r *VendorRequest) BatchUpdate(batch *BatchRequest, reqObj *Vendor) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Vendor
+func (r *VendorRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsEcma_CeilingRequestBuilder struct{ BaseRequestBuilder }
@@ -29,4 +32,10 @@ func (b *WorkbookFunctionsEcma_CeilingRequestBuilder) Request() *WorkbookFunctio
 func (r *WorkbookFunctionsEcma_CeilingRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsEcma_CeilingRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

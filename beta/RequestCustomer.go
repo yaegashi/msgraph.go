@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // CustomerRequestBuilder is request builder for Customer
 type CustomerRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *CustomerRequest) Update(ctx context.Context, reqObj *Customer) error {
 // Delete performs DELETE request for Customer
 func (r *CustomerRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Customer
+func (r *CustomerRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Customer
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Customer
+func (r *CustomerRequest) BatchUpdate(batch *BatchRequest, reqObj *Customer) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Customer
+func (r *CustomerRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // CustomerPaymentRequestBuilder is request builder for CustomerPayment
@@ -70,6 +93,26 @@ func (r *CustomerPaymentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for CustomerPayment
+func (r *CustomerPaymentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj CustomerPayment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for CustomerPayment
+func (r *CustomerPaymentRequest) BatchUpdate(batch *BatchRequest, reqObj *CustomerPayment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for CustomerPayment
+func (r *CustomerPaymentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // CustomerPaymentJournalRequestBuilder is request builder for CustomerPaymentJournal
 type CustomerPaymentJournalRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,4 +144,24 @@ func (r *CustomerPaymentJournalRequest) Update(ctx context.Context, reqObj *Cust
 // Delete performs DELETE request for CustomerPaymentJournal
 func (r *CustomerPaymentJournalRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for CustomerPaymentJournal
+func (r *CustomerPaymentJournalRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj CustomerPaymentJournal
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for CustomerPaymentJournal
+func (r *CustomerPaymentJournalRequest) BatchUpdate(batch *BatchRequest, reqObj *CustomerPaymentJournal) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for CustomerPaymentJournal
+func (r *CustomerPaymentJournalRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

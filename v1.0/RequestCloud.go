@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // CloudCommunicationsRequestBuilder is request builder for CloudCommunications
 type CloudCommunicationsRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *CloudCommunicationsRequest) Update(ctx context.Context, reqObj *CloudCo
 // Delete performs DELETE request for CloudCommunications
 func (r *CloudCommunicationsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for CloudCommunications
+func (r *CloudCommunicationsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj CloudCommunications
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for CloudCommunications
+func (r *CloudCommunicationsRequest) BatchUpdate(batch *BatchRequest, reqObj *CloudCommunications) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for CloudCommunications
+func (r *CloudCommunicationsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

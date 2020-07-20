@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // AppleEnrollmentProfileAssignmentRequestBuilder is request builder for AppleEnrollmentProfileAssignment
 type AppleEnrollmentProfileAssignmentRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *AppleEnrollmentProfileAssignmentRequest) Update(ctx context.Context, re
 // Delete performs DELETE request for AppleEnrollmentProfileAssignment
 func (r *AppleEnrollmentProfileAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AppleEnrollmentProfileAssignment
+func (r *AppleEnrollmentProfileAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AppleEnrollmentProfileAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AppleEnrollmentProfileAssignment
+func (r *AppleEnrollmentProfileAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *AppleEnrollmentProfileAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AppleEnrollmentProfileAssignment
+func (r *AppleEnrollmentProfileAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ApplePushNotificationCertificateRequestBuilder is request builder for ApplePushNotificationCertificate
@@ -70,6 +93,26 @@ func (r *ApplePushNotificationCertificateRequest) Delete(ctx context.Context) er
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ApplePushNotificationCertificate
+func (r *ApplePushNotificationCertificateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ApplePushNotificationCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ApplePushNotificationCertificate
+func (r *ApplePushNotificationCertificateRequest) BatchUpdate(batch *BatchRequest, reqObj *ApplePushNotificationCertificate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ApplePushNotificationCertificate
+func (r *ApplePushNotificationCertificateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AppleUserInitiatedEnrollmentProfileRequestBuilder is request builder for AppleUserInitiatedEnrollmentProfile
 type AppleUserInitiatedEnrollmentProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -103,6 +146,26 @@ func (r *AppleUserInitiatedEnrollmentProfileRequest) Delete(ctx context.Context)
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AppleUserInitiatedEnrollmentProfile
+func (r *AppleUserInitiatedEnrollmentProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AppleUserInitiatedEnrollmentProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AppleUserInitiatedEnrollmentProfile
+func (r *AppleUserInitiatedEnrollmentProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *AppleUserInitiatedEnrollmentProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AppleUserInitiatedEnrollmentProfile
+func (r *AppleUserInitiatedEnrollmentProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type AppleUserInitiatedEnrollmentProfileSetPriorityRequestBuilder struct{ BaseRequestBuilder }
 
@@ -127,4 +190,9 @@ func (b *AppleUserInitiatedEnrollmentProfileSetPriorityRequestBuilder) Request()
 //
 func (r *AppleUserInitiatedEnrollmentProfileSetPriorityRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *AppleUserInitiatedEnrollmentProfileSetPriorityRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *ExactMatchDataStoreRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ExactMatchDataStore
+func (r *ExactMatchDataStoreRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ExactMatchDataStore
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ExactMatchDataStore
+func (r *ExactMatchDataStoreRequest) BatchUpdate(batch *BatchRequest, reqObj *ExactMatchDataStore) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ExactMatchDataStore
+func (r *ExactMatchDataStoreRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ExactMatchLookupJobRequestBuilder is request builder for ExactMatchLookupJob
 type ExactMatchLookupJobRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *ExactMatchLookupJobRequest) Update(ctx context.Context, reqObj *ExactMa
 // Delete performs DELETE request for ExactMatchLookupJob
 func (r *ExactMatchLookupJobRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ExactMatchLookupJob
+func (r *ExactMatchLookupJobRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ExactMatchLookupJob
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ExactMatchLookupJob
+func (r *ExactMatchLookupJobRequest) BatchUpdate(batch *BatchRequest, reqObj *ExactMatchLookupJob) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ExactMatchLookupJob
+func (r *ExactMatchLookupJobRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ExactMatchSessionRequestBuilder is request builder for ExactMatchSession
@@ -110,6 +151,26 @@ func (r *ExactMatchSessionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ExactMatchSession
+func (r *ExactMatchSessionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ExactMatchSession
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ExactMatchSession
+func (r *ExactMatchSessionRequest) BatchUpdate(batch *BatchRequest, reqObj *ExactMatchSession) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ExactMatchSession
+func (r *ExactMatchSessionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ExactMatchUploadAgentRequestBuilder is request builder for ExactMatchUploadAgent
 type ExactMatchUploadAgentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -141,6 +202,26 @@ func (r *ExactMatchUploadAgentRequest) Update(ctx context.Context, reqObj *Exact
 // Delete performs DELETE request for ExactMatchUploadAgent
 func (r *ExactMatchUploadAgentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ExactMatchUploadAgent
+func (r *ExactMatchUploadAgentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ExactMatchUploadAgent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ExactMatchUploadAgent
+func (r *ExactMatchUploadAgentRequest) BatchUpdate(batch *BatchRequest, reqObj *ExactMatchUploadAgent) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ExactMatchUploadAgent
+func (r *ExactMatchUploadAgentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -230,6 +311,12 @@ func (r *ExactMatchDataStoreLookupRequest) Post(ctx context.Context) ([]string, 
 }
 
 //
+func (r *ExactMatchDataStoreLookupRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []string
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type ExactMatchSessionCancelRequestBuilder struct{ BaseRequestBuilder }
 
 // Cancel action undocumented
@@ -253,6 +340,11 @@ func (b *ExactMatchSessionCancelRequestBuilder) Request() *ExactMatchSessionCanc
 //
 func (r *ExactMatchSessionCancelRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ExactMatchSessionCancelRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -282,6 +374,11 @@ func (r *ExactMatchSessionCommitRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *ExactMatchSessionCommitRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ExactMatchSessionRenewRequestBuilder struct{ BaseRequestBuilder }
 
 // Renew action undocumented
@@ -306,4 +403,10 @@ func (b *ExactMatchSessionRenewRequestBuilder) Request() *ExactMatchSessionRenew
 func (r *ExactMatchSessionRenewRequest) Post(ctx context.Context) (resObj *ExactMatchSession, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *ExactMatchSessionRenewRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *ExactMatchSession
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

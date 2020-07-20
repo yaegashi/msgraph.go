@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -173,6 +174,22 @@ func (r *DirectoryDeletedItemsCollectionRequest) Add(ctx context.Context, reqObj
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *DirectoryDeletedItemsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *DirectoryDeletedItemsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // FeatureRolloutPolicies returns request builder for FeatureRolloutPolicy collection
 func (b *DirectoryRequestBuilder) FeatureRolloutPolicies() *DirectoryFeatureRolloutPoliciesCollectionRequestBuilder {
 	bb := &DirectoryFeatureRolloutPoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -273,6 +290,22 @@ func (r *DirectoryFeatureRolloutPoliciesCollectionRequest) Get(ctx context.Conte
 func (r *DirectoryFeatureRolloutPoliciesCollectionRequest) Add(ctx context.Context, reqObj *FeatureRolloutPolicy) (resObj *FeatureRolloutPolicy, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for FeatureRolloutPolicy collection
+func (r *DirectoryFeatureRolloutPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []FeatureRolloutPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for FeatureRolloutPolicy collection
+func (r *DirectoryFeatureRolloutPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *FeatureRolloutPolicy) error {
+	var resObj []FeatureRolloutPolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Members returns request builder for DirectoryObject collection
@@ -377,6 +410,22 @@ func (r *DirectoryRoleMembersCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *DirectoryRoleMembersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *DirectoryRoleMembersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ScopedMembers returns request builder for ScopedRoleMembership collection
 func (b *DirectoryRoleRequestBuilder) ScopedMembers() *DirectoryRoleScopedMembersCollectionRequestBuilder {
 	bb := &DirectoryRoleScopedMembersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -477,4 +526,20 @@ func (r *DirectoryRoleScopedMembersCollectionRequest) Get(ctx context.Context) (
 func (r *DirectoryRoleScopedMembersCollectionRequest) Add(ctx context.Context, reqObj *ScopedRoleMembership) (resObj *ScopedRoleMembership, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ScopedRoleMembership collection
+func (r *DirectoryRoleScopedMembersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ScopedRoleMembership
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ScopedRoleMembership collection
+func (r *DirectoryRoleScopedMembersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ScopedRoleMembership) error {
+	var resObj []ScopedRoleMembership
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

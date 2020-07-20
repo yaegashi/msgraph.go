@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -213,6 +214,22 @@ func (r *GroupAcceptedSendersCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *GroupAcceptedSendersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *GroupAcceptedSendersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AppRoleAssignments returns request builder for AppRoleAssignment collection
 func (b *GroupRequestBuilder) AppRoleAssignments() *GroupAppRoleAssignmentsCollectionRequestBuilder {
 	bb := &GroupAppRoleAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -313,6 +330,22 @@ func (r *GroupAppRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([]A
 func (r *GroupAppRoleAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *AppRoleAssignment) (resObj *AppRoleAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AppRoleAssignment collection
+func (r *GroupAppRoleAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AppRoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AppRoleAssignment collection
+func (r *GroupAppRoleAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AppRoleAssignment) error {
+	var resObj []AppRoleAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Calendar is navigation property
@@ -424,6 +457,22 @@ func (r *GroupCalendarViewCollectionRequest) Add(ctx context.Context, reqObj *Ev
 	return
 }
 
+// BatchGet adds Get operation to Batch for Event collection
+func (r *GroupCalendarViewCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Event
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Event collection
+func (r *GroupCalendarViewCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Event) error {
+	var resObj []Event
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Conversations returns request builder for Conversation collection
 func (b *GroupRequestBuilder) Conversations() *GroupConversationsCollectionRequestBuilder {
 	bb := &GroupConversationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -524,6 +573,22 @@ func (r *GroupConversationsCollectionRequest) Get(ctx context.Context) ([]Conver
 func (r *GroupConversationsCollectionRequest) Add(ctx context.Context, reqObj *Conversation) (resObj *Conversation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Conversation collection
+func (r *GroupConversationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Conversation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Conversation collection
+func (r *GroupConversationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Conversation) error {
+	var resObj []Conversation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // CreatedOnBehalfOf is navigation property
@@ -642,6 +707,22 @@ func (r *GroupDrivesCollectionRequest) Add(ctx context.Context, reqObj *Drive) (
 	return
 }
 
+// BatchGet adds Get operation to Batch for Drive collection
+func (r *GroupDrivesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Drive
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Drive collection
+func (r *GroupDrivesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Drive) error {
+	var resObj []Drive
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Endpoints returns request builder for Endpoint collection
 func (b *GroupRequestBuilder) Endpoints() *GroupEndpointsCollectionRequestBuilder {
 	bb := &GroupEndpointsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -742,6 +823,22 @@ func (r *GroupEndpointsCollectionRequest) Get(ctx context.Context) ([]Endpoint, 
 func (r *GroupEndpointsCollectionRequest) Add(ctx context.Context, reqObj *Endpoint) (resObj *Endpoint, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Endpoint collection
+func (r *GroupEndpointsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Endpoint
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Endpoint collection
+func (r *GroupEndpointsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Endpoint) error {
+	var resObj []Endpoint
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Events returns request builder for Event collection
@@ -846,6 +943,22 @@ func (r *GroupEventsCollectionRequest) Add(ctx context.Context, reqObj *Event) (
 	return
 }
 
+// BatchGet adds Get operation to Batch for Event collection
+func (r *GroupEventsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Event
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Event collection
+func (r *GroupEventsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Event) error {
+	var resObj []Event
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Extensions returns request builder for Extension collection
 func (b *GroupRequestBuilder) Extensions() *GroupExtensionsCollectionRequestBuilder {
 	bb := &GroupExtensionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -946,6 +1059,22 @@ func (r *GroupExtensionsCollectionRequest) Get(ctx context.Context) ([]Extension
 func (r *GroupExtensionsCollectionRequest) Add(ctx context.Context, reqObj *Extension) (resObj *Extension, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Extension collection
+func (r *GroupExtensionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Extension
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Extension collection
+func (r *GroupExtensionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Extension) error {
+	var resObj []Extension
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // GroupLifecyclePolicies returns request builder for GroupLifecyclePolicy collection
@@ -1050,6 +1179,22 @@ func (r *GroupGroupLifecyclePoliciesCollectionRequest) Add(ctx context.Context, 
 	return
 }
 
+// BatchGet adds Get operation to Batch for GroupLifecyclePolicy collection
+func (r *GroupGroupLifecyclePoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GroupLifecyclePolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GroupLifecyclePolicy collection
+func (r *GroupGroupLifecyclePoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GroupLifecyclePolicy) error {
+	var resObj []GroupLifecyclePolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MemberOf returns request builder for DirectoryObject collection
 func (b *GroupRequestBuilder) MemberOf() *GroupMemberOfCollectionRequestBuilder {
 	bb := &GroupMemberOfCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1150,6 +1295,22 @@ func (r *GroupMemberOfCollectionRequest) Get(ctx context.Context) ([]DirectoryOb
 func (r *GroupMemberOfCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *GroupMemberOfCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *GroupMemberOfCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Members returns request builder for DirectoryObject collection
@@ -1254,6 +1415,22 @@ func (r *GroupMembersCollectionRequest) Add(ctx context.Context, reqObj *Directo
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *GroupMembersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *GroupMembersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MembersWithLicenseErrors returns request builder for DirectoryObject collection
 func (b *GroupRequestBuilder) MembersWithLicenseErrors() *GroupMembersWithLicenseErrorsCollectionRequestBuilder {
 	bb := &GroupMembersWithLicenseErrorsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1354,6 +1531,22 @@ func (r *GroupMembersWithLicenseErrorsCollectionRequest) Get(ctx context.Context
 func (r *GroupMembersWithLicenseErrorsCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *GroupMembersWithLicenseErrorsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *GroupMembersWithLicenseErrorsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Onenote is navigation property
@@ -1465,6 +1658,22 @@ func (r *GroupOwnersCollectionRequest) Add(ctx context.Context, reqObj *Director
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *GroupOwnersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *GroupOwnersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // PermissionGrants returns request builder for ResourceSpecificPermissionGrant collection
 func (b *GroupRequestBuilder) PermissionGrants() *GroupPermissionGrantsCollectionRequestBuilder {
 	bb := &GroupPermissionGrantsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1565,6 +1774,22 @@ func (r *GroupPermissionGrantsCollectionRequest) Get(ctx context.Context) ([]Res
 func (r *GroupPermissionGrantsCollectionRequest) Add(ctx context.Context, reqObj *ResourceSpecificPermissionGrant) (resObj *ResourceSpecificPermissionGrant, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ResourceSpecificPermissionGrant collection
+func (r *GroupPermissionGrantsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ResourceSpecificPermissionGrant
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ResourceSpecificPermissionGrant collection
+func (r *GroupPermissionGrantsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ResourceSpecificPermissionGrant) error {
+	var resObj []ResourceSpecificPermissionGrant
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Photo is navigation property
@@ -1676,6 +1901,22 @@ func (r *GroupPhotosCollectionRequest) Add(ctx context.Context, reqObj *ProfileP
 	return
 }
 
+// BatchGet adds Get operation to Batch for ProfilePhoto collection
+func (r *GroupPhotosCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ProfilePhoto
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ProfilePhoto collection
+func (r *GroupPhotosCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ProfilePhoto) error {
+	var resObj []ProfilePhoto
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Planner is navigation property
 func (b *GroupRequestBuilder) Planner() *PlannerGroupRequestBuilder {
 	bb := &PlannerGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1785,6 +2026,22 @@ func (r *GroupRejectedSendersCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *GroupRejectedSendersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *GroupRejectedSendersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Settings returns request builder for DirectorySetting collection
 func (b *GroupRequestBuilder) Settings() *GroupSettingsCollectionRequestBuilder {
 	bb := &GroupSettingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1887,6 +2144,22 @@ func (r *GroupSettingsCollectionRequest) Add(ctx context.Context, reqObj *Direct
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectorySetting collection
+func (r *GroupSettingsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectorySetting
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectorySetting collection
+func (r *GroupSettingsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectorySetting) error {
+	var resObj []DirectorySetting
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Sites returns request builder for Site collection
 func (b *GroupRequestBuilder) Sites() *GroupSitesCollectionRequestBuilder {
 	bb := &GroupSitesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1987,6 +2260,22 @@ func (r *GroupSitesCollectionRequest) Get(ctx context.Context) ([]Site, error) {
 func (r *GroupSitesCollectionRequest) Add(ctx context.Context, reqObj *Site) (resObj *Site, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Site collection
+func (r *GroupSitesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Site
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Site collection
+func (r *GroupSitesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Site) error {
+	var resObj []Site
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Team is navigation property
@@ -2098,6 +2387,22 @@ func (r *GroupThreadsCollectionRequest) Add(ctx context.Context, reqObj *Convers
 	return
 }
 
+// BatchGet adds Get operation to Batch for ConversationThread collection
+func (r *GroupThreadsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ConversationThread
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ConversationThread collection
+func (r *GroupThreadsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ConversationThread) error {
+	var resObj []ConversationThread
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // TransitiveMemberOf returns request builder for DirectoryObject collection
 func (b *GroupRequestBuilder) TransitiveMemberOf() *GroupTransitiveMemberOfCollectionRequestBuilder {
 	bb := &GroupTransitiveMemberOfCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2198,6 +2503,22 @@ func (r *GroupTransitiveMemberOfCollectionRequest) Get(ctx context.Context) ([]D
 func (r *GroupTransitiveMemberOfCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *GroupTransitiveMemberOfCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *GroupTransitiveMemberOfCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // TransitiveMembers returns request builder for DirectoryObject collection
@@ -2302,6 +2623,22 @@ func (r *GroupTransitiveMembersCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *GroupTransitiveMembersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *GroupTransitiveMembersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Assignments returns request builder for GroupPolicyConfigurationAssignment collection
 func (b *GroupPolicyConfigurationRequestBuilder) Assignments() *GroupPolicyConfigurationAssignmentsCollectionRequestBuilder {
 	bb := &GroupPolicyConfigurationAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2404,6 +2741,22 @@ func (r *GroupPolicyConfigurationAssignmentsCollectionRequest) Add(ctx context.C
 	return
 }
 
+// BatchGet adds Get operation to Batch for GroupPolicyConfigurationAssignment collection
+func (r *GroupPolicyConfigurationAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GroupPolicyConfigurationAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GroupPolicyConfigurationAssignment collection
+func (r *GroupPolicyConfigurationAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GroupPolicyConfigurationAssignment) error {
+	var resObj []GroupPolicyConfigurationAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DefinitionValues returns request builder for GroupPolicyDefinitionValue collection
 func (b *GroupPolicyConfigurationRequestBuilder) DefinitionValues() *GroupPolicyConfigurationDefinitionValuesCollectionRequestBuilder {
 	bb := &GroupPolicyConfigurationDefinitionValuesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2504,6 +2857,22 @@ func (r *GroupPolicyConfigurationDefinitionValuesCollectionRequest) Get(ctx cont
 func (r *GroupPolicyConfigurationDefinitionValuesCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyDefinitionValue) (resObj *GroupPolicyDefinitionValue, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for GroupPolicyDefinitionValue collection
+func (r *GroupPolicyConfigurationDefinitionValuesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GroupPolicyDefinitionValue
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GroupPolicyDefinitionValue collection
+func (r *GroupPolicyConfigurationDefinitionValuesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GroupPolicyDefinitionValue) error {
+	var resObj []GroupPolicyDefinitionValue
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DefinitionFile is navigation property
@@ -2615,6 +2984,22 @@ func (r *GroupPolicyDefinitionPresentationsCollectionRequest) Add(ctx context.Co
 	return
 }
 
+// BatchGet adds Get operation to Batch for GroupPolicyPresentation collection
+func (r *GroupPolicyDefinitionPresentationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GroupPolicyPresentation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GroupPolicyPresentation collection
+func (r *GroupPolicyDefinitionPresentationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GroupPolicyPresentation) error {
+	var resObj []GroupPolicyPresentation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Definitions returns request builder for GroupPolicyDefinition collection
 func (b *GroupPolicyDefinitionFileRequestBuilder) Definitions() *GroupPolicyDefinitionFileDefinitionsCollectionRequestBuilder {
 	bb := &GroupPolicyDefinitionFileDefinitionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2715,6 +3100,22 @@ func (r *GroupPolicyDefinitionFileDefinitionsCollectionRequest) Get(ctx context.
 func (r *GroupPolicyDefinitionFileDefinitionsCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyDefinition) (resObj *GroupPolicyDefinition, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for GroupPolicyDefinition collection
+func (r *GroupPolicyDefinitionFileDefinitionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GroupPolicyDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GroupPolicyDefinition collection
+func (r *GroupPolicyDefinitionFileDefinitionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GroupPolicyDefinition) error {
+	var resObj []GroupPolicyDefinition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Definition is navigation property
@@ -2826,6 +3227,22 @@ func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) Add(ctx 
 	return
 }
 
+// BatchGet adds Get operation to Batch for GroupPolicyPresentationValue collection
+func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GroupPolicyPresentationValue
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GroupPolicyPresentationValue collection
+func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GroupPolicyPresentationValue) error {
+	var resObj []GroupPolicyPresentationValue
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // GroupPolicySettingMappings returns request builder for GroupPolicySettingMapping collection
 func (b *GroupPolicyMigrationReportRequestBuilder) GroupPolicySettingMappings() *GroupPolicyMigrationReportGroupPolicySettingMappingsCollectionRequestBuilder {
 	bb := &GroupPolicyMigrationReportGroupPolicySettingMappingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2926,6 +3343,22 @@ func (r *GroupPolicyMigrationReportGroupPolicySettingMappingsCollectionRequest) 
 func (r *GroupPolicyMigrationReportGroupPolicySettingMappingsCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicySettingMapping) (resObj *GroupPolicySettingMapping, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for GroupPolicySettingMapping collection
+func (r *GroupPolicyMigrationReportGroupPolicySettingMappingsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GroupPolicySettingMapping
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GroupPolicySettingMapping collection
+func (r *GroupPolicyMigrationReportGroupPolicySettingMappingsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GroupPolicySettingMapping) error {
+	var resObj []GroupPolicySettingMapping
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Definition is navigation property

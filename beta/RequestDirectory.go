@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *DirectoryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Directory
+func (r *DirectoryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Directory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Directory
+func (r *DirectoryRequest) BatchUpdate(batch *BatchRequest, reqObj *Directory) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Directory
+func (r *DirectoryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DirectoryAuditRequestBuilder is request builder for DirectoryAudit
 type DirectoryAuditRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *DirectoryAuditRequest) Update(ctx context.Context, reqObj *DirectoryAud
 // Delete performs DELETE request for DirectoryAudit
 func (r *DirectoryAuditRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DirectoryAudit
+func (r *DirectoryAuditRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DirectoryAudit
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DirectoryAudit
+func (r *DirectoryAuditRequest) BatchUpdate(batch *BatchRequest, reqObj *DirectoryAudit) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DirectoryAudit
+func (r *DirectoryAuditRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DirectoryDefinitionRequestBuilder is request builder for DirectoryDefinition
@@ -110,6 +151,26 @@ func (r *DirectoryDefinitionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DirectoryDefinition
+func (r *DirectoryDefinitionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DirectoryDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DirectoryDefinition
+func (r *DirectoryDefinitionRequest) BatchUpdate(batch *BatchRequest, reqObj *DirectoryDefinition) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DirectoryDefinition
+func (r *DirectoryDefinitionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DirectoryObjectRequestBuilder is request builder for DirectoryObject
 type DirectoryObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -141,6 +202,26 @@ func (r *DirectoryObjectRequest) Update(ctx context.Context, reqObj *DirectoryOb
 // Delete performs DELETE request for DirectoryObject
 func (r *DirectoryObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DirectoryObject
+func (r *DirectoryObjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DirectoryObject
+func (r *DirectoryObjectRequest) BatchUpdate(batch *BatchRequest, reqObj *DirectoryObject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DirectoryObject
+func (r *DirectoryObjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DirectoryRoleRequestBuilder is request builder for DirectoryRole
@@ -176,6 +257,26 @@ func (r *DirectoryRoleRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DirectoryRole
+func (r *DirectoryRoleRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DirectoryRole
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DirectoryRole
+func (r *DirectoryRoleRequest) BatchUpdate(batch *BatchRequest, reqObj *DirectoryRole) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DirectoryRole
+func (r *DirectoryRoleRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DirectoryRoleTemplateRequestBuilder is request builder for DirectoryRoleTemplate
 type DirectoryRoleTemplateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -207,6 +308,26 @@ func (r *DirectoryRoleTemplateRequest) Update(ctx context.Context, reqObj *Direc
 // Delete performs DELETE request for DirectoryRoleTemplate
 func (r *DirectoryRoleTemplateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DirectoryRoleTemplate
+func (r *DirectoryRoleTemplateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DirectoryRoleTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DirectoryRoleTemplate
+func (r *DirectoryRoleTemplateRequest) BatchUpdate(batch *BatchRequest, reqObj *DirectoryRoleTemplate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DirectoryRoleTemplate
+func (r *DirectoryRoleTemplateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DirectorySettingRequestBuilder is request builder for DirectorySetting
@@ -242,6 +363,26 @@ func (r *DirectorySettingRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DirectorySetting
+func (r *DirectorySettingRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DirectorySetting
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DirectorySetting
+func (r *DirectorySettingRequest) BatchUpdate(batch *BatchRequest, reqObj *DirectorySetting) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DirectorySetting
+func (r *DirectorySettingRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DirectorySettingTemplateRequestBuilder is request builder for DirectorySettingTemplate
 type DirectorySettingTemplateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -273,6 +414,26 @@ func (r *DirectorySettingTemplateRequest) Update(ctx context.Context, reqObj *Di
 // Delete performs DELETE request for DirectorySettingTemplate
 func (r *DirectorySettingTemplateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DirectorySettingTemplate
+func (r *DirectorySettingTemplateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DirectorySettingTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DirectorySettingTemplate
+func (r *DirectorySettingTemplateRequest) BatchUpdate(batch *BatchRequest, reqObj *DirectorySettingTemplate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DirectorySettingTemplate
+func (r *DirectorySettingTemplateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -642,6 +803,12 @@ func (r *DirectoryObjectCollectionGetByIDsRequest) Post(ctx context.Context) ([]
 }
 
 //
+func (r *DirectoryObjectCollectionGetByIDsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type DirectoryObjectCollectionValidatePropertiesRequestBuilder struct{ BaseRequestBuilder }
 
 // ValidateProperties action undocumented
@@ -945,6 +1112,11 @@ func (b *DirectoryObjectCollectionValidatePropertiesRequestBuilder) Request() *D
 //
 func (r *DirectoryObjectCollectionValidatePropertiesRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *DirectoryObjectCollectionValidatePropertiesRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1255,6 +1427,12 @@ func (r *DirectoryObjectCollectionGetUserOwnedObjectsRequest) Post(ctx context.C
 }
 
 //
+func (r *DirectoryObjectCollectionGetUserOwnedObjectsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type DirectoryDefinitionDiscoverRequestBuilder struct{ BaseRequestBuilder }
 
 // Discover action undocumented
@@ -1279,6 +1457,12 @@ func (b *DirectoryDefinitionDiscoverRequestBuilder) Request() *DirectoryDefiniti
 func (r *DirectoryDefinitionDiscoverRequest) Post(ctx context.Context) (resObj *DirectoryDefinition, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *DirectoryDefinitionDiscoverRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *DirectoryDefinition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -1368,6 +1552,12 @@ func (r *DirectoryObjectCheckMemberGroupsRequest) Post(ctx context.Context) ([]s
 }
 
 //
+func (r *DirectoryObjectCheckMemberGroupsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []string
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type DirectoryObjectCheckMemberObjectsRequestBuilder struct{ BaseRequestBuilder }
 
 // CheckMemberObjects action undocumented
@@ -1451,6 +1641,12 @@ func (r *DirectoryObjectCheckMemberObjectsRequest) PostN(ctx context.Context, n 
 //
 func (r *DirectoryObjectCheckMemberObjectsRequest) Post(ctx context.Context) ([]string, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+func (r *DirectoryObjectCheckMemberObjectsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []string
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -1540,6 +1736,12 @@ func (r *DirectoryObjectGetMemberGroupsRequest) Post(ctx context.Context) ([]str
 }
 
 //
+func (r *DirectoryObjectGetMemberGroupsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []string
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type DirectoryObjectGetMemberObjectsRequestBuilder struct{ BaseRequestBuilder }
 
 // GetMemberObjects action undocumented
@@ -1626,6 +1828,12 @@ func (r *DirectoryObjectGetMemberObjectsRequest) Post(ctx context.Context) ([]st
 }
 
 //
+func (r *DirectoryObjectGetMemberObjectsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []string
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type DirectoryObjectRestoreRequestBuilder struct{ BaseRequestBuilder }
 
 // Restore action undocumented
@@ -1650,4 +1858,10 @@ func (b *DirectoryObjectRestoreRequestBuilder) Request() *DirectoryObjectRestore
 func (r *DirectoryObjectRestoreRequest) Post(ctx context.Context) (resObj *DirectoryObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *DirectoryObjectRestoreRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

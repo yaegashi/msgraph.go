@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // Windows10GeneralConfigurationRequestBuilder is request builder for Windows10GeneralConfiguration
 type Windows10GeneralConfigurationRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *Windows10GeneralConfigurationRequest) Update(ctx context.Context, reqOb
 // Delete performs DELETE request for Windows10GeneralConfiguration
 func (r *Windows10GeneralConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Windows10GeneralConfiguration
+func (r *Windows10GeneralConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Windows10GeneralConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Windows10GeneralConfiguration
+func (r *Windows10GeneralConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *Windows10GeneralConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Windows10GeneralConfiguration
+func (r *Windows10GeneralConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // Windows10ImportedPFXCertificateProfileRequestBuilder is request builder for Windows10ImportedPFXCertificateProfile
@@ -70,6 +93,26 @@ func (r *Windows10ImportedPFXCertificateProfileRequest) Delete(ctx context.Conte
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Windows10ImportedPFXCertificateProfile
+func (r *Windows10ImportedPFXCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Windows10ImportedPFXCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Windows10ImportedPFXCertificateProfile
+func (r *Windows10ImportedPFXCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *Windows10ImportedPFXCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Windows10ImportedPFXCertificateProfile
+func (r *Windows10ImportedPFXCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // Windows10PkcsCertificateProfileRequestBuilder is request builder for Windows10PkcsCertificateProfile
 type Windows10PkcsCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -103,6 +146,26 @@ func (r *Windows10PkcsCertificateProfileRequest) Delete(ctx context.Context) err
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Windows10PkcsCertificateProfile
+func (r *Windows10PkcsCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Windows10PkcsCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Windows10PkcsCertificateProfile
+func (r *Windows10PkcsCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *Windows10PkcsCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Windows10PkcsCertificateProfile
+func (r *Windows10PkcsCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // Windows10VpnConfigurationRequestBuilder is request builder for Windows10VpnConfiguration
 type Windows10VpnConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -134,4 +197,24 @@ func (r *Windows10VpnConfigurationRequest) Update(ctx context.Context, reqObj *W
 // Delete performs DELETE request for Windows10VpnConfiguration
 func (r *Windows10VpnConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Windows10VpnConfiguration
+func (r *Windows10VpnConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Windows10VpnConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Windows10VpnConfiguration
+func (r *Windows10VpnConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *Windows10VpnConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Windows10VpnConfiguration
+func (r *Windows10VpnConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

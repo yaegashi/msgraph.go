@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ProfileRequestBuilder is request builder for Profile
 type ProfileRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *ProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Profile
+func (r *ProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Profile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Profile
+func (r *ProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *Profile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Profile
+func (r *ProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ProfilePhotoRequestBuilder is request builder for ProfilePhoto
 type ProfilePhotoRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *ProfilePhotoRequest) Update(ctx context.Context, reqObj *ProfilePhoto) 
 // Delete performs DELETE request for ProfilePhoto
 func (r *ProfilePhotoRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ProfilePhoto
+func (r *ProfilePhotoRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ProfilePhoto
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ProfilePhoto
+func (r *ProfilePhotoRequest) BatchUpdate(batch *BatchRequest, reqObj *ProfilePhoto) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ProfilePhoto
+func (r *ProfilePhotoRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

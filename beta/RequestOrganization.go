@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // OrganizationRequestBuilder is request builder for Organization
 type OrganizationRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *OrganizationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Organization
+func (r *OrganizationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Organization
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Organization
+func (r *OrganizationRequest) BatchUpdate(batch *BatchRequest, reqObj *Organization) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Organization
+func (r *OrganizationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type OrganizationSetMobileDeviceManagementAuthorityRequestBuilder struct{ BaseRequestBuilder }
 
@@ -62,4 +85,10 @@ func (b *OrganizationSetMobileDeviceManagementAuthorityRequestBuilder) Request()
 func (r *OrganizationSetMobileDeviceManagementAuthorityRequest) Post(ctx context.Context) (resObj *int, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *OrganizationSetMobileDeviceManagementAuthorityRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *int
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

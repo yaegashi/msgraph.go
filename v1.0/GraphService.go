@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *GraphServiceApplicationsCollectionRequest) Add(ctx context.Context, req
 	return
 }
 
+// BatchGet adds Get operation to Batch for Application collection
+func (r *GraphServiceApplicationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Application
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Application collection
+func (r *GraphServiceApplicationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Application) error {
+	var resObj []Application
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // CertificateBasedAuthConfiguration returns request builder for CertificateBasedAuthConfiguration collection
 func (b *GraphServiceRequestBuilder) CertificateBasedAuthConfiguration() *GraphServiceCertificateBasedAuthConfigurationCollectionRequestBuilder {
 	bb := &GraphServiceCertificateBasedAuthConfigurationCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,6 +230,22 @@ func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Get(ctx
 func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Add(ctx context.Context, reqObj *CertificateBasedAuthConfiguration) (resObj *CertificateBasedAuthConfiguration, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for CertificateBasedAuthConfiguration collection
+func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []CertificateBasedAuthConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for CertificateBasedAuthConfiguration collection
+func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *CertificateBasedAuthConfiguration) error {
+	var resObj []CertificateBasedAuthConfiguration
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Contacts returns request builder for OrgContact collection
@@ -317,6 +350,22 @@ func (r *GraphServiceContactsCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// BatchGet adds Get operation to Batch for OrgContact collection
+func (r *GraphServiceContactsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OrgContact
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OrgContact collection
+func (r *GraphServiceContactsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OrgContact) error {
+	var resObj []OrgContact
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Contracts returns request builder for Contract collection
 func (b *GraphServiceRequestBuilder) Contracts() *GraphServiceContractsCollectionRequestBuilder {
 	bb := &GraphServiceContractsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -417,6 +466,22 @@ func (r *GraphServiceContractsCollectionRequest) Get(ctx context.Context) ([]Con
 func (r *GraphServiceContractsCollectionRequest) Add(ctx context.Context, reqObj *Contract) (resObj *Contract, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Contract collection
+func (r *GraphServiceContractsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Contract
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Contract collection
+func (r *GraphServiceContractsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Contract) error {
+	var resObj []Contract
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DataPolicyOperations returns request builder for DataPolicyOperation collection
@@ -521,6 +586,22 @@ func (r *GraphServiceDataPolicyOperationsCollectionRequest) Add(ctx context.Cont
 	return
 }
 
+// BatchGet adds Get operation to Batch for DataPolicyOperation collection
+func (r *GraphServiceDataPolicyOperationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DataPolicyOperation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DataPolicyOperation collection
+func (r *GraphServiceDataPolicyOperationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DataPolicyOperation) error {
+	var resObj []DataPolicyOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Devices returns request builder for Device collection
 func (b *GraphServiceRequestBuilder) Devices() *GraphServiceDevicesCollectionRequestBuilder {
 	bb := &GraphServiceDevicesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -621,6 +702,22 @@ func (r *GraphServiceDevicesCollectionRequest) Get(ctx context.Context) ([]Devic
 func (r *GraphServiceDevicesCollectionRequest) Add(ctx context.Context, reqObj *Device) (resObj *Device, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Device collection
+func (r *GraphServiceDevicesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Device
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Device collection
+func (r *GraphServiceDevicesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Device) error {
+	var resObj []Device
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DirectoryObjects returns request builder for DirectoryObject collection
@@ -725,6 +822,22 @@ func (r *GraphServiceDirectoryObjectsCollectionRequest) Add(ctx context.Context,
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *GraphServiceDirectoryObjectsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *GraphServiceDirectoryObjectsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DirectoryRoleTemplates returns request builder for DirectoryRoleTemplate collection
 func (b *GraphServiceRequestBuilder) DirectoryRoleTemplates() *GraphServiceDirectoryRoleTemplatesCollectionRequestBuilder {
 	bb := &GraphServiceDirectoryRoleTemplatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -825,6 +938,22 @@ func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Get(ctx context.Co
 func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Add(ctx context.Context, reqObj *DirectoryRoleTemplate) (resObj *DirectoryRoleTemplate, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DirectoryRoleTemplate collection
+func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryRoleTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryRoleTemplate collection
+func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryRoleTemplate) error {
+	var resObj []DirectoryRoleTemplate
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DirectoryRoles returns request builder for DirectoryRole collection
@@ -929,6 +1058,22 @@ func (r *GraphServiceDirectoryRolesCollectionRequest) Add(ctx context.Context, r
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryRole collection
+func (r *GraphServiceDirectoryRolesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryRole
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryRole collection
+func (r *GraphServiceDirectoryRolesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryRole) error {
+	var resObj []DirectoryRole
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DomainDNSRecords returns request builder for DomainDNSRecord collection
 func (b *GraphServiceRequestBuilder) DomainDNSRecords() *GraphServiceDomainDNSRecordsCollectionRequestBuilder {
 	bb := &GraphServiceDomainDNSRecordsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1029,6 +1174,22 @@ func (r *GraphServiceDomainDNSRecordsCollectionRequest) Get(ctx context.Context)
 func (r *GraphServiceDomainDNSRecordsCollectionRequest) Add(ctx context.Context, reqObj *DomainDNSRecord) (resObj *DomainDNSRecord, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DomainDNSRecord collection
+func (r *GraphServiceDomainDNSRecordsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DomainDNSRecord
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DomainDNSRecord collection
+func (r *GraphServiceDomainDNSRecordsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DomainDNSRecord) error {
+	var resObj []DomainDNSRecord
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Domains returns request builder for Domain collection
@@ -1133,6 +1294,22 @@ func (r *GraphServiceDomainsCollectionRequest) Add(ctx context.Context, reqObj *
 	return
 }
 
+// BatchGet adds Get operation to Batch for Domain collection
+func (r *GraphServiceDomainsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Domain
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Domain collection
+func (r *GraphServiceDomainsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Domain) error {
+	var resObj []Domain
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Drives returns request builder for Drive collection
 func (b *GraphServiceRequestBuilder) Drives() *GraphServiceDrivesCollectionRequestBuilder {
 	bb := &GraphServiceDrivesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1233,6 +1410,22 @@ func (r *GraphServiceDrivesCollectionRequest) Get(ctx context.Context) ([]Drive,
 func (r *GraphServiceDrivesCollectionRequest) Add(ctx context.Context, reqObj *Drive) (resObj *Drive, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Drive collection
+func (r *GraphServiceDrivesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Drive
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Drive collection
+func (r *GraphServiceDrivesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Drive) error {
+	var resObj []Drive
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // GroupLifecyclePolicies returns request builder for GroupLifecyclePolicy collection
@@ -1337,6 +1530,22 @@ func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Add(ctx context.Co
 	return
 }
 
+// BatchGet adds Get operation to Batch for GroupLifecyclePolicy collection
+func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GroupLifecyclePolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GroupLifecyclePolicy collection
+func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GroupLifecyclePolicy) error {
+	var resObj []GroupLifecyclePolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // GroupSettingTemplates returns request builder for GroupSettingTemplate collection
 func (b *GraphServiceRequestBuilder) GroupSettingTemplates() *GraphServiceGroupSettingTemplatesCollectionRequestBuilder {
 	bb := &GraphServiceGroupSettingTemplatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1437,6 +1646,22 @@ func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Get(ctx context.Con
 func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Add(ctx context.Context, reqObj *GroupSettingTemplate) (resObj *GroupSettingTemplate, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for GroupSettingTemplate collection
+func (r *GraphServiceGroupSettingTemplatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GroupSettingTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GroupSettingTemplate collection
+func (r *GraphServiceGroupSettingTemplatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GroupSettingTemplate) error {
+	var resObj []GroupSettingTemplate
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // GroupSettings returns request builder for GroupSetting collection
@@ -1541,6 +1766,22 @@ func (r *GraphServiceGroupSettingsCollectionRequest) Add(ctx context.Context, re
 	return
 }
 
+// BatchGet adds Get operation to Batch for GroupSetting collection
+func (r *GraphServiceGroupSettingsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GroupSetting
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GroupSetting collection
+func (r *GraphServiceGroupSettingsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GroupSetting) error {
+	var resObj []GroupSetting
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Groups returns request builder for Group collection
 func (b *GraphServiceRequestBuilder) Groups() *GraphServiceGroupsCollectionRequestBuilder {
 	bb := &GraphServiceGroupsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1641,6 +1882,22 @@ func (r *GraphServiceGroupsCollectionRequest) Get(ctx context.Context) ([]Group,
 func (r *GraphServiceGroupsCollectionRequest) Add(ctx context.Context, reqObj *Group) (resObj *Group, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Group collection
+func (r *GraphServiceGroupsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Group
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Group collection
+func (r *GraphServiceGroupsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Group) error {
+	var resObj []Group
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // IdentityProviders returns request builder for IdentityProvider collection
@@ -1745,6 +2002,22 @@ func (r *GraphServiceIdentityProvidersCollectionRequest) Add(ctx context.Context
 	return
 }
 
+// BatchGet adds Get operation to Batch for IdentityProvider collection
+func (r *GraphServiceIdentityProvidersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []IdentityProvider
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for IdentityProvider collection
+func (r *GraphServiceIdentityProvidersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *IdentityProvider) error {
+	var resObj []IdentityProvider
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Invitations returns request builder for Invitation collection
 func (b *GraphServiceRequestBuilder) Invitations() *GraphServiceInvitationsCollectionRequestBuilder {
 	bb := &GraphServiceInvitationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1845,6 +2118,22 @@ func (r *GraphServiceInvitationsCollectionRequest) Get(ctx context.Context) ([]I
 func (r *GraphServiceInvitationsCollectionRequest) Add(ctx context.Context, reqObj *Invitation) (resObj *Invitation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Invitation collection
+func (r *GraphServiceInvitationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Invitation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Invitation collection
+func (r *GraphServiceInvitationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Invitation) error {
+	var resObj []Invitation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Organization returns request builder for Organization collection
@@ -1949,6 +2238,22 @@ func (r *GraphServiceOrganizationCollectionRequest) Add(ctx context.Context, req
 	return
 }
 
+// BatchGet adds Get operation to Batch for Organization collection
+func (r *GraphServiceOrganizationCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Organization
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Organization collection
+func (r *GraphServiceOrganizationCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Organization) error {
+	var resObj []Organization
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SchemaExtensions returns request builder for SchemaExtension collection
 func (b *GraphServiceRequestBuilder) SchemaExtensions() *GraphServiceSchemaExtensionsCollectionRequestBuilder {
 	bb := &GraphServiceSchemaExtensionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2049,6 +2354,22 @@ func (r *GraphServiceSchemaExtensionsCollectionRequest) Get(ctx context.Context)
 func (r *GraphServiceSchemaExtensionsCollectionRequest) Add(ctx context.Context, reqObj *SchemaExtension) (resObj *SchemaExtension, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SchemaExtension collection
+func (r *GraphServiceSchemaExtensionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SchemaExtension
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SchemaExtension collection
+func (r *GraphServiceSchemaExtensionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SchemaExtension) error {
+	var resObj []SchemaExtension
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Shares returns request builder for SharedDriveItem collection
@@ -2153,6 +2474,22 @@ func (r *GraphServiceSharesCollectionRequest) Add(ctx context.Context, reqObj *S
 	return
 }
 
+// BatchGet adds Get operation to Batch for SharedDriveItem collection
+func (r *GraphServiceSharesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SharedDriveItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SharedDriveItem collection
+func (r *GraphServiceSharesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SharedDriveItem) error {
+	var resObj []SharedDriveItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Sites returns request builder for Site collection
 func (b *GraphServiceRequestBuilder) Sites() *GraphServiceSitesCollectionRequestBuilder {
 	bb := &GraphServiceSitesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2253,6 +2590,22 @@ func (r *GraphServiceSitesCollectionRequest) Get(ctx context.Context) ([]Site, e
 func (r *GraphServiceSitesCollectionRequest) Add(ctx context.Context, reqObj *Site) (resObj *Site, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Site collection
+func (r *GraphServiceSitesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Site
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Site collection
+func (r *GraphServiceSitesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Site) error {
+	var resObj []Site
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SubscribedSKUs returns request builder for SubscribedSKU collection
@@ -2357,6 +2710,22 @@ func (r *GraphServiceSubscribedSKUsCollectionRequest) Add(ctx context.Context, r
 	return
 }
 
+// BatchGet adds Get operation to Batch for SubscribedSKU collection
+func (r *GraphServiceSubscribedSKUsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SubscribedSKU
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SubscribedSKU collection
+func (r *GraphServiceSubscribedSKUsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SubscribedSKU) error {
+	var resObj []SubscribedSKU
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Subscriptions returns request builder for Subscription collection
 func (b *GraphServiceRequestBuilder) Subscriptions() *GraphServiceSubscriptionsCollectionRequestBuilder {
 	bb := &GraphServiceSubscriptionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2457,6 +2826,22 @@ func (r *GraphServiceSubscriptionsCollectionRequest) Get(ctx context.Context) ([
 func (r *GraphServiceSubscriptionsCollectionRequest) Add(ctx context.Context, reqObj *Subscription) (resObj *Subscription, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Subscription collection
+func (r *GraphServiceSubscriptionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Subscription
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Subscription collection
+func (r *GraphServiceSubscriptionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Subscription) error {
+	var resObj []Subscription
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Teams returns request builder for Team collection
@@ -2561,6 +2946,22 @@ func (r *GraphServiceTeamsCollectionRequest) Add(ctx context.Context, reqObj *Te
 	return
 }
 
+// BatchGet adds Get operation to Batch for Team collection
+func (r *GraphServiceTeamsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Team
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Team collection
+func (r *GraphServiceTeamsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Team) error {
+	var resObj []Team
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Users returns request builder for User collection
 func (b *GraphServiceRequestBuilder) Users() *GraphServiceUsersCollectionRequestBuilder {
 	bb := &GraphServiceUsersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2663,6 +3064,22 @@ func (r *GraphServiceUsersCollectionRequest) Add(ctx context.Context, reqObj *Us
 	return
 }
 
+// BatchGet adds Get operation to Batch for User collection
+func (r *GraphServiceUsersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []User
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for User collection
+func (r *GraphServiceUsersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *User) error {
+	var resObj []User
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Workbooks returns request builder for DriveItem collection
 func (b *GraphServiceRequestBuilder) Workbooks() *GraphServiceWorkbooksCollectionRequestBuilder {
 	bb := &GraphServiceWorkbooksCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2763,6 +3180,22 @@ func (r *GraphServiceWorkbooksCollectionRequest) Get(ctx context.Context) ([]Dri
 func (r *GraphServiceWorkbooksCollectionRequest) Add(ctx context.Context, reqObj *DriveItem) (resObj *DriveItem, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DriveItem collection
+func (r *GraphServiceWorkbooksCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DriveItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DriveItem collection
+func (r *GraphServiceWorkbooksCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DriveItem) error {
+	var resObj []DriveItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Security is navigation property

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -117,6 +118,22 @@ func (r *AppCatalogsTeamsAppsCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// BatchGet adds Get operation to Batch for TeamsApp collection
+func (r *AppCatalogsTeamsAppsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TeamsApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TeamsApp collection
+func (r *AppCatalogsTeamsAppsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TeamsApp) error {
+	var resObj []TeamsApp
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedDevices returns request builder for AppVulnerabilityManagedDevice collection
 func (b *AppVulnerabilityTaskRequestBuilder) ManagedDevices() *AppVulnerabilityTaskManagedDevicesCollectionRequestBuilder {
 	bb := &AppVulnerabilityTaskManagedDevicesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -219,6 +236,22 @@ func (r *AppVulnerabilityTaskManagedDevicesCollectionRequest) Add(ctx context.Co
 	return
 }
 
+// BatchGet adds Get operation to Batch for AppVulnerabilityManagedDevice collection
+func (r *AppVulnerabilityTaskManagedDevicesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AppVulnerabilityManagedDevice
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AppVulnerabilityManagedDevice collection
+func (r *AppVulnerabilityTaskManagedDevicesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AppVulnerabilityManagedDevice) error {
+	var resObj []AppVulnerabilityManagedDevice
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MobileApps returns request builder for AppVulnerabilityMobileApp collection
 func (b *AppVulnerabilityTaskRequestBuilder) MobileApps() *AppVulnerabilityTaskMobileAppsCollectionRequestBuilder {
 	bb := &AppVulnerabilityTaskMobileAppsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -319,4 +352,20 @@ func (r *AppVulnerabilityTaskMobileAppsCollectionRequest) Get(ctx context.Contex
 func (r *AppVulnerabilityTaskMobileAppsCollectionRequest) Add(ctx context.Context, reqObj *AppVulnerabilityMobileApp) (resObj *AppVulnerabilityMobileApp, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AppVulnerabilityMobileApp collection
+func (r *AppVulnerabilityTaskMobileAppsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AppVulnerabilityMobileApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AppVulnerabilityMobileApp collection
+func (r *AppVulnerabilityTaskMobileAppsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AppVulnerabilityMobileApp) error {
+	var resObj []AppVulnerabilityMobileApp
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

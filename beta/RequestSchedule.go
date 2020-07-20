@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ScheduleRequestBuilder is request builder for Schedule
 type ScheduleRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *ScheduleRequest) Update(ctx context.Context, reqObj *Schedule) error {
 // Delete performs DELETE request for Schedule
 func (r *ScheduleRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Schedule
+func (r *ScheduleRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Schedule
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Schedule
+func (r *ScheduleRequest) BatchUpdate(batch *BatchRequest, reqObj *Schedule) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Schedule
+func (r *ScheduleRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ScheduleChangeRequestObjectRequestBuilder is request builder for ScheduleChangeRequestObject
@@ -70,6 +93,26 @@ func (r *ScheduleChangeRequestObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ScheduleChangeRequestObject
+func (r *ScheduleChangeRequestObjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ScheduleChangeRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ScheduleChangeRequestObject
+func (r *ScheduleChangeRequestObjectRequest) BatchUpdate(batch *BatchRequest, reqObj *ScheduleChangeRequestObject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ScheduleChangeRequestObject
+func (r *ScheduleChangeRequestObjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type ScheduleShareRequestBuilder struct{ BaseRequestBuilder }
 
@@ -94,6 +137,11 @@ func (b *ScheduleShareRequestBuilder) Request() *ScheduleShareRequest {
 //
 func (r *ScheduleShareRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ScheduleShareRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -123,6 +171,11 @@ func (r *ScheduleChangeRequestObjectApproveRequest) Post(ctx context.Context) er
 }
 
 //
+func (r *ScheduleChangeRequestObjectApproveRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ScheduleChangeRequestObjectDeclineRequestBuilder struct{ BaseRequestBuilder }
 
 // Decline action undocumented
@@ -146,4 +199,9 @@ func (b *ScheduleChangeRequestObjectDeclineRequestBuilder) Request() *ScheduleCh
 //
 func (r *ScheduleChangeRequestObjectDeclineRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ScheduleChangeRequestObjectDeclineRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

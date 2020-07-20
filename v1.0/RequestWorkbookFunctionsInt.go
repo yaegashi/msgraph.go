@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsIntRequestBuilder struct{ BaseRequestBuilder }
@@ -32,6 +35,12 @@ func (r *WorkbookFunctionsIntRequest) Post(ctx context.Context) (resObj *Workboo
 }
 
 //
+func (r *WorkbookFunctionsIntRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsIntRateRequestBuilder struct{ BaseRequestBuilder }
 
 // IntRate action undocumented
@@ -56,4 +65,10 @@ func (b *WorkbookFunctionsIntRateRequestBuilder) Request() *WorkbookFunctionsInt
 func (r *WorkbookFunctionsIntRateRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsIntRateRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

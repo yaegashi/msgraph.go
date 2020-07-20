@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsTrimRequestBuilder struct{ BaseRequestBuilder }
@@ -32,6 +35,12 @@ func (r *WorkbookFunctionsTrimRequest) Post(ctx context.Context) (resObj *Workbo
 }
 
 //
+func (r *WorkbookFunctionsTrimRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsTrimMeanRequestBuilder struct{ BaseRequestBuilder }
 
 // TrimMean action undocumented
@@ -56,4 +65,10 @@ func (b *WorkbookFunctionsTrimMeanRequestBuilder) Request() *WorkbookFunctionsTr
 func (r *WorkbookFunctionsTrimMeanRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsTrimMeanRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

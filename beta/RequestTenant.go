@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // TenantSetupInfoRequestBuilder is request builder for TenantSetupInfo
 type TenantSetupInfoRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *TenantSetupInfoRequest) Update(ctx context.Context, reqObj *TenantSetup
 // Delete performs DELETE request for TenantSetupInfo
 func (r *TenantSetupInfoRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for TenantSetupInfo
+func (r *TenantSetupInfoRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TenantSetupInfo
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TenantSetupInfo
+func (r *TenantSetupInfoRequest) BatchUpdate(batch *BatchRequest, reqObj *TenantSetupInfo) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TenantSetupInfo
+func (r *TenantSetupInfoRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

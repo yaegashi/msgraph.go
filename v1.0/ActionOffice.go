@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *OfficeGraphInsightsSharedCollectionRequest) Add(ctx context.Context, re
 	return
 }
 
+// BatchGet adds Get operation to Batch for SharedInsight collection
+func (r *OfficeGraphInsightsSharedCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SharedInsight
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SharedInsight collection
+func (r *OfficeGraphInsightsSharedCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SharedInsight) error {
+	var resObj []SharedInsight
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Trending returns request builder for Trending collection
 func (b *OfficeGraphInsightsRequestBuilder) Trending() *OfficeGraphInsightsTrendingCollectionRequestBuilder {
 	bb := &OfficeGraphInsightsTrendingCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -215,6 +232,22 @@ func (r *OfficeGraphInsightsTrendingCollectionRequest) Add(ctx context.Context, 
 	return
 }
 
+// BatchGet adds Get operation to Batch for Trending collection
+func (r *OfficeGraphInsightsTrendingCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Trending
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Trending collection
+func (r *OfficeGraphInsightsTrendingCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Trending) error {
+	var resObj []Trending
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Used returns request builder for UsedInsight collection
 func (b *OfficeGraphInsightsRequestBuilder) Used() *OfficeGraphInsightsUsedCollectionRequestBuilder {
 	bb := &OfficeGraphInsightsUsedCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -315,4 +348,20 @@ func (r *OfficeGraphInsightsUsedCollectionRequest) Get(ctx context.Context) ([]U
 func (r *OfficeGraphInsightsUsedCollectionRequest) Add(ctx context.Context, reqObj *UsedInsight) (resObj *UsedInsight, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for UsedInsight collection
+func (r *OfficeGraphInsightsUsedCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []UsedInsight
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for UsedInsight collection
+func (r *OfficeGraphInsightsUsedCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *UsedInsight) error {
+	var resObj []UsedInsight
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

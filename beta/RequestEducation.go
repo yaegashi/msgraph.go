@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *EducationAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for EducationAssignment
+func (r *EducationAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EducationAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EducationAssignment
+func (r *EducationAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *EducationAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EducationAssignment
+func (r *EducationAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // EducationAssignmentResourceRequestBuilder is request builder for EducationAssignmentResource
 type EducationAssignmentResourceRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *EducationAssignmentResourceRequest) Update(ctx context.Context, reqObj 
 // Delete performs DELETE request for EducationAssignmentResource
 func (r *EducationAssignmentResourceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for EducationAssignmentResource
+func (r *EducationAssignmentResourceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EducationAssignmentResource
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EducationAssignmentResource
+func (r *EducationAssignmentResourceRequest) BatchUpdate(batch *BatchRequest, reqObj *EducationAssignmentResource) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EducationAssignmentResource
+func (r *EducationAssignmentResourceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // EducationCategoryRequestBuilder is request builder for EducationCategory
@@ -110,6 +151,26 @@ func (r *EducationCategoryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for EducationCategory
+func (r *EducationCategoryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EducationCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EducationCategory
+func (r *EducationCategoryRequest) BatchUpdate(batch *BatchRequest, reqObj *EducationCategory) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EducationCategory
+func (r *EducationCategoryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // EducationClassRequestBuilder is request builder for EducationClass
 type EducationClassRequestBuilder struct{ BaseRequestBuilder }
 
@@ -141,6 +202,26 @@ func (r *EducationClassRequest) Update(ctx context.Context, reqObj *EducationCla
 // Delete performs DELETE request for EducationClass
 func (r *EducationClassRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for EducationClass
+func (r *EducationClassRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EducationClass
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EducationClass
+func (r *EducationClassRequest) BatchUpdate(batch *BatchRequest, reqObj *EducationClass) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EducationClass
+func (r *EducationClassRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // EducationOutcomeRequestBuilder is request builder for EducationOutcome
@@ -176,6 +257,26 @@ func (r *EducationOutcomeRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for EducationOutcome
+func (r *EducationOutcomeRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EducationOutcome
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EducationOutcome
+func (r *EducationOutcomeRequest) BatchUpdate(batch *BatchRequest, reqObj *EducationOutcome) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EducationOutcome
+func (r *EducationOutcomeRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // EducationRootRequestBuilder is request builder for EducationRoot
 type EducationRootRequestBuilder struct{ BaseRequestBuilder }
 
@@ -207,6 +308,26 @@ func (r *EducationRootRequest) Update(ctx context.Context, reqObj *EducationRoot
 // Delete performs DELETE request for EducationRoot
 func (r *EducationRootRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for EducationRoot
+func (r *EducationRootRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EducationRoot
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EducationRoot
+func (r *EducationRootRequest) BatchUpdate(batch *BatchRequest, reqObj *EducationRoot) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EducationRoot
+func (r *EducationRootRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // EducationRubricRequestBuilder is request builder for EducationRubric
@@ -242,6 +363,26 @@ func (r *EducationRubricRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for EducationRubric
+func (r *EducationRubricRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EducationRubric
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EducationRubric
+func (r *EducationRubricRequest) BatchUpdate(batch *BatchRequest, reqObj *EducationRubric) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EducationRubric
+func (r *EducationRubricRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // EducationSchoolRequestBuilder is request builder for EducationSchool
 type EducationSchoolRequestBuilder struct{ BaseRequestBuilder }
 
@@ -273,6 +414,26 @@ func (r *EducationSchoolRequest) Update(ctx context.Context, reqObj *EducationSc
 // Delete performs DELETE request for EducationSchool
 func (r *EducationSchoolRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for EducationSchool
+func (r *EducationSchoolRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EducationSchool
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EducationSchool
+func (r *EducationSchoolRequest) BatchUpdate(batch *BatchRequest, reqObj *EducationSchool) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EducationSchool
+func (r *EducationSchoolRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // EducationSubmissionRequestBuilder is request builder for EducationSubmission
@@ -308,6 +469,26 @@ func (r *EducationSubmissionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for EducationSubmission
+func (r *EducationSubmissionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EducationSubmission
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EducationSubmission
+func (r *EducationSubmissionRequest) BatchUpdate(batch *BatchRequest, reqObj *EducationSubmission) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EducationSubmission
+func (r *EducationSubmissionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // EducationSubmissionResourceRequestBuilder is request builder for EducationSubmissionResource
 type EducationSubmissionResourceRequestBuilder struct{ BaseRequestBuilder }
 
@@ -339,6 +520,26 @@ func (r *EducationSubmissionResourceRequest) Update(ctx context.Context, reqObj 
 // Delete performs DELETE request for EducationSubmissionResource
 func (r *EducationSubmissionResourceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for EducationSubmissionResource
+func (r *EducationSubmissionResourceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EducationSubmissionResource
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EducationSubmissionResource
+func (r *EducationSubmissionResourceRequest) BatchUpdate(batch *BatchRequest, reqObj *EducationSubmissionResource) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EducationSubmissionResource
+func (r *EducationSubmissionResourceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // EducationSynchronizationErrorRequestBuilder is request builder for EducationSynchronizationError
@@ -374,6 +575,26 @@ func (r *EducationSynchronizationErrorRequest) Delete(ctx context.Context) error
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for EducationSynchronizationError
+func (r *EducationSynchronizationErrorRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EducationSynchronizationError
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EducationSynchronizationError
+func (r *EducationSynchronizationErrorRequest) BatchUpdate(batch *BatchRequest, reqObj *EducationSynchronizationError) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EducationSynchronizationError
+func (r *EducationSynchronizationErrorRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // EducationSynchronizationProfileRequestBuilder is request builder for EducationSynchronizationProfile
 type EducationSynchronizationProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -405,6 +626,26 @@ func (r *EducationSynchronizationProfileRequest) Update(ctx context.Context, req
 // Delete performs DELETE request for EducationSynchronizationProfile
 func (r *EducationSynchronizationProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for EducationSynchronizationProfile
+func (r *EducationSynchronizationProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EducationSynchronizationProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EducationSynchronizationProfile
+func (r *EducationSynchronizationProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *EducationSynchronizationProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EducationSynchronizationProfile
+func (r *EducationSynchronizationProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // EducationSynchronizationProfileStatusRequestBuilder is request builder for EducationSynchronizationProfileStatus
@@ -440,6 +681,26 @@ func (r *EducationSynchronizationProfileStatusRequest) Delete(ctx context.Contex
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for EducationSynchronizationProfileStatus
+func (r *EducationSynchronizationProfileStatusRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EducationSynchronizationProfileStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EducationSynchronizationProfileStatus
+func (r *EducationSynchronizationProfileStatusRequest) BatchUpdate(batch *BatchRequest, reqObj *EducationSynchronizationProfileStatus) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EducationSynchronizationProfileStatus
+func (r *EducationSynchronizationProfileStatusRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // EducationUserRequestBuilder is request builder for EducationUser
 type EducationUserRequestBuilder struct{ BaseRequestBuilder }
 
@@ -473,6 +734,26 @@ func (r *EducationUserRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for EducationUser
+func (r *EducationUserRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EducationUser
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EducationUser
+func (r *EducationUserRequest) BatchUpdate(batch *BatchRequest, reqObj *EducationUser) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EducationUser
+func (r *EducationUserRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type EducationAssignmentPublishRequestBuilder struct{ BaseRequestBuilder }
 
@@ -498,6 +779,12 @@ func (b *EducationAssignmentPublishRequestBuilder) Request() *EducationAssignmen
 func (r *EducationAssignmentPublishRequest) Post(ctx context.Context) (resObj *EducationAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *EducationAssignmentPublishRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *EducationAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -528,6 +815,12 @@ func (r *EducationSubmissionReturnRequest) Post(ctx context.Context) (resObj *Ed
 }
 
 //
+func (r *EducationSubmissionReturnRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *EducationSubmission
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type EducationSubmissionSubmitRequestBuilder struct{ BaseRequestBuilder }
 
 // Submit action undocumented
@@ -552,6 +845,12 @@ func (b *EducationSubmissionSubmitRequestBuilder) Request() *EducationSubmission
 func (r *EducationSubmissionSubmitRequest) Post(ctx context.Context) (resObj *EducationSubmission, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *EducationSubmissionSubmitRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *EducationSubmission
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -582,6 +881,12 @@ func (r *EducationSubmissionUnsubmitRequest) Post(ctx context.Context) (resObj *
 }
 
 //
+func (r *EducationSubmissionUnsubmitRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *EducationSubmission
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type EducationSynchronizationProfileResumeRequestBuilder struct{ BaseRequestBuilder }
 
 // Resume action undocumented
@@ -605,6 +910,11 @@ func (b *EducationSynchronizationProfileResumeRequestBuilder) Request() *Educati
 //
 func (r *EducationSynchronizationProfileResumeRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *EducationSynchronizationProfileResumeRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -634,6 +944,11 @@ func (r *EducationSynchronizationProfilePauseRequest) Post(ctx context.Context) 
 }
 
 //
+func (r *EducationSynchronizationProfilePauseRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type EducationSynchronizationProfileResetRequestBuilder struct{ BaseRequestBuilder }
 
 // Reset action undocumented
@@ -657,6 +972,11 @@ func (b *EducationSynchronizationProfileResetRequestBuilder) Request() *Educatio
 //
 func (r *EducationSynchronizationProfileResetRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *EducationSynchronizationProfileResetRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -743,4 +1063,10 @@ func (r *EducationSynchronizationProfileStartRequest) PostN(ctx context.Context,
 //
 func (r *EducationSynchronizationProfileStartRequest) Post(ctx context.Context) ([]EducationFileSynchronizationVerificationMessage, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+func (r *EducationSynchronizationProfileStartRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []EducationFileSynchronizationVerificationMessage
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

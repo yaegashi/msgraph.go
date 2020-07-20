@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -117,6 +118,22 @@ func (r *ListActivitiesCollectionRequest) Add(ctx context.Context, reqObj *ItemA
 	return
 }
 
+// BatchGet adds Get operation to Batch for ItemActivityOLD collection
+func (r *ListActivitiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ItemActivityOLD
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ItemActivityOLD collection
+func (r *ListActivitiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ItemActivityOLD) error {
+	var resObj []ItemActivityOLD
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Columns returns request builder for ColumnDefinition collection
 func (b *ListRequestBuilder) Columns() *ListColumnsCollectionRequestBuilder {
 	bb := &ListColumnsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -219,6 +236,22 @@ func (r *ListColumnsCollectionRequest) Add(ctx context.Context, reqObj *ColumnDe
 	return
 }
 
+// BatchGet adds Get operation to Batch for ColumnDefinition collection
+func (r *ListColumnsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ColumnDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ColumnDefinition collection
+func (r *ListColumnsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ColumnDefinition) error {
+	var resObj []ColumnDefinition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ContentTypes returns request builder for ContentType collection
 func (b *ListRequestBuilder) ContentTypes() *ListContentTypesCollectionRequestBuilder {
 	bb := &ListContentTypesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -319,6 +352,22 @@ func (r *ListContentTypesCollectionRequest) Get(ctx context.Context) ([]ContentT
 func (r *ListContentTypesCollectionRequest) Add(ctx context.Context, reqObj *ContentType) (resObj *ContentType, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ContentType collection
+func (r *ListContentTypesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ContentType
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ContentType collection
+func (r *ListContentTypesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ContentType) error {
+	var resObj []ContentType
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Drive is navigation property
@@ -430,6 +479,22 @@ func (r *ListItemsCollectionRequest) Add(ctx context.Context, reqObj *ListItem) 
 	return
 }
 
+// BatchGet adds Get operation to Batch for ListItem collection
+func (r *ListItemsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ListItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ListItem collection
+func (r *ListItemsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ListItem) error {
+	var resObj []ListItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Subscriptions returns request builder for Subscription collection
 func (b *ListRequestBuilder) Subscriptions() *ListSubscriptionsCollectionRequestBuilder {
 	bb := &ListSubscriptionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -532,6 +597,22 @@ func (r *ListSubscriptionsCollectionRequest) Add(ctx context.Context, reqObj *Su
 	return
 }
 
+// BatchGet adds Get operation to Batch for Subscription collection
+func (r *ListSubscriptionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Subscription
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Subscription collection
+func (r *ListSubscriptionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Subscription) error {
+	var resObj []Subscription
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Activities returns request builder for ItemActivityOLD collection
 func (b *ListItemRequestBuilder) Activities() *ListItemActivitiesCollectionRequestBuilder {
 	bb := &ListItemActivitiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -632,6 +713,22 @@ func (r *ListItemActivitiesCollectionRequest) Get(ctx context.Context) ([]ItemAc
 func (r *ListItemActivitiesCollectionRequest) Add(ctx context.Context, reqObj *ItemActivityOLD) (resObj *ItemActivityOLD, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ItemActivityOLD collection
+func (r *ListItemActivitiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ItemActivityOLD
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ItemActivityOLD collection
+func (r *ListItemActivitiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ItemActivityOLD) error {
+	var resObj []ItemActivityOLD
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Analytics is navigation property
@@ -755,6 +852,22 @@ func (r *ListItemVersionsCollectionRequest) Get(ctx context.Context) ([]ListItem
 func (r *ListItemVersionsCollectionRequest) Add(ctx context.Context, reqObj *ListItemVersion) (resObj *ListItemVersion, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ListItemVersion collection
+func (r *ListItemVersionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ListItemVersion
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ListItemVersion collection
+func (r *ListItemVersionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ListItemVersion) error {
+	var resObj []ListItemVersion
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Fields is navigation property

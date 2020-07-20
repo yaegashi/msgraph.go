@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // FinancialsRequestBuilder is request builder for Financials
 type FinancialsRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *FinancialsRequest) Update(ctx context.Context, reqObj *Financials) erro
 // Delete performs DELETE request for Financials
 func (r *FinancialsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Financials
+func (r *FinancialsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Financials
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Financials
+func (r *FinancialsRequest) BatchUpdate(batch *BatchRequest, reqObj *Financials) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Financials
+func (r *FinancialsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

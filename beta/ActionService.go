@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -141,6 +142,22 @@ func (r *ServicePrincipalAppRoleAssignedToCollectionRequest) Add(ctx context.Con
 	return
 }
 
+// BatchGet adds Get operation to Batch for AppRoleAssignment collection
+func (r *ServicePrincipalAppRoleAssignedToCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AppRoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AppRoleAssignment collection
+func (r *ServicePrincipalAppRoleAssignedToCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AppRoleAssignment) error {
+	var resObj []AppRoleAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AppRoleAssignments returns request builder for AppRoleAssignment collection
 func (b *ServicePrincipalRequestBuilder) AppRoleAssignments() *ServicePrincipalAppRoleAssignmentsCollectionRequestBuilder {
 	bb := &ServicePrincipalAppRoleAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -241,6 +258,22 @@ func (r *ServicePrincipalAppRoleAssignmentsCollectionRequest) Get(ctx context.Co
 func (r *ServicePrincipalAppRoleAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *AppRoleAssignment) (resObj *AppRoleAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AppRoleAssignment collection
+func (r *ServicePrincipalAppRoleAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AppRoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AppRoleAssignment collection
+func (r *ServicePrincipalAppRoleAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AppRoleAssignment) error {
+	var resObj []AppRoleAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // CreatedObjects returns request builder for DirectoryObject collection
@@ -345,6 +378,22 @@ func (r *ServicePrincipalCreatedObjectsCollectionRequest) Add(ctx context.Contex
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *ServicePrincipalCreatedObjectsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *ServicePrincipalCreatedObjectsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // LicenseDetails returns request builder for LicenseDetails collection
 func (b *ServicePrincipalRequestBuilder) LicenseDetails() *ServicePrincipalLicenseDetailsCollectionRequestBuilder {
 	bb := &ServicePrincipalLicenseDetailsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -445,6 +494,22 @@ func (r *ServicePrincipalLicenseDetailsCollectionRequest) Get(ctx context.Contex
 func (r *ServicePrincipalLicenseDetailsCollectionRequest) Add(ctx context.Context, reqObj *LicenseDetails) (resObj *LicenseDetails, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for LicenseDetails collection
+func (r *ServicePrincipalLicenseDetailsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []LicenseDetails
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for LicenseDetails collection
+func (r *ServicePrincipalLicenseDetailsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *LicenseDetails) error {
+	var resObj []LicenseDetails
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // MemberOf returns request builder for DirectoryObject collection
@@ -549,6 +614,22 @@ func (r *ServicePrincipalMemberOfCollectionRequest) Add(ctx context.Context, req
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *ServicePrincipalMemberOfCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *ServicePrincipalMemberOfCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Oauth2PermissionGrants returns request builder for OAuth2PermissionGrant collection
 func (b *ServicePrincipalRequestBuilder) Oauth2PermissionGrants() *ServicePrincipalOauth2PermissionGrantsCollectionRequestBuilder {
 	bb := &ServicePrincipalOauth2PermissionGrantsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -649,6 +730,22 @@ func (r *ServicePrincipalOauth2PermissionGrantsCollectionRequest) Get(ctx contex
 func (r *ServicePrincipalOauth2PermissionGrantsCollectionRequest) Add(ctx context.Context, reqObj *OAuth2PermissionGrant) (resObj *OAuth2PermissionGrant, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for OAuth2PermissionGrant collection
+func (r *ServicePrincipalOauth2PermissionGrantsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OAuth2PermissionGrant
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OAuth2PermissionGrant collection
+func (r *ServicePrincipalOauth2PermissionGrantsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OAuth2PermissionGrant) error {
+	var resObj []OAuth2PermissionGrant
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // OwnedObjects returns request builder for DirectoryObject collection
@@ -753,6 +850,22 @@ func (r *ServicePrincipalOwnedObjectsCollectionRequest) Add(ctx context.Context,
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *ServicePrincipalOwnedObjectsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *ServicePrincipalOwnedObjectsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Owners returns request builder for DirectoryObject collection
 func (b *ServicePrincipalRequestBuilder) Owners() *ServicePrincipalOwnersCollectionRequestBuilder {
 	bb := &ServicePrincipalOwnersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -855,6 +968,22 @@ func (r *ServicePrincipalOwnersCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *ServicePrincipalOwnersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *ServicePrincipalOwnersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Policies returns request builder for DirectoryObject collection
 func (b *ServicePrincipalRequestBuilder) Policies() *ServicePrincipalPoliciesCollectionRequestBuilder {
 	bb := &ServicePrincipalPoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -955,6 +1084,22 @@ func (r *ServicePrincipalPoliciesCollectionRequest) Get(ctx context.Context) ([]
 func (r *ServicePrincipalPoliciesCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *ServicePrincipalPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *ServicePrincipalPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Synchronization is navigation property
@@ -1064,4 +1209,20 @@ func (r *ServicePrincipalTransitiveMemberOfCollectionRequest) Get(ctx context.Co
 func (r *ServicePrincipalTransitiveMemberOfCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *ServicePrincipalTransitiveMemberOfCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *ServicePrincipalTransitiveMemberOfCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

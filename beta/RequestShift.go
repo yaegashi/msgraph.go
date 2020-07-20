@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ShiftRequestBuilder is request builder for Shift
 type ShiftRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *ShiftRequest) Update(ctx context.Context, reqObj *Shift) error {
 // Delete performs DELETE request for Shift
 func (r *ShiftRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Shift
+func (r *ShiftRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Shift
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Shift
+func (r *ShiftRequest) BatchUpdate(batch *BatchRequest, reqObj *Shift) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Shift
+func (r *ShiftRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

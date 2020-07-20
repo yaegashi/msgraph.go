@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -156,6 +157,22 @@ func (r *ApplicationExtensionPropertiesCollectionRequest) Add(ctx context.Contex
 	return
 }
 
+// BatchGet adds Get operation to Batch for ExtensionProperty collection
+func (r *ApplicationExtensionPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ExtensionProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ExtensionProperty collection
+func (r *ApplicationExtensionPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ExtensionProperty) error {
+	var resObj []ExtensionProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Owners returns request builder for DirectoryObject collection
 func (b *ApplicationRequestBuilder) Owners() *ApplicationOwnersCollectionRequestBuilder {
 	bb := &ApplicationOwnersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -258,6 +275,22 @@ func (r *ApplicationOwnersCollectionRequest) Add(ctx context.Context, reqObj *Di
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *ApplicationOwnersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *ApplicationOwnersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Policies returns request builder for DirectoryObject collection
 func (b *ApplicationRequestBuilder) Policies() *ApplicationPoliciesCollectionRequestBuilder {
 	bb := &ApplicationPoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -358,6 +391,22 @@ func (r *ApplicationPoliciesCollectionRequest) Get(ctx context.Context) ([]Direc
 func (r *ApplicationPoliciesCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *ApplicationPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *ApplicationPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Synchronization is navigation property

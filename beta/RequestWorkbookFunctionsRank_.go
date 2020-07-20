@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsRank_AvgRequestBuilder struct{ BaseRequestBuilder }
@@ -32,6 +35,12 @@ func (r *WorkbookFunctionsRank_AvgRequest) Post(ctx context.Context) (resObj *Wo
 }
 
 //
+func (r *WorkbookFunctionsRank_AvgRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsRank_EqRequestBuilder struct{ BaseRequestBuilder }
 
 // Rank_Eq action undocumented
@@ -56,4 +65,10 @@ func (b *WorkbookFunctionsRank_EqRequestBuilder) Request() *WorkbookFunctionsRan
 func (r *WorkbookFunctionsRank_EqRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsRank_EqRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -129,6 +130,22 @@ func (r *MobileAppAssignmentsCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// BatchGet adds Get operation to Batch for MobileAppAssignment collection
+func (r *MobileAppAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MobileAppAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MobileAppAssignment collection
+func (r *MobileAppAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MobileAppAssignment) error {
+	var resObj []MobileAppAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Categories returns request builder for MobileAppCategory collection
 func (b *MobileAppRequestBuilder) Categories() *MobileAppCategoriesCollectionRequestBuilder {
 	bb := &MobileAppCategoriesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -229,6 +246,22 @@ func (r *MobileAppCategoriesCollectionRequest) Get(ctx context.Context) ([]Mobil
 func (r *MobileAppCategoriesCollectionRequest) Add(ctx context.Context, reqObj *MobileAppCategory) (resObj *MobileAppCategory, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for MobileAppCategory collection
+func (r *MobileAppCategoriesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MobileAppCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MobileAppCategory collection
+func (r *MobileAppCategoriesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MobileAppCategory) error {
+	var resObj []MobileAppCategory
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Files returns request builder for MobileAppContentFile collection
@@ -333,6 +366,22 @@ func (r *MobileAppContentFilesCollectionRequest) Add(ctx context.Context, reqObj
 	return
 }
 
+// BatchGet adds Get operation to Batch for MobileAppContentFile collection
+func (r *MobileAppContentFilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MobileAppContentFile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MobileAppContentFile collection
+func (r *MobileAppContentFilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MobileAppContentFile) error {
+	var resObj []MobileAppContentFile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ContentVersions returns request builder for MobileAppContent collection
 func (b *MobileLobAppRequestBuilder) ContentVersions() *MobileLobAppContentVersionsCollectionRequestBuilder {
 	bb := &MobileLobAppContentVersionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -433,4 +482,20 @@ func (r *MobileLobAppContentVersionsCollectionRequest) Get(ctx context.Context) 
 func (r *MobileLobAppContentVersionsCollectionRequest) Add(ctx context.Context, reqObj *MobileAppContent) (resObj *MobileAppContent, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for MobileAppContent collection
+func (r *MobileLobAppContentVersionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MobileAppContent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MobileAppContent collection
+func (r *MobileLobAppContentVersionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MobileAppContent) error {
+	var resObj []MobileAppContent
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

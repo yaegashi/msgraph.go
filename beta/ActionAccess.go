@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -133,6 +134,22 @@ func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) Add(ctx 
 	return
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageAssignmentPolicy collection
+func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageAssignmentPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageAssignmentPolicy collection
+func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageAssignmentPolicy) error {
+	var resObj []AccessPackageAssignmentPolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AccessPackageCatalog is navigation property
 func (b *AccessPackageRequestBuilder) AccessPackageCatalog() *AccessPackageCatalogRequestBuilder {
 	bb := &AccessPackageCatalogRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -240,6 +257,22 @@ func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) Get(ctx 
 func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageResourceRoleScope) (resObj *AccessPackageResourceRoleScope, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AccessPackageResourceRoleScope collection
+func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageResourceRoleScope
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageResourceRoleScope collection
+func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageResourceRoleScope) error {
+	var resObj []AccessPackageResourceRoleScope
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // AccessPackage is navigation property
@@ -358,6 +391,22 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest
 	return
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageAssignmentRequestObject collection
+func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageAssignmentRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageAssignmentRequestObject collection
+func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageAssignmentRequestObject) error {
+	var resObj []AccessPackageAssignmentRequestObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AccessPackageAssignmentResourceRoles returns request builder for AccessPackageAssignmentResourceRole collection
 func (b *AccessPackageAssignmentRequestBuilder) AccessPackageAssignmentResourceRoles() *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequestBuilder {
 	bb := &AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -458,6 +507,22 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRe
 func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageAssignmentResourceRole) (resObj *AccessPackageAssignmentResourceRole, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AccessPackageAssignmentResourceRole collection
+func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageAssignmentResourceRole
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageAssignmentResourceRole collection
+func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageAssignmentResourceRole) error {
+	var resObj []AccessPackageAssignmentResourceRole
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Target is navigation property
@@ -604,6 +669,22 @@ func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRe
 	return
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageAssignment collection
+func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageAssignment collection
+func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageAssignment) error {
+	var resObj []AccessPackageAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AccessPackageResourceRole is navigation property
 func (b *AccessPackageAssignmentResourceRoleRequestBuilder) AccessPackageResourceRole() *AccessPackageResourceRoleRequestBuilder {
 	bb := &AccessPackageResourceRoleRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -727,6 +808,22 @@ func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) Add(ct
 	return
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageResourceRole collection
+func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageResourceRole
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageResourceRole collection
+func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageResourceRole) error {
+	var resObj []AccessPackageResourceRole
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AccessPackageResourceScopes returns request builder for AccessPackageResourceScope collection
 func (b *AccessPackageCatalogRequestBuilder) AccessPackageResourceScopes() *AccessPackageCatalogAccessPackageResourceScopesCollectionRequestBuilder {
 	bb := &AccessPackageCatalogAccessPackageResourceScopesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -827,6 +924,22 @@ func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Get(c
 func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageResourceScope) (resObj *AccessPackageResourceScope, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AccessPackageResourceScope collection
+func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageResourceScope
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageResourceScope collection
+func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageResourceScope) error {
+	var resObj []AccessPackageResourceScope
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // AccessPackageResources returns request builder for AccessPackageResource collection
@@ -931,6 +1044,22 @@ func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) Add(ctx co
 	return
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageResource collection
+func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageResource
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageResource collection
+func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageResource) error {
+	var resObj []AccessPackageResource
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AccessPackages returns request builder for AccessPackage collection
 func (b *AccessPackageCatalogRequestBuilder) AccessPackages() *AccessPackageCatalogAccessPackagesCollectionRequestBuilder {
 	bb := &AccessPackageCatalogAccessPackagesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1031,6 +1160,22 @@ func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Get(ctx context.Co
 func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Add(ctx context.Context, reqObj *AccessPackage) (resObj *AccessPackage, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AccessPackage collection
+func (r *AccessPackageCatalogAccessPackagesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackage
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackage collection
+func (r *AccessPackageCatalogAccessPackagesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackage) error {
+	var resObj []AccessPackage
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // AccessPackageResourceRoles returns request builder for AccessPackageResourceRole collection
@@ -1135,6 +1280,22 @@ func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Add(c
 	return
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageResourceRole collection
+func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageResourceRole
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageResourceRole collection
+func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageResourceRole) error {
+	var resObj []AccessPackageResourceRole
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AccessPackageResourceScopes returns request builder for AccessPackageResourceScope collection
 func (b *AccessPackageResourceRequestBuilder) AccessPackageResourceScopes() *AccessPackageResourceAccessPackageResourceScopesCollectionRequestBuilder {
 	bb := &AccessPackageResourceAccessPackageResourceScopesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1235,6 +1396,22 @@ func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Get(
 func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageResourceScope) (resObj *AccessPackageResourceScope, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AccessPackageResourceScope collection
+func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageResourceScope
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageResourceScope collection
+func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageResourceScope) error {
+	var resObj []AccessPackageResourceScope
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // AccessPackageResource is navigation property
@@ -1381,6 +1558,22 @@ func (r *AccessReviewDecisionsCollectionRequest) Add(ctx context.Context, reqObj
 	return
 }
 
+// BatchGet adds Get operation to Batch for AccessReviewDecision collection
+func (r *AccessReviewDecisionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessReviewDecision
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessReviewDecision collection
+func (r *AccessReviewDecisionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessReviewDecision) error {
+	var resObj []AccessReviewDecision
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Instances returns request builder for AccessReview collection
 func (b *AccessReviewRequestBuilder) Instances() *AccessReviewInstancesCollectionRequestBuilder {
 	bb := &AccessReviewInstancesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1481,6 +1674,22 @@ func (r *AccessReviewInstancesCollectionRequest) Get(ctx context.Context) ([]Acc
 func (r *AccessReviewInstancesCollectionRequest) Add(ctx context.Context, reqObj *AccessReview) (resObj *AccessReview, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AccessReview collection
+func (r *AccessReviewInstancesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessReview
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessReview collection
+func (r *AccessReviewInstancesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessReview) error {
+	var resObj []AccessReview
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // MyDecisions returns request builder for AccessReviewDecision collection
@@ -1585,6 +1794,22 @@ func (r *AccessReviewMyDecisionsCollectionRequest) Add(ctx context.Context, reqO
 	return
 }
 
+// BatchGet adds Get operation to Batch for AccessReviewDecision collection
+func (r *AccessReviewMyDecisionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessReviewDecision
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessReviewDecision collection
+func (r *AccessReviewMyDecisionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessReviewDecision) error {
+	var resObj []AccessReviewDecision
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Reviewers returns request builder for AccessReviewReviewer collection
 func (b *AccessReviewRequestBuilder) Reviewers() *AccessReviewReviewersCollectionRequestBuilder {
 	bb := &AccessReviewReviewersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1685,4 +1910,20 @@ func (r *AccessReviewReviewersCollectionRequest) Get(ctx context.Context) ([]Acc
 func (r *AccessReviewReviewersCollectionRequest) Add(ctx context.Context, reqObj *AccessReviewReviewer) (resObj *AccessReviewReviewer, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AccessReviewReviewer collection
+func (r *AccessReviewReviewersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessReviewReviewer
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessReviewReviewer collection
+func (r *AccessReviewReviewersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessReviewReviewer) error {
+	var resObj []AccessReviewReviewer
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

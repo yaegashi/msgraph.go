@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsLogRequestBuilder struct{ BaseRequestBuilder }
@@ -29,6 +32,12 @@ func (b *WorkbookFunctionsLogRequestBuilder) Request() *WorkbookFunctionsLogRequ
 func (r *WorkbookFunctionsLogRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsLogRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -59,6 +68,12 @@ func (r *WorkbookFunctionsLogNorm_DistRequest) Post(ctx context.Context) (resObj
 }
 
 //
+func (r *WorkbookFunctionsLogNorm_DistRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsLogNorm_InvRequestBuilder struct{ BaseRequestBuilder }
 
 // LogNorm_Inv action undocumented
@@ -83,4 +98,10 @@ func (b *WorkbookFunctionsLogNorm_InvRequestBuilder) Request() *WorkbookFunction
 func (r *WorkbookFunctionsLogNorm_InvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsLogNorm_InvRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

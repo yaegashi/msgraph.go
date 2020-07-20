@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // CertificateBasedAuthConfigurationRequestBuilder is request builder for CertificateBasedAuthConfiguration
 type CertificateBasedAuthConfigurationRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *CertificateBasedAuthConfigurationRequest) Update(ctx context.Context, r
 // Delete performs DELETE request for CertificateBasedAuthConfiguration
 func (r *CertificateBasedAuthConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for CertificateBasedAuthConfiguration
+func (r *CertificateBasedAuthConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj CertificateBasedAuthConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for CertificateBasedAuthConfiguration
+func (r *CertificateBasedAuthConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *CertificateBasedAuthConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for CertificateBasedAuthConfiguration
+func (r *CertificateBasedAuthConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

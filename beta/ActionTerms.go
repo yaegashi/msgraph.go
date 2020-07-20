@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Add(ctx context.
 	return
 }
 
+// BatchGet adds Get operation to Batch for TermsAndConditionsAcceptanceStatus collection
+func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TermsAndConditionsAcceptanceStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TermsAndConditionsAcceptanceStatus collection
+func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TermsAndConditionsAcceptanceStatus) error {
+	var resObj []TermsAndConditionsAcceptanceStatus
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Assignments returns request builder for TermsAndConditionsAssignment collection
 func (b *TermsAndConditionsRequestBuilder) Assignments() *TermsAndConditionsAssignmentsCollectionRequestBuilder {
 	bb := &TermsAndConditionsAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -215,6 +232,22 @@ func (r *TermsAndConditionsAssignmentsCollectionRequest) Add(ctx context.Context
 	return
 }
 
+// BatchGet adds Get operation to Batch for TermsAndConditionsAssignment collection
+func (r *TermsAndConditionsAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TermsAndConditionsAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TermsAndConditionsAssignment collection
+func (r *TermsAndConditionsAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TermsAndConditionsAssignment) error {
+	var resObj []TermsAndConditionsAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // GroupAssignments returns request builder for TermsAndConditionsGroupAssignment collection
 func (b *TermsAndConditionsRequestBuilder) GroupAssignments() *TermsAndConditionsGroupAssignmentsCollectionRequestBuilder {
 	bb := &TermsAndConditionsGroupAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -315,6 +348,22 @@ func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Get(ctx context.Co
 func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *TermsAndConditionsGroupAssignment) (resObj *TermsAndConditionsGroupAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for TermsAndConditionsGroupAssignment collection
+func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TermsAndConditionsGroupAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TermsAndConditionsGroupAssignment collection
+func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TermsAndConditionsGroupAssignment) error {
+	var resObj []TermsAndConditionsGroupAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // TermsAndConditions is navigation property

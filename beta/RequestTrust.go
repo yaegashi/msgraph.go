@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // TrustFrameworkRequestBuilder is request builder for TrustFramework
 type TrustFrameworkRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *TrustFrameworkRequest) Update(ctx context.Context, reqObj *TrustFramewo
 // Delete performs DELETE request for TrustFramework
 func (r *TrustFrameworkRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for TrustFramework
+func (r *TrustFrameworkRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TrustFramework
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TrustFramework
+func (r *TrustFrameworkRequest) BatchUpdate(batch *BatchRequest, reqObj *TrustFramework) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TrustFramework
+func (r *TrustFrameworkRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // TrustFrameworkKeySetRequestBuilder is request builder for TrustFrameworkKeySet
@@ -70,6 +93,26 @@ func (r *TrustFrameworkKeySetRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for TrustFrameworkKeySet
+func (r *TrustFrameworkKeySetRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TrustFrameworkKeySet
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TrustFrameworkKeySet
+func (r *TrustFrameworkKeySetRequest) BatchUpdate(batch *BatchRequest, reqObj *TrustFrameworkKeySet) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TrustFrameworkKeySet
+func (r *TrustFrameworkKeySetRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // TrustFrameworkPolicyRequestBuilder is request builder for TrustFrameworkPolicy
 type TrustFrameworkPolicyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -103,6 +146,26 @@ func (r *TrustFrameworkPolicyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for TrustFrameworkPolicy
+func (r *TrustFrameworkPolicyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TrustFrameworkPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TrustFrameworkPolicy
+func (r *TrustFrameworkPolicyRequest) BatchUpdate(batch *BatchRequest, reqObj *TrustFrameworkPolicy) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TrustFrameworkPolicy
+func (r *TrustFrameworkPolicyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type TrustFrameworkKeySetGenerateKeyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -128,6 +191,12 @@ func (b *TrustFrameworkKeySetGenerateKeyRequestBuilder) Request() *TrustFramewor
 func (r *TrustFrameworkKeySetGenerateKeyRequest) Post(ctx context.Context) (resObj *TrustFrameworkKey, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *TrustFrameworkKeySetGenerateKeyRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *TrustFrameworkKey
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -158,6 +227,12 @@ func (r *TrustFrameworkKeySetUploadSecretRequest) Post(ctx context.Context) (res
 }
 
 //
+func (r *TrustFrameworkKeySetUploadSecretRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *TrustFrameworkKey
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type TrustFrameworkKeySetUploadCertificateRequestBuilder struct{ BaseRequestBuilder }
 
 // UploadCertificate action undocumented
@@ -185,6 +260,12 @@ func (r *TrustFrameworkKeySetUploadCertificateRequest) Post(ctx context.Context)
 }
 
 //
+func (r *TrustFrameworkKeySetUploadCertificateRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *TrustFrameworkKey
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type TrustFrameworkKeySetUploadPkcs12RequestBuilder struct{ BaseRequestBuilder }
 
 // UploadPkcs12 action undocumented
@@ -209,4 +290,10 @@ func (b *TrustFrameworkKeySetUploadPkcs12RequestBuilder) Request() *TrustFramewo
 func (r *TrustFrameworkKeySetUploadPkcs12Request) Post(ctx context.Context) (resObj *TrustFrameworkKey, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *TrustFrameworkKeySetUploadPkcs12Request) BatchPost(batch *BatchRequest) error {
+	var resObj *TrustFrameworkKey
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

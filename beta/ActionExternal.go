@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *ExternalConnectionsCollectionRequest) Add(ctx context.Context, reqObj *
 	return
 }
 
+// BatchGet adds Get operation to Batch for ExternalConnection collection
+func (r *ExternalConnectionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ExternalConnection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ExternalConnection collection
+func (r *ExternalConnectionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ExternalConnection) error {
+	var resObj []ExternalConnection
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Items returns request builder for ExternalItem collection
 func (b *ExternalConnectionRequestBuilder) Items() *ExternalConnectionItemsCollectionRequestBuilder {
 	bb := &ExternalConnectionItemsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -215,6 +232,22 @@ func (r *ExternalConnectionItemsCollectionRequest) Add(ctx context.Context, reqO
 	return
 }
 
+// BatchGet adds Get operation to Batch for ExternalItem collection
+func (r *ExternalConnectionItemsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ExternalItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ExternalItem collection
+func (r *ExternalConnectionItemsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ExternalItem) error {
+	var resObj []ExternalItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Operations returns request builder for ConnectionOperation collection
 func (b *ExternalConnectionRequestBuilder) Operations() *ExternalConnectionOperationsCollectionRequestBuilder {
 	bb := &ExternalConnectionOperationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -315,6 +348,22 @@ func (r *ExternalConnectionOperationsCollectionRequest) Get(ctx context.Context)
 func (r *ExternalConnectionOperationsCollectionRequest) Add(ctx context.Context, reqObj *ConnectionOperation) (resObj *ConnectionOperation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ConnectionOperation collection
+func (r *ExternalConnectionOperationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ConnectionOperation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ConnectionOperation collection
+func (r *ExternalConnectionOperationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ConnectionOperation) error {
+	var resObj []ConnectionOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Schema is navigation property

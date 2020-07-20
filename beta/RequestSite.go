@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *SiteRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Site
+func (r *SiteRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Site
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Site
+func (r *SiteRequest) BatchUpdate(batch *BatchRequest, reqObj *Site) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Site
+func (r *SiteRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // SitePageRequestBuilder is request builder for SitePage
 type SitePageRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *SitePageRequest) Update(ctx context.Context, reqObj *SitePage) error {
 // Delete performs DELETE request for SitePage
 func (r *SitePageRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SitePage
+func (r *SitePageRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SitePage
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SitePage
+func (r *SitePageRequest) BatchUpdate(batch *BatchRequest, reqObj *SitePage) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SitePage
+func (r *SitePageRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -180,6 +221,12 @@ func (r *SiteCollectionAddRequest) Post(ctx context.Context) ([]Site, error) {
 }
 
 //
+func (r *SiteCollectionAddRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []Site
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type SiteCollectionRemoveRequestBuilder struct{ BaseRequestBuilder }
 
 // Remove action undocumented
@@ -282,6 +329,12 @@ func (r *SiteCollectionRemoveRequest) Post(ctx context.Context) ([]Site, error) 
 }
 
 //
+func (r *SiteCollectionRemoveRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []Site
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type SitePagePublishRequestBuilder struct{ BaseRequestBuilder }
 
 // Publish action undocumented
@@ -305,4 +358,9 @@ func (b *SitePagePublishRequestBuilder) Request() *SitePagePublishRequest {
 //
 func (r *SitePagePublishRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *SitePagePublishRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

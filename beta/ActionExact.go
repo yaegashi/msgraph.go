@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -135,6 +136,22 @@ func (r *ExactMatchDataStoreSessionsCollectionRequest) Add(ctx context.Context, 
 	return
 }
 
+// BatchGet adds Get operation to Batch for ExactMatchSession collection
+func (r *ExactMatchDataStoreSessionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ExactMatchSession
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ExactMatchSession collection
+func (r *ExactMatchDataStoreSessionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ExactMatchSession) error {
+	var resObj []ExactMatchSession
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MatchingRows returns request builder for LookupResultRow collection
 func (b *ExactMatchLookupJobRequestBuilder) MatchingRows() *ExactMatchLookupJobMatchingRowsCollectionRequestBuilder {
 	bb := &ExactMatchLookupJobMatchingRowsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -235,6 +252,22 @@ func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Get(ctx context.Conte
 func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Add(ctx context.Context, reqObj *LookupResultRow) (resObj *LookupResultRow, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for LookupResultRow collection
+func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []LookupResultRow
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for LookupResultRow collection
+func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *LookupResultRow) error {
+	var resObj []LookupResultRow
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // UploadAgent is navigation property

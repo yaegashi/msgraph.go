@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsAmorDegrcRequestBuilder struct{ BaseRequestBuilder }
@@ -32,6 +35,12 @@ func (r *WorkbookFunctionsAmorDegrcRequest) Post(ctx context.Context) (resObj *W
 }
 
 //
+func (r *WorkbookFunctionsAmorDegrcRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsAmorLincRequestBuilder struct{ BaseRequestBuilder }
 
 // AmorLinc action undocumented
@@ -56,4 +65,10 @@ func (b *WorkbookFunctionsAmorLincRequestBuilder) Request() *WorkbookFunctionsAm
 func (r *WorkbookFunctionsAmorLincRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsAmorLincRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

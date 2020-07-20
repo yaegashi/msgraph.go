@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *CalendarRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Calendar
+func (r *CalendarRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Calendar
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Calendar
+func (r *CalendarRequest) BatchUpdate(batch *BatchRequest, reqObj *Calendar) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Calendar
+func (r *CalendarRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // CalendarGroupRequestBuilder is request builder for CalendarGroup
 type CalendarGroupRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *CalendarGroupRequest) Update(ctx context.Context, reqObj *CalendarGroup
 // Delete performs DELETE request for CalendarGroup
 func (r *CalendarGroupRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for CalendarGroup
+func (r *CalendarGroupRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj CalendarGroup
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for CalendarGroup
+func (r *CalendarGroupRequest) BatchUpdate(batch *BatchRequest, reqObj *CalendarGroup) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for CalendarGroup
+func (r *CalendarGroupRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // CalendarPermissionRequestBuilder is request builder for CalendarPermission
@@ -110,6 +151,26 @@ func (r *CalendarPermissionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for CalendarPermission
+func (r *CalendarPermissionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj CalendarPermission
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for CalendarPermission
+func (r *CalendarPermissionRequest) BatchUpdate(batch *BatchRequest, reqObj *CalendarPermission) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for CalendarPermission
+func (r *CalendarPermissionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // CalendarSharingMessageRequestBuilder is request builder for CalendarSharingMessage
 type CalendarSharingMessageRequestBuilder struct{ BaseRequestBuilder }
 
@@ -141,6 +202,26 @@ func (r *CalendarSharingMessageRequest) Update(ctx context.Context, reqObj *Cale
 // Delete performs DELETE request for CalendarSharingMessage
 func (r *CalendarSharingMessageRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for CalendarSharingMessage
+func (r *CalendarSharingMessageRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj CalendarSharingMessage
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for CalendarSharingMessage
+func (r *CalendarSharingMessageRequest) BatchUpdate(batch *BatchRequest, reqObj *CalendarSharingMessage) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for CalendarSharingMessage
+func (r *CalendarSharingMessageRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -230,6 +311,12 @@ func (r *CalendarGetScheduleRequest) Post(ctx context.Context) ([]ScheduleInform
 }
 
 //
+func (r *CalendarGetScheduleRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []ScheduleInformation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type CalendarSharingMessageAcceptRequestBuilder struct{ BaseRequestBuilder }
 
 // Accept action undocumented
@@ -254,4 +341,10 @@ func (b *CalendarSharingMessageAcceptRequestBuilder) Request() *CalendarSharingM
 func (r *CalendarSharingMessageAcceptRequest) Post(ctx context.Context) (resObj *Calendar, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *CalendarSharingMessageAcceptRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *Calendar
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

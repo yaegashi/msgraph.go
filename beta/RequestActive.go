@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ActiveDirectoryWindowsAutopilotDeploymentProfileRequestBuilder is request builder for ActiveDirectoryWindowsAutopilotDeploymentProfile
 type ActiveDirectoryWindowsAutopilotDeploymentProfileRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *ActiveDirectoryWindowsAutopilotDeploymentProfileRequest) Update(ctx con
 // Delete performs DELETE request for ActiveDirectoryWindowsAutopilotDeploymentProfile
 func (r *ActiveDirectoryWindowsAutopilotDeploymentProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ActiveDirectoryWindowsAutopilotDeploymentProfile
+func (r *ActiveDirectoryWindowsAutopilotDeploymentProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ActiveDirectoryWindowsAutopilotDeploymentProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ActiveDirectoryWindowsAutopilotDeploymentProfile
+func (r *ActiveDirectoryWindowsAutopilotDeploymentProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *ActiveDirectoryWindowsAutopilotDeploymentProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ActiveDirectoryWindowsAutopilotDeploymentProfile
+func (r *ActiveDirectoryWindowsAutopilotDeploymentProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

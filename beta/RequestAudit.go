@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // AuditEventRequestBuilder is request builder for AuditEvent
 type AuditEventRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *AuditEventRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AuditEvent
+func (r *AuditEventRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AuditEvent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AuditEvent
+func (r *AuditEventRequest) BatchUpdate(batch *BatchRequest, reqObj *AuditEvent) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AuditEvent
+func (r *AuditEventRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AuditLogRootRequestBuilder is request builder for AuditLogRoot
 type AuditLogRootRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *AuditLogRootRequest) Update(ctx context.Context, reqObj *AuditLogRoot) 
 // Delete performs DELETE request for AuditLogRoot
 func (r *AuditLogRootRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AuditLogRoot
+func (r *AuditLogRootRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AuditLogRoot
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AuditLogRoot
+func (r *AuditLogRootRequest) BatchUpdate(batch *BatchRequest, reqObj *AuditLogRoot) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AuditLogRoot
+func (r *AuditLogRootRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // OutlookCategoryRequestBuilder is request builder for OutlookCategory
 type OutlookCategoryRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *OutlookCategoryRequest) Update(ctx context.Context, reqObj *OutlookCate
 // Delete performs DELETE request for OutlookCategory
 func (r *OutlookCategoryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for OutlookCategory
+func (r *OutlookCategoryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OutlookCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OutlookCategory
+func (r *OutlookCategoryRequest) BatchUpdate(batch *BatchRequest, reqObj *OutlookCategory) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OutlookCategory
+func (r *OutlookCategoryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // OutlookItemRequestBuilder is request builder for OutlookItem
@@ -70,6 +93,26 @@ func (r *OutlookItemRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for OutlookItem
+func (r *OutlookItemRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OutlookItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OutlookItem
+func (r *OutlookItemRequest) BatchUpdate(batch *BatchRequest, reqObj *OutlookItem) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OutlookItem
+func (r *OutlookItemRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // OutlookUserRequestBuilder is request builder for OutlookUser
 type OutlookUserRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,4 +144,24 @@ func (r *OutlookUserRequest) Update(ctx context.Context, reqObj *OutlookUser) er
 // Delete performs DELETE request for OutlookUser
 func (r *OutlookUserRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for OutlookUser
+func (r *OutlookUserRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OutlookUser
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OutlookUser
+func (r *OutlookUserRequest) BatchUpdate(batch *BatchRequest, reqObj *OutlookUser) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OutlookUser
+func (r *OutlookUserRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

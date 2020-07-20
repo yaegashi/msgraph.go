@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsTbillEqRequestBuilder struct{ BaseRequestBuilder }
@@ -29,6 +32,12 @@ func (b *WorkbookFunctionsTbillEqRequestBuilder) Request() *WorkbookFunctionsTbi
 func (r *WorkbookFunctionsTbillEqRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsTbillEqRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -59,6 +68,12 @@ func (r *WorkbookFunctionsTbillPriceRequest) Post(ctx context.Context) (resObj *
 }
 
 //
+func (r *WorkbookFunctionsTbillPriceRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsTbillYieldRequestBuilder struct{ BaseRequestBuilder }
 
 // TbillYield action undocumented
@@ -83,4 +98,10 @@ func (b *WorkbookFunctionsTbillYieldRequestBuilder) Request() *WorkbookFunctions
 func (r *WorkbookFunctionsTbillYieldRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsTbillYieldRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

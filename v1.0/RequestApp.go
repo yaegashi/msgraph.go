@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // AppCatalogsRequestBuilder is request builder for AppCatalogs
 type AppCatalogsRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *AppCatalogsRequest) Update(ctx context.Context, reqObj *AppCatalogs) er
 // Delete performs DELETE request for AppCatalogs
 func (r *AppCatalogsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AppCatalogs
+func (r *AppCatalogsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AppCatalogs
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AppCatalogs
+func (r *AppCatalogsRequest) BatchUpdate(batch *BatchRequest, reqObj *AppCatalogs) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AppCatalogs
+func (r *AppCatalogsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

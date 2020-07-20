@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -134,6 +135,22 @@ func (r *CustomerPictureCollectionRequest) Add(ctx context.Context, reqObj *Pict
 	return
 }
 
+// BatchGet adds Get operation to Batch for Picture collection
+func (r *CustomerPictureCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Picture
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Picture collection
+func (r *CustomerPictureCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Picture) error {
+	var resObj []Picture
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ShipmentMethod is navigation property
 func (b *CustomerRequestBuilder) ShipmentMethod() *ShipmentMethodRequestBuilder {
 	bb := &ShipmentMethodRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -255,4 +272,20 @@ func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Get(ctx contex
 func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Add(ctx context.Context, reqObj *CustomerPayment) (resObj *CustomerPayment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for CustomerPayment collection
+func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []CustomerPayment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for CustomerPayment collection
+func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *CustomerPayment) error {
+	var resObj []CustomerPayment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

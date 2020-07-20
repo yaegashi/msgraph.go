@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // SensitivityLabelRequestBuilder is request builder for SensitivityLabel
 type SensitivityLabelRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *SensitivityLabelRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for SensitivityLabel
+func (r *SensitivityLabelRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SensitivityLabel
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SensitivityLabel
+func (r *SensitivityLabelRequest) BatchUpdate(batch *BatchRequest, reqObj *SensitivityLabel) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SensitivityLabel
+func (r *SensitivityLabelRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // SensitivityPolicySettingsRequestBuilder is request builder for SensitivityPolicySettings
 type SensitivityPolicySettingsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,6 +91,26 @@ func (r *SensitivityPolicySettingsRequest) Update(ctx context.Context, reqObj *S
 // Delete performs DELETE request for SensitivityPolicySettings
 func (r *SensitivityPolicySettingsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SensitivityPolicySettings
+func (r *SensitivityPolicySettingsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SensitivityPolicySettings
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SensitivityPolicySettings
+func (r *SensitivityPolicySettingsRequest) BatchUpdate(batch *BatchRequest, reqObj *SensitivityPolicySettings) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SensitivityPolicySettings
+func (r *SensitivityPolicySettingsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -111,4 +154,10 @@ func (b *SensitivityLabelCollectionEvaluateRequestBuilder) Request() *Sensitivit
 func (r *SensitivityLabelCollectionEvaluateRequest) Post(ctx context.Context) (resObj *EvaluateLabelJobResponse, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *SensitivityLabelCollectionEvaluateRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *EvaluateLabelJobResponse
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // NDESConnectorRequestBuilder is request builder for NDESConnector
 type NDESConnectorRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *NDESConnectorRequest) Update(ctx context.Context, reqObj *NDESConnector
 // Delete performs DELETE request for NDESConnector
 func (r *NDESConnectorRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for NDESConnector
+func (r *NDESConnectorRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj NDESConnector
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for NDESConnector
+func (r *NDESConnectorRequest) BatchUpdate(batch *BatchRequest, reqObj *NDESConnector) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for NDESConnector
+func (r *NDESConnectorRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

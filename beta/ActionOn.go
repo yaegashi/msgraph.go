@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *OnPremisesAgentAgentGroupsCollectionRequest) Add(ctx context.Context, r
 	return
 }
 
+// BatchGet adds Get operation to Batch for OnPremisesAgentGroup collection
+func (r *OnPremisesAgentAgentGroupsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OnPremisesAgentGroup
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OnPremisesAgentGroup collection
+func (r *OnPremisesAgentAgentGroupsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OnPremisesAgentGroup) error {
+	var resObj []OnPremisesAgentGroup
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Agents returns request builder for OnPremisesAgent collection
 func (b *OnPremisesAgentGroupRequestBuilder) Agents() *OnPremisesAgentGroupAgentsCollectionRequestBuilder {
 	bb := &OnPremisesAgentGroupAgentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,6 +230,22 @@ func (r *OnPremisesAgentGroupAgentsCollectionRequest) Get(ctx context.Context) (
 func (r *OnPremisesAgentGroupAgentsCollectionRequest) Add(ctx context.Context, reqObj *OnPremisesAgent) (resObj *OnPremisesAgent, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for OnPremisesAgent collection
+func (r *OnPremisesAgentGroupAgentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OnPremisesAgent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OnPremisesAgent collection
+func (r *OnPremisesAgentGroupAgentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OnPremisesAgent) error {
+	var resObj []OnPremisesAgent
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // PublishedResources returns request builder for PublishedResource collection
@@ -317,6 +350,22 @@ func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) Add(ctx contex
 	return
 }
 
+// BatchGet adds Get operation to Batch for PublishedResource collection
+func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PublishedResource
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PublishedResource collection
+func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PublishedResource) error {
+	var resObj []PublishedResource
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AgentGroups returns request builder for OnPremisesAgentGroup collection
 func (b *OnPremisesPublishingProfileRequestBuilder) AgentGroups() *OnPremisesPublishingProfileAgentGroupsCollectionRequestBuilder {
 	bb := &OnPremisesPublishingProfileAgentGroupsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -417,6 +466,22 @@ func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Get(ctx contex
 func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Add(ctx context.Context, reqObj *OnPremisesAgentGroup) (resObj *OnPremisesAgentGroup, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for OnPremisesAgentGroup collection
+func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OnPremisesAgentGroup
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OnPremisesAgentGroup collection
+func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OnPremisesAgentGroup) error {
+	var resObj []OnPremisesAgentGroup
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Agents returns request builder for OnPremisesAgent collection
@@ -521,6 +586,22 @@ func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Add(ctx context.Con
 	return
 }
 
+// BatchGet adds Get operation to Batch for OnPremisesAgent collection
+func (r *OnPremisesPublishingProfileAgentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OnPremisesAgent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OnPremisesAgent collection
+func (r *OnPremisesPublishingProfileAgentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OnPremisesAgent) error {
+	var resObj []OnPremisesAgent
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // PublishedResources returns request builder for PublishedResource collection
 func (b *OnPremisesPublishingProfileRequestBuilder) PublishedResources() *OnPremisesPublishingProfilePublishedResourcesCollectionRequestBuilder {
 	bb := &OnPremisesPublishingProfilePublishedResourcesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -621,4 +702,20 @@ func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Get(ctx
 func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Add(ctx context.Context, reqObj *PublishedResource) (resObj *PublishedResource, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for PublishedResource collection
+func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PublishedResource
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PublishedResource collection
+func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PublishedResource) error {
+	var resObj []PublishedResource
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -119,4 +120,20 @@ func (r *SensitivityLabelSublabelsCollectionRequest) Get(ctx context.Context) ([
 func (r *SensitivityLabelSublabelsCollectionRequest) Add(ctx context.Context, reqObj *SensitivityLabel) (resObj *SensitivityLabel, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SensitivityLabel collection
+func (r *SensitivityLabelSublabelsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SensitivityLabel
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SensitivityLabel collection
+func (r *SensitivityLabelSublabelsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SensitivityLabel) error {
+	var resObj []SensitivityLabel
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

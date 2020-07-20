@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *AdministrativeUnitExtensionsCollectionRequest) Add(ctx context.Context,
 	return
 }
 
+// BatchGet adds Get operation to Batch for Extension collection
+func (r *AdministrativeUnitExtensionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Extension
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Extension collection
+func (r *AdministrativeUnitExtensionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Extension) error {
+	var resObj []Extension
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Members returns request builder for DirectoryObject collection
 func (b *AdministrativeUnitRequestBuilder) Members() *AdministrativeUnitMembersCollectionRequestBuilder {
 	bb := &AdministrativeUnitMembersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -215,6 +232,22 @@ func (r *AdministrativeUnitMembersCollectionRequest) Add(ctx context.Context, re
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *AdministrativeUnitMembersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *AdministrativeUnitMembersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ScopedRoleMembers returns request builder for ScopedRoleMembership collection
 func (b *AdministrativeUnitRequestBuilder) ScopedRoleMembers() *AdministrativeUnitScopedRoleMembersCollectionRequestBuilder {
 	bb := &AdministrativeUnitScopedRoleMembersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -315,4 +348,20 @@ func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Get(ctx context.C
 func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Add(ctx context.Context, reqObj *ScopedRoleMembership) (resObj *ScopedRoleMembership, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ScopedRoleMembership collection
+func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ScopedRoleMembership
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ScopedRoleMembership collection
+func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ScopedRoleMembership) error {
+	var resObj []ScopedRoleMembership
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

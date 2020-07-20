@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -377,6 +378,22 @@ func (r *DeviceCommandsCollectionRequest) Add(ctx context.Context, reqObj *Comma
 	return
 }
 
+// BatchGet adds Get operation to Batch for Command collection
+func (r *DeviceCommandsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Command
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Command collection
+func (r *DeviceCommandsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Command) error {
+	var resObj []Command
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Extensions returns request builder for Extension collection
 func (b *DeviceRequestBuilder) Extensions() *DeviceExtensionsCollectionRequestBuilder {
 	bb := &DeviceExtensionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -477,6 +494,22 @@ func (r *DeviceExtensionsCollectionRequest) Get(ctx context.Context) ([]Extensio
 func (r *DeviceExtensionsCollectionRequest) Add(ctx context.Context, reqObj *Extension) (resObj *Extension, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Extension collection
+func (r *DeviceExtensionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Extension
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Extension collection
+func (r *DeviceExtensionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Extension) error {
+	var resObj []Extension
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // MemberOf returns request builder for DirectoryObject collection
@@ -581,6 +614,22 @@ func (r *DeviceMemberOfCollectionRequest) Add(ctx context.Context, reqObj *Direc
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *DeviceMemberOfCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *DeviceMemberOfCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // RegisteredOwners returns request builder for DirectoryObject collection
 func (b *DeviceRequestBuilder) RegisteredOwners() *DeviceRegisteredOwnersCollectionRequestBuilder {
 	bb := &DeviceRegisteredOwnersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -681,6 +730,22 @@ func (r *DeviceRegisteredOwnersCollectionRequest) Get(ctx context.Context) ([]Di
 func (r *DeviceRegisteredOwnersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *DeviceRegisteredOwnersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *DeviceRegisteredOwnersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // RegisteredUsers returns request builder for DirectoryObject collection
@@ -785,6 +850,22 @@ func (r *DeviceRegisteredUsersCollectionRequest) Add(ctx context.Context, reqObj
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *DeviceRegisteredUsersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *DeviceRegisteredUsersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // TransitiveMemberOf returns request builder for DirectoryObject collection
 func (b *DeviceRequestBuilder) TransitiveMemberOf() *DeviceTransitiveMemberOfCollectionRequestBuilder {
 	bb := &DeviceTransitiveMemberOfCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -885,6 +966,22 @@ func (r *DeviceTransitiveMemberOfCollectionRequest) Get(ctx context.Context) ([]
 func (r *DeviceTransitiveMemberOfCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *DeviceTransitiveMemberOfCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *DeviceTransitiveMemberOfCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // RoleScopeTags returns request builder for RoleScopeTag collection
@@ -989,6 +1086,22 @@ func (r *DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest) Add
 	return
 }
 
+// BatchGet adds Get operation to Batch for RoleScopeTag collection
+func (r *DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []RoleScopeTag
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for RoleScopeTag collection
+func (r *DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *RoleScopeTag) error {
+	var resObj []RoleScopeTag
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AndroidManagedAppProtections returns request builder for AndroidManagedAppProtection collection
 func (b *DeviceAppManagementRequestBuilder) AndroidManagedAppProtections() *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequestBuilder {
 	bb := &DeviceAppManagementAndroidManagedAppProtectionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1089,6 +1202,22 @@ func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) Get(c
 func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) Add(ctx context.Context, reqObj *AndroidManagedAppProtection) (resObj *AndroidManagedAppProtection, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AndroidManagedAppProtection collection
+func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AndroidManagedAppProtection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AndroidManagedAppProtection collection
+func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AndroidManagedAppProtection) error {
+	var resObj []AndroidManagedAppProtection
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DefaultManagedAppProtections returns request builder for DefaultManagedAppProtection collection
@@ -1193,6 +1322,22 @@ func (r *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest) Add(c
 	return
 }
 
+// BatchGet adds Get operation to Batch for DefaultManagedAppProtection collection
+func (r *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DefaultManagedAppProtection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DefaultManagedAppProtection collection
+func (r *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DefaultManagedAppProtection) error {
+	var resObj []DefaultManagedAppProtection
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceAppManagementTasks returns request builder for DeviceAppManagementTask collection
 func (b *DeviceAppManagementRequestBuilder) DeviceAppManagementTasks() *DeviceAppManagementDeviceAppManagementTasksCollectionRequestBuilder {
 	bb := &DeviceAppManagementDeviceAppManagementTasksCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1293,6 +1438,22 @@ func (r *DeviceAppManagementDeviceAppManagementTasksCollectionRequest) Get(ctx c
 func (r *DeviceAppManagementDeviceAppManagementTasksCollectionRequest) Add(ctx context.Context, reqObj *DeviceAppManagementTask) (resObj *DeviceAppManagementTask, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceAppManagementTask collection
+func (r *DeviceAppManagementDeviceAppManagementTasksCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceAppManagementTask
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceAppManagementTask collection
+func (r *DeviceAppManagementDeviceAppManagementTasksCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceAppManagementTask) error {
+	var resObj []DeviceAppManagementTask
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // EnterpriseCodeSigningCertificates returns request builder for EnterpriseCodeSigningCertificate collection
@@ -1397,6 +1558,22 @@ func (r *DeviceAppManagementEnterpriseCodeSigningCertificatesCollectionRequest) 
 	return
 }
 
+// BatchGet adds Get operation to Batch for EnterpriseCodeSigningCertificate collection
+func (r *DeviceAppManagementEnterpriseCodeSigningCertificatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EnterpriseCodeSigningCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EnterpriseCodeSigningCertificate collection
+func (r *DeviceAppManagementEnterpriseCodeSigningCertificatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EnterpriseCodeSigningCertificate) error {
+	var resObj []EnterpriseCodeSigningCertificate
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // IOSLobAppProvisioningConfigurations returns request builder for IOSLobAppProvisioningConfiguration collection
 func (b *DeviceAppManagementRequestBuilder) IOSLobAppProvisioningConfigurations() *DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequestBuilder {
 	bb := &DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1497,6 +1674,22 @@ func (r *DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequest
 func (r *DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequest) Add(ctx context.Context, reqObj *IOSLobAppProvisioningConfiguration) (resObj *IOSLobAppProvisioningConfiguration, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for IOSLobAppProvisioningConfiguration collection
+func (r *DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []IOSLobAppProvisioningConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for IOSLobAppProvisioningConfiguration collection
+func (r *DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *IOSLobAppProvisioningConfiguration) error {
+	var resObj []IOSLobAppProvisioningConfiguration
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // IOSManagedAppProtections returns request builder for IOSManagedAppProtection collection
@@ -1601,6 +1794,22 @@ func (r *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest) Add(ctx c
 	return
 }
 
+// BatchGet adds Get operation to Batch for IOSManagedAppProtection collection
+func (r *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []IOSManagedAppProtection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for IOSManagedAppProtection collection
+func (r *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *IOSManagedAppProtection) error {
+	var resObj []IOSManagedAppProtection
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedAppPolicies returns request builder for ManagedAppPolicy collection
 func (b *DeviceAppManagementRequestBuilder) ManagedAppPolicies() *DeviceAppManagementManagedAppPoliciesCollectionRequestBuilder {
 	bb := &DeviceAppManagementManagedAppPoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1701,6 +1910,22 @@ func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) Get(ctx context
 func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) Add(ctx context.Context, reqObj *ManagedAppPolicy) (resObj *ManagedAppPolicy, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedAppPolicy collection
+func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedAppPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedAppPolicy collection
+func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedAppPolicy) error {
+	var resObj []ManagedAppPolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ManagedAppRegistrations returns request builder for ManagedAppRegistration collection
@@ -1805,6 +2030,22 @@ func (r *DeviceAppManagementManagedAppRegistrationsCollectionRequest) Add(ctx co
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedAppRegistration collection
+func (r *DeviceAppManagementManagedAppRegistrationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedAppRegistration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedAppRegistration collection
+func (r *DeviceAppManagementManagedAppRegistrationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedAppRegistration) error {
+	var resObj []ManagedAppRegistration
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedAppStatuses returns request builder for ManagedAppStatus collection
 func (b *DeviceAppManagementRequestBuilder) ManagedAppStatuses() *DeviceAppManagementManagedAppStatusesCollectionRequestBuilder {
 	bb := &DeviceAppManagementManagedAppStatusesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1905,6 +2146,22 @@ func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) Get(ctx context
 func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) Add(ctx context.Context, reqObj *ManagedAppStatus) (resObj *ManagedAppStatus, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedAppStatus collection
+func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedAppStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedAppStatus collection
+func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedAppStatus) error {
+	var resObj []ManagedAppStatus
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ManagedEBookCategories returns request builder for ManagedEBookCategory collection
@@ -2009,6 +2266,22 @@ func (r *DeviceAppManagementManagedEBookCategoriesCollectionRequest) Add(ctx con
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedEBookCategory collection
+func (r *DeviceAppManagementManagedEBookCategoriesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedEBookCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedEBookCategory collection
+func (r *DeviceAppManagementManagedEBookCategoriesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedEBookCategory) error {
+	var resObj []ManagedEBookCategory
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedEBooks returns request builder for ManagedEBook collection
 func (b *DeviceAppManagementRequestBuilder) ManagedEBooks() *DeviceAppManagementManagedEBooksCollectionRequestBuilder {
 	bb := &DeviceAppManagementManagedEBooksCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2109,6 +2382,22 @@ func (r *DeviceAppManagementManagedEBooksCollectionRequest) Get(ctx context.Cont
 func (r *DeviceAppManagementManagedEBooksCollectionRequest) Add(ctx context.Context, reqObj *ManagedEBook) (resObj *ManagedEBook, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedEBook collection
+func (r *DeviceAppManagementManagedEBooksCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedEBook
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedEBook collection
+func (r *DeviceAppManagementManagedEBooksCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedEBook) error {
+	var resObj []ManagedEBook
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // MDMWindowsInformationProtectionPolicies returns request builder for MDMWindowsInformationProtectionPolicy collection
@@ -2213,6 +2502,22 @@ func (r *DeviceAppManagementMDMWindowsInformationProtectionPoliciesCollectionReq
 	return
 }
 
+// BatchGet adds Get operation to Batch for MDMWindowsInformationProtectionPolicy collection
+func (r *DeviceAppManagementMDMWindowsInformationProtectionPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MDMWindowsInformationProtectionPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MDMWindowsInformationProtectionPolicy collection
+func (r *DeviceAppManagementMDMWindowsInformationProtectionPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MDMWindowsInformationProtectionPolicy) error {
+	var resObj []MDMWindowsInformationProtectionPolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MobileAppCategories returns request builder for MobileAppCategory collection
 func (b *DeviceAppManagementRequestBuilder) MobileAppCategories() *DeviceAppManagementMobileAppCategoriesCollectionRequestBuilder {
 	bb := &DeviceAppManagementMobileAppCategoriesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2313,6 +2618,22 @@ func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) Get(ctx contex
 func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) Add(ctx context.Context, reqObj *MobileAppCategory) (resObj *MobileAppCategory, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for MobileAppCategory collection
+func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MobileAppCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MobileAppCategory collection
+func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MobileAppCategory) error {
+	var resObj []MobileAppCategory
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // MobileAppConfigurations returns request builder for ManagedDeviceMobileAppConfiguration collection
@@ -2417,6 +2738,22 @@ func (r *DeviceAppManagementMobileAppConfigurationsCollectionRequest) Add(ctx co
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceMobileAppConfiguration collection
+func (r *DeviceAppManagementMobileAppConfigurationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceMobileAppConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceMobileAppConfiguration collection
+func (r *DeviceAppManagementMobileAppConfigurationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceMobileAppConfiguration) error {
+	var resObj []ManagedDeviceMobileAppConfiguration
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MobileApps returns request builder for MobileApp collection
 func (b *DeviceAppManagementRequestBuilder) MobileApps() *DeviceAppManagementMobileAppsCollectionRequestBuilder {
 	bb := &DeviceAppManagementMobileAppsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2517,6 +2854,22 @@ func (r *DeviceAppManagementMobileAppsCollectionRequest) Get(ctx context.Context
 func (r *DeviceAppManagementMobileAppsCollectionRequest) Add(ctx context.Context, reqObj *MobileApp) (resObj *MobileApp, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for MobileApp collection
+func (r *DeviceAppManagementMobileAppsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MobileApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MobileApp collection
+func (r *DeviceAppManagementMobileAppsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MobileApp) error {
+	var resObj []MobileApp
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // PolicySets returns request builder for PolicySet collection
@@ -2621,6 +2974,22 @@ func (r *DeviceAppManagementPolicySetsCollectionRequest) Add(ctx context.Context
 	return
 }
 
+// BatchGet adds Get operation to Batch for PolicySet collection
+func (r *DeviceAppManagementPolicySetsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PolicySet
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PolicySet collection
+func (r *DeviceAppManagementPolicySetsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PolicySet) error {
+	var resObj []PolicySet
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SideLoadingKeys returns request builder for SideLoadingKey collection
 func (b *DeviceAppManagementRequestBuilder) SideLoadingKeys() *DeviceAppManagementSideLoadingKeysCollectionRequestBuilder {
 	bb := &DeviceAppManagementSideLoadingKeysCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2721,6 +3090,22 @@ func (r *DeviceAppManagementSideLoadingKeysCollectionRequest) Get(ctx context.Co
 func (r *DeviceAppManagementSideLoadingKeysCollectionRequest) Add(ctx context.Context, reqObj *SideLoadingKey) (resObj *SideLoadingKey, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SideLoadingKey collection
+func (r *DeviceAppManagementSideLoadingKeysCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SideLoadingKey
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SideLoadingKey collection
+func (r *DeviceAppManagementSideLoadingKeysCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SideLoadingKey) error {
+	var resObj []SideLoadingKey
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SymantecCodeSigningCertificate is navigation property
@@ -2832,6 +3217,22 @@ func (r *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest) A
 	return
 }
 
+// BatchGet adds Get operation to Batch for TargetedManagedAppConfiguration collection
+func (r *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TargetedManagedAppConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TargetedManagedAppConfiguration collection
+func (r *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TargetedManagedAppConfiguration) error {
+	var resObj []TargetedManagedAppConfiguration
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // VPPTokens returns request builder for VPPToken collection
 func (b *DeviceAppManagementRequestBuilder) VPPTokens() *DeviceAppManagementVPPTokensCollectionRequestBuilder {
 	bb := &DeviceAppManagementVPPTokensCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2932,6 +3333,22 @@ func (r *DeviceAppManagementVPPTokensCollectionRequest) Get(ctx context.Context)
 func (r *DeviceAppManagementVPPTokensCollectionRequest) Add(ctx context.Context, reqObj *VPPToken) (resObj *VPPToken, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for VPPToken collection
+func (r *DeviceAppManagementVPPTokensCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []VPPToken
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for VPPToken collection
+func (r *DeviceAppManagementVPPTokensCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *VPPToken) error {
+	var resObj []VPPToken
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // WdacSupplementalPolicies returns request builder for WindowsDefenderApplicationControlSupplementalPolicy collection
@@ -3036,6 +3453,22 @@ func (r *DeviceAppManagementWdacSupplementalPoliciesCollectionRequest) Add(ctx c
 	return
 }
 
+// BatchGet adds Get operation to Batch for WindowsDefenderApplicationControlSupplementalPolicy collection
+func (r *DeviceAppManagementWdacSupplementalPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsDefenderApplicationControlSupplementalPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsDefenderApplicationControlSupplementalPolicy collection
+func (r *DeviceAppManagementWdacSupplementalPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsDefenderApplicationControlSupplementalPolicy) error {
+	var resObj []WindowsDefenderApplicationControlSupplementalPolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // WindowsInformationProtectionDeviceRegistrations returns request builder for WindowsInformationProtectionDeviceRegistration collection
 func (b *DeviceAppManagementRequestBuilder) WindowsInformationProtectionDeviceRegistrations() *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsCollectionRequestBuilder {
 	bb := &DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -3136,6 +3569,22 @@ func (r *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsColle
 func (r *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsCollectionRequest) Add(ctx context.Context, reqObj *WindowsInformationProtectionDeviceRegistration) (resObj *WindowsInformationProtectionDeviceRegistration, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WindowsInformationProtectionDeviceRegistration collection
+func (r *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsInformationProtectionDeviceRegistration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsInformationProtectionDeviceRegistration collection
+func (r *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsInformationProtectionDeviceRegistration) error {
+	var resObj []WindowsInformationProtectionDeviceRegistration
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // WindowsInformationProtectionPolicies returns request builder for WindowsInformationProtectionPolicy collection
@@ -3240,6 +3689,22 @@ func (r *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionReques
 	return
 }
 
+// BatchGet adds Get operation to Batch for WindowsInformationProtectionPolicy collection
+func (r *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsInformationProtectionPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsInformationProtectionPolicy collection
+func (r *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsInformationProtectionPolicy) error {
+	var resObj []WindowsInformationProtectionPolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // WindowsInformationProtectionWipeActions returns request builder for WindowsInformationProtectionWipeAction collection
 func (b *DeviceAppManagementRequestBuilder) WindowsInformationProtectionWipeActions() *DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionRequestBuilder {
 	bb := &DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -3340,6 +3805,22 @@ func (r *DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionReq
 func (r *DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionRequest) Add(ctx context.Context, reqObj *WindowsInformationProtectionWipeAction) (resObj *WindowsInformationProtectionWipeAction, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WindowsInformationProtectionWipeAction collection
+func (r *DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsInformationProtectionWipeAction
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsInformationProtectionWipeAction collection
+func (r *DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsInformationProtectionWipeAction) error {
+	var resObj []WindowsInformationProtectionWipeAction
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // WindowsManagementApp is navigation property
@@ -3451,6 +3932,22 @@ func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) Add(ctx context.Con
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceCompliancePolicyAssignment collection
+func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceCompliancePolicyAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceCompliancePolicyAssignment collection
+func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceCompliancePolicyAssignment) error {
+	var resObj []DeviceCompliancePolicyAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceSettingStateSummaries returns request builder for SettingStateDeviceSummary collection
 func (b *DeviceCompliancePolicyRequestBuilder) DeviceSettingStateSummaries() *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequestBuilder {
 	bb := &DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -3551,6 +4048,22 @@ func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) Get
 func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) Add(ctx context.Context, reqObj *SettingStateDeviceSummary) (resObj *SettingStateDeviceSummary, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SettingStateDeviceSummary collection
+func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SettingStateDeviceSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SettingStateDeviceSummary collection
+func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SettingStateDeviceSummary) error {
+	var resObj []SettingStateDeviceSummary
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeviceStatusOverview is navigation property
@@ -3662,6 +4175,22 @@ func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) Add(ctx context.
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceComplianceDeviceStatus collection
+func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceComplianceDeviceStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceComplianceDeviceStatus collection
+func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceComplianceDeviceStatus) error {
+	var resObj []DeviceComplianceDeviceStatus
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ScheduledActionsForRule returns request builder for DeviceComplianceScheduledActionForRule collection
 func (b *DeviceCompliancePolicyRequestBuilder) ScheduledActionsForRule() *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequestBuilder {
 	bb := &DeviceCompliancePolicyScheduledActionsForRuleCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -3762,6 +4291,22 @@ func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) Get(ctx
 func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) Add(ctx context.Context, reqObj *DeviceComplianceScheduledActionForRule) (resObj *DeviceComplianceScheduledActionForRule, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceComplianceScheduledActionForRule collection
+func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceComplianceScheduledActionForRule
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceComplianceScheduledActionForRule collection
+func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceComplianceScheduledActionForRule) error {
+	var resObj []DeviceComplianceScheduledActionForRule
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // UserStatusOverview is navigation property
@@ -3873,6 +4418,22 @@ func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) Add(ctx context.Co
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceComplianceUserStatus collection
+func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceComplianceUserStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceComplianceUserStatus collection
+func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceComplianceUserStatus) error {
+	var resObj []DeviceComplianceUserStatus
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceCompliancePolicy is navigation property
 func (b *DeviceCompliancePolicyGroupAssignmentRequestBuilder) DeviceCompliancePolicy() *DeviceCompliancePolicyRequestBuilder {
 	bb := &DeviceCompliancePolicyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -3982,6 +4543,22 @@ func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesC
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceComplianceSettingState collection
+func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceComplianceSettingState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceComplianceSettingState collection
+func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceComplianceSettingState) error {
+	var resObj []DeviceComplianceSettingState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ScheduledActionConfigurations returns request builder for DeviceComplianceActionItem collection
 func (b *DeviceComplianceScheduledActionForRuleRequestBuilder) ScheduledActionConfigurations() *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequestBuilder {
 	bb := &DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -4082,6 +4659,22 @@ func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsColl
 func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) Add(ctx context.Context, reqObj *DeviceComplianceActionItem) (resObj *DeviceComplianceActionItem, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceComplianceActionItem collection
+func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceComplianceActionItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceComplianceActionItem collection
+func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceComplianceActionItem) error {
+	var resObj []DeviceComplianceActionItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Assignments returns request builder for DeviceConfigurationAssignment collection
@@ -4186,6 +4779,22 @@ func (r *DeviceConfigurationAssignmentsCollectionRequest) Add(ctx context.Contex
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceConfigurationAssignment collection
+func (r *DeviceConfigurationAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceConfigurationAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceConfigurationAssignment collection
+func (r *DeviceConfigurationAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceConfigurationAssignment) error {
+	var resObj []DeviceConfigurationAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceSettingStateSummaries returns request builder for SettingStateDeviceSummary collection
 func (b *DeviceConfigurationRequestBuilder) DeviceSettingStateSummaries() *DeviceConfigurationDeviceSettingStateSummariesCollectionRequestBuilder {
 	bb := &DeviceConfigurationDeviceSettingStateSummariesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -4286,6 +4895,22 @@ func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) Get(ct
 func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) Add(ctx context.Context, reqObj *SettingStateDeviceSummary) (resObj *SettingStateDeviceSummary, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SettingStateDeviceSummary collection
+func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SettingStateDeviceSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SettingStateDeviceSummary collection
+func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SettingStateDeviceSummary) error {
+	var resObj []SettingStateDeviceSummary
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeviceStatusOverview is navigation property
@@ -4397,6 +5022,22 @@ func (r *DeviceConfigurationDeviceStatusesCollectionRequest) Add(ctx context.Con
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceConfigurationDeviceStatus collection
+func (r *DeviceConfigurationDeviceStatusesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceConfigurationDeviceStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceConfigurationDeviceStatus collection
+func (r *DeviceConfigurationDeviceStatusesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceConfigurationDeviceStatus) error {
+	var resObj []DeviceConfigurationDeviceStatus
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // GroupAssignments returns request builder for DeviceConfigurationGroupAssignment collection
 func (b *DeviceConfigurationRequestBuilder) GroupAssignments() *DeviceConfigurationGroupAssignmentsCollectionRequestBuilder {
 	bb := &DeviceConfigurationGroupAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -4497,6 +5138,22 @@ func (r *DeviceConfigurationGroupAssignmentsCollectionRequest) Get(ctx context.C
 func (r *DeviceConfigurationGroupAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *DeviceConfigurationGroupAssignment) (resObj *DeviceConfigurationGroupAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceConfigurationGroupAssignment collection
+func (r *DeviceConfigurationGroupAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceConfigurationGroupAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceConfigurationGroupAssignment collection
+func (r *DeviceConfigurationGroupAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceConfigurationGroupAssignment) error {
+	var resObj []DeviceConfigurationGroupAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // UserStatusOverview is navigation property
@@ -4608,6 +5265,22 @@ func (r *DeviceConfigurationUserStatusesCollectionRequest) Add(ctx context.Conte
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceConfigurationUserStatus collection
+func (r *DeviceConfigurationUserStatusesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceConfigurationUserStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceConfigurationUserStatus collection
+func (r *DeviceConfigurationUserStatusesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceConfigurationUserStatus) error {
+	var resObj []DeviceConfigurationUserStatus
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceConfiguration is navigation property
 func (b *DeviceConfigurationGroupAssignmentRequestBuilder) DeviceConfiguration() *DeviceConfigurationRequestBuilder {
 	bb := &DeviceConfigurationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -4717,6 +5390,22 @@ func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Add(ctx cont
 	return
 }
 
+// BatchGet adds Get operation to Batch for EnrollmentConfigurationAssignment collection
+func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EnrollmentConfigurationAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EnrollmentConfigurationAssignment collection
+func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EnrollmentConfigurationAssignment) error {
+	var resObj []EnrollmentConfigurationAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Assignments returns request builder for DeviceHealthScriptAssignment collection
 func (b *DeviceHealthScriptRequestBuilder) Assignments() *DeviceHealthScriptAssignmentsCollectionRequestBuilder {
 	bb := &DeviceHealthScriptAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -4819,6 +5508,22 @@ func (r *DeviceHealthScriptAssignmentsCollectionRequest) Add(ctx context.Context
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceHealthScriptAssignment collection
+func (r *DeviceHealthScriptAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceHealthScriptAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceHealthScriptAssignment collection
+func (r *DeviceHealthScriptAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceHealthScriptAssignment) error {
+	var resObj []DeviceHealthScriptAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceRunStates returns request builder for DeviceHealthScriptDeviceState collection
 func (b *DeviceHealthScriptRequestBuilder) DeviceRunStates() *DeviceHealthScriptDeviceRunStatesCollectionRequestBuilder {
 	bb := &DeviceHealthScriptDeviceRunStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -4919,6 +5624,22 @@ func (r *DeviceHealthScriptDeviceRunStatesCollectionRequest) Get(ctx context.Con
 func (r *DeviceHealthScriptDeviceRunStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceHealthScriptDeviceState) (resObj *DeviceHealthScriptDeviceState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceHealthScriptDeviceState collection
+func (r *DeviceHealthScriptDeviceRunStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceHealthScriptDeviceState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceHealthScriptDeviceState collection
+func (r *DeviceHealthScriptDeviceRunStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceHealthScriptDeviceState) error {
+	var resObj []DeviceHealthScriptDeviceState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // RunSummary is navigation property
@@ -5044,6 +5765,22 @@ func (r *DeviceManagementAndroidDeviceOwnerEnrollmentProfilesCollectionRequest) 
 	return
 }
 
+// BatchGet adds Get operation to Batch for AndroidDeviceOwnerEnrollmentProfile collection
+func (r *DeviceManagementAndroidDeviceOwnerEnrollmentProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AndroidDeviceOwnerEnrollmentProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AndroidDeviceOwnerEnrollmentProfile collection
+func (r *DeviceManagementAndroidDeviceOwnerEnrollmentProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AndroidDeviceOwnerEnrollmentProfile) error {
+	var resObj []AndroidDeviceOwnerEnrollmentProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AndroidForWorkAppConfigurationSchemas returns request builder for AndroidForWorkAppConfigurationSchema collection
 func (b *DeviceManagementRequestBuilder) AndroidForWorkAppConfigurationSchemas() *DeviceManagementAndroidForWorkAppConfigurationSchemasCollectionRequestBuilder {
 	bb := &DeviceManagementAndroidForWorkAppConfigurationSchemasCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -5146,6 +5883,22 @@ func (r *DeviceManagementAndroidForWorkAppConfigurationSchemasCollectionRequest)
 	return
 }
 
+// BatchGet adds Get operation to Batch for AndroidForWorkAppConfigurationSchema collection
+func (r *DeviceManagementAndroidForWorkAppConfigurationSchemasCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AndroidForWorkAppConfigurationSchema
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AndroidForWorkAppConfigurationSchema collection
+func (r *DeviceManagementAndroidForWorkAppConfigurationSchemasCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AndroidForWorkAppConfigurationSchema) error {
+	var resObj []AndroidForWorkAppConfigurationSchema
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AndroidForWorkEnrollmentProfiles returns request builder for AndroidForWorkEnrollmentProfile collection
 func (b *DeviceManagementRequestBuilder) AndroidForWorkEnrollmentProfiles() *DeviceManagementAndroidForWorkEnrollmentProfilesCollectionRequestBuilder {
 	bb := &DeviceManagementAndroidForWorkEnrollmentProfilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -5246,6 +5999,22 @@ func (r *DeviceManagementAndroidForWorkEnrollmentProfilesCollectionRequest) Get(
 func (r *DeviceManagementAndroidForWorkEnrollmentProfilesCollectionRequest) Add(ctx context.Context, reqObj *AndroidForWorkEnrollmentProfile) (resObj *AndroidForWorkEnrollmentProfile, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AndroidForWorkEnrollmentProfile collection
+func (r *DeviceManagementAndroidForWorkEnrollmentProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AndroidForWorkEnrollmentProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AndroidForWorkEnrollmentProfile collection
+func (r *DeviceManagementAndroidForWorkEnrollmentProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AndroidForWorkEnrollmentProfile) error {
+	var resObj []AndroidForWorkEnrollmentProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // AndroidForWorkSettings is navigation property
@@ -5364,6 +6133,22 @@ func (r *DeviceManagementAndroidManagedStoreAppConfigurationSchemasCollectionReq
 	return
 }
 
+// BatchGet adds Get operation to Batch for AndroidManagedStoreAppConfigurationSchema collection
+func (r *DeviceManagementAndroidManagedStoreAppConfigurationSchemasCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AndroidManagedStoreAppConfigurationSchema
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AndroidManagedStoreAppConfigurationSchema collection
+func (r *DeviceManagementAndroidManagedStoreAppConfigurationSchemasCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AndroidManagedStoreAppConfigurationSchema) error {
+	var resObj []AndroidManagedStoreAppConfigurationSchema
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ApplePushNotificationCertificate is navigation property
 func (b *DeviceManagementRequestBuilder) ApplePushNotificationCertificate() *ApplePushNotificationCertificateRequestBuilder {
 	bb := &ApplePushNotificationCertificateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -5473,6 +6258,22 @@ func (r *DeviceManagementAppleUserInitiatedEnrollmentProfilesCollectionRequest) 
 	return
 }
 
+// BatchGet adds Get operation to Batch for AppleUserInitiatedEnrollmentProfile collection
+func (r *DeviceManagementAppleUserInitiatedEnrollmentProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AppleUserInitiatedEnrollmentProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AppleUserInitiatedEnrollmentProfile collection
+func (r *DeviceManagementAppleUserInitiatedEnrollmentProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AppleUserInitiatedEnrollmentProfile) error {
+	var resObj []AppleUserInitiatedEnrollmentProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AuditEvents returns request builder for AuditEvent collection
 func (b *DeviceManagementRequestBuilder) AuditEvents() *DeviceManagementAuditEventsCollectionRequestBuilder {
 	bb := &DeviceManagementAuditEventsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -5573,6 +6374,22 @@ func (r *DeviceManagementAuditEventsCollectionRequest) Get(ctx context.Context) 
 func (r *DeviceManagementAuditEventsCollectionRequest) Add(ctx context.Context, reqObj *AuditEvent) (resObj *AuditEvent, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AuditEvent collection
+func (r *DeviceManagementAuditEventsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AuditEvent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AuditEvent collection
+func (r *DeviceManagementAuditEventsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AuditEvent) error {
+	var resObj []AuditEvent
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // AutopilotEvents returns request builder for DeviceManagementAutopilotEvent collection
@@ -5677,6 +6494,22 @@ func (r *DeviceManagementAutopilotEventsCollectionRequest) Add(ctx context.Conte
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementAutopilotEvent collection
+func (r *DeviceManagementAutopilotEventsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementAutopilotEvent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementAutopilotEvent collection
+func (r *DeviceManagementAutopilotEventsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementAutopilotEvent) error {
+	var resObj []DeviceManagementAutopilotEvent
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // CartToClassAssociations returns request builder for CartToClassAssociation collection
 func (b *DeviceManagementRequestBuilder) CartToClassAssociations() *DeviceManagementCartToClassAssociationsCollectionRequestBuilder {
 	bb := &DeviceManagementCartToClassAssociationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -5777,6 +6610,22 @@ func (r *DeviceManagementCartToClassAssociationsCollectionRequest) Get(ctx conte
 func (r *DeviceManagementCartToClassAssociationsCollectionRequest) Add(ctx context.Context, reqObj *CartToClassAssociation) (resObj *CartToClassAssociation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for CartToClassAssociation collection
+func (r *DeviceManagementCartToClassAssociationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []CartToClassAssociation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for CartToClassAssociation collection
+func (r *DeviceManagementCartToClassAssociationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *CartToClassAssociation) error {
+	var resObj []CartToClassAssociation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Categories returns request builder for DeviceManagementSettingCategory collection
@@ -5881,6 +6730,22 @@ func (r *DeviceManagementCategoriesCollectionRequest) Add(ctx context.Context, r
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementSettingCategory collection
+func (r *DeviceManagementCategoriesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementSettingCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementSettingCategory collection
+func (r *DeviceManagementCategoriesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementSettingCategory) error {
+	var resObj []DeviceManagementSettingCategory
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ComplianceManagementPartners returns request builder for ComplianceManagementPartner collection
 func (b *DeviceManagementRequestBuilder) ComplianceManagementPartners() *DeviceManagementComplianceManagementPartnersCollectionRequestBuilder {
 	bb := &DeviceManagementComplianceManagementPartnersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -5981,6 +6846,22 @@ func (r *DeviceManagementComplianceManagementPartnersCollectionRequest) Get(ctx 
 func (r *DeviceManagementComplianceManagementPartnersCollectionRequest) Add(ctx context.Context, reqObj *ComplianceManagementPartner) (resObj *ComplianceManagementPartner, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ComplianceManagementPartner collection
+func (r *DeviceManagementComplianceManagementPartnersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ComplianceManagementPartner
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ComplianceManagementPartner collection
+func (r *DeviceManagementComplianceManagementPartnersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ComplianceManagementPartner) error {
+	var resObj []ComplianceManagementPartner
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ConditionalAccessSettings is navigation property
@@ -6092,6 +6973,22 @@ func (r *DeviceManagementDataSharingConsentsCollectionRequest) Add(ctx context.C
 	return
 }
 
+// BatchGet adds Get operation to Batch for DataSharingConsent collection
+func (r *DeviceManagementDataSharingConsentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DataSharingConsent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DataSharingConsent collection
+func (r *DeviceManagementDataSharingConsentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DataSharingConsent) error {
+	var resObj []DataSharingConsent
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DepOnboardingSettings returns request builder for DepOnboardingSetting collection
 func (b *DeviceManagementRequestBuilder) DepOnboardingSettings() *DeviceManagementDepOnboardingSettingsCollectionRequestBuilder {
 	bb := &DeviceManagementDepOnboardingSettingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -6192,6 +7089,22 @@ func (r *DeviceManagementDepOnboardingSettingsCollectionRequest) Get(ctx context
 func (r *DeviceManagementDepOnboardingSettingsCollectionRequest) Add(ctx context.Context, reqObj *DepOnboardingSetting) (resObj *DepOnboardingSetting, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DepOnboardingSetting collection
+func (r *DeviceManagementDepOnboardingSettingsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DepOnboardingSetting
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DepOnboardingSetting collection
+func (r *DeviceManagementDepOnboardingSettingsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DepOnboardingSetting) error {
+	var resObj []DepOnboardingSetting
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DerivedCredentials returns request builder for DeviceManagementDerivedCredentialSettings collection
@@ -6296,6 +7209,22 @@ func (r *DeviceManagementDerivedCredentialsCollectionRequest) Add(ctx context.Co
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementDerivedCredentialSettings collection
+func (r *DeviceManagementDerivedCredentialsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementDerivedCredentialSettings
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementDerivedCredentialSettings collection
+func (r *DeviceManagementDerivedCredentialsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementDerivedCredentialSettings) error {
+	var resObj []DeviceManagementDerivedCredentialSettings
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DetectedApps returns request builder for DetectedApp collection
 func (b *DeviceManagementRequestBuilder) DetectedApps() *DeviceManagementDetectedAppsCollectionRequestBuilder {
 	bb := &DeviceManagementDetectedAppsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -6396,6 +7325,22 @@ func (r *DeviceManagementDetectedAppsCollectionRequest) Get(ctx context.Context)
 func (r *DeviceManagementDetectedAppsCollectionRequest) Add(ctx context.Context, reqObj *DetectedApp) (resObj *DetectedApp, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DetectedApp collection
+func (r *DeviceManagementDetectedAppsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DetectedApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DetectedApp collection
+func (r *DeviceManagementDetectedAppsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DetectedApp) error {
+	var resObj []DetectedApp
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeviceCategories returns request builder for DeviceCategory collection
@@ -6500,6 +7445,22 @@ func (r *DeviceManagementDeviceCategoriesCollectionRequest) Add(ctx context.Cont
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceCategory collection
+func (r *DeviceManagementDeviceCategoriesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceCategory collection
+func (r *DeviceManagementDeviceCategoriesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceCategory) error {
+	var resObj []DeviceCategory
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceCompliancePolicies returns request builder for DeviceCompliancePolicy collection
 func (b *DeviceManagementRequestBuilder) DeviceCompliancePolicies() *DeviceManagementDeviceCompliancePoliciesCollectionRequestBuilder {
 	bb := &DeviceManagementDeviceCompliancePoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -6600,6 +7561,22 @@ func (r *DeviceManagementDeviceCompliancePoliciesCollectionRequest) Get(ctx cont
 func (r *DeviceManagementDeviceCompliancePoliciesCollectionRequest) Add(ctx context.Context, reqObj *DeviceCompliancePolicy) (resObj *DeviceCompliancePolicy, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceCompliancePolicy collection
+func (r *DeviceManagementDeviceCompliancePoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceCompliancePolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceCompliancePolicy collection
+func (r *DeviceManagementDeviceCompliancePoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceCompliancePolicy) error {
+	var resObj []DeviceCompliancePolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeviceCompliancePolicyDeviceStateSummary is navigation property
@@ -6711,6 +7688,22 @@ func (r *DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionRe
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceCompliancePolicySettingStateSummary collection
+func (r *DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceCompliancePolicySettingStateSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceCompliancePolicySettingStateSummary collection
+func (r *DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceCompliancePolicySettingStateSummary) error {
+	var resObj []DeviceCompliancePolicySettingStateSummary
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceConfigurationConflictSummary returns request builder for DeviceConfigurationConflictSummary collection
 func (b *DeviceManagementRequestBuilder) DeviceConfigurationConflictSummary() *DeviceManagementDeviceConfigurationConflictSummaryCollectionRequestBuilder {
 	bb := &DeviceManagementDeviceConfigurationConflictSummaryCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -6811,6 +7804,22 @@ func (r *DeviceManagementDeviceConfigurationConflictSummaryCollectionRequest) Ge
 func (r *DeviceManagementDeviceConfigurationConflictSummaryCollectionRequest) Add(ctx context.Context, reqObj *DeviceConfigurationConflictSummary) (resObj *DeviceConfigurationConflictSummary, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceConfigurationConflictSummary collection
+func (r *DeviceManagementDeviceConfigurationConflictSummaryCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceConfigurationConflictSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceConfigurationConflictSummary collection
+func (r *DeviceManagementDeviceConfigurationConflictSummaryCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceConfigurationConflictSummary) error {
+	var resObj []DeviceConfigurationConflictSummary
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeviceConfigurationDeviceStateSummaries is navigation property
@@ -6922,6 +7931,22 @@ func (r *DeviceManagementDeviceConfigurationRestrictedAppsViolationsCollectionRe
 	return
 }
 
+// BatchGet adds Get operation to Batch for RestrictedAppsViolation collection
+func (r *DeviceManagementDeviceConfigurationRestrictedAppsViolationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []RestrictedAppsViolation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for RestrictedAppsViolation collection
+func (r *DeviceManagementDeviceConfigurationRestrictedAppsViolationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *RestrictedAppsViolation) error {
+	var resObj []RestrictedAppsViolation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceConfigurationUserStateSummaries is navigation property
 func (b *DeviceManagementRequestBuilder) DeviceConfigurationUserStateSummaries() *DeviceConfigurationUserStateSummaryRequestBuilder {
 	bb := &DeviceConfigurationUserStateSummaryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -7031,6 +8056,22 @@ func (r *DeviceManagementDeviceConfigurationsCollectionRequest) Add(ctx context.
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceConfiguration collection
+func (r *DeviceManagementDeviceConfigurationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceConfiguration collection
+func (r *DeviceManagementDeviceConfigurationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceConfiguration) error {
+	var resObj []DeviceConfiguration
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceConfigurationsAllManagedDeviceCertificateStates returns request builder for ManagedAllDeviceCertificateState collection
 func (b *DeviceManagementRequestBuilder) DeviceConfigurationsAllManagedDeviceCertificateStates() *DeviceManagementDeviceConfigurationsAllManagedDeviceCertificateStatesCollectionRequestBuilder {
 	bb := &DeviceManagementDeviceConfigurationsAllManagedDeviceCertificateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -7131,6 +8172,22 @@ func (r *DeviceManagementDeviceConfigurationsAllManagedDeviceCertificateStatesCo
 func (r *DeviceManagementDeviceConfigurationsAllManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedAllDeviceCertificateState) (resObj *ManagedAllDeviceCertificateState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedAllDeviceCertificateState collection
+func (r *DeviceManagementDeviceConfigurationsAllManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedAllDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedAllDeviceCertificateState collection
+func (r *DeviceManagementDeviceConfigurationsAllManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedAllDeviceCertificateState) error {
+	var resObj []ManagedAllDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeviceEnrollmentConfigurations returns request builder for DeviceEnrollmentConfiguration collection
@@ -7235,6 +8292,22 @@ func (r *DeviceManagementDeviceEnrollmentConfigurationsCollectionRequest) Add(ct
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceEnrollmentConfiguration collection
+func (r *DeviceManagementDeviceEnrollmentConfigurationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceEnrollmentConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceEnrollmentConfiguration collection
+func (r *DeviceManagementDeviceEnrollmentConfigurationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceEnrollmentConfiguration) error {
+	var resObj []DeviceEnrollmentConfiguration
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceHealthScripts returns request builder for DeviceHealthScript collection
 func (b *DeviceManagementRequestBuilder) DeviceHealthScripts() *DeviceManagementDeviceHealthScriptsCollectionRequestBuilder {
 	bb := &DeviceManagementDeviceHealthScriptsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -7335,6 +8408,22 @@ func (r *DeviceManagementDeviceHealthScriptsCollectionRequest) Get(ctx context.C
 func (r *DeviceManagementDeviceHealthScriptsCollectionRequest) Add(ctx context.Context, reqObj *DeviceHealthScript) (resObj *DeviceHealthScript, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceHealthScript collection
+func (r *DeviceManagementDeviceHealthScriptsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceHealthScript
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceHealthScript collection
+func (r *DeviceManagementDeviceHealthScriptsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceHealthScript) error {
+	var resObj []DeviceHealthScript
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeviceManagementPartners returns request builder for DeviceManagementPartner collection
@@ -7439,6 +8528,22 @@ func (r *DeviceManagementDeviceManagementPartnersCollectionRequest) Add(ctx cont
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementPartner collection
+func (r *DeviceManagementDeviceManagementPartnersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementPartner
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementPartner collection
+func (r *DeviceManagementDeviceManagementPartnersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementPartner) error {
+	var resObj []DeviceManagementPartner
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceManagementScripts returns request builder for DeviceManagementScript collection
 func (b *DeviceManagementRequestBuilder) DeviceManagementScripts() *DeviceManagementDeviceManagementScriptsCollectionRequestBuilder {
 	bb := &DeviceManagementDeviceManagementScriptsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -7539,6 +8644,22 @@ func (r *DeviceManagementDeviceManagementScriptsCollectionRequest) Get(ctx conte
 func (r *DeviceManagementDeviceManagementScriptsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementScript) (resObj *DeviceManagementScript, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementScript collection
+func (r *DeviceManagementDeviceManagementScriptsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementScript
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementScript collection
+func (r *DeviceManagementDeviceManagementScriptsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementScript) error {
+	var resObj []DeviceManagementScript
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DomainJoinConnectors returns request builder for DeviceManagementDomainJoinConnector collection
@@ -7643,6 +8764,22 @@ func (r *DeviceManagementDomainJoinConnectorsCollectionRequest) Add(ctx context.
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementDomainJoinConnector collection
+func (r *DeviceManagementDomainJoinConnectorsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementDomainJoinConnector
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementDomainJoinConnector collection
+func (r *DeviceManagementDomainJoinConnectorsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementDomainJoinConnector) error {
+	var resObj []DeviceManagementDomainJoinConnector
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // EmbeddedSIMActivationCodePools returns request builder for EmbeddedSIMActivationCodePool collection
 func (b *DeviceManagementRequestBuilder) EmbeddedSIMActivationCodePools() *DeviceManagementEmbeddedSIMActivationCodePoolsCollectionRequestBuilder {
 	bb := &DeviceManagementEmbeddedSIMActivationCodePoolsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -7743,6 +8880,22 @@ func (r *DeviceManagementEmbeddedSIMActivationCodePoolsCollectionRequest) Get(ct
 func (r *DeviceManagementEmbeddedSIMActivationCodePoolsCollectionRequest) Add(ctx context.Context, reqObj *EmbeddedSIMActivationCodePool) (resObj *EmbeddedSIMActivationCodePool, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for EmbeddedSIMActivationCodePool collection
+func (r *DeviceManagementEmbeddedSIMActivationCodePoolsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EmbeddedSIMActivationCodePool
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EmbeddedSIMActivationCodePool collection
+func (r *DeviceManagementEmbeddedSIMActivationCodePoolsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EmbeddedSIMActivationCodePool) error {
+	var resObj []EmbeddedSIMActivationCodePool
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ExchangeConnectors returns request builder for DeviceManagementExchangeConnector collection
@@ -7847,6 +9000,22 @@ func (r *DeviceManagementExchangeConnectorsCollectionRequest) Add(ctx context.Co
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementExchangeConnector collection
+func (r *DeviceManagementExchangeConnectorsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementExchangeConnector
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementExchangeConnector collection
+func (r *DeviceManagementExchangeConnectorsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementExchangeConnector) error {
+	var resObj []DeviceManagementExchangeConnector
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ExchangeOnPremisesPolicies returns request builder for DeviceManagementExchangeOnPremisesPolicy collection
 func (b *DeviceManagementRequestBuilder) ExchangeOnPremisesPolicies() *DeviceManagementExchangeOnPremisesPoliciesCollectionRequestBuilder {
 	bb := &DeviceManagementExchangeOnPremisesPoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -7947,6 +9116,22 @@ func (r *DeviceManagementExchangeOnPremisesPoliciesCollectionRequest) Get(ctx co
 func (r *DeviceManagementExchangeOnPremisesPoliciesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementExchangeOnPremisesPolicy) (resObj *DeviceManagementExchangeOnPremisesPolicy, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementExchangeOnPremisesPolicy collection
+func (r *DeviceManagementExchangeOnPremisesPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementExchangeOnPremisesPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementExchangeOnPremisesPolicy collection
+func (r *DeviceManagementExchangeOnPremisesPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementExchangeOnPremisesPolicy) error {
+	var resObj []DeviceManagementExchangeOnPremisesPolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ExchangeOnPremisesPolicy is navigation property
@@ -8058,6 +9243,22 @@ func (r *DeviceManagementGroupPolicyConfigurationsCollectionRequest) Add(ctx con
 	return
 }
 
+// BatchGet adds Get operation to Batch for GroupPolicyConfiguration collection
+func (r *DeviceManagementGroupPolicyConfigurationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GroupPolicyConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GroupPolicyConfiguration collection
+func (r *DeviceManagementGroupPolicyConfigurationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GroupPolicyConfiguration) error {
+	var resObj []GroupPolicyConfiguration
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // GroupPolicyDefinitionFiles returns request builder for GroupPolicyDefinitionFile collection
 func (b *DeviceManagementRequestBuilder) GroupPolicyDefinitionFiles() *DeviceManagementGroupPolicyDefinitionFilesCollectionRequestBuilder {
 	bb := &DeviceManagementGroupPolicyDefinitionFilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -8158,6 +9359,22 @@ func (r *DeviceManagementGroupPolicyDefinitionFilesCollectionRequest) Get(ctx co
 func (r *DeviceManagementGroupPolicyDefinitionFilesCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyDefinitionFile) (resObj *GroupPolicyDefinitionFile, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for GroupPolicyDefinitionFile collection
+func (r *DeviceManagementGroupPolicyDefinitionFilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GroupPolicyDefinitionFile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GroupPolicyDefinitionFile collection
+func (r *DeviceManagementGroupPolicyDefinitionFilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GroupPolicyDefinitionFile) error {
+	var resObj []GroupPolicyDefinitionFile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // GroupPolicyDefinitions returns request builder for GroupPolicyDefinition collection
@@ -8262,6 +9479,22 @@ func (r *DeviceManagementGroupPolicyDefinitionsCollectionRequest) Add(ctx contex
 	return
 }
 
+// BatchGet adds Get operation to Batch for GroupPolicyDefinition collection
+func (r *DeviceManagementGroupPolicyDefinitionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GroupPolicyDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GroupPolicyDefinition collection
+func (r *DeviceManagementGroupPolicyDefinitionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GroupPolicyDefinition) error {
+	var resObj []GroupPolicyDefinition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // GroupPolicyMigrationReports returns request builder for GroupPolicyMigrationReport collection
 func (b *DeviceManagementRequestBuilder) GroupPolicyMigrationReports() *DeviceManagementGroupPolicyMigrationReportsCollectionRequestBuilder {
 	bb := &DeviceManagementGroupPolicyMigrationReportsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -8362,6 +9595,22 @@ func (r *DeviceManagementGroupPolicyMigrationReportsCollectionRequest) Get(ctx c
 func (r *DeviceManagementGroupPolicyMigrationReportsCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyMigrationReport) (resObj *GroupPolicyMigrationReport, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for GroupPolicyMigrationReport collection
+func (r *DeviceManagementGroupPolicyMigrationReportsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GroupPolicyMigrationReport
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GroupPolicyMigrationReport collection
+func (r *DeviceManagementGroupPolicyMigrationReportsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GroupPolicyMigrationReport) error {
+	var resObj []GroupPolicyMigrationReport
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ImportedDeviceIdentities returns request builder for ImportedDeviceIdentity collection
@@ -8466,6 +9715,22 @@ func (r *DeviceManagementImportedDeviceIdentitiesCollectionRequest) Add(ctx cont
 	return
 }
 
+// BatchGet adds Get operation to Batch for ImportedDeviceIdentity collection
+func (r *DeviceManagementImportedDeviceIdentitiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ImportedDeviceIdentity
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ImportedDeviceIdentity collection
+func (r *DeviceManagementImportedDeviceIdentitiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ImportedDeviceIdentity) error {
+	var resObj []ImportedDeviceIdentity
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ImportedWindowsAutopilotDeviceIdentities returns request builder for ImportedWindowsAutopilotDeviceIdentity collection
 func (b *DeviceManagementRequestBuilder) ImportedWindowsAutopilotDeviceIdentities() *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder {
 	bb := &DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -8566,6 +9831,22 @@ func (r *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionReque
 func (r *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequest) Add(ctx context.Context, reqObj *ImportedWindowsAutopilotDeviceIdentity) (resObj *ImportedWindowsAutopilotDeviceIdentity, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ImportedWindowsAutopilotDeviceIdentity collection
+func (r *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ImportedWindowsAutopilotDeviceIdentity
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ImportedWindowsAutopilotDeviceIdentity collection
+func (r *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ImportedWindowsAutopilotDeviceIdentity) error {
+	var resObj []ImportedWindowsAutopilotDeviceIdentity
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Intents returns request builder for DeviceManagementIntent collection
@@ -8670,6 +9951,22 @@ func (r *DeviceManagementIntentsCollectionRequest) Add(ctx context.Context, reqO
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementIntent collection
+func (r *DeviceManagementIntentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementIntent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementIntent collection
+func (r *DeviceManagementIntentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementIntent) error {
+	var resObj []DeviceManagementIntent
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // IntuneBrandingProfiles returns request builder for IntuneBrandingProfile collection
 func (b *DeviceManagementRequestBuilder) IntuneBrandingProfiles() *DeviceManagementIntuneBrandingProfilesCollectionRequestBuilder {
 	bb := &DeviceManagementIntuneBrandingProfilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -8770,6 +10067,22 @@ func (r *DeviceManagementIntuneBrandingProfilesCollectionRequest) Get(ctx contex
 func (r *DeviceManagementIntuneBrandingProfilesCollectionRequest) Add(ctx context.Context, reqObj *IntuneBrandingProfile) (resObj *IntuneBrandingProfile, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for IntuneBrandingProfile collection
+func (r *DeviceManagementIntuneBrandingProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []IntuneBrandingProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for IntuneBrandingProfile collection
+func (r *DeviceManagementIntuneBrandingProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *IntuneBrandingProfile) error {
+	var resObj []IntuneBrandingProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // IOSUpdateStatuses returns request builder for IOSUpdateDeviceStatus collection
@@ -8874,6 +10187,22 @@ func (r *DeviceManagementIOSUpdateStatusesCollectionRequest) Add(ctx context.Con
 	return
 }
 
+// BatchGet adds Get operation to Batch for IOSUpdateDeviceStatus collection
+func (r *DeviceManagementIOSUpdateStatusesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []IOSUpdateDeviceStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for IOSUpdateDeviceStatus collection
+func (r *DeviceManagementIOSUpdateStatusesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *IOSUpdateDeviceStatus) error {
+	var resObj []IOSUpdateDeviceStatus
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedDeviceEncryptionStates returns request builder for ManagedDeviceEncryptionState collection
 func (b *DeviceManagementRequestBuilder) ManagedDeviceEncryptionStates() *DeviceManagementManagedDeviceEncryptionStatesCollectionRequestBuilder {
 	bb := &DeviceManagementManagedDeviceEncryptionStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -8974,6 +10303,22 @@ func (r *DeviceManagementManagedDeviceEncryptionStatesCollectionRequest) Get(ctx
 func (r *DeviceManagementManagedDeviceEncryptionStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceEncryptionState) (resObj *ManagedDeviceEncryptionState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceEncryptionState collection
+func (r *DeviceManagementManagedDeviceEncryptionStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceEncryptionState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceEncryptionState collection
+func (r *DeviceManagementManagedDeviceEncryptionStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceEncryptionState) error {
+	var resObj []ManagedDeviceEncryptionState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ManagedDeviceOverview is navigation property
@@ -9085,6 +10430,22 @@ func (r *DeviceManagementManagedDevicesCollectionRequest) Add(ctx context.Contex
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDevice collection
+func (r *DeviceManagementManagedDevicesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDevice
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDevice collection
+func (r *DeviceManagementManagedDevicesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDevice) error {
+	var resObj []ManagedDevice
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagementConditionStatements returns request builder for ManagementConditionStatement collection
 func (b *DeviceManagementRequestBuilder) ManagementConditionStatements() *DeviceManagementManagementConditionStatementsCollectionRequestBuilder {
 	bb := &DeviceManagementManagementConditionStatementsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -9185,6 +10546,22 @@ func (r *DeviceManagementManagementConditionStatementsCollectionRequest) Get(ctx
 func (r *DeviceManagementManagementConditionStatementsCollectionRequest) Add(ctx context.Context, reqObj *ManagementConditionStatement) (resObj *ManagementConditionStatement, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagementConditionStatement collection
+func (r *DeviceManagementManagementConditionStatementsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagementConditionStatement
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagementConditionStatement collection
+func (r *DeviceManagementManagementConditionStatementsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagementConditionStatement) error {
+	var resObj []ManagementConditionStatement
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ManagementConditions returns request builder for ManagementCondition collection
@@ -9289,6 +10666,22 @@ func (r *DeviceManagementManagementConditionsCollectionRequest) Add(ctx context.
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagementCondition collection
+func (r *DeviceManagementManagementConditionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagementCondition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagementCondition collection
+func (r *DeviceManagementManagementConditionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagementCondition) error {
+	var resObj []ManagementCondition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MobileAppTroubleshootingEvents returns request builder for MobileAppTroubleshootingEvent collection
 func (b *DeviceManagementRequestBuilder) MobileAppTroubleshootingEvents() *DeviceManagementMobileAppTroubleshootingEventsCollectionRequestBuilder {
 	bb := &DeviceManagementMobileAppTroubleshootingEventsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -9389,6 +10782,22 @@ func (r *DeviceManagementMobileAppTroubleshootingEventsCollectionRequest) Get(ct
 func (r *DeviceManagementMobileAppTroubleshootingEventsCollectionRequest) Add(ctx context.Context, reqObj *MobileAppTroubleshootingEvent) (resObj *MobileAppTroubleshootingEvent, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for MobileAppTroubleshootingEvent collection
+func (r *DeviceManagementMobileAppTroubleshootingEventsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MobileAppTroubleshootingEvent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MobileAppTroubleshootingEvent collection
+func (r *DeviceManagementMobileAppTroubleshootingEventsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MobileAppTroubleshootingEvent) error {
+	var resObj []MobileAppTroubleshootingEvent
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // MobileThreatDefenseConnectors returns request builder for MobileThreatDefenseConnector collection
@@ -9493,6 +10902,22 @@ func (r *DeviceManagementMobileThreatDefenseConnectorsCollectionRequest) Add(ctx
 	return
 }
 
+// BatchGet adds Get operation to Batch for MobileThreatDefenseConnector collection
+func (r *DeviceManagementMobileThreatDefenseConnectorsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MobileThreatDefenseConnector
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MobileThreatDefenseConnector collection
+func (r *DeviceManagementMobileThreatDefenseConnectorsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MobileThreatDefenseConnector) error {
+	var resObj []MobileThreatDefenseConnector
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // NDESConnectors returns request builder for NDESConnector collection
 func (b *DeviceManagementRequestBuilder) NDESConnectors() *DeviceManagementNDESConnectorsCollectionRequestBuilder {
 	bb := &DeviceManagementNDESConnectorsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -9593,6 +11018,22 @@ func (r *DeviceManagementNDESConnectorsCollectionRequest) Get(ctx context.Contex
 func (r *DeviceManagementNDESConnectorsCollectionRequest) Add(ctx context.Context, reqObj *NDESConnector) (resObj *NDESConnector, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for NDESConnector collection
+func (r *DeviceManagementNDESConnectorsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []NDESConnector
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for NDESConnector collection
+func (r *DeviceManagementNDESConnectorsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *NDESConnector) error {
+	var resObj []NDESConnector
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // NotificationMessageTemplates returns request builder for NotificationMessageTemplate collection
@@ -9697,6 +11138,22 @@ func (r *DeviceManagementNotificationMessageTemplatesCollectionRequest) Add(ctx 
 	return
 }
 
+// BatchGet adds Get operation to Batch for NotificationMessageTemplate collection
+func (r *DeviceManagementNotificationMessageTemplatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []NotificationMessageTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for NotificationMessageTemplate collection
+func (r *DeviceManagementNotificationMessageTemplatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *NotificationMessageTemplate) error {
+	var resObj []NotificationMessageTemplate
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // RemoteActionAudits returns request builder for RemoteActionAudit collection
 func (b *DeviceManagementRequestBuilder) RemoteActionAudits() *DeviceManagementRemoteActionAuditsCollectionRequestBuilder {
 	bb := &DeviceManagementRemoteActionAuditsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -9799,6 +11256,22 @@ func (r *DeviceManagementRemoteActionAuditsCollectionRequest) Add(ctx context.Co
 	return
 }
 
+// BatchGet adds Get operation to Batch for RemoteActionAudit collection
+func (r *DeviceManagementRemoteActionAuditsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []RemoteActionAudit
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for RemoteActionAudit collection
+func (r *DeviceManagementRemoteActionAuditsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *RemoteActionAudit) error {
+	var resObj []RemoteActionAudit
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // RemoteAssistancePartners returns request builder for RemoteAssistancePartner collection
 func (b *DeviceManagementRequestBuilder) RemoteAssistancePartners() *DeviceManagementRemoteAssistancePartnersCollectionRequestBuilder {
 	bb := &DeviceManagementRemoteAssistancePartnersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -9899,6 +11372,22 @@ func (r *DeviceManagementRemoteAssistancePartnersCollectionRequest) Get(ctx cont
 func (r *DeviceManagementRemoteAssistancePartnersCollectionRequest) Add(ctx context.Context, reqObj *RemoteAssistancePartner) (resObj *RemoteAssistancePartner, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for RemoteAssistancePartner collection
+func (r *DeviceManagementRemoteAssistancePartnersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []RemoteAssistancePartner
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for RemoteAssistancePartner collection
+func (r *DeviceManagementRemoteAssistancePartnersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *RemoteAssistancePartner) error {
+	var resObj []RemoteAssistancePartner
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Reports is navigation property
@@ -10010,6 +11499,22 @@ func (r *DeviceManagementResourceOperationsCollectionRequest) Add(ctx context.Co
 	return
 }
 
+// BatchGet adds Get operation to Batch for ResourceOperation collection
+func (r *DeviceManagementResourceOperationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ResourceOperation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ResourceOperation collection
+func (r *DeviceManagementResourceOperationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ResourceOperation) error {
+	var resObj []ResourceOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // RoleAssignments returns request builder for DeviceAndAppManagementRoleAssignment collection
 func (b *DeviceManagementRequestBuilder) RoleAssignments() *DeviceManagementRoleAssignmentsCollectionRequestBuilder {
 	bb := &DeviceManagementRoleAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -10110,6 +11615,22 @@ func (r *DeviceManagementRoleAssignmentsCollectionRequest) Get(ctx context.Conte
 func (r *DeviceManagementRoleAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *DeviceAndAppManagementRoleAssignment) (resObj *DeviceAndAppManagementRoleAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceAndAppManagementRoleAssignment collection
+func (r *DeviceManagementRoleAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceAndAppManagementRoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceAndAppManagementRoleAssignment collection
+func (r *DeviceManagementRoleAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceAndAppManagementRoleAssignment) error {
+	var resObj []DeviceAndAppManagementRoleAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // RoleDefinitions returns request builder for RoleDefinition collection
@@ -10214,6 +11735,22 @@ func (r *DeviceManagementRoleDefinitionsCollectionRequest) Add(ctx context.Conte
 	return
 }
 
+// BatchGet adds Get operation to Batch for RoleDefinition collection
+func (r *DeviceManagementRoleDefinitionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []RoleDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for RoleDefinition collection
+func (r *DeviceManagementRoleDefinitionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *RoleDefinition) error {
+	var resObj []RoleDefinition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // RoleScopeTags returns request builder for RoleScopeTag collection
 func (b *DeviceManagementRequestBuilder) RoleScopeTags() *DeviceManagementRoleScopeTagsCollectionRequestBuilder {
 	bb := &DeviceManagementRoleScopeTagsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -10316,6 +11853,22 @@ func (r *DeviceManagementRoleScopeTagsCollectionRequest) Add(ctx context.Context
 	return
 }
 
+// BatchGet adds Get operation to Batch for RoleScopeTag collection
+func (r *DeviceManagementRoleScopeTagsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []RoleScopeTag
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for RoleScopeTag collection
+func (r *DeviceManagementRoleScopeTagsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *RoleScopeTag) error {
+	var resObj []RoleScopeTag
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SettingDefinitions returns request builder for DeviceManagementSettingDefinition collection
 func (b *DeviceManagementRequestBuilder) SettingDefinitions() *DeviceManagementSettingDefinitionsCollectionRequestBuilder {
 	bb := &DeviceManagementSettingDefinitionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -10416,6 +11969,22 @@ func (r *DeviceManagementSettingDefinitionsCollectionRequest) Get(ctx context.Co
 func (r *DeviceManagementSettingDefinitionsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementSettingDefinition) (resObj *DeviceManagementSettingDefinition, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementSettingDefinition collection
+func (r *DeviceManagementSettingDefinitionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementSettingDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementSettingDefinition collection
+func (r *DeviceManagementSettingDefinitionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementSettingDefinition) error {
+	var resObj []DeviceManagementSettingDefinition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SoftwareUpdateStatusSummary is navigation property
@@ -10527,6 +12096,22 @@ func (r *DeviceManagementTelecomExpenseManagementPartnersCollectionRequest) Add(
 	return
 }
 
+// BatchGet adds Get operation to Batch for TelecomExpenseManagementPartner collection
+func (r *DeviceManagementTelecomExpenseManagementPartnersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TelecomExpenseManagementPartner
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TelecomExpenseManagementPartner collection
+func (r *DeviceManagementTelecomExpenseManagementPartnersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TelecomExpenseManagementPartner) error {
+	var resObj []TelecomExpenseManagementPartner
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Templates returns request builder for DeviceManagementTemplate collection
 func (b *DeviceManagementRequestBuilder) Templates() *DeviceManagementTemplatesCollectionRequestBuilder {
 	bb := &DeviceManagementTemplatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -10627,6 +12212,22 @@ func (r *DeviceManagementTemplatesCollectionRequest) Get(ctx context.Context) ([
 func (r *DeviceManagementTemplatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementTemplate) (resObj *DeviceManagementTemplate, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementTemplate collection
+func (r *DeviceManagementTemplatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementTemplate collection
+func (r *DeviceManagementTemplatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementTemplate) error {
+	var resObj []DeviceManagementTemplate
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // TermsAndConditions returns request builder for TermsAndConditions collection
@@ -10731,6 +12332,22 @@ func (r *DeviceManagementTermsAndConditionsCollectionRequest) Add(ctx context.Co
 	return
 }
 
+// BatchGet adds Get operation to Batch for TermsAndConditions collection
+func (r *DeviceManagementTermsAndConditionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TermsAndConditions
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TermsAndConditions collection
+func (r *DeviceManagementTermsAndConditionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TermsAndConditions) error {
+	var resObj []TermsAndConditions
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // TroubleshootingEvents returns request builder for DeviceManagementTroubleshootingEvent collection
 func (b *DeviceManagementRequestBuilder) TroubleshootingEvents() *DeviceManagementTroubleshootingEventsCollectionRequestBuilder {
 	bb := &DeviceManagementTroubleshootingEventsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -10831,6 +12448,22 @@ func (r *DeviceManagementTroubleshootingEventsCollectionRequest) Get(ctx context
 func (r *DeviceManagementTroubleshootingEventsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementTroubleshootingEvent) (resObj *DeviceManagementTroubleshootingEvent, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementTroubleshootingEvent collection
+func (r *DeviceManagementTroubleshootingEventsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementTroubleshootingEvent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementTroubleshootingEvent collection
+func (r *DeviceManagementTroubleshootingEventsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementTroubleshootingEvent) error {
+	var resObj []DeviceManagementTroubleshootingEvent
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // UserExperienceAnalyticsBaselines returns request builder for UserExperienceAnalyticsBaseline collection
@@ -10935,6 +12568,22 @@ func (r *DeviceManagementUserExperienceAnalyticsBaselinesCollectionRequest) Add(
 	return
 }
 
+// BatchGet adds Get operation to Batch for UserExperienceAnalyticsBaseline collection
+func (r *DeviceManagementUserExperienceAnalyticsBaselinesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []UserExperienceAnalyticsBaseline
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for UserExperienceAnalyticsBaseline collection
+func (r *DeviceManagementUserExperienceAnalyticsBaselinesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *UserExperienceAnalyticsBaseline) error {
+	var resObj []UserExperienceAnalyticsBaseline
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // UserExperienceAnalyticsCategories returns request builder for UserExperienceAnalyticsCategory collection
 func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsCategories() *DeviceManagementUserExperienceAnalyticsCategoriesCollectionRequestBuilder {
 	bb := &DeviceManagementUserExperienceAnalyticsCategoriesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -11035,6 +12684,22 @@ func (r *DeviceManagementUserExperienceAnalyticsCategoriesCollectionRequest) Get
 func (r *DeviceManagementUserExperienceAnalyticsCategoriesCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsCategory) (resObj *UserExperienceAnalyticsCategory, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for UserExperienceAnalyticsCategory collection
+func (r *DeviceManagementUserExperienceAnalyticsCategoriesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []UserExperienceAnalyticsCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for UserExperienceAnalyticsCategory collection
+func (r *DeviceManagementUserExperienceAnalyticsCategoriesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *UserExperienceAnalyticsCategory) error {
+	var resObj []UserExperienceAnalyticsCategory
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // UserExperienceAnalyticsDevicePerformance returns request builder for UserExperienceAnalyticsDevicePerformance collection
@@ -11139,6 +12804,22 @@ func (r *DeviceManagementUserExperienceAnalyticsDevicePerformanceCollectionReque
 	return
 }
 
+// BatchGet adds Get operation to Batch for UserExperienceAnalyticsDevicePerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsDevicePerformanceCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []UserExperienceAnalyticsDevicePerformance
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for UserExperienceAnalyticsDevicePerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsDevicePerformanceCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *UserExperienceAnalyticsDevicePerformance) error {
+	var resObj []UserExperienceAnalyticsDevicePerformance
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // UserExperienceAnalyticsDeviceStartupHistory returns request builder for UserExperienceAnalyticsDeviceStartupHistory collection
 func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsDeviceStartupHistory() *DeviceManagementUserExperienceAnalyticsDeviceStartupHistoryCollectionRequestBuilder {
 	bb := &DeviceManagementUserExperienceAnalyticsDeviceStartupHistoryCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -11239,6 +12920,22 @@ func (r *DeviceManagementUserExperienceAnalyticsDeviceStartupHistoryCollectionRe
 func (r *DeviceManagementUserExperienceAnalyticsDeviceStartupHistoryCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsDeviceStartupHistory) (resObj *UserExperienceAnalyticsDeviceStartupHistory, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for UserExperienceAnalyticsDeviceStartupHistory collection
+func (r *DeviceManagementUserExperienceAnalyticsDeviceStartupHistoryCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []UserExperienceAnalyticsDeviceStartupHistory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for UserExperienceAnalyticsDeviceStartupHistory collection
+func (r *DeviceManagementUserExperienceAnalyticsDeviceStartupHistoryCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *UserExperienceAnalyticsDeviceStartupHistory) error {
+	var resObj []UserExperienceAnalyticsDeviceStartupHistory
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // UserExperienceAnalyticsOverview is navigation property
@@ -11357,6 +13054,22 @@ func (r *DeviceManagementUserPfxCertificatesCollectionRequest) Add(ctx context.C
 	return
 }
 
+// BatchGet adds Get operation to Batch for UserPFXCertificate collection
+func (r *DeviceManagementUserPfxCertificatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []UserPFXCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for UserPFXCertificate collection
+func (r *DeviceManagementUserPfxCertificatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *UserPFXCertificate) error {
+	var resObj []UserPFXCertificate
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // WindowsAutopilotDeploymentProfiles returns request builder for WindowsAutopilotDeploymentProfile collection
 func (b *DeviceManagementRequestBuilder) WindowsAutopilotDeploymentProfiles() *DeviceManagementWindowsAutopilotDeploymentProfilesCollectionRequestBuilder {
 	bb := &DeviceManagementWindowsAutopilotDeploymentProfilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -11459,6 +13172,22 @@ func (r *DeviceManagementWindowsAutopilotDeploymentProfilesCollectionRequest) Ad
 	return
 }
 
+// BatchGet adds Get operation to Batch for WindowsAutopilotDeploymentProfile collection
+func (r *DeviceManagementWindowsAutopilotDeploymentProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsAutopilotDeploymentProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsAutopilotDeploymentProfile collection
+func (r *DeviceManagementWindowsAutopilotDeploymentProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsAutopilotDeploymentProfile) error {
+	var resObj []WindowsAutopilotDeploymentProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // WindowsAutopilotDeviceIdentities returns request builder for WindowsAutopilotDeviceIdentity collection
 func (b *DeviceManagementRequestBuilder) WindowsAutopilotDeviceIdentities() *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder {
 	bb := &DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -11559,6 +13288,22 @@ func (r *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest) Get(
 func (r *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest) Add(ctx context.Context, reqObj *WindowsAutopilotDeviceIdentity) (resObj *WindowsAutopilotDeviceIdentity, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WindowsAutopilotDeviceIdentity collection
+func (r *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsAutopilotDeviceIdentity
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsAutopilotDeviceIdentity collection
+func (r *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsAutopilotDeviceIdentity) error {
+	var resObj []WindowsAutopilotDeviceIdentity
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // WindowsAutopilotSettings is navigation property
@@ -11670,6 +13415,22 @@ func (r *DeviceManagementWindowsFeatureUpdateProfilesCollectionRequest) Add(ctx 
 	return
 }
 
+// BatchGet adds Get operation to Batch for WindowsFeatureUpdateProfile collection
+func (r *DeviceManagementWindowsFeatureUpdateProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsFeatureUpdateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsFeatureUpdateProfile collection
+func (r *DeviceManagementWindowsFeatureUpdateProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsFeatureUpdateProfile) error {
+	var resObj []WindowsFeatureUpdateProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // WindowsInformationProtectionAppLearningSummaries returns request builder for WindowsInformationProtectionAppLearningSummary collection
 func (b *DeviceManagementRequestBuilder) WindowsInformationProtectionAppLearningSummaries() *DeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionRequestBuilder {
 	bb := &DeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -11770,6 +13531,22 @@ func (r *DeviceManagementWindowsInformationProtectionAppLearningSummariesCollect
 func (r *DeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionRequest) Add(ctx context.Context, reqObj *WindowsInformationProtectionAppLearningSummary) (resObj *WindowsInformationProtectionAppLearningSummary, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WindowsInformationProtectionAppLearningSummary collection
+func (r *DeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsInformationProtectionAppLearningSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsInformationProtectionAppLearningSummary collection
+func (r *DeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsInformationProtectionAppLearningSummary) error {
+	var resObj []WindowsInformationProtectionAppLearningSummary
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // WindowsInformationProtectionNetworkLearningSummaries returns request builder for WindowsInformationProtectionNetworkLearningSummary collection
@@ -11874,6 +13651,22 @@ func (r *DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCol
 	return
 }
 
+// BatchGet adds Get operation to Batch for WindowsInformationProtectionNetworkLearningSummary collection
+func (r *DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsInformationProtectionNetworkLearningSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsInformationProtectionNetworkLearningSummary collection
+func (r *DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsInformationProtectionNetworkLearningSummary) error {
+	var resObj []WindowsInformationProtectionNetworkLearningSummary
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // WindowsMalwareInformation returns request builder for WindowsMalwareInformation collection
 func (b *DeviceManagementRequestBuilder) WindowsMalwareInformation() *DeviceManagementWindowsMalwareInformationCollectionRequestBuilder {
 	bb := &DeviceManagementWindowsMalwareInformationCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -11974,6 +13767,22 @@ func (r *DeviceManagementWindowsMalwareInformationCollectionRequest) Get(ctx con
 func (r *DeviceManagementWindowsMalwareInformationCollectionRequest) Add(ctx context.Context, reqObj *WindowsMalwareInformation) (resObj *WindowsMalwareInformation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WindowsMalwareInformation collection
+func (r *DeviceManagementWindowsMalwareInformationCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsMalwareInformation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsMalwareInformation collection
+func (r *DeviceManagementWindowsMalwareInformationCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsMalwareInformation) error {
+	var resObj []WindowsMalwareInformation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Value returns request builder for DeviceManagementSettingInstance collection
@@ -12078,6 +13887,22 @@ func (r *DeviceManagementAbstractComplexSettingInstanceValueCollectionRequest) A
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementSettingInstance collection
+func (r *DeviceManagementAbstractComplexSettingInstanceValueCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementSettingInstance
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementSettingInstance collection
+func (r *DeviceManagementAbstractComplexSettingInstanceValueCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementSettingInstance) error {
+	var resObj []DeviceManagementSettingInstance
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Value returns request builder for DeviceManagementSettingInstance collection
 func (b *DeviceManagementCollectionSettingInstanceRequestBuilder) Value() *DeviceManagementCollectionSettingInstanceValueCollectionRequestBuilder {
 	bb := &DeviceManagementCollectionSettingInstanceValueCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -12180,6 +14005,22 @@ func (r *DeviceManagementCollectionSettingInstanceValueCollectionRequest) Add(ct
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementSettingInstance collection
+func (r *DeviceManagementCollectionSettingInstanceValueCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementSettingInstance
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementSettingInstance collection
+func (r *DeviceManagementCollectionSettingInstanceValueCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementSettingInstance) error {
+	var resObj []DeviceManagementSettingInstance
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Value returns request builder for DeviceManagementSettingInstance collection
 func (b *DeviceManagementComplexSettingInstanceRequestBuilder) Value() *DeviceManagementComplexSettingInstanceValueCollectionRequestBuilder {
 	bb := &DeviceManagementComplexSettingInstanceValueCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -12280,6 +14121,22 @@ func (r *DeviceManagementComplexSettingInstanceValueCollectionRequest) Get(ctx c
 func (r *DeviceManagementComplexSettingInstanceValueCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementSettingInstance collection
+func (r *DeviceManagementComplexSettingInstanceValueCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementSettingInstance
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementSettingInstance collection
+func (r *DeviceManagementComplexSettingInstanceValueCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementSettingInstance) error {
+	var resObj []DeviceManagementSettingInstance
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ConditionalAccessSettings is navigation property
@@ -12391,6 +14248,22 @@ func (r *DeviceManagementIntentAssignmentsCollectionRequest) Add(ctx context.Con
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementIntentAssignment collection
+func (r *DeviceManagementIntentAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementIntentAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementIntentAssignment collection
+func (r *DeviceManagementIntentAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementIntentAssignment) error {
+	var resObj []DeviceManagementIntentAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Categories returns request builder for DeviceManagementIntentSettingCategory collection
 func (b *DeviceManagementIntentRequestBuilder) Categories() *DeviceManagementIntentCategoriesCollectionRequestBuilder {
 	bb := &DeviceManagementIntentCategoriesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -12493,6 +14366,22 @@ func (r *DeviceManagementIntentCategoriesCollectionRequest) Add(ctx context.Cont
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementIntentSettingCategory collection
+func (r *DeviceManagementIntentCategoriesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementIntentSettingCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementIntentSettingCategory collection
+func (r *DeviceManagementIntentCategoriesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementIntentSettingCategory) error {
+	var resObj []DeviceManagementIntentSettingCategory
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceSettingStateSummaries returns request builder for DeviceManagementIntentDeviceSettingStateSummary collection
 func (b *DeviceManagementIntentRequestBuilder) DeviceSettingStateSummaries() *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequestBuilder {
 	bb := &DeviceManagementIntentDeviceSettingStateSummariesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -12593,6 +14482,22 @@ func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Get
 func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementIntentDeviceSettingStateSummary) (resObj *DeviceManagementIntentDeviceSettingStateSummary, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementIntentDeviceSettingStateSummary collection
+func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementIntentDeviceSettingStateSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementIntentDeviceSettingStateSummary collection
+func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementIntentDeviceSettingStateSummary) error {
+	var resObj []DeviceManagementIntentDeviceSettingStateSummary
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeviceStateSummary is navigation property
@@ -12704,6 +14609,22 @@ func (r *DeviceManagementIntentDeviceStatesCollectionRequest) Add(ctx context.Co
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementIntentDeviceState collection
+func (r *DeviceManagementIntentDeviceStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementIntentDeviceState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementIntentDeviceState collection
+func (r *DeviceManagementIntentDeviceStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementIntentDeviceState) error {
+	var resObj []DeviceManagementIntentDeviceState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Settings returns request builder for DeviceManagementSettingInstance collection
 func (b *DeviceManagementIntentRequestBuilder) Settings() *DeviceManagementIntentSettingsCollectionRequestBuilder {
 	bb := &DeviceManagementIntentSettingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -12804,6 +14725,22 @@ func (r *DeviceManagementIntentSettingsCollectionRequest) Get(ctx context.Contex
 func (r *DeviceManagementIntentSettingsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementSettingInstance collection
+func (r *DeviceManagementIntentSettingsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementSettingInstance
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementSettingInstance collection
+func (r *DeviceManagementIntentSettingsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementSettingInstance) error {
+	var resObj []DeviceManagementSettingInstance
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // UserStateSummary is navigation property
@@ -12915,6 +14852,22 @@ func (r *DeviceManagementIntentUserStatesCollectionRequest) Add(ctx context.Cont
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementIntentUserState collection
+func (r *DeviceManagementIntentUserStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementIntentUserState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementIntentUserState collection
+func (r *DeviceManagementIntentUserStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementIntentUserState) error {
+	var resObj []DeviceManagementIntentUserState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Settings returns request builder for DeviceManagementSettingInstance collection
 func (b *DeviceManagementIntentSettingCategoryRequestBuilder) Settings() *DeviceManagementIntentSettingCategorySettingsCollectionRequestBuilder {
 	bb := &DeviceManagementIntentSettingCategorySettingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -13015,6 +14968,22 @@ func (r *DeviceManagementIntentSettingCategorySettingsCollectionRequest) Get(ctx
 func (r *DeviceManagementIntentSettingCategorySettingsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementSettingInstance collection
+func (r *DeviceManagementIntentSettingCategorySettingsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementSettingInstance
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementSettingInstance collection
+func (r *DeviceManagementIntentSettingCategorySettingsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementSettingInstance) error {
+	var resObj []DeviceManagementSettingInstance
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // CachedReportConfigurations returns request builder for DeviceManagementCachedReportConfiguration collection
@@ -13119,6 +15088,22 @@ func (r *DeviceManagementReportsCachedReportConfigurationsCollectionRequest) Add
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementCachedReportConfiguration collection
+func (r *DeviceManagementReportsCachedReportConfigurationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementCachedReportConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementCachedReportConfiguration collection
+func (r *DeviceManagementReportsCachedReportConfigurationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementCachedReportConfiguration) error {
+	var resObj []DeviceManagementCachedReportConfiguration
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ExportJobs returns request builder for DeviceManagementExportJob collection
 func (b *DeviceManagementReportsRequestBuilder) ExportJobs() *DeviceManagementReportsExportJobsCollectionRequestBuilder {
 	bb := &DeviceManagementReportsExportJobsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -13219,6 +15204,22 @@ func (r *DeviceManagementReportsExportJobsCollectionRequest) Get(ctx context.Con
 func (r *DeviceManagementReportsExportJobsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementExportJob) (resObj *DeviceManagementExportJob, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementExportJob collection
+func (r *DeviceManagementReportsExportJobsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementExportJob
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementExportJob collection
+func (r *DeviceManagementReportsExportJobsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementExportJob) error {
+	var resObj []DeviceManagementExportJob
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ReportSchedules returns request builder for DeviceManagementReportSchedule collection
@@ -13323,6 +15324,22 @@ func (r *DeviceManagementReportsReportSchedulesCollectionRequest) Add(ctx contex
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementReportSchedule collection
+func (r *DeviceManagementReportsReportSchedulesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementReportSchedule
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementReportSchedule collection
+func (r *DeviceManagementReportsReportSchedulesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementReportSchedule) error {
+	var resObj []DeviceManagementReportSchedule
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Assignments returns request builder for DeviceManagementScriptAssignment collection
 func (b *DeviceManagementScriptRequestBuilder) Assignments() *DeviceManagementScriptAssignmentsCollectionRequestBuilder {
 	bb := &DeviceManagementScriptAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -13423,6 +15440,22 @@ func (r *DeviceManagementScriptAssignmentsCollectionRequest) Get(ctx context.Con
 func (r *DeviceManagementScriptAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementScriptAssignment) (resObj *DeviceManagementScriptAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementScriptAssignment collection
+func (r *DeviceManagementScriptAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementScriptAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementScriptAssignment collection
+func (r *DeviceManagementScriptAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementScriptAssignment) error {
+	var resObj []DeviceManagementScriptAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeviceRunStates returns request builder for DeviceManagementScriptDeviceState collection
@@ -13527,6 +15560,22 @@ func (r *DeviceManagementScriptDeviceRunStatesCollectionRequest) Add(ctx context
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementScriptDeviceState collection
+func (r *DeviceManagementScriptDeviceRunStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementScriptDeviceState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementScriptDeviceState collection
+func (r *DeviceManagementScriptDeviceRunStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementScriptDeviceState) error {
+	var resObj []DeviceManagementScriptDeviceState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // GroupAssignments returns request builder for DeviceManagementScriptGroupAssignment collection
 func (b *DeviceManagementScriptRequestBuilder) GroupAssignments() *DeviceManagementScriptGroupAssignmentsCollectionRequestBuilder {
 	bb := &DeviceManagementScriptGroupAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -13627,6 +15676,22 @@ func (r *DeviceManagementScriptGroupAssignmentsCollectionRequest) Get(ctx contex
 func (r *DeviceManagementScriptGroupAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementScriptGroupAssignment) (resObj *DeviceManagementScriptGroupAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementScriptGroupAssignment collection
+func (r *DeviceManagementScriptGroupAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementScriptGroupAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementScriptGroupAssignment collection
+func (r *DeviceManagementScriptGroupAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementScriptGroupAssignment) error {
+	var resObj []DeviceManagementScriptGroupAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // RunSummary is navigation property
@@ -13738,6 +15803,22 @@ func (r *DeviceManagementScriptUserRunStatesCollectionRequest) Add(ctx context.C
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementScriptUserState collection
+func (r *DeviceManagementScriptUserRunStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementScriptUserState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementScriptUserState collection
+func (r *DeviceManagementScriptUserRunStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementScriptUserState) error {
+	var resObj []DeviceManagementScriptUserState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedDevice is navigation property
 func (b *DeviceManagementScriptDeviceStateRequestBuilder) ManagedDevice() *ManagedDeviceRequestBuilder {
 	bb := &ManagedDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -13847,6 +15928,22 @@ func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Add(ct
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementScriptDeviceState collection
+func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementScriptDeviceState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementScriptDeviceState collection
+func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementScriptDeviceState) error {
+	var resObj []DeviceManagementScriptDeviceState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SettingDefinitions returns request builder for DeviceManagementSettingDefinition collection
 func (b *DeviceManagementSettingCategoryRequestBuilder) SettingDefinitions() *DeviceManagementSettingCategorySettingDefinitionsCollectionRequestBuilder {
 	bb := &DeviceManagementSettingCategorySettingDefinitionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -13947,6 +16044,22 @@ func (r *DeviceManagementSettingCategorySettingDefinitionsCollectionRequest) Get
 func (r *DeviceManagementSettingCategorySettingDefinitionsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementSettingDefinition) (resObj *DeviceManagementSettingDefinition, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementSettingDefinition collection
+func (r *DeviceManagementSettingCategorySettingDefinitionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementSettingDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementSettingDefinition collection
+func (r *DeviceManagementSettingCategorySettingDefinitionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementSettingDefinition) error {
+	var resObj []DeviceManagementSettingDefinition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Categories returns request builder for DeviceManagementTemplateSettingCategory collection
@@ -14051,6 +16164,22 @@ func (r *DeviceManagementTemplateCategoriesCollectionRequest) Add(ctx context.Co
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementTemplateSettingCategory collection
+func (r *DeviceManagementTemplateCategoriesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementTemplateSettingCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementTemplateSettingCategory collection
+func (r *DeviceManagementTemplateCategoriesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementTemplateSettingCategory) error {
+	var resObj []DeviceManagementTemplateSettingCategory
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MigratableTo returns request builder for DeviceManagementTemplate collection
 func (b *DeviceManagementTemplateRequestBuilder) MigratableTo() *DeviceManagementTemplateMigratableToCollectionRequestBuilder {
 	bb := &DeviceManagementTemplateMigratableToCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -14151,6 +16280,22 @@ func (r *DeviceManagementTemplateMigratableToCollectionRequest) Get(ctx context.
 func (r *DeviceManagementTemplateMigratableToCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementTemplate) (resObj *DeviceManagementTemplate, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementTemplate collection
+func (r *DeviceManagementTemplateMigratableToCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementTemplate collection
+func (r *DeviceManagementTemplateMigratableToCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementTemplate) error {
+	var resObj []DeviceManagementTemplate
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Settings returns request builder for DeviceManagementSettingInstance collection
@@ -14255,6 +16400,22 @@ func (r *DeviceManagementTemplateSettingsCollectionRequest) Add(ctx context.Cont
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementSettingInstance collection
+func (r *DeviceManagementTemplateSettingsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementSettingInstance
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementSettingInstance collection
+func (r *DeviceManagementTemplateSettingsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementSettingInstance) error {
+	var resObj []DeviceManagementSettingInstance
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // RecommendedSettings returns request builder for DeviceManagementSettingInstance collection
 func (b *DeviceManagementTemplateSettingCategoryRequestBuilder) RecommendedSettings() *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionRequestBuilder {
 	bb := &DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -14355,4 +16516,20 @@ func (r *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionReq
 func (r *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementSettingInstance collection
+func (r *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceManagementSettingInstance
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceManagementSettingInstance collection
+func (r *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceManagementSettingInstance) error {
+	var resObj []DeviceManagementSettingInstance
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

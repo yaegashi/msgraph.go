@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -42,6 +43,26 @@ func (r *PermissionRequest) Update(ctx context.Context, reqObj *Permission) erro
 // Delete performs DELETE request for Permission
 func (r *PermissionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Permission
+func (r *PermissionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Permission
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Permission
+func (r *PermissionRequest) BatchUpdate(batch *BatchRequest, reqObj *Permission) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Permission
+func (r *PermissionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -128,4 +149,10 @@ func (r *PermissionGrantRequest) PostN(ctx context.Context, n int) ([]Permission
 //
 func (r *PermissionGrantRequest) Post(ctx context.Context) ([]Permission, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+func (r *PermissionGrantRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []Permission
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

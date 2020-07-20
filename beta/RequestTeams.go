@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // TeamsAppRequestBuilder is request builder for TeamsApp
 type TeamsAppRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *TeamsAppRequest) Update(ctx context.Context, reqObj *TeamsApp) error {
 // Delete performs DELETE request for TeamsApp
 func (r *TeamsAppRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for TeamsApp
+func (r *TeamsAppRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TeamsApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TeamsApp
+func (r *TeamsAppRequest) BatchUpdate(batch *BatchRequest, reqObj *TeamsApp) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TeamsApp
+func (r *TeamsAppRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // TeamsAppDefinitionRequestBuilder is request builder for TeamsAppDefinition
@@ -70,6 +93,26 @@ func (r *TeamsAppDefinitionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for TeamsAppDefinition
+func (r *TeamsAppDefinitionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TeamsAppDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TeamsAppDefinition
+func (r *TeamsAppDefinitionRequest) BatchUpdate(batch *BatchRequest, reqObj *TeamsAppDefinition) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TeamsAppDefinition
+func (r *TeamsAppDefinitionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // TeamsAppInstallationRequestBuilder is request builder for TeamsAppInstallation
 type TeamsAppInstallationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *TeamsAppInstallationRequest) Update(ctx context.Context, reqObj *TeamsA
 // Delete performs DELETE request for TeamsAppInstallation
 func (r *TeamsAppInstallationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for TeamsAppInstallation
+func (r *TeamsAppInstallationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TeamsAppInstallation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TeamsAppInstallation
+func (r *TeamsAppInstallationRequest) BatchUpdate(batch *BatchRequest, reqObj *TeamsAppInstallation) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TeamsAppInstallation
+func (r *TeamsAppInstallationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // TeamsAsyncOperationRequestBuilder is request builder for TeamsAsyncOperation
@@ -136,6 +199,26 @@ func (r *TeamsAsyncOperationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for TeamsAsyncOperation
+func (r *TeamsAsyncOperationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TeamsAsyncOperation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TeamsAsyncOperation
+func (r *TeamsAsyncOperationRequest) BatchUpdate(batch *BatchRequest, reqObj *TeamsAsyncOperation) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TeamsAsyncOperation
+func (r *TeamsAsyncOperationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // TeamsCatalogAppRequestBuilder is request builder for TeamsCatalogApp
 type TeamsCatalogAppRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,6 +250,26 @@ func (r *TeamsCatalogAppRequest) Update(ctx context.Context, reqObj *TeamsCatalo
 // Delete performs DELETE request for TeamsCatalogApp
 func (r *TeamsCatalogAppRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for TeamsCatalogApp
+func (r *TeamsCatalogAppRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TeamsCatalogApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TeamsCatalogApp
+func (r *TeamsCatalogAppRequest) BatchUpdate(batch *BatchRequest, reqObj *TeamsCatalogApp) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TeamsCatalogApp
+func (r *TeamsCatalogAppRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // TeamsTabRequestBuilder is request builder for TeamsTab
@@ -202,6 +305,26 @@ func (r *TeamsTabRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for TeamsTab
+func (r *TeamsTabRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TeamsTab
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TeamsTab
+func (r *TeamsTabRequest) BatchUpdate(batch *BatchRequest, reqObj *TeamsTab) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TeamsTab
+func (r *TeamsTabRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // TeamsTemplateRequestBuilder is request builder for TeamsTemplate
 type TeamsTemplateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -235,6 +358,26 @@ func (r *TeamsTemplateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for TeamsTemplate
+func (r *TeamsTemplateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TeamsTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TeamsTemplate
+func (r *TeamsTemplateRequest) BatchUpdate(batch *BatchRequest, reqObj *TeamsTemplate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TeamsTemplate
+func (r *TeamsTemplateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type TeamsAppInstallationUpgradeRequestBuilder struct{ BaseRequestBuilder }
 
@@ -259,4 +402,9 @@ func (b *TeamsAppInstallationUpgradeRequestBuilder) Request() *TeamsAppInstallat
 //
 func (r *TeamsAppInstallationUpgradeRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *TeamsAppInstallationUpgradeRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

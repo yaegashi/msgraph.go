@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ScopedRoleMembershipRequestBuilder is request builder for ScopedRoleMembership
 type ScopedRoleMembershipRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *ScopedRoleMembershipRequest) Update(ctx context.Context, reqObj *Scoped
 // Delete performs DELETE request for ScopedRoleMembership
 func (r *ScopedRoleMembershipRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ScopedRoleMembership
+func (r *ScopedRoleMembershipRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ScopedRoleMembership
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ScopedRoleMembership
+func (r *ScopedRoleMembershipRequest) BatchUpdate(batch *BatchRequest, reqObj *ScopedRoleMembership) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ScopedRoleMembership
+func (r *ScopedRoleMembershipRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *InformationProtectionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for InformationProtection
+func (r *InformationProtectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj InformationProtection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for InformationProtection
+func (r *InformationProtectionRequest) BatchUpdate(batch *BatchRequest, reqObj *InformationProtection) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for InformationProtection
+func (r *InformationProtectionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // InformationProtectionLabelRequestBuilder is request builder for InformationProtectionLabel
 type InformationProtectionLabelRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *InformationProtectionLabelRequest) Update(ctx context.Context, reqObj *
 // Delete performs DELETE request for InformationProtectionLabel
 func (r *InformationProtectionLabelRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for InformationProtectionLabel
+func (r *InformationProtectionLabelRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj InformationProtectionLabel
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for InformationProtectionLabel
+func (r *InformationProtectionLabelRequest) BatchUpdate(batch *BatchRequest, reqObj *InformationProtectionLabel) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for InformationProtectionLabel
+func (r *InformationProtectionLabelRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // InformationProtectionPolicyRequestBuilder is request builder for InformationProtectionPolicy
@@ -110,6 +151,26 @@ func (r *InformationProtectionPolicyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for InformationProtectionPolicy
+func (r *InformationProtectionPolicyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj InformationProtectionPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for InformationProtectionPolicy
+func (r *InformationProtectionPolicyRequest) BatchUpdate(batch *BatchRequest, reqObj *InformationProtectionPolicy) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for InformationProtectionPolicy
+func (r *InformationProtectionPolicyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type InformationProtectionLabelCollectionExtractLabelRequestBuilder struct{ BaseRequestBuilder }
 
@@ -135,6 +196,12 @@ func (b *InformationProtectionLabelCollectionExtractLabelRequestBuilder) Request
 func (r *InformationProtectionLabelCollectionExtractLabelRequest) Post(ctx context.Context) (resObj *InformationProtectionContentLabel, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *InformationProtectionLabelCollectionExtractLabelRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *InformationProtectionContentLabel
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -224,6 +291,12 @@ func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Post(ct
 }
 
 //
+func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []InformationProtectionAction
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type InformationProtectionLabelCollectionEvaluateRemovalRequestBuilder struct{ BaseRequestBuilder }
 
 // EvaluateRemoval action undocumented
@@ -307,6 +380,12 @@ func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) PostN(ctx c
 //
 func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Post(ctx context.Context) ([]InformationProtectionAction, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []InformationProtectionAction
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -396,6 +475,12 @@ func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsReques
 }
 
 //
+func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []InformationProtectionAction
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type InformationProtectionEvaluateLabelsAndPoliciesRequestBuilder struct{ BaseRequestBuilder }
 
 // EvaluateLabelsAndPolicies action undocumented
@@ -420,4 +505,10 @@ func (b *InformationProtectionEvaluateLabelsAndPoliciesRequestBuilder) Request()
 func (r *InformationProtectionEvaluateLabelsAndPoliciesRequest) Post(ctx context.Context) (resObj *EvaluateLabelsAndPoliciesJobResponse, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *InformationProtectionEvaluateLabelsAndPoliciesRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *EvaluateLabelsAndPoliciesJobResponse
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ConditionalAccessPolicyRequestBuilder is request builder for ConditionalAccessPolicy
 type ConditionalAccessPolicyRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *ConditionalAccessPolicyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ConditionalAccessPolicy
+func (r *ConditionalAccessPolicyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ConditionalAccessPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ConditionalAccessPolicy
+func (r *ConditionalAccessPolicyRequest) BatchUpdate(batch *BatchRequest, reqObj *ConditionalAccessPolicy) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ConditionalAccessPolicy
+func (r *ConditionalAccessPolicyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ConditionalAccessRootRequestBuilder is request builder for ConditionalAccessRoot
 type ConditionalAccessRootRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *ConditionalAccessRootRequest) Update(ctx context.Context, reqObj *Condi
 // Delete performs DELETE request for ConditionalAccessRoot
 func (r *ConditionalAccessRootRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ConditionalAccessRoot
+func (r *ConditionalAccessRootRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ConditionalAccessRoot
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ConditionalAccessRoot
+func (r *ConditionalAccessRootRequest) BatchUpdate(batch *BatchRequest, reqObj *ConditionalAccessRoot) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ConditionalAccessRoot
+func (r *ConditionalAccessRootRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

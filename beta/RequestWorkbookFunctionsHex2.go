@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsHex2BinRequestBuilder struct{ BaseRequestBuilder }
@@ -29,6 +32,12 @@ func (b *WorkbookFunctionsHex2BinRequestBuilder) Request() *WorkbookFunctionsHex
 func (r *WorkbookFunctionsHex2BinRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsHex2BinRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -59,6 +68,12 @@ func (r *WorkbookFunctionsHex2DecRequest) Post(ctx context.Context) (resObj *Wor
 }
 
 //
+func (r *WorkbookFunctionsHex2DecRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsHex2OctRequestBuilder struct{ BaseRequestBuilder }
 
 // Hex2Oct action undocumented
@@ -83,4 +98,10 @@ func (b *WorkbookFunctionsHex2OctRequestBuilder) Request() *WorkbookFunctionsHex
 func (r *WorkbookFunctionsHex2OctRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsHex2OctRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

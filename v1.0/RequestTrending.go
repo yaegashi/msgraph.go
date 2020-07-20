@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // TrendingRequestBuilder is request builder for Trending
 type TrendingRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *TrendingRequest) Update(ctx context.Context, reqObj *Trending) error {
 // Delete performs DELETE request for Trending
 func (r *TrendingRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Trending
+func (r *TrendingRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Trending
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Trending
+func (r *TrendingRequest) BatchUpdate(batch *BatchRequest, reqObj *Trending) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Trending
+func (r *TrendingRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

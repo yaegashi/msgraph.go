@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // AgedAccountsPayableRequestBuilder is request builder for AgedAccountsPayable
 type AgedAccountsPayableRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *AgedAccountsPayableRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AgedAccountsPayable
+func (r *AgedAccountsPayableRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AgedAccountsPayable
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AgedAccountsPayable
+func (r *AgedAccountsPayableRequest) BatchUpdate(batch *BatchRequest, reqObj *AgedAccountsPayable) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AgedAccountsPayable
+func (r *AgedAccountsPayableRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AgedAccountsReceivableRequestBuilder is request builder for AgedAccountsReceivable
 type AgedAccountsReceivableRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *AgedAccountsReceivableRequest) Update(ctx context.Context, reqObj *Aged
 // Delete performs DELETE request for AgedAccountsReceivable
 func (r *AgedAccountsReceivableRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AgedAccountsReceivable
+func (r *AgedAccountsReceivableRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AgedAccountsReceivable
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AgedAccountsReceivable
+func (r *AgedAccountsReceivableRequest) BatchUpdate(batch *BatchRequest, reqObj *AgedAccountsReceivable) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AgedAccountsReceivable
+func (r *AgedAccountsReceivableRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

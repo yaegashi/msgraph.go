@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *CompanyAccountsCollectionRequest) Add(ctx context.Context, reqObj *Acco
 	return
 }
 
+// BatchGet adds Get operation to Batch for Account collection
+func (r *CompanyAccountsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Account
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Account collection
+func (r *CompanyAccountsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Account) error {
+	var resObj []Account
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AgedAccountsPayable returns request builder for AgedAccountsPayable collection
 func (b *CompanyRequestBuilder) AgedAccountsPayable() *CompanyAgedAccountsPayableCollectionRequestBuilder {
 	bb := &CompanyAgedAccountsPayableCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,6 +230,22 @@ func (r *CompanyAgedAccountsPayableCollectionRequest) Get(ctx context.Context) (
 func (r *CompanyAgedAccountsPayableCollectionRequest) Add(ctx context.Context, reqObj *AgedAccountsPayable) (resObj *AgedAccountsPayable, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AgedAccountsPayable collection
+func (r *CompanyAgedAccountsPayableCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AgedAccountsPayable
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AgedAccountsPayable collection
+func (r *CompanyAgedAccountsPayableCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AgedAccountsPayable) error {
+	var resObj []AgedAccountsPayable
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // AgedAccountsReceivable returns request builder for AgedAccountsReceivable collection
@@ -317,6 +350,22 @@ func (r *CompanyAgedAccountsReceivableCollectionRequest) Add(ctx context.Context
 	return
 }
 
+// BatchGet adds Get operation to Batch for AgedAccountsReceivable collection
+func (r *CompanyAgedAccountsReceivableCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AgedAccountsReceivable
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AgedAccountsReceivable collection
+func (r *CompanyAgedAccountsReceivableCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AgedAccountsReceivable) error {
+	var resObj []AgedAccountsReceivable
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // CompanyInformation returns request builder for CompanyInformation collection
 func (b *CompanyRequestBuilder) CompanyInformation() *CompanyCompanyInformationCollectionRequestBuilder {
 	bb := &CompanyCompanyInformationCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -417,6 +466,22 @@ func (r *CompanyCompanyInformationCollectionRequest) Get(ctx context.Context) ([
 func (r *CompanyCompanyInformationCollectionRequest) Add(ctx context.Context, reqObj *CompanyInformation) (resObj *CompanyInformation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for CompanyInformation collection
+func (r *CompanyCompanyInformationCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []CompanyInformation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for CompanyInformation collection
+func (r *CompanyCompanyInformationCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *CompanyInformation) error {
+	var resObj []CompanyInformation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // CountriesRegions returns request builder for CountryRegion collection
@@ -521,6 +586,22 @@ func (r *CompanyCountriesRegionsCollectionRequest) Add(ctx context.Context, reqO
 	return
 }
 
+// BatchGet adds Get operation to Batch for CountryRegion collection
+func (r *CompanyCountriesRegionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []CountryRegion
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for CountryRegion collection
+func (r *CompanyCountriesRegionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *CountryRegion) error {
+	var resObj []CountryRegion
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Currencies returns request builder for Currency collection
 func (b *CompanyRequestBuilder) Currencies() *CompanyCurrenciesCollectionRequestBuilder {
 	bb := &CompanyCurrenciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -621,6 +702,22 @@ func (r *CompanyCurrenciesCollectionRequest) Get(ctx context.Context) ([]Currenc
 func (r *CompanyCurrenciesCollectionRequest) Add(ctx context.Context, reqObj *Currency) (resObj *Currency, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Currency collection
+func (r *CompanyCurrenciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Currency
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Currency collection
+func (r *CompanyCurrenciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Currency) error {
+	var resObj []Currency
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // CustomerPaymentJournals returns request builder for CustomerPaymentJournal collection
@@ -725,6 +822,22 @@ func (r *CompanyCustomerPaymentJournalsCollectionRequest) Add(ctx context.Contex
 	return
 }
 
+// BatchGet adds Get operation to Batch for CustomerPaymentJournal collection
+func (r *CompanyCustomerPaymentJournalsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []CustomerPaymentJournal
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for CustomerPaymentJournal collection
+func (r *CompanyCustomerPaymentJournalsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *CustomerPaymentJournal) error {
+	var resObj []CustomerPaymentJournal
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // CustomerPayments returns request builder for CustomerPayment collection
 func (b *CompanyRequestBuilder) CustomerPayments() *CompanyCustomerPaymentsCollectionRequestBuilder {
 	bb := &CompanyCustomerPaymentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -825,6 +938,22 @@ func (r *CompanyCustomerPaymentsCollectionRequest) Get(ctx context.Context) ([]C
 func (r *CompanyCustomerPaymentsCollectionRequest) Add(ctx context.Context, reqObj *CustomerPayment) (resObj *CustomerPayment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for CustomerPayment collection
+func (r *CompanyCustomerPaymentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []CustomerPayment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for CustomerPayment collection
+func (r *CompanyCustomerPaymentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *CustomerPayment) error {
+	var resObj []CustomerPayment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Customers returns request builder for Customer collection
@@ -929,6 +1058,22 @@ func (r *CompanyCustomersCollectionRequest) Add(ctx context.Context, reqObj *Cus
 	return
 }
 
+// BatchGet adds Get operation to Batch for Customer collection
+func (r *CompanyCustomersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Customer
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Customer collection
+func (r *CompanyCustomersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Customer) error {
+	var resObj []Customer
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DimensionValues returns request builder for DimensionValue collection
 func (b *CompanyRequestBuilder) DimensionValues() *CompanyDimensionValuesCollectionRequestBuilder {
 	bb := &CompanyDimensionValuesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1029,6 +1174,22 @@ func (r *CompanyDimensionValuesCollectionRequest) Get(ctx context.Context) ([]Di
 func (r *CompanyDimensionValuesCollectionRequest) Add(ctx context.Context, reqObj *DimensionValue) (resObj *DimensionValue, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DimensionValue collection
+func (r *CompanyDimensionValuesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DimensionValue
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DimensionValue collection
+func (r *CompanyDimensionValuesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DimensionValue) error {
+	var resObj []DimensionValue
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Dimensions returns request builder for Dimension collection
@@ -1133,6 +1294,22 @@ func (r *CompanyDimensionsCollectionRequest) Add(ctx context.Context, reqObj *Di
 	return
 }
 
+// BatchGet adds Get operation to Batch for Dimension collection
+func (r *CompanyDimensionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Dimension
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Dimension collection
+func (r *CompanyDimensionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Dimension) error {
+	var resObj []Dimension
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Employees returns request builder for Employee collection
 func (b *CompanyRequestBuilder) Employees() *CompanyEmployeesCollectionRequestBuilder {
 	bb := &CompanyEmployeesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1233,6 +1410,22 @@ func (r *CompanyEmployeesCollectionRequest) Get(ctx context.Context) ([]Employee
 func (r *CompanyEmployeesCollectionRequest) Add(ctx context.Context, reqObj *Employee) (resObj *Employee, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Employee collection
+func (r *CompanyEmployeesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Employee
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Employee collection
+func (r *CompanyEmployeesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Employee) error {
+	var resObj []Employee
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // GeneralLedgerEntries returns request builder for GeneralLedgerEntry collection
@@ -1337,6 +1530,22 @@ func (r *CompanyGeneralLedgerEntriesCollectionRequest) Add(ctx context.Context, 
 	return
 }
 
+// BatchGet adds Get operation to Batch for GeneralLedgerEntry collection
+func (r *CompanyGeneralLedgerEntriesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GeneralLedgerEntry
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GeneralLedgerEntry collection
+func (r *CompanyGeneralLedgerEntriesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GeneralLedgerEntry) error {
+	var resObj []GeneralLedgerEntry
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ItemCategories returns request builder for ItemCategory collection
 func (b *CompanyRequestBuilder) ItemCategories() *CompanyItemCategoriesCollectionRequestBuilder {
 	bb := &CompanyItemCategoriesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1437,6 +1646,22 @@ func (r *CompanyItemCategoriesCollectionRequest) Get(ctx context.Context) ([]Ite
 func (r *CompanyItemCategoriesCollectionRequest) Add(ctx context.Context, reqObj *ItemCategory) (resObj *ItemCategory, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ItemCategory collection
+func (r *CompanyItemCategoriesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ItemCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ItemCategory collection
+func (r *CompanyItemCategoriesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ItemCategory) error {
+	var resObj []ItemCategory
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Items returns request builder for Item collection
@@ -1541,6 +1766,22 @@ func (r *CompanyItemsCollectionRequest) Add(ctx context.Context, reqObj *Item) (
 	return
 }
 
+// BatchGet adds Get operation to Batch for Item collection
+func (r *CompanyItemsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Item
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Item collection
+func (r *CompanyItemsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Item) error {
+	var resObj []Item
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // JournalLines returns request builder for JournalLine collection
 func (b *CompanyRequestBuilder) JournalLines() *CompanyJournalLinesCollectionRequestBuilder {
 	bb := &CompanyJournalLinesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1641,6 +1882,22 @@ func (r *CompanyJournalLinesCollectionRequest) Get(ctx context.Context) ([]Journ
 func (r *CompanyJournalLinesCollectionRequest) Add(ctx context.Context, reqObj *JournalLine) (resObj *JournalLine, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for JournalLine collection
+func (r *CompanyJournalLinesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []JournalLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for JournalLine collection
+func (r *CompanyJournalLinesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *JournalLine) error {
+	var resObj []JournalLine
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Journals returns request builder for Journal collection
@@ -1745,6 +2002,22 @@ func (r *CompanyJournalsCollectionRequest) Add(ctx context.Context, reqObj *Jour
 	return
 }
 
+// BatchGet adds Get operation to Batch for Journal collection
+func (r *CompanyJournalsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Journal
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Journal collection
+func (r *CompanyJournalsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Journal) error {
+	var resObj []Journal
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // PaymentMethods returns request builder for PaymentMethod collection
 func (b *CompanyRequestBuilder) PaymentMethods() *CompanyPaymentMethodsCollectionRequestBuilder {
 	bb := &CompanyPaymentMethodsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1845,6 +2118,22 @@ func (r *CompanyPaymentMethodsCollectionRequest) Get(ctx context.Context) ([]Pay
 func (r *CompanyPaymentMethodsCollectionRequest) Add(ctx context.Context, reqObj *PaymentMethod) (resObj *PaymentMethod, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for PaymentMethod collection
+func (r *CompanyPaymentMethodsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PaymentMethod
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PaymentMethod collection
+func (r *CompanyPaymentMethodsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PaymentMethod) error {
+	var resObj []PaymentMethod
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // PaymentTerms returns request builder for PaymentTerm collection
@@ -1949,6 +2238,22 @@ func (r *CompanyPaymentTermsCollectionRequest) Add(ctx context.Context, reqObj *
 	return
 }
 
+// BatchGet adds Get operation to Batch for PaymentTerm collection
+func (r *CompanyPaymentTermsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PaymentTerm
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PaymentTerm collection
+func (r *CompanyPaymentTermsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PaymentTerm) error {
+	var resObj []PaymentTerm
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Picture returns request builder for Picture collection
 func (b *CompanyRequestBuilder) Picture() *CompanyPictureCollectionRequestBuilder {
 	bb := &CompanyPictureCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2049,6 +2354,22 @@ func (r *CompanyPictureCollectionRequest) Get(ctx context.Context) ([]Picture, e
 func (r *CompanyPictureCollectionRequest) Add(ctx context.Context, reqObj *Picture) (resObj *Picture, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Picture collection
+func (r *CompanyPictureCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Picture
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Picture collection
+func (r *CompanyPictureCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Picture) error {
+	var resObj []Picture
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // PurchaseInvoiceLines returns request builder for PurchaseInvoiceLine collection
@@ -2153,6 +2474,22 @@ func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Add(ctx context.Context, 
 	return
 }
 
+// BatchGet adds Get operation to Batch for PurchaseInvoiceLine collection
+func (r *CompanyPurchaseInvoiceLinesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PurchaseInvoiceLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PurchaseInvoiceLine collection
+func (r *CompanyPurchaseInvoiceLinesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PurchaseInvoiceLine) error {
+	var resObj []PurchaseInvoiceLine
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // PurchaseInvoices returns request builder for PurchaseInvoice collection
 func (b *CompanyRequestBuilder) PurchaseInvoices() *CompanyPurchaseInvoicesCollectionRequestBuilder {
 	bb := &CompanyPurchaseInvoicesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2253,6 +2590,22 @@ func (r *CompanyPurchaseInvoicesCollectionRequest) Get(ctx context.Context) ([]P
 func (r *CompanyPurchaseInvoicesCollectionRequest) Add(ctx context.Context, reqObj *PurchaseInvoice) (resObj *PurchaseInvoice, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for PurchaseInvoice collection
+func (r *CompanyPurchaseInvoicesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PurchaseInvoice
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PurchaseInvoice collection
+func (r *CompanyPurchaseInvoicesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PurchaseInvoice) error {
+	var resObj []PurchaseInvoice
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SalesCreditMemoLines returns request builder for SalesCreditMemoLine collection
@@ -2357,6 +2710,22 @@ func (r *CompanySalesCreditMemoLinesCollectionRequest) Add(ctx context.Context, 
 	return
 }
 
+// BatchGet adds Get operation to Batch for SalesCreditMemoLine collection
+func (r *CompanySalesCreditMemoLinesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SalesCreditMemoLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SalesCreditMemoLine collection
+func (r *CompanySalesCreditMemoLinesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SalesCreditMemoLine) error {
+	var resObj []SalesCreditMemoLine
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SalesCreditMemos returns request builder for SalesCreditMemo collection
 func (b *CompanyRequestBuilder) SalesCreditMemos() *CompanySalesCreditMemosCollectionRequestBuilder {
 	bb := &CompanySalesCreditMemosCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2457,6 +2826,22 @@ func (r *CompanySalesCreditMemosCollectionRequest) Get(ctx context.Context) ([]S
 func (r *CompanySalesCreditMemosCollectionRequest) Add(ctx context.Context, reqObj *SalesCreditMemo) (resObj *SalesCreditMemo, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SalesCreditMemo collection
+func (r *CompanySalesCreditMemosCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SalesCreditMemo
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SalesCreditMemo collection
+func (r *CompanySalesCreditMemosCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SalesCreditMemo) error {
+	var resObj []SalesCreditMemo
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SalesInvoiceLines returns request builder for SalesInvoiceLine collection
@@ -2561,6 +2946,22 @@ func (r *CompanySalesInvoiceLinesCollectionRequest) Add(ctx context.Context, req
 	return
 }
 
+// BatchGet adds Get operation to Batch for SalesInvoiceLine collection
+func (r *CompanySalesInvoiceLinesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SalesInvoiceLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SalesInvoiceLine collection
+func (r *CompanySalesInvoiceLinesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SalesInvoiceLine) error {
+	var resObj []SalesInvoiceLine
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SalesInvoices returns request builder for SalesInvoice collection
 func (b *CompanyRequestBuilder) SalesInvoices() *CompanySalesInvoicesCollectionRequestBuilder {
 	bb := &CompanySalesInvoicesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2661,6 +3062,22 @@ func (r *CompanySalesInvoicesCollectionRequest) Get(ctx context.Context) ([]Sale
 func (r *CompanySalesInvoicesCollectionRequest) Add(ctx context.Context, reqObj *SalesInvoice) (resObj *SalesInvoice, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SalesInvoice collection
+func (r *CompanySalesInvoicesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SalesInvoice
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SalesInvoice collection
+func (r *CompanySalesInvoicesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SalesInvoice) error {
+	var resObj []SalesInvoice
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SalesOrderLines returns request builder for SalesOrderLine collection
@@ -2765,6 +3182,22 @@ func (r *CompanySalesOrderLinesCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for SalesOrderLine collection
+func (r *CompanySalesOrderLinesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SalesOrderLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SalesOrderLine collection
+func (r *CompanySalesOrderLinesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SalesOrderLine) error {
+	var resObj []SalesOrderLine
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SalesOrders returns request builder for SalesOrder collection
 func (b *CompanyRequestBuilder) SalesOrders() *CompanySalesOrdersCollectionRequestBuilder {
 	bb := &CompanySalesOrdersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2865,6 +3298,22 @@ func (r *CompanySalesOrdersCollectionRequest) Get(ctx context.Context) ([]SalesO
 func (r *CompanySalesOrdersCollectionRequest) Add(ctx context.Context, reqObj *SalesOrder) (resObj *SalesOrder, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SalesOrder collection
+func (r *CompanySalesOrdersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SalesOrder
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SalesOrder collection
+func (r *CompanySalesOrdersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SalesOrder) error {
+	var resObj []SalesOrder
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SalesQuoteLines returns request builder for SalesQuoteLine collection
@@ -2969,6 +3418,22 @@ func (r *CompanySalesQuoteLinesCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for SalesQuoteLine collection
+func (r *CompanySalesQuoteLinesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SalesQuoteLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SalesQuoteLine collection
+func (r *CompanySalesQuoteLinesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SalesQuoteLine) error {
+	var resObj []SalesQuoteLine
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SalesQuotes returns request builder for SalesQuote collection
 func (b *CompanyRequestBuilder) SalesQuotes() *CompanySalesQuotesCollectionRequestBuilder {
 	bb := &CompanySalesQuotesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -3069,6 +3534,22 @@ func (r *CompanySalesQuotesCollectionRequest) Get(ctx context.Context) ([]SalesQ
 func (r *CompanySalesQuotesCollectionRequest) Add(ctx context.Context, reqObj *SalesQuote) (resObj *SalesQuote, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SalesQuote collection
+func (r *CompanySalesQuotesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SalesQuote
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SalesQuote collection
+func (r *CompanySalesQuotesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SalesQuote) error {
+	var resObj []SalesQuote
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ShipmentMethods returns request builder for ShipmentMethod collection
@@ -3173,6 +3654,22 @@ func (r *CompanyShipmentMethodsCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for ShipmentMethod collection
+func (r *CompanyShipmentMethodsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ShipmentMethod
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ShipmentMethod collection
+func (r *CompanyShipmentMethodsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ShipmentMethod) error {
+	var resObj []ShipmentMethod
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // TaxAreas returns request builder for TaxArea collection
 func (b *CompanyRequestBuilder) TaxAreas() *CompanyTaxAreasCollectionRequestBuilder {
 	bb := &CompanyTaxAreasCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -3273,6 +3770,22 @@ func (r *CompanyTaxAreasCollectionRequest) Get(ctx context.Context) ([]TaxArea, 
 func (r *CompanyTaxAreasCollectionRequest) Add(ctx context.Context, reqObj *TaxArea) (resObj *TaxArea, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for TaxArea collection
+func (r *CompanyTaxAreasCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TaxArea
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TaxArea collection
+func (r *CompanyTaxAreasCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TaxArea) error {
+	var resObj []TaxArea
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // TaxGroups returns request builder for TaxGroup collection
@@ -3377,6 +3890,22 @@ func (r *CompanyTaxGroupsCollectionRequest) Add(ctx context.Context, reqObj *Tax
 	return
 }
 
+// BatchGet adds Get operation to Batch for TaxGroup collection
+func (r *CompanyTaxGroupsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TaxGroup
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TaxGroup collection
+func (r *CompanyTaxGroupsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TaxGroup) error {
+	var resObj []TaxGroup
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // UnitsOfMeasure returns request builder for UnitOfMeasure collection
 func (b *CompanyRequestBuilder) UnitsOfMeasure() *CompanyUnitsOfMeasureCollectionRequestBuilder {
 	bb := &CompanyUnitsOfMeasureCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -3479,6 +4008,22 @@ func (r *CompanyUnitsOfMeasureCollectionRequest) Add(ctx context.Context, reqObj
 	return
 }
 
+// BatchGet adds Get operation to Batch for UnitOfMeasure collection
+func (r *CompanyUnitsOfMeasureCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []UnitOfMeasure
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for UnitOfMeasure collection
+func (r *CompanyUnitsOfMeasureCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *UnitOfMeasure) error {
+	var resObj []UnitOfMeasure
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Vendors returns request builder for Vendor collection
 func (b *CompanyRequestBuilder) Vendors() *CompanyVendorsCollectionRequestBuilder {
 	bb := &CompanyVendorsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -3579,4 +4124,20 @@ func (r *CompanyVendorsCollectionRequest) Get(ctx context.Context) ([]Vendor, er
 func (r *CompanyVendorsCollectionRequest) Add(ctx context.Context, reqObj *Vendor) (resObj *Vendor, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Vendor collection
+func (r *CompanyVendorsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Vendor
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Vendor collection
+func (r *CompanyVendorsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Vendor) error {
+	var resObj []Vendor
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

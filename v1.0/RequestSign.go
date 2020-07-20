@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // SignInRequestBuilder is request builder for SignIn
 type SignInRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *SignInRequest) Update(ctx context.Context, reqObj *SignIn) error {
 // Delete performs DELETE request for SignIn
 func (r *SignInRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SignIn
+func (r *SignInRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SignIn
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SignIn
+func (r *SignInRequest) BatchUpdate(batch *BatchRequest, reqObj *SignIn) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SignIn
+func (r *SignInRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

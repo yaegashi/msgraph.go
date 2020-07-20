@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // CommsOperationRequestBuilder is request builder for CommsOperation
 type CommsOperationRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *CommsOperationRequest) Update(ctx context.Context, reqObj *CommsOperati
 // Delete performs DELETE request for CommsOperation
 func (r *CommsOperationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for CommsOperation
+func (r *CommsOperationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj CommsOperation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for CommsOperation
+func (r *CommsOperationRequest) BatchUpdate(batch *BatchRequest, reqObj *CommsOperation) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for CommsOperation
+func (r *CommsOperationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // PaymentMethodRequestBuilder is request builder for PaymentMethod
 type PaymentMethodRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *PaymentMethodRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PaymentMethod
+func (r *PaymentMethodRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PaymentMethod
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PaymentMethod
+func (r *PaymentMethodRequest) BatchUpdate(batch *BatchRequest, reqObj *PaymentMethod) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PaymentMethod
+func (r *PaymentMethodRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // PaymentTermRequestBuilder is request builder for PaymentTerm
 type PaymentTermRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *PaymentTermRequest) Update(ctx context.Context, reqObj *PaymentTerm) er
 // Delete performs DELETE request for PaymentTerm
 func (r *PaymentTermRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for PaymentTerm
+func (r *PaymentTermRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PaymentTerm
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PaymentTerm
+func (r *PaymentTermRequest) BatchUpdate(batch *BatchRequest, reqObj *PaymentTerm) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PaymentTerm
+func (r *PaymentTermRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

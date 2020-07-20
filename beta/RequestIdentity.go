@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // IdentityContainerRequestBuilder is request builder for IdentityContainer
 type IdentityContainerRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *IdentityContainerRequest) Update(ctx context.Context, reqObj *IdentityC
 // Delete performs DELETE request for IdentityContainer
 func (r *IdentityContainerRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for IdentityContainer
+func (r *IdentityContainerRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IdentityContainer
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IdentityContainer
+func (r *IdentityContainerRequest) BatchUpdate(batch *BatchRequest, reqObj *IdentityContainer) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IdentityContainer
+func (r *IdentityContainerRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // IdentityGovernanceRequestBuilder is request builder for IdentityGovernance
@@ -70,6 +93,26 @@ func (r *IdentityGovernanceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for IdentityGovernance
+func (r *IdentityGovernanceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IdentityGovernance
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IdentityGovernance
+func (r *IdentityGovernanceRequest) BatchUpdate(batch *BatchRequest, reqObj *IdentityGovernance) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IdentityGovernance
+func (r *IdentityGovernanceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // IdentityProviderRequestBuilder is request builder for IdentityProvider
 type IdentityProviderRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *IdentityProviderRequest) Update(ctx context.Context, reqObj *IdentityPr
 // Delete performs DELETE request for IdentityProvider
 func (r *IdentityProviderRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for IdentityProvider
+func (r *IdentityProviderRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IdentityProvider
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IdentityProvider
+func (r *IdentityProviderRequest) BatchUpdate(batch *BatchRequest, reqObj *IdentityProvider) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IdentityProvider
+func (r *IdentityProviderRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // IdentityRiskEventRequestBuilder is request builder for IdentityRiskEvent
@@ -136,6 +199,26 @@ func (r *IdentityRiskEventRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for IdentityRiskEvent
+func (r *IdentityRiskEventRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IdentityRiskEvent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IdentityRiskEvent
+func (r *IdentityRiskEventRequest) BatchUpdate(batch *BatchRequest, reqObj *IdentityRiskEvent) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IdentityRiskEvent
+func (r *IdentityRiskEventRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // IdentityUserFlowRequestBuilder is request builder for IdentityUserFlow
 type IdentityUserFlowRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,4 +250,24 @@ func (r *IdentityUserFlowRequest) Update(ctx context.Context, reqObj *IdentityUs
 // Delete performs DELETE request for IdentityUserFlow
 func (r *IdentityUserFlowRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for IdentityUserFlow
+func (r *IdentityUserFlowRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IdentityUserFlow
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IdentityUserFlow
+func (r *IdentityUserFlowRequest) BatchUpdate(batch *BatchRequest, reqObj *IdentityUserFlow) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IdentityUserFlow
+func (r *IdentityUserFlowRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

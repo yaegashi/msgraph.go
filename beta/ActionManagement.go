@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *ManagementConditionManagementConditionStatementsCollectionRequest) Add(
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagementConditionStatement collection
+func (r *ManagementConditionManagementConditionStatementsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagementConditionStatement
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagementConditionStatement collection
+func (r *ManagementConditionManagementConditionStatementsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagementConditionStatement) error {
+	var resObj []ManagementConditionStatement
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagementConditions returns request builder for ManagementCondition collection
 func (b *ManagementConditionStatementRequestBuilder) ManagementConditions() *ManagementConditionStatementManagementConditionsCollectionRequestBuilder {
 	bb := &ManagementConditionStatementManagementConditionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,4 +230,20 @@ func (r *ManagementConditionStatementManagementConditionsCollectionRequest) Get(
 func (r *ManagementConditionStatementManagementConditionsCollectionRequest) Add(ctx context.Context, reqObj *ManagementCondition) (resObj *ManagementCondition, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagementCondition collection
+func (r *ManagementConditionStatementManagementConditionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagementCondition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagementCondition collection
+func (r *ManagementConditionStatementManagementConditionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagementCondition) error {
+	var resObj []ManagementCondition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

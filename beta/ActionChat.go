@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *ChatInstalledAppsCollectionRequest) Add(ctx context.Context, reqObj *Te
 	return
 }
 
+// BatchGet adds Get operation to Batch for TeamsAppInstallation collection
+func (r *ChatInstalledAppsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TeamsAppInstallation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TeamsAppInstallation collection
+func (r *ChatInstalledAppsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TeamsAppInstallation) error {
+	var resObj []TeamsAppInstallation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Members returns request builder for ConversationMember collection
 func (b *ChatRequestBuilder) Members() *ChatMembersCollectionRequestBuilder {
 	bb := &ChatMembersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,6 +230,22 @@ func (r *ChatMembersCollectionRequest) Get(ctx context.Context) ([]ConversationM
 func (r *ChatMembersCollectionRequest) Add(ctx context.Context, reqObj *ConversationMember) (resObj *ConversationMember, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ConversationMember collection
+func (r *ChatMembersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ConversationMember
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ConversationMember collection
+func (r *ChatMembersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ConversationMember) error {
+	var resObj []ConversationMember
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Messages returns request builder for ChatMessage collection
@@ -317,6 +350,22 @@ func (r *ChatMessagesCollectionRequest) Add(ctx context.Context, reqObj *ChatMes
 	return
 }
 
+// BatchGet adds Get operation to Batch for ChatMessage collection
+func (r *ChatMessagesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ChatMessage
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ChatMessage collection
+func (r *ChatMessagesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ChatMessage) error {
+	var resObj []ChatMessage
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // HostedContents returns request builder for ChatMessageHostedContent collection
 func (b *ChatMessageRequestBuilder) HostedContents() *ChatMessageHostedContentsCollectionRequestBuilder {
 	bb := &ChatMessageHostedContentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -419,6 +468,22 @@ func (r *ChatMessageHostedContentsCollectionRequest) Add(ctx context.Context, re
 	return
 }
 
+// BatchGet adds Get operation to Batch for ChatMessageHostedContent collection
+func (r *ChatMessageHostedContentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ChatMessageHostedContent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ChatMessageHostedContent collection
+func (r *ChatMessageHostedContentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ChatMessageHostedContent) error {
+	var resObj []ChatMessageHostedContent
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Replies returns request builder for ChatMessage collection
 func (b *ChatMessageRequestBuilder) Replies() *ChatMessageRepliesCollectionRequestBuilder {
 	bb := &ChatMessageRepliesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -519,4 +584,20 @@ func (r *ChatMessageRepliesCollectionRequest) Get(ctx context.Context) ([]ChatMe
 func (r *ChatMessageRepliesCollectionRequest) Add(ctx context.Context, reqObj *ChatMessage) (resObj *ChatMessage, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ChatMessage collection
+func (r *ChatMessageRepliesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ChatMessage
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ChatMessage collection
+func (r *ChatMessageRepliesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ChatMessage) error {
+	var resObj []ChatMessage
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

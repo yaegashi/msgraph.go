@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // LicenseDetailsRequestBuilder is request builder for LicenseDetails
 type LicenseDetailsRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *LicenseDetailsRequest) Update(ctx context.Context, reqObj *LicenseDetai
 // Delete performs DELETE request for LicenseDetails
 func (r *LicenseDetailsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for LicenseDetails
+func (r *LicenseDetailsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj LicenseDetails
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for LicenseDetails
+func (r *LicenseDetailsRequest) BatchUpdate(batch *BatchRequest, reqObj *LicenseDetails) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for LicenseDetails
+func (r *LicenseDetailsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

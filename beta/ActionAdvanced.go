@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -111,4 +112,20 @@ func (r *AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionO
 func (r *AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionOnboardingDeviceSettingStatesCollectionRequest) Add(ctx context.Context, reqObj *AdvancedThreatProtectionOnboardingDeviceSettingState) (resObj *AdvancedThreatProtectionOnboardingDeviceSettingState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AdvancedThreatProtectionOnboardingDeviceSettingState collection
+func (r *AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionOnboardingDeviceSettingStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AdvancedThreatProtectionOnboardingDeviceSettingState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AdvancedThreatProtectionOnboardingDeviceSettingState collection
+func (r *AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionOnboardingDeviceSettingStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AdvancedThreatProtectionOnboardingDeviceSettingState) error {
+	var resObj []AdvancedThreatProtectionOnboardingDeviceSettingState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

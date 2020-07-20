@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -42,6 +43,26 @@ func (r *AlertRequest) Update(ctx context.Context, reqObj *Alert) error {
 // Delete performs DELETE request for Alert
 func (r *AlertRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Alert
+func (r *AlertRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Alert
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Alert
+func (r *AlertRequest) BatchUpdate(batch *BatchRequest, reqObj *Alert) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Alert
+func (r *AlertRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -128,4 +149,10 @@ func (r *AlertCollectionUpdateAlertsRequest) PostN(ctx context.Context, n int) (
 //
 func (r *AlertCollectionUpdateAlertsRequest) Post(ctx context.Context) ([]Alert, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+func (r *AlertCollectionUpdateAlertsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []Alert
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

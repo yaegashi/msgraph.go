@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ApplePushNotificationCertificateRequestBuilder is request builder for ApplePushNotificationCertificate
 type ApplePushNotificationCertificateRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *ApplePushNotificationCertificateRequest) Update(ctx context.Context, re
 // Delete performs DELETE request for ApplePushNotificationCertificate
 func (r *ApplePushNotificationCertificateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ApplePushNotificationCertificate
+func (r *ApplePushNotificationCertificateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ApplePushNotificationCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ApplePushNotificationCertificate
+func (r *ApplePushNotificationCertificateRequest) BatchUpdate(batch *BatchRequest, reqObj *ApplePushNotificationCertificate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ApplePushNotificationCertificate
+func (r *ApplePushNotificationCertificateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

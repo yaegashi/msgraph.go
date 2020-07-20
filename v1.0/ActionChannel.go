@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -111,4 +112,20 @@ func (r *ChannelTabsCollectionRequest) Get(ctx context.Context) ([]TeamsTab, err
 func (r *ChannelTabsCollectionRequest) Add(ctx context.Context, reqObj *TeamsTab) (resObj *TeamsTab, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for TeamsTab collection
+func (r *ChannelTabsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TeamsTab
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TeamsTab collection
+func (r *ChannelTabsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TeamsTab) error {
+	var resObj []TeamsTab
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *PlannerBucketsCollectionRequest) Add(ctx context.Context, reqObj *Plann
 	return
 }
 
+// BatchGet adds Get operation to Batch for PlannerBucket collection
+func (r *PlannerBucketsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PlannerBucket
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PlannerBucket collection
+func (r *PlannerBucketsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PlannerBucket) error {
+	var resObj []PlannerBucket
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Plans returns request builder for PlannerPlan collection
 func (b *PlannerRequestBuilder) Plans() *PlannerPlansCollectionRequestBuilder {
 	bb := &PlannerPlansCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,6 +230,22 @@ func (r *PlannerPlansCollectionRequest) Get(ctx context.Context) ([]PlannerPlan,
 func (r *PlannerPlansCollectionRequest) Add(ctx context.Context, reqObj *PlannerPlan) (resObj *PlannerPlan, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for PlannerPlan collection
+func (r *PlannerPlansCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PlannerPlan
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PlannerPlan collection
+func (r *PlannerPlansCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PlannerPlan) error {
+	var resObj []PlannerPlan
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Tasks returns request builder for PlannerTask collection
@@ -317,6 +350,22 @@ func (r *PlannerTasksCollectionRequest) Add(ctx context.Context, reqObj *Planner
 	return
 }
 
+// BatchGet adds Get operation to Batch for PlannerTask collection
+func (r *PlannerTasksCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PlannerTask
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PlannerTask collection
+func (r *PlannerTasksCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PlannerTask) error {
+	var resObj []PlannerTask
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Tasks returns request builder for PlannerTask collection
 func (b *PlannerBucketRequestBuilder) Tasks() *PlannerBucketTasksCollectionRequestBuilder {
 	bb := &PlannerBucketTasksCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -417,6 +466,22 @@ func (r *PlannerBucketTasksCollectionRequest) Get(ctx context.Context) ([]Planne
 func (r *PlannerBucketTasksCollectionRequest) Add(ctx context.Context, reqObj *PlannerTask) (resObj *PlannerTask, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for PlannerTask collection
+func (r *PlannerBucketTasksCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PlannerTask
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PlannerTask collection
+func (r *PlannerBucketTasksCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PlannerTask) error {
+	var resObj []PlannerTask
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Plans returns request builder for PlannerPlan collection
@@ -521,6 +586,22 @@ func (r *PlannerGroupPlansCollectionRequest) Add(ctx context.Context, reqObj *Pl
 	return
 }
 
+// BatchGet adds Get operation to Batch for PlannerPlan collection
+func (r *PlannerGroupPlansCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PlannerPlan
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PlannerPlan collection
+func (r *PlannerGroupPlansCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PlannerPlan) error {
+	var resObj []PlannerPlan
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Buckets returns request builder for PlannerBucket collection
 func (b *PlannerPlanRequestBuilder) Buckets() *PlannerPlanBucketsCollectionRequestBuilder {
 	bb := &PlannerPlanBucketsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -621,6 +702,22 @@ func (r *PlannerPlanBucketsCollectionRequest) Get(ctx context.Context) ([]Planne
 func (r *PlannerPlanBucketsCollectionRequest) Add(ctx context.Context, reqObj *PlannerBucket) (resObj *PlannerBucket, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for PlannerBucket collection
+func (r *PlannerPlanBucketsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PlannerBucket
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PlannerBucket collection
+func (r *PlannerPlanBucketsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PlannerBucket) error {
+	var resObj []PlannerBucket
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Details is navigation property
@@ -730,6 +827,22 @@ func (r *PlannerPlanTasksCollectionRequest) Get(ctx context.Context) ([]PlannerT
 func (r *PlannerPlanTasksCollectionRequest) Add(ctx context.Context, reqObj *PlannerTask) (resObj *PlannerTask, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for PlannerTask collection
+func (r *PlannerPlanTasksCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PlannerTask
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PlannerTask collection
+func (r *PlannerPlanTasksCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PlannerTask) error {
+	var resObj []PlannerTask
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // AssignedToTaskBoardFormat is navigation property
@@ -862,6 +975,22 @@ func (r *PlannerUserAllCollectionRequest) Add(ctx context.Context, reqObj *Plann
 	return
 }
 
+// BatchGet adds Get operation to Batch for PlannerDelta collection
+func (r *PlannerUserAllCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PlannerDelta
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PlannerDelta collection
+func (r *PlannerUserAllCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PlannerDelta) error {
+	var resObj []PlannerDelta
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // FavoritePlans returns request builder for PlannerPlan collection
 func (b *PlannerUserRequestBuilder) FavoritePlans() *PlannerUserFavoritePlansCollectionRequestBuilder {
 	bb := &PlannerUserFavoritePlansCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -962,6 +1091,22 @@ func (r *PlannerUserFavoritePlansCollectionRequest) Get(ctx context.Context) ([]
 func (r *PlannerUserFavoritePlansCollectionRequest) Add(ctx context.Context, reqObj *PlannerPlan) (resObj *PlannerPlan, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for PlannerPlan collection
+func (r *PlannerUserFavoritePlansCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PlannerPlan
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PlannerPlan collection
+func (r *PlannerUserFavoritePlansCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PlannerPlan) error {
+	var resObj []PlannerPlan
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Plans returns request builder for PlannerPlan collection
@@ -1066,6 +1211,22 @@ func (r *PlannerUserPlansCollectionRequest) Add(ctx context.Context, reqObj *Pla
 	return
 }
 
+// BatchGet adds Get operation to Batch for PlannerPlan collection
+func (r *PlannerUserPlansCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PlannerPlan
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PlannerPlan collection
+func (r *PlannerUserPlansCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PlannerPlan) error {
+	var resObj []PlannerPlan
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // RecentPlans returns request builder for PlannerPlan collection
 func (b *PlannerUserRequestBuilder) RecentPlans() *PlannerUserRecentPlansCollectionRequestBuilder {
 	bb := &PlannerUserRecentPlansCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1168,6 +1329,22 @@ func (r *PlannerUserRecentPlansCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for PlannerPlan collection
+func (r *PlannerUserRecentPlansCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PlannerPlan
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PlannerPlan collection
+func (r *PlannerUserRecentPlansCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PlannerPlan) error {
+	var resObj []PlannerPlan
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Tasks returns request builder for PlannerTask collection
 func (b *PlannerUserRequestBuilder) Tasks() *PlannerUserTasksCollectionRequestBuilder {
 	bb := &PlannerUserTasksCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1268,4 +1445,20 @@ func (r *PlannerUserTasksCollectionRequest) Get(ctx context.Context) ([]PlannerT
 func (r *PlannerUserTasksCollectionRequest) Add(ctx context.Context, reqObj *PlannerTask) (resObj *PlannerTask, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for PlannerTask collection
+func (r *PlannerUserTasksCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PlannerTask
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PlannerTask collection
+func (r *PlannerUserTasksCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PlannerTask) error {
+	var resObj []PlannerTask
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

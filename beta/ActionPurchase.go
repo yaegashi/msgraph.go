@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -122,6 +123,22 @@ func (r *PurchaseInvoicePurchaseInvoiceLinesCollectionRequest) Get(ctx context.C
 func (r *PurchaseInvoicePurchaseInvoiceLinesCollectionRequest) Add(ctx context.Context, reqObj *PurchaseInvoiceLine) (resObj *PurchaseInvoiceLine, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for PurchaseInvoiceLine collection
+func (r *PurchaseInvoicePurchaseInvoiceLinesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PurchaseInvoiceLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PurchaseInvoiceLine collection
+func (r *PurchaseInvoicePurchaseInvoiceLinesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PurchaseInvoiceLine) error {
+	var resObj []PurchaseInvoiceLine
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Vendor is navigation property

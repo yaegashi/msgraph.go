@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ResourceOperationRequestBuilder is request builder for ResourceOperation
 type ResourceOperationRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *ResourceOperationRequest) Update(ctx context.Context, reqObj *ResourceO
 // Delete performs DELETE request for ResourceOperation
 func (r *ResourceOperationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ResourceOperation
+func (r *ResourceOperationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ResourceOperation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ResourceOperation
+func (r *ResourceOperationRequest) BatchUpdate(batch *BatchRequest, reqObj *ResourceOperation) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ResourceOperation
+func (r *ResourceOperationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

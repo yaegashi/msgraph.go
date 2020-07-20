@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // EnrollmentConfigurationAssignmentRequestBuilder is request builder for EnrollmentConfigurationAssignment
 type EnrollmentConfigurationAssignmentRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *EnrollmentConfigurationAssignmentRequest) Update(ctx context.Context, r
 // Delete performs DELETE request for EnrollmentConfigurationAssignment
 func (r *EnrollmentConfigurationAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for EnrollmentConfigurationAssignment
+func (r *EnrollmentConfigurationAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EnrollmentConfigurationAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EnrollmentConfigurationAssignment
+func (r *EnrollmentConfigurationAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *EnrollmentConfigurationAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EnrollmentConfigurationAssignment
+func (r *EnrollmentConfigurationAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // EnrollmentProfileRequestBuilder is request builder for EnrollmentProfile
@@ -70,6 +93,26 @@ func (r *EnrollmentProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for EnrollmentProfile
+func (r *EnrollmentProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EnrollmentProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EnrollmentProfile
+func (r *EnrollmentProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *EnrollmentProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EnrollmentProfile
+func (r *EnrollmentProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type EnrollmentProfileSetDefaultProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -97,6 +140,11 @@ func (r *EnrollmentProfileSetDefaultProfileRequest) Post(ctx context.Context) er
 }
 
 //
+func (r *EnrollmentProfileSetDefaultProfileRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type EnrollmentProfileUpdateDeviceProfileAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
 // UpdateDeviceProfileAssignment action undocumented
@@ -120,4 +168,9 @@ func (b *EnrollmentProfileUpdateDeviceProfileAssignmentRequestBuilder) Request()
 //
 func (r *EnrollmentProfileUpdateDeviceProfileAssignmentRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *EnrollmentProfileUpdateDeviceProfileAssignmentRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

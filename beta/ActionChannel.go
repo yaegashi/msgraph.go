@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -120,6 +121,22 @@ func (r *ChannelMembersCollectionRequest) Add(ctx context.Context, reqObj *Conve
 	return
 }
 
+// BatchGet adds Get operation to Batch for ConversationMember collection
+func (r *ChannelMembersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ConversationMember
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ConversationMember collection
+func (r *ChannelMembersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ConversationMember) error {
+	var resObj []ConversationMember
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Messages returns request builder for ChatMessage collection
 func (b *ChannelRequestBuilder) Messages() *ChannelMessagesCollectionRequestBuilder {
 	bb := &ChannelMessagesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -222,6 +239,22 @@ func (r *ChannelMessagesCollectionRequest) Add(ctx context.Context, reqObj *Chat
 	return
 }
 
+// BatchGet adds Get operation to Batch for ChatMessage collection
+func (r *ChannelMessagesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ChatMessage
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ChatMessage collection
+func (r *ChannelMessagesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ChatMessage) error {
+	var resObj []ChatMessage
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Tabs returns request builder for TeamsTab collection
 func (b *ChannelRequestBuilder) Tabs() *ChannelTabsCollectionRequestBuilder {
 	bb := &ChannelTabsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -322,4 +355,20 @@ func (r *ChannelTabsCollectionRequest) Get(ctx context.Context) ([]TeamsTab, err
 func (r *ChannelTabsCollectionRequest) Add(ctx context.Context, reqObj *TeamsTab) (resObj *TeamsTab, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for TeamsTab collection
+func (r *ChannelTabsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TeamsTab
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TeamsTab collection
+func (r *ChannelTabsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TeamsTab) error {
+	var resObj []TeamsTab
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

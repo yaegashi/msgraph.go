@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -115,6 +116,22 @@ func (r *TeamsAppAppDefinitionsCollectionRequest) Get(ctx context.Context) ([]Te
 func (r *TeamsAppAppDefinitionsCollectionRequest) Add(ctx context.Context, reqObj *TeamsAppDefinition) (resObj *TeamsAppDefinition, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for TeamsAppDefinition collection
+func (r *TeamsAppAppDefinitionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TeamsAppDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TeamsAppDefinition collection
+func (r *TeamsAppAppDefinitionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TeamsAppDefinition) error {
+	var resObj []TeamsAppDefinition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // TeamsApp is navigation property

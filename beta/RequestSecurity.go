@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // SecurityRequestBuilder is request builder for Security
 type SecurityRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *SecurityRequest) Update(ctx context.Context, reqObj *Security) error {
 // Delete performs DELETE request for Security
 func (r *SecurityRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Security
+func (r *SecurityRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Security
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Security
+func (r *SecurityRequest) BatchUpdate(batch *BatchRequest, reqObj *Security) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Security
+func (r *SecurityRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // SecurityActionRequestBuilder is request builder for SecurityAction
@@ -70,6 +93,26 @@ func (r *SecurityActionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for SecurityAction
+func (r *SecurityActionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SecurityAction
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SecurityAction
+func (r *SecurityActionRequest) BatchUpdate(batch *BatchRequest, reqObj *SecurityAction) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SecurityAction
+func (r *SecurityActionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // SecurityBaselineCategoryStateSummaryRequestBuilder is request builder for SecurityBaselineCategoryStateSummary
 type SecurityBaselineCategoryStateSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *SecurityBaselineCategoryStateSummaryRequest) Update(ctx context.Context
 // Delete performs DELETE request for SecurityBaselineCategoryStateSummary
 func (r *SecurityBaselineCategoryStateSummaryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SecurityBaselineCategoryStateSummary
+func (r *SecurityBaselineCategoryStateSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SecurityBaselineCategoryStateSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SecurityBaselineCategoryStateSummary
+func (r *SecurityBaselineCategoryStateSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *SecurityBaselineCategoryStateSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SecurityBaselineCategoryStateSummary
+func (r *SecurityBaselineCategoryStateSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // SecurityBaselineDeviceStateRequestBuilder is request builder for SecurityBaselineDeviceState
@@ -136,6 +199,26 @@ func (r *SecurityBaselineDeviceStateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for SecurityBaselineDeviceState
+func (r *SecurityBaselineDeviceStateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SecurityBaselineDeviceState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SecurityBaselineDeviceState
+func (r *SecurityBaselineDeviceStateRequest) BatchUpdate(batch *BatchRequest, reqObj *SecurityBaselineDeviceState) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SecurityBaselineDeviceState
+func (r *SecurityBaselineDeviceStateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // SecurityBaselineSettingStateRequestBuilder is request builder for SecurityBaselineSettingState
 type SecurityBaselineSettingStateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,6 +250,26 @@ func (r *SecurityBaselineSettingStateRequest) Update(ctx context.Context, reqObj
 // Delete performs DELETE request for SecurityBaselineSettingState
 func (r *SecurityBaselineSettingStateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SecurityBaselineSettingState
+func (r *SecurityBaselineSettingStateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SecurityBaselineSettingState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SecurityBaselineSettingState
+func (r *SecurityBaselineSettingStateRequest) BatchUpdate(batch *BatchRequest, reqObj *SecurityBaselineSettingState) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SecurityBaselineSettingState
+func (r *SecurityBaselineSettingStateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // SecurityBaselineStateRequestBuilder is request builder for SecurityBaselineState
@@ -202,6 +305,26 @@ func (r *SecurityBaselineStateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for SecurityBaselineState
+func (r *SecurityBaselineStateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SecurityBaselineState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SecurityBaselineState
+func (r *SecurityBaselineStateRequest) BatchUpdate(batch *BatchRequest, reqObj *SecurityBaselineState) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SecurityBaselineState
+func (r *SecurityBaselineStateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // SecurityBaselineStateSummaryRequestBuilder is request builder for SecurityBaselineStateSummary
 type SecurityBaselineStateSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -233,6 +356,26 @@ func (r *SecurityBaselineStateSummaryRequest) Update(ctx context.Context, reqObj
 // Delete performs DELETE request for SecurityBaselineStateSummary
 func (r *SecurityBaselineStateSummaryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SecurityBaselineStateSummary
+func (r *SecurityBaselineStateSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SecurityBaselineStateSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SecurityBaselineStateSummary
+func (r *SecurityBaselineStateSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *SecurityBaselineStateSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SecurityBaselineStateSummary
+func (r *SecurityBaselineStateSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // SecurityBaselineTemplateRequestBuilder is request builder for SecurityBaselineTemplate
@@ -268,6 +411,26 @@ func (r *SecurityBaselineTemplateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for SecurityBaselineTemplate
+func (r *SecurityBaselineTemplateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SecurityBaselineTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SecurityBaselineTemplate
+func (r *SecurityBaselineTemplateRequest) BatchUpdate(batch *BatchRequest, reqObj *SecurityBaselineTemplate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SecurityBaselineTemplate
+func (r *SecurityBaselineTemplateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type SecurityActionCancelSecurityActionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -292,4 +455,9 @@ func (b *SecurityActionCancelSecurityActionRequestBuilder) Request() *SecurityAc
 //
 func (r *SecurityActionCancelSecurityActionRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *SecurityActionCancelSecurityActionRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

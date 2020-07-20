@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // PrivilegedAccessRequestBuilder is request builder for PrivilegedAccess
 type PrivilegedAccessRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *PrivilegedAccessRequest) Update(ctx context.Context, reqObj *Privileged
 // Delete performs DELETE request for PrivilegedAccess
 func (r *PrivilegedAccessRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for PrivilegedAccess
+func (r *PrivilegedAccessRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PrivilegedAccess
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PrivilegedAccess
+func (r *PrivilegedAccessRequest) BatchUpdate(batch *BatchRequest, reqObj *PrivilegedAccess) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PrivilegedAccess
+func (r *PrivilegedAccessRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // PrivilegedApprovalRequestBuilder is request builder for PrivilegedApproval
@@ -70,6 +93,26 @@ func (r *PrivilegedApprovalRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PrivilegedApproval
+func (r *PrivilegedApprovalRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PrivilegedApproval
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PrivilegedApproval
+func (r *PrivilegedApprovalRequest) BatchUpdate(batch *BatchRequest, reqObj *PrivilegedApproval) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PrivilegedApproval
+func (r *PrivilegedApprovalRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // PrivilegedOperationEventRequestBuilder is request builder for PrivilegedOperationEvent
 type PrivilegedOperationEventRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *PrivilegedOperationEventRequest) Update(ctx context.Context, reqObj *Pr
 // Delete performs DELETE request for PrivilegedOperationEvent
 func (r *PrivilegedOperationEventRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for PrivilegedOperationEvent
+func (r *PrivilegedOperationEventRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PrivilegedOperationEvent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PrivilegedOperationEvent
+func (r *PrivilegedOperationEventRequest) BatchUpdate(batch *BatchRequest, reqObj *PrivilegedOperationEvent) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PrivilegedOperationEvent
+func (r *PrivilegedOperationEventRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // PrivilegedRoleRequestBuilder is request builder for PrivilegedRole
@@ -136,6 +199,26 @@ func (r *PrivilegedRoleRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PrivilegedRole
+func (r *PrivilegedRoleRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PrivilegedRole
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PrivilegedRole
+func (r *PrivilegedRoleRequest) BatchUpdate(batch *BatchRequest, reqObj *PrivilegedRole) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PrivilegedRole
+func (r *PrivilegedRoleRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // PrivilegedRoleAssignmentRequestBuilder is request builder for PrivilegedRoleAssignment
 type PrivilegedRoleAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,6 +250,26 @@ func (r *PrivilegedRoleAssignmentRequest) Update(ctx context.Context, reqObj *Pr
 // Delete performs DELETE request for PrivilegedRoleAssignment
 func (r *PrivilegedRoleAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for PrivilegedRoleAssignment
+func (r *PrivilegedRoleAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PrivilegedRoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PrivilegedRoleAssignment
+func (r *PrivilegedRoleAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *PrivilegedRoleAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PrivilegedRoleAssignment
+func (r *PrivilegedRoleAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // PrivilegedRoleAssignmentRequestObjectRequestBuilder is request builder for PrivilegedRoleAssignmentRequestObject
@@ -202,6 +305,26 @@ func (r *PrivilegedRoleAssignmentRequestObjectRequest) Delete(ctx context.Contex
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PrivilegedRoleAssignmentRequestObject
+func (r *PrivilegedRoleAssignmentRequestObjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PrivilegedRoleAssignmentRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PrivilegedRoleAssignmentRequestObject
+func (r *PrivilegedRoleAssignmentRequestObjectRequest) BatchUpdate(batch *BatchRequest, reqObj *PrivilegedRoleAssignmentRequestObject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PrivilegedRoleAssignmentRequestObject
+func (r *PrivilegedRoleAssignmentRequestObjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // PrivilegedRoleSettingsRequestBuilder is request builder for PrivilegedRoleSettings
 type PrivilegedRoleSettingsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -233,6 +356,26 @@ func (r *PrivilegedRoleSettingsRequest) Update(ctx context.Context, reqObj *Priv
 // Delete performs DELETE request for PrivilegedRoleSettings
 func (r *PrivilegedRoleSettingsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for PrivilegedRoleSettings
+func (r *PrivilegedRoleSettingsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PrivilegedRoleSettings
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PrivilegedRoleSettings
+func (r *PrivilegedRoleSettingsRequest) BatchUpdate(batch *BatchRequest, reqObj *PrivilegedRoleSettings) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PrivilegedRoleSettings
+func (r *PrivilegedRoleSettingsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // PrivilegedRoleSummaryRequestBuilder is request builder for PrivilegedRoleSummary
@@ -268,6 +411,26 @@ func (r *PrivilegedRoleSummaryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PrivilegedRoleSummary
+func (r *PrivilegedRoleSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PrivilegedRoleSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PrivilegedRoleSummary
+func (r *PrivilegedRoleSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *PrivilegedRoleSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PrivilegedRoleSummary
+func (r *PrivilegedRoleSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // PrivilegedSignupStatusRequestBuilder is request builder for PrivilegedSignupStatus
 type PrivilegedSignupStatusRequestBuilder struct{ BaseRequestBuilder }
 
@@ -301,6 +464,26 @@ func (r *PrivilegedSignupStatusRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PrivilegedSignupStatus
+func (r *PrivilegedSignupStatusRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PrivilegedSignupStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PrivilegedSignupStatus
+func (r *PrivilegedSignupStatusRequest) BatchUpdate(batch *BatchRequest, reqObj *PrivilegedSignupStatus) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PrivilegedSignupStatus
+func (r *PrivilegedSignupStatusRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type PrivilegedRoleSelfActivateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -326,6 +509,12 @@ func (b *PrivilegedRoleSelfActivateRequestBuilder) Request() *PrivilegedRoleSelf
 func (r *PrivilegedRoleSelfActivateRequest) Post(ctx context.Context) (resObj *PrivilegedRoleAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *PrivilegedRoleSelfActivateRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *PrivilegedRoleAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -356,6 +545,12 @@ func (r *PrivilegedRoleSelfDeactivateRequest) Post(ctx context.Context) (resObj 
 }
 
 //
+func (r *PrivilegedRoleSelfDeactivateRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *PrivilegedRoleAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type PrivilegedRoleAssignmentMakePermanentRequestBuilder struct{ BaseRequestBuilder }
 
 // MakePermanent action undocumented
@@ -380,6 +575,12 @@ func (b *PrivilegedRoleAssignmentMakePermanentRequestBuilder) Request() *Privile
 func (r *PrivilegedRoleAssignmentMakePermanentRequest) Post(ctx context.Context) (resObj *PrivilegedRoleAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *PrivilegedRoleAssignmentMakePermanentRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *PrivilegedRoleAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -410,6 +611,12 @@ func (r *PrivilegedRoleAssignmentMakeEligibleRequest) Post(ctx context.Context) 
 }
 
 //
+func (r *PrivilegedRoleAssignmentMakeEligibleRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *PrivilegedRoleAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type PrivilegedRoleAssignmentRequestObjectCancelRequestBuilder struct{ BaseRequestBuilder }
 
 // Cancel action undocumented
@@ -434,4 +641,10 @@ func (b *PrivilegedRoleAssignmentRequestObjectCancelRequestBuilder) Request() *P
 func (r *PrivilegedRoleAssignmentRequestObjectCancelRequest) Post(ctx context.Context) (resObj *PrivilegedRoleAssignmentRequestObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *PrivilegedRoleAssignmentRequestObjectCancelRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *PrivilegedRoleAssignmentRequestObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

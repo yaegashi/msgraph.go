@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // MacManagedAppProtectionRequestBuilder is request builder for MacManagedAppProtection
 type MacManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *MacManagedAppProtectionRequest) Update(ctx context.Context, reqObj *Mac
 // Delete performs DELETE request for MacManagedAppProtection
 func (r *MacManagedAppProtectionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for MacManagedAppProtection
+func (r *MacManagedAppProtectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MacManagedAppProtection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MacManagedAppProtection
+func (r *MacManagedAppProtectionRequest) BatchUpdate(batch *BatchRequest, reqObj *MacManagedAppProtection) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MacManagedAppProtection
+func (r *MacManagedAppProtectionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // MacOSCertificateProfileBaseRequestBuilder is request builder for MacOSCertificateProfileBase
@@ -70,6 +93,26 @@ func (r *MacOSCertificateProfileBaseRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MacOSCertificateProfileBase
+func (r *MacOSCertificateProfileBaseRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MacOSCertificateProfileBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MacOSCertificateProfileBase
+func (r *MacOSCertificateProfileBaseRequest) BatchUpdate(batch *BatchRequest, reqObj *MacOSCertificateProfileBase) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MacOSCertificateProfileBase
+func (r *MacOSCertificateProfileBaseRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // MacOSDeviceFeaturesConfigurationRequestBuilder is request builder for MacOSDeviceFeaturesConfiguration
 type MacOSDeviceFeaturesConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *MacOSDeviceFeaturesConfigurationRequest) Update(ctx context.Context, re
 // Delete performs DELETE request for MacOSDeviceFeaturesConfiguration
 func (r *MacOSDeviceFeaturesConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for MacOSDeviceFeaturesConfiguration
+func (r *MacOSDeviceFeaturesConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MacOSDeviceFeaturesConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MacOSDeviceFeaturesConfiguration
+func (r *MacOSDeviceFeaturesConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *MacOSDeviceFeaturesConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MacOSDeviceFeaturesConfiguration
+func (r *MacOSDeviceFeaturesConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // MacOSEnterpriseWiFiConfigurationRequestBuilder is request builder for MacOSEnterpriseWiFiConfiguration
@@ -136,6 +199,26 @@ func (r *MacOSEnterpriseWiFiConfigurationRequest) Delete(ctx context.Context) er
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MacOSEnterpriseWiFiConfiguration
+func (r *MacOSEnterpriseWiFiConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MacOSEnterpriseWiFiConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MacOSEnterpriseWiFiConfiguration
+func (r *MacOSEnterpriseWiFiConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *MacOSEnterpriseWiFiConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MacOSEnterpriseWiFiConfiguration
+func (r *MacOSEnterpriseWiFiConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // MacOSImportedPFXCertificateProfileRequestBuilder is request builder for MacOSImportedPFXCertificateProfile
 type MacOSImportedPFXCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,6 +250,26 @@ func (r *MacOSImportedPFXCertificateProfileRequest) Update(ctx context.Context, 
 // Delete performs DELETE request for MacOSImportedPFXCertificateProfile
 func (r *MacOSImportedPFXCertificateProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for MacOSImportedPFXCertificateProfile
+func (r *MacOSImportedPFXCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MacOSImportedPFXCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MacOSImportedPFXCertificateProfile
+func (r *MacOSImportedPFXCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *MacOSImportedPFXCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MacOSImportedPFXCertificateProfile
+func (r *MacOSImportedPFXCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // MacOSPkcsCertificateProfileRequestBuilder is request builder for MacOSPkcsCertificateProfile
@@ -202,6 +305,26 @@ func (r *MacOSPkcsCertificateProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MacOSPkcsCertificateProfile
+func (r *MacOSPkcsCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MacOSPkcsCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MacOSPkcsCertificateProfile
+func (r *MacOSPkcsCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *MacOSPkcsCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MacOSPkcsCertificateProfile
+func (r *MacOSPkcsCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // MacOSScepCertificateProfileRequestBuilder is request builder for MacOSScepCertificateProfile
 type MacOSScepCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -233,6 +356,26 @@ func (r *MacOSScepCertificateProfileRequest) Update(ctx context.Context, reqObj 
 // Delete performs DELETE request for MacOSScepCertificateProfile
 func (r *MacOSScepCertificateProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for MacOSScepCertificateProfile
+func (r *MacOSScepCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MacOSScepCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MacOSScepCertificateProfile
+func (r *MacOSScepCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *MacOSScepCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MacOSScepCertificateProfile
+func (r *MacOSScepCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // MacOSTrustedRootCertificateRequestBuilder is request builder for MacOSTrustedRootCertificate
@@ -268,6 +411,26 @@ func (r *MacOSTrustedRootCertificateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MacOSTrustedRootCertificate
+func (r *MacOSTrustedRootCertificateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MacOSTrustedRootCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MacOSTrustedRootCertificate
+func (r *MacOSTrustedRootCertificateRequest) BatchUpdate(batch *BatchRequest, reqObj *MacOSTrustedRootCertificate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MacOSTrustedRootCertificate
+func (r *MacOSTrustedRootCertificateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // MacOSVpnConfigurationRequestBuilder is request builder for MacOSVpnConfiguration
 type MacOSVpnConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -299,6 +462,26 @@ func (r *MacOSVpnConfigurationRequest) Update(ctx context.Context, reqObj *MacOS
 // Delete performs DELETE request for MacOSVpnConfiguration
 func (r *MacOSVpnConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for MacOSVpnConfiguration
+func (r *MacOSVpnConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MacOSVpnConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MacOSVpnConfiguration
+func (r *MacOSVpnConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *MacOSVpnConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MacOSVpnConfiguration
+func (r *MacOSVpnConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // MacOSWiredNetworkConfigurationRequestBuilder is request builder for MacOSWiredNetworkConfiguration
@@ -334,6 +517,26 @@ func (r *MacOSWiredNetworkConfigurationRequest) Delete(ctx context.Context) erro
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MacOSWiredNetworkConfiguration
+func (r *MacOSWiredNetworkConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MacOSWiredNetworkConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MacOSWiredNetworkConfiguration
+func (r *MacOSWiredNetworkConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *MacOSWiredNetworkConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MacOSWiredNetworkConfiguration
+func (r *MacOSWiredNetworkConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // MacOsVPPAppRequestBuilder is request builder for MacOsVPPApp
 type MacOsVPPAppRequestBuilder struct{ BaseRequestBuilder }
 
@@ -367,6 +570,26 @@ func (r *MacOsVPPAppRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MacOsVPPApp
+func (r *MacOsVPPAppRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MacOsVPPApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MacOsVPPApp
+func (r *MacOsVPPAppRequest) BatchUpdate(batch *BatchRequest, reqObj *MacOsVPPApp) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MacOsVPPApp
+func (r *MacOsVPPAppRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // MacOsVPPAppAssignedLicenseRequestBuilder is request builder for MacOsVPPAppAssignedLicense
 type MacOsVPPAppAssignedLicenseRequestBuilder struct{ BaseRequestBuilder }
 
@@ -398,4 +621,24 @@ func (r *MacOsVPPAppAssignedLicenseRequest) Update(ctx context.Context, reqObj *
 // Delete performs DELETE request for MacOsVPPAppAssignedLicense
 func (r *MacOsVPPAppAssignedLicenseRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for MacOsVPPAppAssignedLicense
+func (r *MacOsVPPAppAssignedLicenseRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MacOsVPPAppAssignedLicense
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MacOsVPPAppAssignedLicense
+func (r *MacOsVPPAppAssignedLicenseRequest) BatchUpdate(batch *BatchRequest, reqObj *MacOsVPPAppAssignedLicense) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MacOsVPPAppAssignedLicense
+func (r *MacOsVPPAppAssignedLicenseRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Add(ctx co
 	return
 }
 
+// BatchGet adds Get operation to Batch for ApplicationSignInDetailedSummary collection
+func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ApplicationSignInDetailedSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ApplicationSignInDetailedSummary collection
+func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ApplicationSignInDetailedSummary) error {
+	var resObj []ApplicationSignInDetailedSummary
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // CredentialUserRegistrationDetails returns request builder for CredentialUserRegistrationDetails collection
 func (b *ReportRootRequestBuilder) CredentialUserRegistrationDetails() *ReportRootCredentialUserRegistrationDetailsCollectionRequestBuilder {
 	bb := &ReportRootCredentialUserRegistrationDetailsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -215,6 +232,22 @@ func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Add(ctx c
 	return
 }
 
+// BatchGet adds Get operation to Batch for CredentialUserRegistrationDetails collection
+func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []CredentialUserRegistrationDetails
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for CredentialUserRegistrationDetails collection
+func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *CredentialUserRegistrationDetails) error {
+	var resObj []CredentialUserRegistrationDetails
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // UserCredentialUsageDetails returns request builder for UserCredentialUsageDetails collection
 func (b *ReportRootRequestBuilder) UserCredentialUsageDetails() *ReportRootUserCredentialUsageDetailsCollectionRequestBuilder {
 	bb := &ReportRootUserCredentialUsageDetailsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -315,4 +348,20 @@ func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Get(ctx context.
 func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Add(ctx context.Context, reqObj *UserCredentialUsageDetails) (resObj *UserCredentialUsageDetails, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for UserCredentialUsageDetails collection
+func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []UserCredentialUsageDetails
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for UserCredentialUsageDetails collection
+func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *UserCredentialUsageDetails) error {
+	var resObj []UserCredentialUsageDetails
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

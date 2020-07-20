@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // JournalRequestBuilder is request builder for Journal
 type JournalRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *JournalRequest) Update(ctx context.Context, reqObj *Journal) error {
 // Delete performs DELETE request for Journal
 func (r *JournalRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Journal
+func (r *JournalRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Journal
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Journal
+func (r *JournalRequest) BatchUpdate(batch *BatchRequest, reqObj *Journal) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Journal
+func (r *JournalRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // JournalLineRequestBuilder is request builder for JournalLine
@@ -70,6 +93,26 @@ func (r *JournalLineRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for JournalLine
+func (r *JournalLineRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj JournalLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for JournalLine
+func (r *JournalLineRequest) BatchUpdate(batch *BatchRequest, reqObj *JournalLine) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for JournalLine
+func (r *JournalLineRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type JournalPostRequestBuilder struct{ BaseRequestBuilder }
 
@@ -94,4 +137,9 @@ func (b *JournalPostRequestBuilder) Request() *JournalPostRequest {
 //
 func (r *JournalPostRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *JournalPostRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

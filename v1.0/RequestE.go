@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // EBookInstallSummaryRequestBuilder is request builder for EBookInstallSummary
 type EBookInstallSummaryRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *EBookInstallSummaryRequest) Update(ctx context.Context, reqObj *EBookIn
 // Delete performs DELETE request for EBookInstallSummary
 func (r *EBookInstallSummaryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for EBookInstallSummary
+func (r *EBookInstallSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EBookInstallSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EBookInstallSummary
+func (r *EBookInstallSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *EBookInstallSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EBookInstallSummary
+func (r *EBookInstallSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

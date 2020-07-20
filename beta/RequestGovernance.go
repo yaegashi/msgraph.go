@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // GovernancePolicyTemplateRequestBuilder is request builder for GovernancePolicyTemplate
 type GovernancePolicyTemplateRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *GovernancePolicyTemplateRequest) Update(ctx context.Context, reqObj *Go
 // Delete performs DELETE request for GovernancePolicyTemplate
 func (r *GovernancePolicyTemplateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for GovernancePolicyTemplate
+func (r *GovernancePolicyTemplateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GovernancePolicyTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GovernancePolicyTemplate
+func (r *GovernancePolicyTemplateRequest) BatchUpdate(batch *BatchRequest, reqObj *GovernancePolicyTemplate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GovernancePolicyTemplate
+func (r *GovernancePolicyTemplateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // GovernanceResourceRequestBuilder is request builder for GovernanceResource
@@ -70,6 +93,26 @@ func (r *GovernanceResourceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for GovernanceResource
+func (r *GovernanceResourceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GovernanceResource
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GovernanceResource
+func (r *GovernanceResourceRequest) BatchUpdate(batch *BatchRequest, reqObj *GovernanceResource) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GovernanceResource
+func (r *GovernanceResourceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // GovernanceRoleAssignmentRequestBuilder is request builder for GovernanceRoleAssignment
 type GovernanceRoleAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *GovernanceRoleAssignmentRequest) Update(ctx context.Context, reqObj *Go
 // Delete performs DELETE request for GovernanceRoleAssignment
 func (r *GovernanceRoleAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for GovernanceRoleAssignment
+func (r *GovernanceRoleAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GovernanceRoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GovernanceRoleAssignment
+func (r *GovernanceRoleAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *GovernanceRoleAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GovernanceRoleAssignment
+func (r *GovernanceRoleAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // GovernanceRoleAssignmentRequestObjectRequestBuilder is request builder for GovernanceRoleAssignmentRequestObject
@@ -136,6 +199,26 @@ func (r *GovernanceRoleAssignmentRequestObjectRequest) Delete(ctx context.Contex
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for GovernanceRoleAssignmentRequestObject
+func (r *GovernanceRoleAssignmentRequestObjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GovernanceRoleAssignmentRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GovernanceRoleAssignmentRequestObject
+func (r *GovernanceRoleAssignmentRequestObjectRequest) BatchUpdate(batch *BatchRequest, reqObj *GovernanceRoleAssignmentRequestObject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GovernanceRoleAssignmentRequestObject
+func (r *GovernanceRoleAssignmentRequestObjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // GovernanceRoleDefinitionRequestBuilder is request builder for GovernanceRoleDefinition
 type GovernanceRoleDefinitionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,6 +250,26 @@ func (r *GovernanceRoleDefinitionRequest) Update(ctx context.Context, reqObj *Go
 // Delete performs DELETE request for GovernanceRoleDefinition
 func (r *GovernanceRoleDefinitionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for GovernanceRoleDefinition
+func (r *GovernanceRoleDefinitionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GovernanceRoleDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GovernanceRoleDefinition
+func (r *GovernanceRoleDefinitionRequest) BatchUpdate(batch *BatchRequest, reqObj *GovernanceRoleDefinition) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GovernanceRoleDefinition
+func (r *GovernanceRoleDefinitionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // GovernanceRoleSettingRequestBuilder is request builder for GovernanceRoleSetting
@@ -202,6 +305,26 @@ func (r *GovernanceRoleSettingRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for GovernanceRoleSetting
+func (r *GovernanceRoleSettingRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GovernanceRoleSetting
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GovernanceRoleSetting
+func (r *GovernanceRoleSettingRequest) BatchUpdate(batch *BatchRequest, reqObj *GovernanceRoleSetting) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GovernanceRoleSetting
+func (r *GovernanceRoleSettingRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // GovernanceSubjectRequestBuilder is request builder for GovernanceSubject
 type GovernanceSubjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -235,6 +358,26 @@ func (r *GovernanceSubjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for GovernanceSubject
+func (r *GovernanceSubjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GovernanceSubject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GovernanceSubject
+func (r *GovernanceSubjectRequest) BatchUpdate(batch *BatchRequest, reqObj *GovernanceSubject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GovernanceSubject
+func (r *GovernanceSubjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type GovernanceResourceCollectionRegisterRequestBuilder struct{ BaseRequestBuilder }
 
@@ -259,6 +402,11 @@ func (b *GovernanceResourceCollectionRegisterRequestBuilder) Request() *Governan
 //
 func (r *GovernanceResourceCollectionRegisterRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *GovernanceResourceCollectionRegisterRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -288,6 +436,11 @@ func (r *GovernanceRoleAssignmentRequestObjectCancelRequest) Post(ctx context.Co
 }
 
 //
+func (r *GovernanceRoleAssignmentRequestObjectCancelRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequestBuilder struct{ BaseRequestBuilder }
 
 // UpdateRequestAction action undocumented
@@ -312,4 +465,10 @@ func (b *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequestBuilder)
 func (r *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest) Post(ctx context.Context) (resObj *GovernanceRoleAssignmentRequestObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *GovernanceRoleAssignmentRequestObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

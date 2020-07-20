@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -159,6 +160,22 @@ func (r *OnenoteNotebooksCollectionRequest) Add(ctx context.Context, reqObj *Not
 	return
 }
 
+// BatchGet adds Get operation to Batch for Notebook collection
+func (r *OnenoteNotebooksCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Notebook
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Notebook collection
+func (r *OnenoteNotebooksCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Notebook) error {
+	var resObj []Notebook
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Operations returns request builder for OnenoteOperation collection
 func (b *OnenoteRequestBuilder) Operations() *OnenoteOperationsCollectionRequestBuilder {
 	bb := &OnenoteOperationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -259,6 +276,22 @@ func (r *OnenoteOperationsCollectionRequest) Get(ctx context.Context) ([]Onenote
 func (r *OnenoteOperationsCollectionRequest) Add(ctx context.Context, reqObj *OnenoteOperation) (resObj *OnenoteOperation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for OnenoteOperation collection
+func (r *OnenoteOperationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OnenoteOperation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OnenoteOperation collection
+func (r *OnenoteOperationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OnenoteOperation) error {
+	var resObj []OnenoteOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Pages returns request builder for OnenotePage collection
@@ -363,6 +396,22 @@ func (r *OnenotePagesCollectionRequest) Add(ctx context.Context, reqObj *Onenote
 	return
 }
 
+// BatchGet adds Get operation to Batch for OnenotePage collection
+func (r *OnenotePagesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OnenotePage
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OnenotePage collection
+func (r *OnenotePagesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OnenotePage) error {
+	var resObj []OnenotePage
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Resources returns request builder for OnenoteResource collection
 func (b *OnenoteRequestBuilder) Resources() *OnenoteResourcesCollectionRequestBuilder {
 	bb := &OnenoteResourcesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -463,6 +512,22 @@ func (r *OnenoteResourcesCollectionRequest) Get(ctx context.Context) ([]OnenoteR
 func (r *OnenoteResourcesCollectionRequest) Add(ctx context.Context, reqObj *OnenoteResource) (resObj *OnenoteResource, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for OnenoteResource collection
+func (r *OnenoteResourcesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OnenoteResource
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OnenoteResource collection
+func (r *OnenoteResourcesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OnenoteResource) error {
+	var resObj []OnenoteResource
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SectionGroups returns request builder for SectionGroup collection
@@ -567,6 +632,22 @@ func (r *OnenoteSectionGroupsCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// BatchGet adds Get operation to Batch for SectionGroup collection
+func (r *OnenoteSectionGroupsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SectionGroup
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SectionGroup collection
+func (r *OnenoteSectionGroupsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SectionGroup) error {
+	var resObj []SectionGroup
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Sections returns request builder for OnenoteSection collection
 func (b *OnenoteRequestBuilder) Sections() *OnenoteSectionsCollectionRequestBuilder {
 	bb := &OnenoteSectionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -667,6 +748,22 @@ func (r *OnenoteSectionsCollectionRequest) Get(ctx context.Context) ([]OnenoteSe
 func (r *OnenoteSectionsCollectionRequest) Add(ctx context.Context, reqObj *OnenoteSection) (resObj *OnenoteSection, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for OnenoteSection collection
+func (r *OnenoteSectionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OnenoteSection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OnenoteSection collection
+func (r *OnenoteSectionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OnenoteSection) error {
+	var resObj []OnenoteSection
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ParentNotebook is navigation property
@@ -783,6 +880,22 @@ func (r *OnenoteSectionPagesCollectionRequest) Get(ctx context.Context) ([]Oneno
 func (r *OnenoteSectionPagesCollectionRequest) Add(ctx context.Context, reqObj *OnenotePage) (resObj *OnenotePage, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for OnenotePage collection
+func (r *OnenoteSectionPagesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OnenotePage
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OnenotePage collection
+func (r *OnenoteSectionPagesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OnenotePage) error {
+	var resObj []OnenotePage
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ParentNotebook is navigation property

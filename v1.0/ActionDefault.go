@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -111,6 +112,22 @@ func (r *DefaultManagedAppProtectionAppsCollectionRequest) Get(ctx context.Conte
 func (r *DefaultManagedAppProtectionAppsCollectionRequest) Add(ctx context.Context, reqObj *ManagedMobileApp) (resObj *ManagedMobileApp, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedMobileApp collection
+func (r *DefaultManagedAppProtectionAppsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedMobileApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedMobileApp collection
+func (r *DefaultManagedAppProtectionAppsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedMobileApp) error {
+	var resObj []ManagedMobileApp
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeploymentSummary is navigation property

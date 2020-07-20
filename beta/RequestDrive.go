@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *DriveRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Drive
+func (r *DriveRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Drive
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Drive
+func (r *DriveRequest) BatchUpdate(batch *BatchRequest, reqObj *Drive) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Drive
+func (r *DriveRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DriveItemRequestBuilder is request builder for DriveItem
 type DriveItemRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *DriveItemRequest) Update(ctx context.Context, reqObj *DriveItem) error 
 // Delete performs DELETE request for DriveItem
 func (r *DriveItemRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DriveItem
+func (r *DriveItemRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DriveItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DriveItem
+func (r *DriveItemRequest) BatchUpdate(batch *BatchRequest, reqObj *DriveItem) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DriveItem
+func (r *DriveItemRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DriveItemVersionRequestBuilder is request builder for DriveItemVersion
@@ -110,6 +151,26 @@ func (r *DriveItemVersionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DriveItemVersion
+func (r *DriveItemVersionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DriveItemVersion
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DriveItemVersion
+func (r *DriveItemVersionRequest) BatchUpdate(batch *BatchRequest, reqObj *DriveItemVersion) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DriveItemVersion
+func (r *DriveItemVersionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type DriveItemCheckinRequestBuilder struct{ BaseRequestBuilder }
 
@@ -137,6 +198,11 @@ func (r *DriveItemCheckinRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *DriveItemCheckinRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type DriveItemCheckoutRequestBuilder struct{ BaseRequestBuilder }
 
 // Checkout action undocumented
@@ -160,6 +226,11 @@ func (b *DriveItemCheckoutRequestBuilder) Request() *DriveItemCheckoutRequest {
 //
 func (r *DriveItemCheckoutRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *DriveItemCheckoutRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -190,6 +261,12 @@ func (r *DriveItemCopyRequest) Post(ctx context.Context) (resObj *DriveItem, err
 }
 
 //
+func (r *DriveItemCopyRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *DriveItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type DriveItemCreateLinkRequestBuilder struct{ BaseRequestBuilder }
 
 // CreateLink action undocumented
@@ -214,6 +291,12 @@ func (b *DriveItemCreateLinkRequestBuilder) Request() *DriveItemCreateLinkReques
 func (r *DriveItemCreateLinkRequest) Post(ctx context.Context) (resObj *Permission, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *DriveItemCreateLinkRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *Permission
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -244,6 +327,12 @@ func (r *DriveItemCreateUploadSessionRequest) Post(ctx context.Context) (resObj 
 }
 
 //
+func (r *DriveItemCreateUploadSessionRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *UploadSession
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type DriveItemFollowRequestBuilder struct{ BaseRequestBuilder }
 
 // Follow action undocumented
@@ -271,6 +360,12 @@ func (r *DriveItemFollowRequest) Post(ctx context.Context) (resObj *DriveItem, e
 }
 
 //
+func (r *DriveItemFollowRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *DriveItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type DriveItemUnfollowRequestBuilder struct{ BaseRequestBuilder }
 
 // Unfollow action undocumented
@@ -294,6 +389,11 @@ func (b *DriveItemUnfollowRequestBuilder) Request() *DriveItemUnfollowRequest {
 //
 func (r *DriveItemUnfollowRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *DriveItemUnfollowRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -383,6 +483,12 @@ func (r *DriveItemInviteRequest) Post(ctx context.Context) ([]Permission, error)
 }
 
 //
+func (r *DriveItemInviteRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []Permission
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type DriveItemPreviewRequestBuilder struct{ BaseRequestBuilder }
 
 // Preview action undocumented
@@ -407,6 +513,12 @@ func (b *DriveItemPreviewRequestBuilder) Request() *DriveItemPreviewRequest {
 func (r *DriveItemPreviewRequest) Post(ctx context.Context) (resObj *ItemPreviewInfo, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *DriveItemPreviewRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *ItemPreviewInfo
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -437,6 +549,12 @@ func (r *DriveItemRestoreRequest) Post(ctx context.Context) (resObj *DriveItem, 
 }
 
 //
+func (r *DriveItemRestoreRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *DriveItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type DriveItemValidatePermissionRequestBuilder struct{ BaseRequestBuilder }
 
 // ValidatePermission action undocumented
@@ -463,6 +581,11 @@ func (r *DriveItemValidatePermissionRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *DriveItemValidatePermissionRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type DriveItemVersionRestoreVersionRequestBuilder struct{ BaseRequestBuilder }
 
 // RestoreVersion action undocumented
@@ -486,4 +609,9 @@ func (b *DriveItemVersionRestoreVersionRequestBuilder) Request() *DriveItemVersi
 //
 func (r *DriveItemVersionRestoreVersionRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *DriveItemVersionRestoreVersionRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

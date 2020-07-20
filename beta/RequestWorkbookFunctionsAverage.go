@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsAverageRequestBuilder struct{ BaseRequestBuilder }
@@ -29,6 +32,12 @@ func (b *WorkbookFunctionsAverageRequestBuilder) Request() *WorkbookFunctionsAve
 func (r *WorkbookFunctionsAverageRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsAverageRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -59,6 +68,12 @@ func (r *WorkbookFunctionsAverageARequest) Post(ctx context.Context) (resObj *Wo
 }
 
 //
+func (r *WorkbookFunctionsAverageARequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsAverageIfRequestBuilder struct{ BaseRequestBuilder }
 
 // AverageIf action undocumented
@@ -86,6 +101,12 @@ func (r *WorkbookFunctionsAverageIfRequest) Post(ctx context.Context) (resObj *W
 }
 
 //
+func (r *WorkbookFunctionsAverageIfRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsAverageIfsRequestBuilder struct{ BaseRequestBuilder }
 
 // AverageIfs action undocumented
@@ -110,4 +131,10 @@ func (b *WorkbookFunctionsAverageIfsRequestBuilder) Request() *WorkbookFunctions
 func (r *WorkbookFunctionsAverageIfsRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsAverageIfsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

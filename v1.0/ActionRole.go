@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -118,4 +119,20 @@ func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Get(ctx context.Context
 func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *RoleAssignment) (resObj *RoleAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for RoleAssignment collection
+func (r *RoleDefinitionRoleAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []RoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for RoleAssignment collection
+func (r *RoleDefinitionRoleAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *RoleAssignment) error {
+	var resObj []RoleAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

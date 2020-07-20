@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -117,6 +118,22 @@ func (r *ListColumnsCollectionRequest) Add(ctx context.Context, reqObj *ColumnDe
 	return
 }
 
+// BatchGet adds Get operation to Batch for ColumnDefinition collection
+func (r *ListColumnsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ColumnDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ColumnDefinition collection
+func (r *ListColumnsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ColumnDefinition) error {
+	var resObj []ColumnDefinition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ContentTypes returns request builder for ContentType collection
 func (b *ListRequestBuilder) ContentTypes() *ListContentTypesCollectionRequestBuilder {
 	bb := &ListContentTypesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -217,6 +234,22 @@ func (r *ListContentTypesCollectionRequest) Get(ctx context.Context) ([]ContentT
 func (r *ListContentTypesCollectionRequest) Add(ctx context.Context, reqObj *ContentType) (resObj *ContentType, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ContentType collection
+func (r *ListContentTypesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ContentType
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ContentType collection
+func (r *ListContentTypesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ContentType) error {
+	var resObj []ContentType
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Drive is navigation property
@@ -326,6 +359,22 @@ func (r *ListItemsCollectionRequest) Get(ctx context.Context) ([]ListItem, error
 func (r *ListItemsCollectionRequest) Add(ctx context.Context, reqObj *ListItem) (resObj *ListItem, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ListItem collection
+func (r *ListItemsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ListItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ListItem collection
+func (r *ListItemsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ListItem) error {
+	var resObj []ListItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Analytics is navigation property
@@ -449,6 +498,22 @@ func (r *ListItemVersionsCollectionRequest) Get(ctx context.Context) ([]ListItem
 func (r *ListItemVersionsCollectionRequest) Add(ctx context.Context, reqObj *ListItemVersion) (resObj *ListItemVersion, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ListItemVersion collection
+func (r *ListItemVersionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ListItemVersion
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ListItemVersion collection
+func (r *ListItemVersionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ListItemVersion) error {
+	var resObj []ListItemVersion
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Fields is navigation property

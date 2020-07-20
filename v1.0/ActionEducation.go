@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -120,6 +121,22 @@ func (r *EducationClassMembersCollectionRequest) Add(ctx context.Context, reqObj
 	return
 }
 
+// BatchGet adds Get operation to Batch for EducationUser collection
+func (r *EducationClassMembersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EducationUser
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EducationUser collection
+func (r *EducationClassMembersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EducationUser) error {
+	var resObj []EducationUser
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Schools returns request builder for EducationSchool collection
 func (b *EducationClassRequestBuilder) Schools() *EducationClassSchoolsCollectionRequestBuilder {
 	bb := &EducationClassSchoolsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -220,6 +237,22 @@ func (r *EducationClassSchoolsCollectionRequest) Get(ctx context.Context) ([]Edu
 func (r *EducationClassSchoolsCollectionRequest) Add(ctx context.Context, reqObj *EducationSchool) (resObj *EducationSchool, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for EducationSchool collection
+func (r *EducationClassSchoolsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EducationSchool
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EducationSchool collection
+func (r *EducationClassSchoolsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EducationSchool) error {
+	var resObj []EducationSchool
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Teachers returns request builder for EducationUser collection
@@ -324,6 +357,22 @@ func (r *EducationClassTeachersCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for EducationUser collection
+func (r *EducationClassTeachersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EducationUser
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EducationUser collection
+func (r *EducationClassTeachersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EducationUser) error {
+	var resObj []EducationUser
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Classes returns request builder for EducationClass collection
 func (b *EducationRootRequestBuilder) Classes() *EducationRootClassesCollectionRequestBuilder {
 	bb := &EducationRootClassesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -424,6 +473,22 @@ func (r *EducationRootClassesCollectionRequest) Get(ctx context.Context) ([]Educ
 func (r *EducationRootClassesCollectionRequest) Add(ctx context.Context, reqObj *EducationClass) (resObj *EducationClass, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for EducationClass collection
+func (r *EducationRootClassesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EducationClass
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EducationClass collection
+func (r *EducationRootClassesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EducationClass) error {
+	var resObj []EducationClass
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Me is navigation property
@@ -535,6 +600,22 @@ func (r *EducationRootSchoolsCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// BatchGet adds Get operation to Batch for EducationSchool collection
+func (r *EducationRootSchoolsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EducationSchool
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EducationSchool collection
+func (r *EducationRootSchoolsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EducationSchool) error {
+	var resObj []EducationSchool
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Users returns request builder for EducationUser collection
 func (b *EducationRootRequestBuilder) Users() *EducationRootUsersCollectionRequestBuilder {
 	bb := &EducationRootUsersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -635,6 +716,22 @@ func (r *EducationRootUsersCollectionRequest) Get(ctx context.Context) ([]Educat
 func (r *EducationRootUsersCollectionRequest) Add(ctx context.Context, reqObj *EducationUser) (resObj *EducationUser, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for EducationUser collection
+func (r *EducationRootUsersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EducationUser
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EducationUser collection
+func (r *EducationRootUsersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EducationUser) error {
+	var resObj []EducationUser
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Classes returns request builder for EducationClass collection
@@ -739,6 +836,22 @@ func (r *EducationSchoolClassesCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for EducationClass collection
+func (r *EducationSchoolClassesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EducationClass
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EducationClass collection
+func (r *EducationSchoolClassesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EducationClass) error {
+	var resObj []EducationClass
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Users returns request builder for EducationUser collection
 func (b *EducationSchoolRequestBuilder) Users() *EducationSchoolUsersCollectionRequestBuilder {
 	bb := &EducationSchoolUsersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -839,6 +952,22 @@ func (r *EducationSchoolUsersCollectionRequest) Get(ctx context.Context) ([]Educ
 func (r *EducationSchoolUsersCollectionRequest) Add(ctx context.Context, reqObj *EducationUser) (resObj *EducationUser, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for EducationUser collection
+func (r *EducationSchoolUsersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EducationUser
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EducationUser collection
+func (r *EducationSchoolUsersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EducationUser) error {
+	var resObj []EducationUser
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Classes returns request builder for EducationClass collection
@@ -943,6 +1072,22 @@ func (r *EducationUserClassesCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// BatchGet adds Get operation to Batch for EducationClass collection
+func (r *EducationUserClassesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EducationClass
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EducationClass collection
+func (r *EducationUserClassesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EducationClass) error {
+	var resObj []EducationClass
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Schools returns request builder for EducationSchool collection
 func (b *EducationUserRequestBuilder) Schools() *EducationUserSchoolsCollectionRequestBuilder {
 	bb := &EducationUserSchoolsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1043,6 +1188,22 @@ func (r *EducationUserSchoolsCollectionRequest) Get(ctx context.Context) ([]Educ
 func (r *EducationUserSchoolsCollectionRequest) Add(ctx context.Context, reqObj *EducationSchool) (resObj *EducationSchool, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for EducationSchool collection
+func (r *EducationUserSchoolsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EducationSchool
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EducationSchool collection
+func (r *EducationUserSchoolsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EducationSchool) error {
+	var resObj []EducationSchool
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // User is navigation property

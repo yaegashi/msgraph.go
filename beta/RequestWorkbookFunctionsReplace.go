@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsReplaceRequestBuilder struct{ BaseRequestBuilder }
@@ -32,6 +35,12 @@ func (r *WorkbookFunctionsReplaceRequest) Post(ctx context.Context) (resObj *Wor
 }
 
 //
+func (r *WorkbookFunctionsReplaceRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsReplaceBRequestBuilder struct{ BaseRequestBuilder }
 
 // ReplaceB action undocumented
@@ -56,4 +65,10 @@ func (b *WorkbookFunctionsReplaceBRequestBuilder) Request() *WorkbookFunctionsRe
 func (r *WorkbookFunctionsReplaceBRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsReplaceBRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

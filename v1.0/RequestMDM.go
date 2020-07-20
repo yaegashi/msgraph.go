@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // MDMWindowsInformationProtectionPolicyRequestBuilder is request builder for MDMWindowsInformationProtectionPolicy
 type MDMWindowsInformationProtectionPolicyRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *MDMWindowsInformationProtectionPolicyRequest) Update(ctx context.Contex
 // Delete performs DELETE request for MDMWindowsInformationProtectionPolicy
 func (r *MDMWindowsInformationProtectionPolicyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for MDMWindowsInformationProtectionPolicy
+func (r *MDMWindowsInformationProtectionPolicyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MDMWindowsInformationProtectionPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MDMWindowsInformationProtectionPolicy
+func (r *MDMWindowsInformationProtectionPolicyRequest) BatchUpdate(batch *BatchRequest, reqObj *MDMWindowsInformationProtectionPolicy) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MDMWindowsInformationProtectionPolicy
+func (r *MDMWindowsInformationProtectionPolicyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

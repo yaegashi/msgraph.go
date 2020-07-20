@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *OfficeClientConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for OfficeClientConfiguration
+func (r *OfficeClientConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OfficeClientConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OfficeClientConfiguration
+func (r *OfficeClientConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *OfficeClientConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OfficeClientConfiguration
+func (r *OfficeClientConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // OfficeClientConfigurationAssignmentRequestBuilder is request builder for OfficeClientConfigurationAssignment
 type OfficeClientConfigurationAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *OfficeClientConfigurationAssignmentRequest) Update(ctx context.Context,
 // Delete performs DELETE request for OfficeClientConfigurationAssignment
 func (r *OfficeClientConfigurationAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for OfficeClientConfigurationAssignment
+func (r *OfficeClientConfigurationAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OfficeClientConfigurationAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OfficeClientConfigurationAssignment
+func (r *OfficeClientConfigurationAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *OfficeClientConfigurationAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OfficeClientConfigurationAssignment
+func (r *OfficeClientConfigurationAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // OfficeConfigurationRequestBuilder is request builder for OfficeConfiguration
@@ -110,6 +151,26 @@ func (r *OfficeConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for OfficeConfiguration
+func (r *OfficeConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OfficeConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OfficeConfiguration
+func (r *OfficeConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *OfficeConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OfficeConfiguration
+func (r *OfficeConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // OfficeGraphInsightsRequestBuilder is request builder for OfficeGraphInsights
 type OfficeGraphInsightsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -143,6 +204,26 @@ func (r *OfficeGraphInsightsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for OfficeGraphInsights
+func (r *OfficeGraphInsightsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OfficeGraphInsights
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OfficeGraphInsights
+func (r *OfficeGraphInsightsRequest) BatchUpdate(batch *BatchRequest, reqObj *OfficeGraphInsights) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OfficeGraphInsights
+func (r *OfficeGraphInsightsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,6 +248,11 @@ func (b *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder) Requ
 //
 func (r *OfficeClientConfigurationCollectionUpdatePrioritiesRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *OfficeClientConfigurationCollectionUpdatePrioritiesRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -253,4 +339,10 @@ func (r *OfficeClientConfigurationAssignRequest) PostN(ctx context.Context, n in
 //
 func (r *OfficeClientConfigurationAssignRequest) Post(ctx context.Context) ([]OfficeClientConfigurationAssignment, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+func (r *OfficeClientConfigurationAssignRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []OfficeClientConfigurationAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

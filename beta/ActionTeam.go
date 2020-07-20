@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -139,6 +140,22 @@ func (r *TeamAppsCollectionRequest) Add(ctx context.Context, reqObj *TeamsCatalo
 	return
 }
 
+// BatchGet adds Get operation to Batch for TeamsCatalogApp collection
+func (r *TeamAppsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TeamsCatalogApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TeamsCatalogApp collection
+func (r *TeamAppsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TeamsCatalogApp) error {
+	var resObj []TeamsCatalogApp
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Channels returns request builder for Channel collection
 func (b *TeamRequestBuilder) Channels() *TeamChannelsCollectionRequestBuilder {
 	bb := &TeamChannelsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -239,6 +256,22 @@ func (r *TeamChannelsCollectionRequest) Get(ctx context.Context) ([]Channel, err
 func (r *TeamChannelsCollectionRequest) Add(ctx context.Context, reqObj *Channel) (resObj *Channel, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Channel collection
+func (r *TeamChannelsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Channel
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Channel collection
+func (r *TeamChannelsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Channel) error {
+	var resObj []Channel
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Group is navigation property
@@ -350,6 +383,22 @@ func (r *TeamInstalledAppsCollectionRequest) Add(ctx context.Context, reqObj *Te
 	return
 }
 
+// BatchGet adds Get operation to Batch for TeamsAppInstallation collection
+func (r *TeamInstalledAppsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TeamsAppInstallation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TeamsAppInstallation collection
+func (r *TeamInstalledAppsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TeamsAppInstallation) error {
+	var resObj []TeamsAppInstallation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Operations returns request builder for TeamsAsyncOperation collection
 func (b *TeamRequestBuilder) Operations() *TeamOperationsCollectionRequestBuilder {
 	bb := &TeamOperationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -452,6 +501,22 @@ func (r *TeamOperationsCollectionRequest) Add(ctx context.Context, reqObj *Teams
 	return
 }
 
+// BatchGet adds Get operation to Batch for TeamsAsyncOperation collection
+func (r *TeamOperationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TeamsAsyncOperation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TeamsAsyncOperation collection
+func (r *TeamOperationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TeamsAsyncOperation) error {
+	var resObj []TeamsAsyncOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Owners returns request builder for User collection
 func (b *TeamRequestBuilder) Owners() *TeamOwnersCollectionRequestBuilder {
 	bb := &TeamOwnersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -552,6 +617,22 @@ func (r *TeamOwnersCollectionRequest) Get(ctx context.Context) ([]User, error) {
 func (r *TeamOwnersCollectionRequest) Add(ctx context.Context, reqObj *User) (resObj *User, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for User collection
+func (r *TeamOwnersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []User
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for User collection
+func (r *TeamOwnersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *User) error {
+	var resObj []User
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Photo is navigation property

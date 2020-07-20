@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -173,6 +174,22 @@ func (r *DriveItemsCollectionRequest) Add(ctx context.Context, reqObj *DriveItem
 	return
 }
 
+// BatchGet adds Get operation to Batch for DriveItem collection
+func (r *DriveItemsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DriveItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DriveItem collection
+func (r *DriveItemsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DriveItem) error {
+	var resObj []DriveItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // List is navigation property
 func (b *DriveRequestBuilder) List() *ListRequestBuilder {
 	bb := &ListRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -289,6 +306,22 @@ func (r *DriveSpecialCollectionRequest) Add(ctx context.Context, reqObj *DriveIt
 	return
 }
 
+// BatchGet adds Get operation to Batch for DriveItem collection
+func (r *DriveSpecialCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DriveItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DriveItem collection
+func (r *DriveSpecialCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DriveItem) error {
+	var resObj []DriveItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Analytics is navigation property
 func (b *DriveItemRequestBuilder) Analytics() *ItemAnalyticsRequestBuilder {
 	bb := &ItemAnalyticsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -396,6 +429,22 @@ func (r *DriveItemChildrenCollectionRequest) Get(ctx context.Context) ([]DriveIt
 func (r *DriveItemChildrenCollectionRequest) Add(ctx context.Context, reqObj *DriveItem) (resObj *DriveItem, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DriveItem collection
+func (r *DriveItemChildrenCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DriveItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DriveItem collection
+func (r *DriveItemChildrenCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DriveItem) error {
+	var resObj []DriveItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ListItem is navigation property
@@ -507,6 +556,22 @@ func (r *DriveItemPermissionsCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// BatchGet adds Get operation to Batch for Permission collection
+func (r *DriveItemPermissionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Permission
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Permission collection
+func (r *DriveItemPermissionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Permission) error {
+	var resObj []Permission
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Subscriptions returns request builder for Subscription collection
 func (b *DriveItemRequestBuilder) Subscriptions() *DriveItemSubscriptionsCollectionRequestBuilder {
 	bb := &DriveItemSubscriptionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -607,6 +672,22 @@ func (r *DriveItemSubscriptionsCollectionRequest) Get(ctx context.Context) ([]Su
 func (r *DriveItemSubscriptionsCollectionRequest) Add(ctx context.Context, reqObj *Subscription) (resObj *Subscription, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Subscription collection
+func (r *DriveItemSubscriptionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Subscription
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Subscription collection
+func (r *DriveItemSubscriptionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Subscription) error {
+	var resObj []Subscription
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Thumbnails returns request builder for ThumbnailSet collection
@@ -711,6 +792,22 @@ func (r *DriveItemThumbnailsCollectionRequest) Add(ctx context.Context, reqObj *
 	return
 }
 
+// BatchGet adds Get operation to Batch for ThumbnailSet collection
+func (r *DriveItemThumbnailsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ThumbnailSet
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ThumbnailSet collection
+func (r *DriveItemThumbnailsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ThumbnailSet) error {
+	var resObj []ThumbnailSet
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Versions returns request builder for DriveItemVersion collection
 func (b *DriveItemRequestBuilder) Versions() *DriveItemVersionsCollectionRequestBuilder {
 	bb := &DriveItemVersionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -811,6 +908,22 @@ func (r *DriveItemVersionsCollectionRequest) Get(ctx context.Context) ([]DriveIt
 func (r *DriveItemVersionsCollectionRequest) Add(ctx context.Context, reqObj *DriveItemVersion) (resObj *DriveItemVersion, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DriveItemVersion collection
+func (r *DriveItemVersionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DriveItemVersion
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DriveItemVersion collection
+func (r *DriveItemVersionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DriveItemVersion) error {
+	var resObj []DriveItemVersion
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Workbook is navigation property

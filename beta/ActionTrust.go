@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -151,6 +152,22 @@ func (r *TrustFrameworkKeySetsCollectionRequest) Add(ctx context.Context, reqObj
 	return
 }
 
+// BatchGet adds Get operation to Batch for TrustFrameworkKeySet collection
+func (r *TrustFrameworkKeySetsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TrustFrameworkKeySet
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TrustFrameworkKeySet collection
+func (r *TrustFrameworkKeySetsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TrustFrameworkKeySet) error {
+	var resObj []TrustFrameworkKeySet
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Policies returns request builder for TrustFrameworkPolicy collection
 func (b *TrustFrameworkRequestBuilder) Policies() *TrustFrameworkPoliciesCollectionRequestBuilder {
 	bb := &TrustFrameworkPoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -251,4 +268,20 @@ func (r *TrustFrameworkPoliciesCollectionRequest) Get(ctx context.Context) ([]Tr
 func (r *TrustFrameworkPoliciesCollectionRequest) Add(ctx context.Context, reqObj *TrustFrameworkPolicy) (resObj *TrustFrameworkPolicy, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for TrustFrameworkPolicy collection
+func (r *TrustFrameworkPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TrustFrameworkPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TrustFrameworkPolicy collection
+func (r *TrustFrameworkPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TrustFrameworkPolicy) error {
+	var resObj []TrustFrameworkPolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

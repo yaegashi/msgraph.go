@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -127,6 +128,22 @@ func (r *BookingBusinessAppointmentsCollectionRequest) Add(ctx context.Context, 
 	return
 }
 
+// BatchGet adds Get operation to Batch for BookingAppointment collection
+func (r *BookingBusinessAppointmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []BookingAppointment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for BookingAppointment collection
+func (r *BookingBusinessAppointmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *BookingAppointment) error {
+	var resObj []BookingAppointment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // CalendarView returns request builder for BookingAppointment collection
 func (b *BookingBusinessRequestBuilder) CalendarView() *BookingBusinessCalendarViewCollectionRequestBuilder {
 	bb := &BookingBusinessCalendarViewCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -227,6 +244,22 @@ func (r *BookingBusinessCalendarViewCollectionRequest) Get(ctx context.Context) 
 func (r *BookingBusinessCalendarViewCollectionRequest) Add(ctx context.Context, reqObj *BookingAppointment) (resObj *BookingAppointment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for BookingAppointment collection
+func (r *BookingBusinessCalendarViewCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []BookingAppointment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for BookingAppointment collection
+func (r *BookingBusinessCalendarViewCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *BookingAppointment) error {
+	var resObj []BookingAppointment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Customers returns request builder for BookingCustomer collection
@@ -331,6 +364,22 @@ func (r *BookingBusinessCustomersCollectionRequest) Add(ctx context.Context, req
 	return
 }
 
+// BatchGet adds Get operation to Batch for BookingCustomer collection
+func (r *BookingBusinessCustomersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []BookingCustomer
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for BookingCustomer collection
+func (r *BookingBusinessCustomersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *BookingCustomer) error {
+	var resObj []BookingCustomer
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Services returns request builder for BookingService collection
 func (b *BookingBusinessRequestBuilder) Services() *BookingBusinessServicesCollectionRequestBuilder {
 	bb := &BookingBusinessServicesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -433,6 +482,22 @@ func (r *BookingBusinessServicesCollectionRequest) Add(ctx context.Context, reqO
 	return
 }
 
+// BatchGet adds Get operation to Batch for BookingService collection
+func (r *BookingBusinessServicesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []BookingService
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for BookingService collection
+func (r *BookingBusinessServicesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *BookingService) error {
+	var resObj []BookingService
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // StaffMembers returns request builder for BookingStaffMember collection
 func (b *BookingBusinessRequestBuilder) StaffMembers() *BookingBusinessStaffMembersCollectionRequestBuilder {
 	bb := &BookingBusinessStaffMembersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -533,4 +598,20 @@ func (r *BookingBusinessStaffMembersCollectionRequest) Get(ctx context.Context) 
 func (r *BookingBusinessStaffMembersCollectionRequest) Add(ctx context.Context, reqObj *BookingStaffMember) (resObj *BookingStaffMember, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for BookingStaffMember collection
+func (r *BookingBusinessStaffMembersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []BookingStaffMember
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for BookingStaffMember collection
+func (r *BookingBusinessStaffMembersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *BookingStaffMember) error {
+	var resObj []BookingStaffMember
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

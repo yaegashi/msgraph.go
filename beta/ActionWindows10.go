@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) Ad
 	return
 }
 
+// BatchGet adds Get operation to Batch for WindowsPrivacyDataAccessControlItem collection
+func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsPrivacyDataAccessControlItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsPrivacyDataAccessControlItem collection
+func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsPrivacyDataAccessControlItem) error {
+	var resObj []WindowsPrivacyDataAccessControlItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
 func (b *Windows10ImportedPFXCertificateProfileRequestBuilder) ManagedDeviceCertificateStates() *Windows10ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder {
 	bb := &Windows10ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -215,6 +232,22 @@ func (r *Windows10ImportedPFXCertificateProfileManagedDeviceCertificateStatesCol
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *Windows10ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *Windows10ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
 func (b *Windows10PkcsCertificateProfileRequestBuilder) ManagedDeviceCertificateStates() *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder {
 	bb := &Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -315,6 +348,22 @@ func (r *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollection
 func (r *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // IdentityCertificate is navigation property

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // DocumentRequestBuilder is request builder for Document
 type DocumentRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *DocumentRequest) Update(ctx context.Context, reqObj *Document) error {
 // Delete performs DELETE request for Document
 func (r *DocumentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Document
+func (r *DocumentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Document
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Document
+func (r *DocumentRequest) BatchUpdate(batch *BatchRequest, reqObj *Document) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Document
+func (r *DocumentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DocumentCommentRequestBuilder is request builder for DocumentComment
@@ -70,6 +93,26 @@ func (r *DocumentCommentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DocumentComment
+func (r *DocumentCommentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DocumentComment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DocumentComment
+func (r *DocumentCommentRequest) BatchUpdate(batch *BatchRequest, reqObj *DocumentComment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DocumentComment
+func (r *DocumentCommentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DocumentCommentReplyRequestBuilder is request builder for DocumentCommentReply
 type DocumentCommentReplyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,4 +144,24 @@ func (r *DocumentCommentReplyRequest) Update(ctx context.Context, reqObj *Docume
 // Delete performs DELETE request for DocumentCommentReply
 func (r *DocumentCommentReplyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DocumentCommentReply
+func (r *DocumentCommentReplyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DocumentCommentReply
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DocumentCommentReply
+func (r *DocumentCommentReplyRequest) BatchUpdate(batch *BatchRequest, reqObj *DocumentCommentReply) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DocumentCommentReply
+func (r *DocumentCommentReplyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

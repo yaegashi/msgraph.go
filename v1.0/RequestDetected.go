@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // DetectedAppRequestBuilder is request builder for DetectedApp
 type DetectedAppRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *DetectedAppRequest) Update(ctx context.Context, reqObj *DetectedApp) er
 // Delete performs DELETE request for DetectedApp
 func (r *DetectedAppRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DetectedApp
+func (r *DetectedAppRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DetectedApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DetectedApp
+func (r *DetectedAppRequest) BatchUpdate(batch *BatchRequest, reqObj *DetectedApp) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DetectedApp
+func (r *DetectedAppRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

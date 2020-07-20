@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // AccessPackageRequestBuilder is request builder for AccessPackage
 type AccessPackageRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *AccessPackageRequest) Update(ctx context.Context, reqObj *AccessPackage
 // Delete performs DELETE request for AccessPackage
 func (r *AccessPackageRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AccessPackage
+func (r *AccessPackageRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessPackage
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessPackage
+func (r *AccessPackageRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessPackage) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessPackage
+func (r *AccessPackageRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AccessPackageAssignmentRequestBuilder is request builder for AccessPackageAssignment
@@ -70,6 +93,26 @@ func (r *AccessPackageAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageAssignment
+func (r *AccessPackageAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessPackageAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessPackageAssignment
+func (r *AccessPackageAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessPackageAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessPackageAssignment
+func (r *AccessPackageAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AccessPackageAssignmentPolicyRequestBuilder is request builder for AccessPackageAssignmentPolicy
 type AccessPackageAssignmentPolicyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *AccessPackageAssignmentPolicyRequest) Update(ctx context.Context, reqOb
 // Delete performs DELETE request for AccessPackageAssignmentPolicy
 func (r *AccessPackageAssignmentPolicyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AccessPackageAssignmentPolicy
+func (r *AccessPackageAssignmentPolicyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessPackageAssignmentPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessPackageAssignmentPolicy
+func (r *AccessPackageAssignmentPolicyRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessPackageAssignmentPolicy) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessPackageAssignmentPolicy
+func (r *AccessPackageAssignmentPolicyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AccessPackageAssignmentRequestObjectRequestBuilder is request builder for AccessPackageAssignmentRequestObject
@@ -136,6 +199,26 @@ func (r *AccessPackageAssignmentRequestObjectRequest) Delete(ctx context.Context
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageAssignmentRequestObject
+func (r *AccessPackageAssignmentRequestObjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessPackageAssignmentRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessPackageAssignmentRequestObject
+func (r *AccessPackageAssignmentRequestObjectRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessPackageAssignmentRequestObject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessPackageAssignmentRequestObject
+func (r *AccessPackageAssignmentRequestObjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AccessPackageAssignmentResourceRoleRequestBuilder is request builder for AccessPackageAssignmentResourceRole
 type AccessPackageAssignmentResourceRoleRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,6 +250,26 @@ func (r *AccessPackageAssignmentResourceRoleRequest) Update(ctx context.Context,
 // Delete performs DELETE request for AccessPackageAssignmentResourceRole
 func (r *AccessPackageAssignmentResourceRoleRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AccessPackageAssignmentResourceRole
+func (r *AccessPackageAssignmentResourceRoleRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessPackageAssignmentResourceRole
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessPackageAssignmentResourceRole
+func (r *AccessPackageAssignmentResourceRoleRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessPackageAssignmentResourceRole) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessPackageAssignmentResourceRole
+func (r *AccessPackageAssignmentResourceRoleRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AccessPackageCatalogRequestBuilder is request builder for AccessPackageCatalog
@@ -202,6 +305,26 @@ func (r *AccessPackageCatalogRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageCatalog
+func (r *AccessPackageCatalogRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessPackageCatalog
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessPackageCatalog
+func (r *AccessPackageCatalogRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessPackageCatalog) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessPackageCatalog
+func (r *AccessPackageCatalogRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AccessPackageResourceRequestBuilder is request builder for AccessPackageResource
 type AccessPackageResourceRequestBuilder struct{ BaseRequestBuilder }
 
@@ -233,6 +356,26 @@ func (r *AccessPackageResourceRequest) Update(ctx context.Context, reqObj *Acces
 // Delete performs DELETE request for AccessPackageResource
 func (r *AccessPackageResourceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AccessPackageResource
+func (r *AccessPackageResourceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessPackageResource
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessPackageResource
+func (r *AccessPackageResourceRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessPackageResource) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessPackageResource
+func (r *AccessPackageResourceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AccessPackageResourceRequestObjectRequestBuilder is request builder for AccessPackageResourceRequestObject
@@ -268,6 +411,26 @@ func (r *AccessPackageResourceRequestObjectRequest) Delete(ctx context.Context) 
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageResourceRequestObject
+func (r *AccessPackageResourceRequestObjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessPackageResourceRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessPackageResourceRequestObject
+func (r *AccessPackageResourceRequestObjectRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessPackageResourceRequestObject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessPackageResourceRequestObject
+func (r *AccessPackageResourceRequestObjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AccessPackageResourceRoleRequestBuilder is request builder for AccessPackageResourceRole
 type AccessPackageResourceRoleRequestBuilder struct{ BaseRequestBuilder }
 
@@ -299,6 +462,26 @@ func (r *AccessPackageResourceRoleRequest) Update(ctx context.Context, reqObj *A
 // Delete performs DELETE request for AccessPackageResourceRole
 func (r *AccessPackageResourceRoleRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AccessPackageResourceRole
+func (r *AccessPackageResourceRoleRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessPackageResourceRole
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessPackageResourceRole
+func (r *AccessPackageResourceRoleRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessPackageResourceRole) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessPackageResourceRole
+func (r *AccessPackageResourceRoleRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AccessPackageResourceRoleScopeRequestBuilder is request builder for AccessPackageResourceRoleScope
@@ -334,6 +517,26 @@ func (r *AccessPackageResourceRoleScopeRequest) Delete(ctx context.Context) erro
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageResourceRoleScope
+func (r *AccessPackageResourceRoleScopeRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessPackageResourceRoleScope
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessPackageResourceRoleScope
+func (r *AccessPackageResourceRoleScopeRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessPackageResourceRoleScope) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessPackageResourceRoleScope
+func (r *AccessPackageResourceRoleScopeRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AccessPackageResourceScopeRequestBuilder is request builder for AccessPackageResourceScope
 type AccessPackageResourceScopeRequestBuilder struct{ BaseRequestBuilder }
 
@@ -365,6 +568,26 @@ func (r *AccessPackageResourceScopeRequest) Update(ctx context.Context, reqObj *
 // Delete performs DELETE request for AccessPackageResourceScope
 func (r *AccessPackageResourceScopeRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AccessPackageResourceScope
+func (r *AccessPackageResourceScopeRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessPackageResourceScope
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessPackageResourceScope
+func (r *AccessPackageResourceScopeRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessPackageResourceScope) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessPackageResourceScope
+func (r *AccessPackageResourceScopeRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AccessPackageSubjectRequestBuilder is request builder for AccessPackageSubject
@@ -400,6 +623,26 @@ func (r *AccessPackageSubjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageSubject
+func (r *AccessPackageSubjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessPackageSubject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessPackageSubject
+func (r *AccessPackageSubjectRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessPackageSubject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessPackageSubject
+func (r *AccessPackageSubjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AccessReviewRequestBuilder is request builder for AccessReview
 type AccessReviewRequestBuilder struct{ BaseRequestBuilder }
 
@@ -431,6 +674,26 @@ func (r *AccessReviewRequest) Update(ctx context.Context, reqObj *AccessReview) 
 // Delete performs DELETE request for AccessReview
 func (r *AccessReviewRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AccessReview
+func (r *AccessReviewRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessReview
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessReview
+func (r *AccessReviewRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessReview) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessReview
+func (r *AccessReviewRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AccessReviewDecisionRequestBuilder is request builder for AccessReviewDecision
@@ -466,6 +729,26 @@ func (r *AccessReviewDecisionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AccessReviewDecision
+func (r *AccessReviewDecisionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessReviewDecision
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessReviewDecision
+func (r *AccessReviewDecisionRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessReviewDecision) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessReviewDecision
+func (r *AccessReviewDecisionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AccessReviewReviewerRequestBuilder is request builder for AccessReviewReviewer
 type AccessReviewReviewerRequestBuilder struct{ BaseRequestBuilder }
 
@@ -499,6 +782,26 @@ func (r *AccessReviewReviewerRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AccessReviewReviewer
+func (r *AccessReviewReviewerRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AccessReviewReviewer
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AccessReviewReviewer
+func (r *AccessReviewReviewerRequest) BatchUpdate(batch *BatchRequest, reqObj *AccessReviewReviewer) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AccessReviewReviewer
+func (r *AccessReviewReviewerRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type AccessPackageAssignmentRequestObjectCancelRequestBuilder struct{ BaseRequestBuilder }
 
@@ -523,6 +826,11 @@ func (b *AccessPackageAssignmentRequestObjectCancelRequestBuilder) Request() *Ac
 //
 func (r *AccessPackageAssignmentRequestObjectCancelRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *AccessPackageAssignmentRequestObjectCancelRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -552,6 +860,11 @@ func (r *AccessReviewStopRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *AccessReviewStopRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type AccessReviewSendReminderRequestBuilder struct{ BaseRequestBuilder }
 
 // SendReminder action undocumented
@@ -575,6 +888,11 @@ func (b *AccessReviewSendReminderRequestBuilder) Request() *AccessReviewSendRemi
 //
 func (r *AccessReviewSendReminderRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *AccessReviewSendReminderRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -604,6 +922,11 @@ func (r *AccessReviewResetDecisionsRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *AccessReviewResetDecisionsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type AccessReviewApplyDecisionsRequestBuilder struct{ BaseRequestBuilder }
 
 // ApplyDecisions action undocumented
@@ -627,4 +950,9 @@ func (b *AccessReviewApplyDecisionsRequestBuilder) Request() *AccessReviewApplyD
 //
 func (r *AccessReviewApplyDecisionsRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *AccessReviewApplyDecisionsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -137,6 +138,22 @@ func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Add(ctx context.C
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedMobileApp collection
+func (r *TargetedManagedAppConfigurationAppsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedMobileApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedMobileApp collection
+func (r *TargetedManagedAppConfigurationAppsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedMobileApp) error {
+	var resObj []ManagedMobileApp
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Assignments returns request builder for TargetedManagedAppPolicyAssignment collection
 func (b *TargetedManagedAppConfigurationRequestBuilder) Assignments() *TargetedManagedAppConfigurationAssignmentsCollectionRequestBuilder {
 	bb := &TargetedManagedAppConfigurationAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -237,6 +254,22 @@ func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Get(ctx co
 func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *TargetedManagedAppPolicyAssignment) (resObj *TargetedManagedAppPolicyAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for TargetedManagedAppPolicyAssignment collection
+func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TargetedManagedAppPolicyAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TargetedManagedAppPolicyAssignment collection
+func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TargetedManagedAppPolicyAssignment) error {
+	var resObj []TargetedManagedAppPolicyAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeploymentSummary is navigation property
@@ -346,4 +379,20 @@ func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Get(ctx conte
 func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *TargetedManagedAppPolicyAssignment) (resObj *TargetedManagedAppPolicyAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for TargetedManagedAppPolicyAssignment collection
+func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TargetedManagedAppPolicyAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TargetedManagedAppPolicyAssignment collection
+func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TargetedManagedAppPolicyAssignment) error {
+	var resObj []TargetedManagedAppPolicyAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

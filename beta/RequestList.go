@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ListRequestBuilder is request builder for List
 type ListRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *ListRequest) Update(ctx context.Context, reqObj *List) error {
 // Delete performs DELETE request for List
 func (r *ListRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for List
+func (r *ListRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj List
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for List
+func (r *ListRequest) BatchUpdate(batch *BatchRequest, reqObj *List) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for List
+func (r *ListRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ListItemRequestBuilder is request builder for ListItem
@@ -70,6 +93,26 @@ func (r *ListItemRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ListItem
+func (r *ListItemRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ListItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ListItem
+func (r *ListItemRequest) BatchUpdate(batch *BatchRequest, reqObj *ListItem) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ListItem
+func (r *ListItemRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ListItemVersionRequestBuilder is request builder for ListItemVersion
 type ListItemVersionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -103,6 +146,26 @@ func (r *ListItemVersionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ListItemVersion
+func (r *ListItemVersionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ListItemVersion
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ListItemVersion
+func (r *ListItemVersionRequest) BatchUpdate(batch *BatchRequest, reqObj *ListItemVersion) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ListItemVersion
+func (r *ListItemVersionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type ListItemVersionRestoreVersionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -127,4 +190,9 @@ func (b *ListItemVersionRestoreVersionRequestBuilder) Request() *ListItemVersion
 //
 func (r *ListItemVersionRestoreVersionRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ListItemVersionRestoreVersionRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -111,4 +112,20 @@ func (r *ThreatAssessmentRequestObjectResultsCollectionRequest) Get(ctx context.
 func (r *ThreatAssessmentRequestObjectResultsCollectionRequest) Add(ctx context.Context, reqObj *ThreatAssessmentResult) (resObj *ThreatAssessmentResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ThreatAssessmentResult collection
+func (r *ThreatAssessmentRequestObjectResultsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ThreatAssessmentResult
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ThreatAssessmentResult collection
+func (r *ThreatAssessmentRequestObjectResultsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ThreatAssessmentResult) error {
+	var resObj []ThreatAssessmentResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

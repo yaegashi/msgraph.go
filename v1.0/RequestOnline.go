@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // OnlineMeetingRequestBuilder is request builder for OnlineMeeting
 type OnlineMeetingRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *OnlineMeetingRequest) Update(ctx context.Context, reqObj *OnlineMeeting
 // Delete performs DELETE request for OnlineMeeting
 func (r *OnlineMeetingRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for OnlineMeeting
+func (r *OnlineMeetingRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OnlineMeeting
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OnlineMeeting
+func (r *OnlineMeetingRequest) BatchUpdate(batch *BatchRequest, reqObj *OnlineMeeting) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OnlineMeeting
+func (r *OnlineMeetingRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

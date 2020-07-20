@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsImAbsRequestBuilder struct{ BaseRequestBuilder }
@@ -29,6 +32,12 @@ func (b *WorkbookFunctionsImAbsRequestBuilder) Request() *WorkbookFunctionsImAbs
 func (r *WorkbookFunctionsImAbsRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsImAbsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -59,6 +68,12 @@ func (r *WorkbookFunctionsImArgumentRequest) Post(ctx context.Context) (resObj *
 }
 
 //
+func (r *WorkbookFunctionsImArgumentRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsImConjugateRequestBuilder struct{ BaseRequestBuilder }
 
 // ImConjugate action undocumented
@@ -83,6 +98,12 @@ func (b *WorkbookFunctionsImConjugateRequestBuilder) Request() *WorkbookFunction
 func (r *WorkbookFunctionsImConjugateRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsImConjugateRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -113,6 +134,12 @@ func (r *WorkbookFunctionsImCosRequest) Post(ctx context.Context) (resObj *Workb
 }
 
 //
+func (r *WorkbookFunctionsImCosRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsImCoshRequestBuilder struct{ BaseRequestBuilder }
 
 // ImCosh action undocumented
@@ -137,6 +164,12 @@ func (b *WorkbookFunctionsImCoshRequestBuilder) Request() *WorkbookFunctionsImCo
 func (r *WorkbookFunctionsImCoshRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsImCoshRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -167,6 +200,12 @@ func (r *WorkbookFunctionsImCotRequest) Post(ctx context.Context) (resObj *Workb
 }
 
 //
+func (r *WorkbookFunctionsImCotRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsImCscRequestBuilder struct{ BaseRequestBuilder }
 
 // ImCsc action undocumented
@@ -191,6 +230,12 @@ func (b *WorkbookFunctionsImCscRequestBuilder) Request() *WorkbookFunctionsImCsc
 func (r *WorkbookFunctionsImCscRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsImCscRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -221,6 +266,12 @@ func (r *WorkbookFunctionsImCschRequest) Post(ctx context.Context) (resObj *Work
 }
 
 //
+func (r *WorkbookFunctionsImCschRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsImDivRequestBuilder struct{ BaseRequestBuilder }
 
 // ImDiv action undocumented
@@ -245,6 +296,12 @@ func (b *WorkbookFunctionsImDivRequestBuilder) Request() *WorkbookFunctionsImDiv
 func (r *WorkbookFunctionsImDivRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsImDivRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -275,6 +332,12 @@ func (r *WorkbookFunctionsImExpRequest) Post(ctx context.Context) (resObj *Workb
 }
 
 //
+func (r *WorkbookFunctionsImExpRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsImLnRequestBuilder struct{ BaseRequestBuilder }
 
 // ImLn action undocumented
@@ -299,6 +362,12 @@ func (b *WorkbookFunctionsImLnRequestBuilder) Request() *WorkbookFunctionsImLnRe
 func (r *WorkbookFunctionsImLnRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsImLnRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -329,6 +398,12 @@ func (r *WorkbookFunctionsImLog10Request) Post(ctx context.Context) (resObj *Wor
 }
 
 //
+func (r *WorkbookFunctionsImLog10Request) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsImLog2RequestBuilder struct{ BaseRequestBuilder }
 
 // ImLog2 action undocumented
@@ -353,6 +428,12 @@ func (b *WorkbookFunctionsImLog2RequestBuilder) Request() *WorkbookFunctionsImLo
 func (r *WorkbookFunctionsImLog2Request) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsImLog2Request) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -383,6 +464,12 @@ func (r *WorkbookFunctionsImPowerRequest) Post(ctx context.Context) (resObj *Wor
 }
 
 //
+func (r *WorkbookFunctionsImPowerRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsImProductRequestBuilder struct{ BaseRequestBuilder }
 
 // ImProduct action undocumented
@@ -407,6 +494,12 @@ func (b *WorkbookFunctionsImProductRequestBuilder) Request() *WorkbookFunctionsI
 func (r *WorkbookFunctionsImProductRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsImProductRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -437,6 +530,12 @@ func (r *WorkbookFunctionsImRealRequest) Post(ctx context.Context) (resObj *Work
 }
 
 //
+func (r *WorkbookFunctionsImRealRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsImSecRequestBuilder struct{ BaseRequestBuilder }
 
 // ImSec action undocumented
@@ -461,6 +560,12 @@ func (b *WorkbookFunctionsImSecRequestBuilder) Request() *WorkbookFunctionsImSec
 func (r *WorkbookFunctionsImSecRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsImSecRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -491,6 +596,12 @@ func (r *WorkbookFunctionsImSechRequest) Post(ctx context.Context) (resObj *Work
 }
 
 //
+func (r *WorkbookFunctionsImSechRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsImSinRequestBuilder struct{ BaseRequestBuilder }
 
 // ImSin action undocumented
@@ -515,6 +626,12 @@ func (b *WorkbookFunctionsImSinRequestBuilder) Request() *WorkbookFunctionsImSin
 func (r *WorkbookFunctionsImSinRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsImSinRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -545,6 +662,12 @@ func (r *WorkbookFunctionsImSinhRequest) Post(ctx context.Context) (resObj *Work
 }
 
 //
+func (r *WorkbookFunctionsImSinhRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsImSqrtRequestBuilder struct{ BaseRequestBuilder }
 
 // ImSqrt action undocumented
@@ -569,6 +692,12 @@ func (b *WorkbookFunctionsImSqrtRequestBuilder) Request() *WorkbookFunctionsImSq
 func (r *WorkbookFunctionsImSqrtRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsImSqrtRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -599,6 +728,12 @@ func (r *WorkbookFunctionsImSubRequest) Post(ctx context.Context) (resObj *Workb
 }
 
 //
+func (r *WorkbookFunctionsImSubRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsImSumRequestBuilder struct{ BaseRequestBuilder }
 
 // ImSum action undocumented
@@ -626,6 +761,12 @@ func (r *WorkbookFunctionsImSumRequest) Post(ctx context.Context) (resObj *Workb
 }
 
 //
+func (r *WorkbookFunctionsImSumRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsImTanRequestBuilder struct{ BaseRequestBuilder }
 
 // ImTan action undocumented
@@ -650,4 +791,10 @@ func (b *WorkbookFunctionsImTanRequestBuilder) Request() *WorkbookFunctionsImTan
 func (r *WorkbookFunctionsImTanRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsImTanRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

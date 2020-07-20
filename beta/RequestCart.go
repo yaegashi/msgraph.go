@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // CartToClassAssociationRequestBuilder is request builder for CartToClassAssociation
 type CartToClassAssociationRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *CartToClassAssociationRequest) Update(ctx context.Context, reqObj *Cart
 // Delete performs DELETE request for CartToClassAssociation
 func (r *CartToClassAssociationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for CartToClassAssociation
+func (r *CartToClassAssociationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj CartToClassAssociation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for CartToClassAssociation
+func (r *CartToClassAssociationRequest) BatchUpdate(batch *BatchRequest, reqObj *CartToClassAssociation) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for CartToClassAssociation
+func (r *CartToClassAssociationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

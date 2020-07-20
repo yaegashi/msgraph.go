@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // EntitlementManagementRequestBuilder is request builder for EntitlementManagement
 type EntitlementManagementRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *EntitlementManagementRequest) Update(ctx context.Context, reqObj *Entit
 // Delete performs DELETE request for EntitlementManagement
 func (r *EntitlementManagementRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for EntitlementManagement
+func (r *EntitlementManagementRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EntitlementManagement
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EntitlementManagement
+func (r *EntitlementManagementRequest) BatchUpdate(batch *BatchRequest, reqObj *EntitlementManagement) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EntitlementManagement
+func (r *EntitlementManagementRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

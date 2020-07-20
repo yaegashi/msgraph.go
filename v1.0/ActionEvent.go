@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -147,6 +148,22 @@ func (r *EventAttachmentsCollectionRequest) Add(ctx context.Context, reqObj *Att
 	return
 }
 
+// BatchGet adds Get operation to Batch for Attachment collection
+func (r *EventAttachmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Attachment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Attachment collection
+func (r *EventAttachmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Attachment) error {
+	var resObj []Attachment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Calendar is navigation property
 func (b *EventRequestBuilder) Calendar() *CalendarRequestBuilder {
 	bb := &CalendarRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -256,6 +273,22 @@ func (r *EventExtensionsCollectionRequest) Add(ctx context.Context, reqObj *Exte
 	return
 }
 
+// BatchGet adds Get operation to Batch for Extension collection
+func (r *EventExtensionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Extension
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Extension collection
+func (r *EventExtensionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Extension) error {
+	var resObj []Extension
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Instances returns request builder for Event collection
 func (b *EventRequestBuilder) Instances() *EventInstancesCollectionRequestBuilder {
 	bb := &EventInstancesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -356,6 +389,22 @@ func (r *EventInstancesCollectionRequest) Get(ctx context.Context) ([]Event, err
 func (r *EventInstancesCollectionRequest) Add(ctx context.Context, reqObj *Event) (resObj *Event, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Event collection
+func (r *EventInstancesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Event
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Event collection
+func (r *EventInstancesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Event) error {
+	var resObj []Event
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // MultiValueExtendedProperties returns request builder for MultiValueLegacyExtendedProperty collection
@@ -460,6 +509,22 @@ func (r *EventMultiValueExtendedPropertiesCollectionRequest) Add(ctx context.Con
 	return
 }
 
+// BatchGet adds Get operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *EventMultiValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *EventMultiValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MultiValueLegacyExtendedProperty) error {
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SingleValueExtendedProperties returns request builder for SingleValueLegacyExtendedProperty collection
 func (b *EventRequestBuilder) SingleValueExtendedProperties() *EventSingleValueExtendedPropertiesCollectionRequestBuilder {
 	bb := &EventSingleValueExtendedPropertiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -560,6 +625,22 @@ func (r *EventSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Co
 func (r *EventSingleValueExtendedPropertiesCollectionRequest) Add(ctx context.Context, reqObj *SingleValueLegacyExtendedProperty) (resObj *SingleValueLegacyExtendedProperty, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *EventSingleValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *EventSingleValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SingleValueLegacyExtendedProperty) error {
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Event is navigation property

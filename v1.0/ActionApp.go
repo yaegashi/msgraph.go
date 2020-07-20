@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -111,4 +112,20 @@ func (r *AppCatalogsTeamsAppsCollectionRequest) Get(ctx context.Context) ([]Team
 func (r *AppCatalogsTeamsAppsCollectionRequest) Add(ctx context.Context, reqObj *TeamsApp) (resObj *TeamsApp, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for TeamsApp collection
+func (r *AppCatalogsTeamsAppsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TeamsApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TeamsApp collection
+func (r *AppCatalogsTeamsAppsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TeamsApp) error {
+	var resObj []TeamsApp
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -111,6 +112,22 @@ func (r *ProgramControlsCollectionRequest) Get(ctx context.Context) ([]ProgramCo
 func (r *ProgramControlsCollectionRequest) Add(ctx context.Context, reqObj *ProgramControl) (resObj *ProgramControl, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ProgramControl collection
+func (r *ProgramControlsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ProgramControl
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ProgramControl collection
+func (r *ProgramControlsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ProgramControl) error {
+	var resObj []ProgramControl
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Program is navigation property

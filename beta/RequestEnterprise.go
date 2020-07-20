@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // EnterpriseCodeSigningCertificateRequestBuilder is request builder for EnterpriseCodeSigningCertificate
 type EnterpriseCodeSigningCertificateRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *EnterpriseCodeSigningCertificateRequest) Update(ctx context.Context, re
 // Delete performs DELETE request for EnterpriseCodeSigningCertificate
 func (r *EnterpriseCodeSigningCertificateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for EnterpriseCodeSigningCertificate
+func (r *EnterpriseCodeSigningCertificateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EnterpriseCodeSigningCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EnterpriseCodeSigningCertificate
+func (r *EnterpriseCodeSigningCertificateRequest) BatchUpdate(batch *BatchRequest, reqObj *EnterpriseCodeSigningCertificate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EnterpriseCodeSigningCertificate
+func (r *EnterpriseCodeSigningCertificateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

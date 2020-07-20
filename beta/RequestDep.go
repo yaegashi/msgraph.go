@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // DepIOSEnrollmentProfileRequestBuilder is request builder for DepIOSEnrollmentProfile
 type DepIOSEnrollmentProfileRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *DepIOSEnrollmentProfileRequest) Update(ctx context.Context, reqObj *Dep
 // Delete performs DELETE request for DepIOSEnrollmentProfile
 func (r *DepIOSEnrollmentProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DepIOSEnrollmentProfile
+func (r *DepIOSEnrollmentProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DepIOSEnrollmentProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DepIOSEnrollmentProfile
+func (r *DepIOSEnrollmentProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *DepIOSEnrollmentProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DepIOSEnrollmentProfile
+func (r *DepIOSEnrollmentProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DepMacOSEnrollmentProfileRequestBuilder is request builder for DepMacOSEnrollmentProfile
@@ -70,6 +93,26 @@ func (r *DepMacOSEnrollmentProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DepMacOSEnrollmentProfile
+func (r *DepMacOSEnrollmentProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DepMacOSEnrollmentProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DepMacOSEnrollmentProfile
+func (r *DepMacOSEnrollmentProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *DepMacOSEnrollmentProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DepMacOSEnrollmentProfile
+func (r *DepMacOSEnrollmentProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DepOnboardingSettingRequestBuilder is request builder for DepOnboardingSetting
 type DepOnboardingSettingRequestBuilder struct{ BaseRequestBuilder }
 
@@ -103,6 +146,26 @@ func (r *DepOnboardingSettingRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DepOnboardingSetting
+func (r *DepOnboardingSettingRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DepOnboardingSetting
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DepOnboardingSetting
+func (r *DepOnboardingSettingRequest) BatchUpdate(batch *BatchRequest, reqObj *DepOnboardingSetting) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DepOnboardingSetting
+func (r *DepOnboardingSettingRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type DepOnboardingSettingUploadDepTokenRequestBuilder struct{ BaseRequestBuilder }
 
@@ -127,6 +190,11 @@ func (b *DepOnboardingSettingUploadDepTokenRequestBuilder) Request() *DepOnboard
 //
 func (r *DepOnboardingSettingUploadDepTokenRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *DepOnboardingSettingUploadDepTokenRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -156,6 +224,11 @@ func (r *DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequest) Post(c
 }
 
 //
+func (r *DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type DepOnboardingSettingShareForSchoolDataSyncServiceRequestBuilder struct{ BaseRequestBuilder }
 
 // ShareForSchoolDataSyncService action undocumented
@@ -182,6 +255,11 @@ func (r *DepOnboardingSettingShareForSchoolDataSyncServiceRequest) Post(ctx cont
 }
 
 //
+func (r *DepOnboardingSettingShareForSchoolDataSyncServiceRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type DepOnboardingSettingUnshareForSchoolDataSyncServiceRequestBuilder struct{ BaseRequestBuilder }
 
 // UnshareForSchoolDataSyncService action undocumented
@@ -205,4 +283,9 @@ func (b *DepOnboardingSettingUnshareForSchoolDataSyncServiceRequestBuilder) Requ
 //
 func (r *DepOnboardingSettingUnshareForSchoolDataSyncServiceRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *DepOnboardingSettingUnshareForSchoolDataSyncServiceRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

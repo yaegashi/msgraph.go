@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -42,6 +43,26 @@ func (r *TiIndicatorRequest) Update(ctx context.Context, reqObj *TiIndicator) er
 // Delete performs DELETE request for TiIndicator
 func (r *TiIndicatorRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for TiIndicator
+func (r *TiIndicatorRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TiIndicator
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TiIndicator
+func (r *TiIndicatorRequest) BatchUpdate(batch *BatchRequest, reqObj *TiIndicator) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TiIndicator
+func (r *TiIndicatorRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -131,6 +152,12 @@ func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Post(ctx context.Contex
 }
 
 //
+func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []TiIndicator
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type TiIndicatorCollectionUpdateTiIndicatorsRequestBuilder struct{ BaseRequestBuilder }
 
 // UpdateTiIndicators action undocumented
@@ -214,6 +241,12 @@ func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) PostN(ctx context.Conte
 //
 func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Post(ctx context.Context) ([]TiIndicator, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []TiIndicator
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -303,6 +336,12 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Post(ctx context.Contex
 }
 
 //
+func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []ResultInfo
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequestBuilder struct{ BaseRequestBuilder }
 
 // DeleteTiIndicatorsByExternalID action undocumented
@@ -386,4 +425,10 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) PostN(ctx c
 //
 func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Post(ctx context.Context) ([]ResultInfo, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []ResultInfo
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

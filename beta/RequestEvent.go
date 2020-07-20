@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // EventRequestBuilder is request builder for Event
 type EventRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *EventRequest) Update(ctx context.Context, reqObj *Event) error {
 // Delete performs DELETE request for Event
 func (r *EventRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Event
+func (r *EventRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Event
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Event
+func (r *EventRequest) BatchUpdate(batch *BatchRequest, reqObj *Event) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Event
+func (r *EventRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // EventMessageRequestBuilder is request builder for EventMessage
@@ -70,6 +93,26 @@ func (r *EventMessageRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for EventMessage
+func (r *EventMessageRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EventMessage
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EventMessage
+func (r *EventMessageRequest) BatchUpdate(batch *BatchRequest, reqObj *EventMessage) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EventMessage
+func (r *EventMessageRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // EventMessageRequestObjectRequestBuilder is request builder for EventMessageRequestObject
 type EventMessageRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -103,6 +146,26 @@ func (r *EventMessageRequestObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for EventMessageRequestObject
+func (r *EventMessageRequestObjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EventMessageRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EventMessageRequestObject
+func (r *EventMessageRequestObjectRequest) BatchUpdate(batch *BatchRequest, reqObj *EventMessageRequestObject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EventMessageRequestObject
+func (r *EventMessageRequestObjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type EventDismissReminderRequestBuilder struct{ BaseRequestBuilder }
 
@@ -127,6 +190,11 @@ func (b *EventDismissReminderRequestBuilder) Request() *EventDismissReminderRequ
 //
 func (r *EventDismissReminderRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *EventDismissReminderRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -156,6 +224,11 @@ func (r *EventSnoozeReminderRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *EventSnoozeReminderRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type EventForwardRequestBuilder struct{ BaseRequestBuilder }
 
 // Forward action undocumented
@@ -179,6 +252,11 @@ func (b *EventForwardRequestBuilder) Request() *EventForwardRequest {
 //
 func (r *EventForwardRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *EventForwardRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -208,6 +286,11 @@ func (r *EventAcceptRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *EventAcceptRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type EventDeclineRequestBuilder struct{ BaseRequestBuilder }
 
 // Decline action undocumented
@@ -231,6 +314,11 @@ func (b *EventDeclineRequestBuilder) Request() *EventDeclineRequest {
 //
 func (r *EventDeclineRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *EventDeclineRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -260,6 +348,11 @@ func (r *EventTentativelyAcceptRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *EventTentativelyAcceptRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type EventCancelRequestBuilder struct{ BaseRequestBuilder }
 
 // Cancel action undocumented
@@ -283,6 +376,11 @@ func (b *EventCancelRequestBuilder) Request() *EventCancelRequest {
 //
 func (r *EventCancelRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *EventCancelRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -312,6 +410,11 @@ func (r *EventMessageRequestObjectAcceptRequest) Post(ctx context.Context) error
 }
 
 //
+func (r *EventMessageRequestObjectAcceptRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type EventMessageRequestObjectDeclineRequestBuilder struct{ BaseRequestBuilder }
 
 // Decline action undocumented
@@ -338,6 +441,11 @@ func (r *EventMessageRequestObjectDeclineRequest) Post(ctx context.Context) erro
 }
 
 //
+func (r *EventMessageRequestObjectDeclineRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type EventMessageRequestObjectTentativelyAcceptRequestBuilder struct{ BaseRequestBuilder }
 
 // TentativelyAccept action undocumented
@@ -361,4 +469,9 @@ func (b *EventMessageRequestObjectTentativelyAcceptRequestBuilder) Request() *Ev
 //
 func (r *EventMessageRequestObjectTentativelyAcceptRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *EventMessageRequestObjectTentativelyAcceptRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

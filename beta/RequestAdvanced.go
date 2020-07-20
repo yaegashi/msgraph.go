@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // AdvancedThreatProtectionOnboardingDeviceSettingStateRequestBuilder is request builder for AdvancedThreatProtectionOnboardingDeviceSettingState
 type AdvancedThreatProtectionOnboardingDeviceSettingStateRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *AdvancedThreatProtectionOnboardingDeviceSettingStateRequest) Delete(ctx
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AdvancedThreatProtectionOnboardingDeviceSettingState
+func (r *AdvancedThreatProtectionOnboardingDeviceSettingStateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AdvancedThreatProtectionOnboardingDeviceSettingState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AdvancedThreatProtectionOnboardingDeviceSettingState
+func (r *AdvancedThreatProtectionOnboardingDeviceSettingStateRequest) BatchUpdate(batch *BatchRequest, reqObj *AdvancedThreatProtectionOnboardingDeviceSettingState) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AdvancedThreatProtectionOnboardingDeviceSettingState
+func (r *AdvancedThreatProtectionOnboardingDeviceSettingStateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder is request builder for AdvancedThreatProtectionOnboardingStateSummary
 type AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *AdvancedThreatProtectionOnboardingStateSummaryRequest) Update(ctx conte
 // Delete performs DELETE request for AdvancedThreatProtectionOnboardingStateSummary
 func (r *AdvancedThreatProtectionOnboardingStateSummaryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AdvancedThreatProtectionOnboardingStateSummary
+func (r *AdvancedThreatProtectionOnboardingStateSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AdvancedThreatProtectionOnboardingStateSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AdvancedThreatProtectionOnboardingStateSummary
+func (r *AdvancedThreatProtectionOnboardingStateSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *AdvancedThreatProtectionOnboardingStateSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AdvancedThreatProtectionOnboardingStateSummary
+func (r *AdvancedThreatProtectionOnboardingStateSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

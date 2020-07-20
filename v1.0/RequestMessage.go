@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // MessageRequestBuilder is request builder for Message
 type MessageRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *MessageRequest) Update(ctx context.Context, reqObj *Message) error {
 // Delete performs DELETE request for Message
 func (r *MessageRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Message
+func (r *MessageRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Message
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Message
+func (r *MessageRequest) BatchUpdate(batch *BatchRequest, reqObj *Message) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Message
+func (r *MessageRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // MessageRuleRequestBuilder is request builder for MessageRule
@@ -70,6 +93,26 @@ func (r *MessageRuleRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MessageRule
+func (r *MessageRuleRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MessageRule
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MessageRule
+func (r *MessageRuleRequest) BatchUpdate(batch *BatchRequest, reqObj *MessageRule) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MessageRule
+func (r *MessageRuleRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type MessageCreateReplyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -95,6 +138,12 @@ func (b *MessageCreateReplyRequestBuilder) Request() *MessageCreateReplyRequest 
 func (r *MessageCreateReplyRequest) Post(ctx context.Context) (resObj *Message, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *MessageCreateReplyRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *Message
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -125,6 +174,12 @@ func (r *MessageCreateReplyAllRequest) Post(ctx context.Context) (resObj *Messag
 }
 
 //
+func (r *MessageCreateReplyAllRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *Message
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type MessageCreateForwardRequestBuilder struct{ BaseRequestBuilder }
 
 // CreateForward action undocumented
@@ -152,6 +207,12 @@ func (r *MessageCreateForwardRequest) Post(ctx context.Context) (resObj *Message
 }
 
 //
+func (r *MessageCreateForwardRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *Message
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type MessageSendRequestBuilder struct{ BaseRequestBuilder }
 
 // Send action undocumented
@@ -175,6 +236,11 @@ func (b *MessageSendRequestBuilder) Request() *MessageSendRequest {
 //
 func (r *MessageSendRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *MessageSendRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -205,6 +271,12 @@ func (r *MessageCopyRequest) Post(ctx context.Context) (resObj *Message, err err
 }
 
 //
+func (r *MessageCopyRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *Message
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type MessageMoveRequestBuilder struct{ BaseRequestBuilder }
 
 // Move action undocumented
@@ -229,6 +301,12 @@ func (b *MessageMoveRequestBuilder) Request() *MessageMoveRequest {
 func (r *MessageMoveRequest) Post(ctx context.Context) (resObj *Message, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *MessageMoveRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *Message
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -258,6 +336,11 @@ func (r *MessageReplyRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *MessageReplyRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type MessageReplyAllRequestBuilder struct{ BaseRequestBuilder }
 
 // ReplyAll action undocumented
@@ -284,6 +367,11 @@ func (r *MessageReplyAllRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *MessageReplyAllRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type MessageForwardRequestBuilder struct{ BaseRequestBuilder }
 
 // Forward action undocumented
@@ -307,4 +395,9 @@ func (b *MessageForwardRequestBuilder) Request() *MessageForwardRequest {
 //
 func (r *MessageForwardRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *MessageForwardRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

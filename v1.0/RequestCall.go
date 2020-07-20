@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // CallRequestBuilder is request builder for Call
 type CallRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *CallRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Call
+func (r *CallRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Call
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Call
+func (r *CallRequest) BatchUpdate(batch *BatchRequest, reqObj *Call) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Call
+func (r *CallRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type CallAnswerRequestBuilder struct{ BaseRequestBuilder }
 
@@ -61,6 +84,11 @@ func (b *CallAnswerRequestBuilder) Request() *CallAnswerRequest {
 //
 func (r *CallAnswerRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *CallAnswerRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -90,6 +118,11 @@ func (r *CallChangeScreenSharingRoleRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *CallChangeScreenSharingRoleRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type CallKeepAliveRequestBuilder struct{ BaseRequestBuilder }
 
 // KeepAlive action undocumented
@@ -113,6 +146,11 @@ func (b *CallKeepAliveRequestBuilder) Request() *CallKeepAliveRequest {
 //
 func (r *CallKeepAliveRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *CallKeepAliveRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -143,6 +181,12 @@ func (r *CallMuteRequest) Post(ctx context.Context) (resObj *MuteParticipantOper
 }
 
 //
+func (r *CallMuteRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *MuteParticipantOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type CallPlayPromptRequestBuilder struct{ BaseRequestBuilder }
 
 // PlayPrompt action undocumented
@@ -167,6 +211,12 @@ func (b *CallPlayPromptRequestBuilder) Request() *CallPlayPromptRequest {
 func (r *CallPlayPromptRequest) Post(ctx context.Context) (resObj *PlayPromptOperation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *CallPlayPromptRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *PlayPromptOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -197,6 +247,12 @@ func (r *CallRecordResponseRequest) Post(ctx context.Context) (resObj *RecordOpe
 }
 
 //
+func (r *CallRecordResponseRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *RecordOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type CallRedirectRequestBuilder struct{ BaseRequestBuilder }
 
 // Redirect action undocumented
@@ -223,6 +279,11 @@ func (r *CallRedirectRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *CallRedirectRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type CallRejectRequestBuilder struct{ BaseRequestBuilder }
 
 // Reject action undocumented
@@ -246,6 +307,11 @@ func (b *CallRejectRequestBuilder) Request() *CallRejectRequest {
 //
 func (r *CallRejectRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *CallRejectRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -276,6 +342,12 @@ func (r *CallSubscribeToToneRequest) Post(ctx context.Context) (resObj *Subscrib
 }
 
 //
+func (r *CallSubscribeToToneRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *SubscribeToToneOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type CallTransferRequestBuilder struct{ BaseRequestBuilder }
 
 // Transfer action undocumented
@@ -299,6 +371,11 @@ func (b *CallTransferRequestBuilder) Request() *CallTransferRequest {
 //
 func (r *CallTransferRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *CallTransferRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -326,4 +403,10 @@ func (b *CallUnmuteRequestBuilder) Request() *CallUnmuteRequest {
 func (r *CallUnmuteRequest) Post(ctx context.Context) (resObj *UnmuteParticipantOperation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *CallUnmuteRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *UnmuteParticipantOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

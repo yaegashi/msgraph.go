@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ExternalRequestBuilder is request builder for External
 type ExternalRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *ExternalRequest) Update(ctx context.Context, reqObj *External) error {
 // Delete performs DELETE request for External
 func (r *ExternalRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for External
+func (r *ExternalRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj External
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for External
+func (r *ExternalRequest) BatchUpdate(batch *BatchRequest, reqObj *External) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for External
+func (r *ExternalRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ExternalConnectionRequestBuilder is request builder for ExternalConnection
@@ -70,6 +93,26 @@ func (r *ExternalConnectionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ExternalConnection
+func (r *ExternalConnectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ExternalConnection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ExternalConnection
+func (r *ExternalConnectionRequest) BatchUpdate(batch *BatchRequest, reqObj *ExternalConnection) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ExternalConnection
+func (r *ExternalConnectionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ExternalItemRequestBuilder is request builder for ExternalItem
 type ExternalItemRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,4 +144,24 @@ func (r *ExternalItemRequest) Update(ctx context.Context, reqObj *ExternalItem) 
 // Delete performs DELETE request for ExternalItem
 func (r *ExternalItemRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ExternalItem
+func (r *ExternalItemRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ExternalItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ExternalItem
+func (r *ExternalItemRequest) BatchUpdate(batch *BatchRequest, reqObj *ExternalItem) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ExternalItem
+func (r *ExternalItemRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

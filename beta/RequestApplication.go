@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ApplicationRequestBuilder is request builder for Application
 type ApplicationRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *ApplicationRequest) Update(ctx context.Context, reqObj *Application) er
 // Delete performs DELETE request for Application
 func (r *ApplicationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Application
+func (r *ApplicationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Application
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Application
+func (r *ApplicationRequest) BatchUpdate(batch *BatchRequest, reqObj *Application) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Application
+func (r *ApplicationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ApplicationSignInDetailedSummaryRequestBuilder is request builder for ApplicationSignInDetailedSummary
@@ -70,6 +93,26 @@ func (r *ApplicationSignInDetailedSummaryRequest) Delete(ctx context.Context) er
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ApplicationSignInDetailedSummary
+func (r *ApplicationSignInDetailedSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ApplicationSignInDetailedSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ApplicationSignInDetailedSummary
+func (r *ApplicationSignInDetailedSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *ApplicationSignInDetailedSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ApplicationSignInDetailedSummary
+func (r *ApplicationSignInDetailedSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ApplicationTemplateRequestBuilder is request builder for ApplicationTemplate
 type ApplicationTemplateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -103,6 +146,26 @@ func (r *ApplicationTemplateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ApplicationTemplate
+func (r *ApplicationTemplateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ApplicationTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ApplicationTemplate
+func (r *ApplicationTemplateRequest) BatchUpdate(batch *BatchRequest, reqObj *ApplicationTemplate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ApplicationTemplate
+func (r *ApplicationTemplateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type ApplicationAddKeyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -128,6 +191,12 @@ func (b *ApplicationAddKeyRequestBuilder) Request() *ApplicationAddKeyRequest {
 func (r *ApplicationAddKeyRequest) Post(ctx context.Context) (resObj *KeyCredential, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *ApplicationAddKeyRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *KeyCredential
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -158,6 +227,12 @@ func (r *ApplicationAddPasswordRequest) Post(ctx context.Context) (resObj *Passw
 }
 
 //
+func (r *ApplicationAddPasswordRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *PasswordCredential
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type ApplicationRemoveKeyRequestBuilder struct{ BaseRequestBuilder }
 
 // RemoveKey action undocumented
@@ -181,6 +256,11 @@ func (b *ApplicationRemoveKeyRequestBuilder) Request() *ApplicationRemoveKeyRequ
 //
 func (r *ApplicationRemoveKeyRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ApplicationRemoveKeyRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -210,6 +290,11 @@ func (r *ApplicationRemovePasswordRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *ApplicationRemovePasswordRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ApplicationTemplateInstantiateRequestBuilder struct{ BaseRequestBuilder }
 
 // Instantiate action undocumented
@@ -234,4 +319,10 @@ func (b *ApplicationTemplateInstantiateRequestBuilder) Request() *ApplicationTem
 func (r *ApplicationTemplateInstantiateRequest) Post(ctx context.Context) (resObj *ApplicationServicePrincipal, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *ApplicationTemplateInstantiateRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *ApplicationServicePrincipal
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

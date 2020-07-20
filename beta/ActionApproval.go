@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Add(ctx context
 	return
 }
 
+// BatchGet adds Get operation to Batch for BusinessFlow collection
+func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []BusinessFlow
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for BusinessFlow collection
+func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *BusinessFlow) error {
+	var resObj []BusinessFlow
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // BusinessFlowsWithRequestsAwaitingMyDecision returns request builder for BusinessFlow collection
 func (b *ApprovalWorkflowProviderRequestBuilder) BusinessFlowsWithRequestsAwaitingMyDecision() *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequestBuilder {
 	bb := &ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,6 +230,22 @@ func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionColl
 func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Add(ctx context.Context, reqObj *BusinessFlow) (resObj *BusinessFlow, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for BusinessFlow collection
+func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []BusinessFlow
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for BusinessFlow collection
+func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *BusinessFlow) error {
+	var resObj []BusinessFlow
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // PolicyTemplates returns request builder for GovernancePolicyTemplate collection
@@ -317,6 +350,22 @@ func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Add(ctx conte
 	return
 }
 
+// BatchGet adds Get operation to Batch for GovernancePolicyTemplate collection
+func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GovernancePolicyTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GovernancePolicyTemplate collection
+func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GovernancePolicyTemplate) error {
+	var resObj []GovernancePolicyTemplate
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Requests returns request builder for RequestObject collection
 func (b *ApprovalWorkflowProviderRequestBuilder) Requests() *ApprovalWorkflowProviderRequestsCollectionRequestBuilder {
 	bb := &ApprovalWorkflowProviderRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -419,6 +468,22 @@ func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Add(ctx context.Cont
 	return
 }
 
+// BatchGet adds Get operation to Batch for RequestObject collection
+func (r *ApprovalWorkflowProviderRequestsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []RequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for RequestObject collection
+func (r *ApprovalWorkflowProviderRequestsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *RequestObject) error {
+	var resObj []RequestObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // RequestsAwaitingMyDecision returns request builder for RequestObject collection
 func (b *ApprovalWorkflowProviderRequestBuilder) RequestsAwaitingMyDecision() *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequestBuilder {
 	bb := &ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -519,4 +584,20 @@ func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Ge
 func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Add(ctx context.Context, reqObj *RequestObject) (resObj *RequestObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for RequestObject collection
+func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []RequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for RequestObject collection
+func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *RequestObject) error {
+	var resObj []RequestObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

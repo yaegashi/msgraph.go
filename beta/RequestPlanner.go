@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // PlannerRequestBuilder is request builder for Planner
 type PlannerRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *PlannerRequest) Update(ctx context.Context, reqObj *Planner) error {
 // Delete performs DELETE request for Planner
 func (r *PlannerRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Planner
+func (r *PlannerRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Planner
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Planner
+func (r *PlannerRequest) BatchUpdate(batch *BatchRequest, reqObj *Planner) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Planner
+func (r *PlannerRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // PlannerAssignedToTaskBoardTaskFormatRequestBuilder is request builder for PlannerAssignedToTaskBoardTaskFormat
@@ -70,6 +93,26 @@ func (r *PlannerAssignedToTaskBoardTaskFormatRequest) Delete(ctx context.Context
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PlannerAssignedToTaskBoardTaskFormat
+func (r *PlannerAssignedToTaskBoardTaskFormatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PlannerAssignedToTaskBoardTaskFormat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PlannerAssignedToTaskBoardTaskFormat
+func (r *PlannerAssignedToTaskBoardTaskFormatRequest) BatchUpdate(batch *BatchRequest, reqObj *PlannerAssignedToTaskBoardTaskFormat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PlannerAssignedToTaskBoardTaskFormat
+func (r *PlannerAssignedToTaskBoardTaskFormatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // PlannerBucketRequestBuilder is request builder for PlannerBucket
 type PlannerBucketRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *PlannerBucketRequest) Update(ctx context.Context, reqObj *PlannerBucket
 // Delete performs DELETE request for PlannerBucket
 func (r *PlannerBucketRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for PlannerBucket
+func (r *PlannerBucketRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PlannerBucket
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PlannerBucket
+func (r *PlannerBucketRequest) BatchUpdate(batch *BatchRequest, reqObj *PlannerBucket) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PlannerBucket
+func (r *PlannerBucketRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // PlannerBucketTaskBoardTaskFormatRequestBuilder is request builder for PlannerBucketTaskBoardTaskFormat
@@ -136,6 +199,26 @@ func (r *PlannerBucketTaskBoardTaskFormatRequest) Delete(ctx context.Context) er
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PlannerBucketTaskBoardTaskFormat
+func (r *PlannerBucketTaskBoardTaskFormatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PlannerBucketTaskBoardTaskFormat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PlannerBucketTaskBoardTaskFormat
+func (r *PlannerBucketTaskBoardTaskFormatRequest) BatchUpdate(batch *BatchRequest, reqObj *PlannerBucketTaskBoardTaskFormat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PlannerBucketTaskBoardTaskFormat
+func (r *PlannerBucketTaskBoardTaskFormatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // PlannerDeltaRequestBuilder is request builder for PlannerDelta
 type PlannerDeltaRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,6 +250,26 @@ func (r *PlannerDeltaRequest) Update(ctx context.Context, reqObj *PlannerDelta) 
 // Delete performs DELETE request for PlannerDelta
 func (r *PlannerDeltaRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for PlannerDelta
+func (r *PlannerDeltaRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PlannerDelta
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PlannerDelta
+func (r *PlannerDeltaRequest) BatchUpdate(batch *BatchRequest, reqObj *PlannerDelta) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PlannerDelta
+func (r *PlannerDeltaRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // PlannerGroupRequestBuilder is request builder for PlannerGroup
@@ -202,6 +305,26 @@ func (r *PlannerGroupRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PlannerGroup
+func (r *PlannerGroupRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PlannerGroup
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PlannerGroup
+func (r *PlannerGroupRequest) BatchUpdate(batch *BatchRequest, reqObj *PlannerGroup) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PlannerGroup
+func (r *PlannerGroupRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // PlannerPlanRequestBuilder is request builder for PlannerPlan
 type PlannerPlanRequestBuilder struct{ BaseRequestBuilder }
 
@@ -233,6 +356,26 @@ func (r *PlannerPlanRequest) Update(ctx context.Context, reqObj *PlannerPlan) er
 // Delete performs DELETE request for PlannerPlan
 func (r *PlannerPlanRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for PlannerPlan
+func (r *PlannerPlanRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PlannerPlan
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PlannerPlan
+func (r *PlannerPlanRequest) BatchUpdate(batch *BatchRequest, reqObj *PlannerPlan) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PlannerPlan
+func (r *PlannerPlanRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // PlannerPlanDetailsRequestBuilder is request builder for PlannerPlanDetails
@@ -268,6 +411,26 @@ func (r *PlannerPlanDetailsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PlannerPlanDetails
+func (r *PlannerPlanDetailsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PlannerPlanDetails
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PlannerPlanDetails
+func (r *PlannerPlanDetailsRequest) BatchUpdate(batch *BatchRequest, reqObj *PlannerPlanDetails) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PlannerPlanDetails
+func (r *PlannerPlanDetailsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // PlannerProgressTaskBoardTaskFormatRequestBuilder is request builder for PlannerProgressTaskBoardTaskFormat
 type PlannerProgressTaskBoardTaskFormatRequestBuilder struct{ BaseRequestBuilder }
 
@@ -299,6 +462,26 @@ func (r *PlannerProgressTaskBoardTaskFormatRequest) Update(ctx context.Context, 
 // Delete performs DELETE request for PlannerProgressTaskBoardTaskFormat
 func (r *PlannerProgressTaskBoardTaskFormatRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for PlannerProgressTaskBoardTaskFormat
+func (r *PlannerProgressTaskBoardTaskFormatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PlannerProgressTaskBoardTaskFormat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PlannerProgressTaskBoardTaskFormat
+func (r *PlannerProgressTaskBoardTaskFormatRequest) BatchUpdate(batch *BatchRequest, reqObj *PlannerProgressTaskBoardTaskFormat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PlannerProgressTaskBoardTaskFormat
+func (r *PlannerProgressTaskBoardTaskFormatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // PlannerTaskRequestBuilder is request builder for PlannerTask
@@ -334,6 +517,26 @@ func (r *PlannerTaskRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PlannerTask
+func (r *PlannerTaskRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PlannerTask
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PlannerTask
+func (r *PlannerTaskRequest) BatchUpdate(batch *BatchRequest, reqObj *PlannerTask) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PlannerTask
+func (r *PlannerTaskRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // PlannerTaskDetailsRequestBuilder is request builder for PlannerTaskDetails
 type PlannerTaskDetailsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -367,6 +570,26 @@ func (r *PlannerTaskDetailsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PlannerTaskDetails
+func (r *PlannerTaskDetailsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PlannerTaskDetails
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PlannerTaskDetails
+func (r *PlannerTaskDetailsRequest) BatchUpdate(batch *BatchRequest, reqObj *PlannerTaskDetails) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PlannerTaskDetails
+func (r *PlannerTaskDetailsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // PlannerUserRequestBuilder is request builder for PlannerUser
 type PlannerUserRequestBuilder struct{ BaseRequestBuilder }
 
@@ -398,4 +621,24 @@ func (r *PlannerUserRequest) Update(ctx context.Context, reqObj *PlannerUser) er
 // Delete performs DELETE request for PlannerUser
 func (r *PlannerUserRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for PlannerUser
+func (r *PlannerUserRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PlannerUser
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PlannerUser
+func (r *PlannerUserRequest) BatchUpdate(batch *BatchRequest, reqObj *PlannerUser) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PlannerUser
+func (r *PlannerUserRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

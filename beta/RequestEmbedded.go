@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *EmbeddedSIMActivationCodePoolRequest) Delete(ctx context.Context) error
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for EmbeddedSIMActivationCodePool
+func (r *EmbeddedSIMActivationCodePoolRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EmbeddedSIMActivationCodePool
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EmbeddedSIMActivationCodePool
+func (r *EmbeddedSIMActivationCodePoolRequest) BatchUpdate(batch *BatchRequest, reqObj *EmbeddedSIMActivationCodePool) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EmbeddedSIMActivationCodePool
+func (r *EmbeddedSIMActivationCodePoolRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // EmbeddedSIMActivationCodePoolAssignmentRequestBuilder is request builder for EmbeddedSIMActivationCodePoolAssignment
 type EmbeddedSIMActivationCodePoolAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -77,6 +98,26 @@ func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Delete(ctx context.Cont
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for EmbeddedSIMActivationCodePoolAssignment
+func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EmbeddedSIMActivationCodePoolAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EmbeddedSIMActivationCodePoolAssignment
+func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *EmbeddedSIMActivationCodePoolAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EmbeddedSIMActivationCodePoolAssignment
+func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // EmbeddedSIMDeviceStateRequestBuilder is request builder for EmbeddedSIMDeviceState
 type EmbeddedSIMDeviceStateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -108,6 +149,26 @@ func (r *EmbeddedSIMDeviceStateRequest) Update(ctx context.Context, reqObj *Embe
 // Delete performs DELETE request for EmbeddedSIMDeviceState
 func (r *EmbeddedSIMDeviceStateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for EmbeddedSIMDeviceState
+func (r *EmbeddedSIMDeviceStateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj EmbeddedSIMDeviceState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for EmbeddedSIMDeviceState
+func (r *EmbeddedSIMDeviceStateRequest) BatchUpdate(batch *BatchRequest, reqObj *EmbeddedSIMDeviceState) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for EmbeddedSIMDeviceState
+func (r *EmbeddedSIMDeviceStateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -194,4 +255,10 @@ func (r *EmbeddedSIMActivationCodePoolAssignRequest) PostN(ctx context.Context, 
 //
 func (r *EmbeddedSIMActivationCodePoolAssignRequest) Post(ctx context.Context) ([]EmbeddedSIMActivationCodePoolAssignment, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+func (r *EmbeddedSIMActivationCodePoolAssignRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []EmbeddedSIMActivationCodePoolAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

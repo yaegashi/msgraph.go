@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // LanguageProficiencyRequestBuilder is request builder for LanguageProficiency
 type LanguageProficiencyRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *LanguageProficiencyRequest) Update(ctx context.Context, reqObj *Languag
 // Delete performs DELETE request for LanguageProficiency
 func (r *LanguageProficiencyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for LanguageProficiency
+func (r *LanguageProficiencyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj LanguageProficiency
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for LanguageProficiency
+func (r *LanguageProficiencyRequest) BatchUpdate(batch *BatchRequest, reqObj *LanguageProficiency) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for LanguageProficiency
+func (r *LanguageProficiencyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

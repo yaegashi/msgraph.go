@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *EntitlementManagementAccessPackageAssignmentPoliciesCollectionRequest) 
 	return
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageAssignmentPolicy collection
+func (r *EntitlementManagementAccessPackageAssignmentPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageAssignmentPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageAssignmentPolicy collection
+func (r *EntitlementManagementAccessPackageAssignmentPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageAssignmentPolicy) error {
+	var resObj []AccessPackageAssignmentPolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AccessPackageAssignmentRequests returns request builder for AccessPackageAssignmentRequestObject collection
 func (b *EntitlementManagementRequestBuilder) AccessPackageAssignmentRequests() *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequestBuilder {
 	bb := &EntitlementManagementAccessPackageAssignmentRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,6 +230,22 @@ func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) 
 func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageAssignmentRequestObject) (resObj *AccessPackageAssignmentRequestObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AccessPackageAssignmentRequestObject collection
+func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageAssignmentRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageAssignmentRequestObject collection
+func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageAssignmentRequestObject) error {
+	var resObj []AccessPackageAssignmentRequestObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // AccessPackageAssignmentResourceRoles returns request builder for AccessPackageAssignmentResourceRole collection
@@ -317,6 +350,22 @@ func (r *EntitlementManagementAccessPackageAssignmentResourceRolesCollectionRequ
 	return
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageAssignmentResourceRole collection
+func (r *EntitlementManagementAccessPackageAssignmentResourceRolesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageAssignmentResourceRole
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageAssignmentResourceRole collection
+func (r *EntitlementManagementAccessPackageAssignmentResourceRolesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageAssignmentResourceRole) error {
+	var resObj []AccessPackageAssignmentResourceRole
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AccessPackageAssignments returns request builder for AccessPackageAssignment collection
 func (b *EntitlementManagementRequestBuilder) AccessPackageAssignments() *EntitlementManagementAccessPackageAssignmentsCollectionRequestBuilder {
 	bb := &EntitlementManagementAccessPackageAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -417,6 +466,22 @@ func (r *EntitlementManagementAccessPackageAssignmentsCollectionRequest) Get(ctx
 func (r *EntitlementManagementAccessPackageAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageAssignment) (resObj *AccessPackageAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AccessPackageAssignment collection
+func (r *EntitlementManagementAccessPackageAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageAssignment collection
+func (r *EntitlementManagementAccessPackageAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageAssignment) error {
+	var resObj []AccessPackageAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // AccessPackageCatalogs returns request builder for AccessPackageCatalog collection
@@ -521,6 +586,22 @@ func (r *EntitlementManagementAccessPackageCatalogsCollectionRequest) Add(ctx co
 	return
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageCatalog collection
+func (r *EntitlementManagementAccessPackageCatalogsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageCatalog
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageCatalog collection
+func (r *EntitlementManagementAccessPackageCatalogsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageCatalog) error {
+	var resObj []AccessPackageCatalog
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AccessPackageResourceRequests returns request builder for AccessPackageResourceRequestObject collection
 func (b *EntitlementManagementRequestBuilder) AccessPackageResourceRequests() *EntitlementManagementAccessPackageResourceRequestsCollectionRequestBuilder {
 	bb := &EntitlementManagementAccessPackageResourceRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -621,6 +702,22 @@ func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) Ge
 func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageResourceRequestObject) (resObj *AccessPackageResourceRequestObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AccessPackageResourceRequestObject collection
+func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageResourceRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageResourceRequestObject collection
+func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageResourceRequestObject) error {
+	var resObj []AccessPackageResourceRequestObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // AccessPackageResourceRoleScopes returns request builder for AccessPackageResourceRoleScope collection
@@ -725,6 +822,22 @@ func (r *EntitlementManagementAccessPackageResourceRoleScopesCollectionRequest) 
 	return
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageResourceRoleScope collection
+func (r *EntitlementManagementAccessPackageResourceRoleScopesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageResourceRoleScope
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageResourceRoleScope collection
+func (r *EntitlementManagementAccessPackageResourceRoleScopesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageResourceRoleScope) error {
+	var resObj []AccessPackageResourceRoleScope
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AccessPackageResources returns request builder for AccessPackageResource collection
 func (b *EntitlementManagementRequestBuilder) AccessPackageResources() *EntitlementManagementAccessPackageResourcesCollectionRequestBuilder {
 	bb := &EntitlementManagementAccessPackageResourcesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -827,6 +940,22 @@ func (r *EntitlementManagementAccessPackageResourcesCollectionRequest) Add(ctx c
 	return
 }
 
+// BatchGet adds Get operation to Batch for AccessPackageResource collection
+func (r *EntitlementManagementAccessPackageResourcesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackageResource
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackageResource collection
+func (r *EntitlementManagementAccessPackageResourcesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackageResource) error {
+	var resObj []AccessPackageResource
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AccessPackages returns request builder for AccessPackage collection
 func (b *EntitlementManagementRequestBuilder) AccessPackages() *EntitlementManagementAccessPackagesCollectionRequestBuilder {
 	bb := &EntitlementManagementAccessPackagesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -927,4 +1056,20 @@ func (r *EntitlementManagementAccessPackagesCollectionRequest) Get(ctx context.C
 func (r *EntitlementManagementAccessPackagesCollectionRequest) Add(ctx context.Context, reqObj *AccessPackage) (resObj *AccessPackage, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AccessPackage collection
+func (r *EntitlementManagementAccessPackagesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessPackage
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessPackage collection
+func (r *EntitlementManagementAccessPackagesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessPackage) error {
+	var resObj []AccessPackage
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

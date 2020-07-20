@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -119,6 +120,22 @@ func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Add(ctx conte
 	return
 }
 
+// BatchGet adds Get operation to Batch for TargetedManagedAppPolicyAssignment collection
+func (r *WindowsInformationProtectionAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TargetedManagedAppPolicyAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TargetedManagedAppPolicyAssignment collection
+func (r *WindowsInformationProtectionAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TargetedManagedAppPolicyAssignment) error {
+	var resObj []TargetedManagedAppPolicyAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ExemptAppLockerFiles returns request builder for WindowsInformationProtectionAppLockerFile collection
 func (b *WindowsInformationProtectionRequestBuilder) ExemptAppLockerFiles() *WindowsInformationProtectionExemptAppLockerFilesCollectionRequestBuilder {
 	bb := &WindowsInformationProtectionExemptAppLockerFilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -221,6 +238,22 @@ func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Add(
 	return
 }
 
+// BatchGet adds Get operation to Batch for WindowsInformationProtectionAppLockerFile collection
+func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsInformationProtectionAppLockerFile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsInformationProtectionAppLockerFile collection
+func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsInformationProtectionAppLockerFile) error {
+	var resObj []WindowsInformationProtectionAppLockerFile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ProtectedAppLockerFiles returns request builder for WindowsInformationProtectionAppLockerFile collection
 func (b *WindowsInformationProtectionRequestBuilder) ProtectedAppLockerFiles() *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequestBuilder {
 	bb := &WindowsInformationProtectionProtectedAppLockerFilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -321,4 +354,20 @@ func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) G
 func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Add(ctx context.Context, reqObj *WindowsInformationProtectionAppLockerFile) (resObj *WindowsInformationProtectionAppLockerFile, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WindowsInformationProtectionAppLockerFile collection
+func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsInformationProtectionAppLockerFile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsInformationProtectionAppLockerFile collection
+func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsInformationProtectionAppLockerFile) error {
+	var resObj []WindowsInformationProtectionAppLockerFile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // AudioRoutingGroupRequestBuilder is request builder for AudioRoutingGroup
 type AudioRoutingGroupRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *AudioRoutingGroupRequest) Update(ctx context.Context, reqObj *AudioRout
 // Delete performs DELETE request for AudioRoutingGroup
 func (r *AudioRoutingGroupRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AudioRoutingGroup
+func (r *AudioRoutingGroupRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AudioRoutingGroup
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AudioRoutingGroup
+func (r *AudioRoutingGroupRequest) BatchUpdate(batch *BatchRequest, reqObj *AudioRoutingGroup) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AudioRoutingGroup
+func (r *AudioRoutingGroupRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

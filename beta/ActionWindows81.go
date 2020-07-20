@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -111,6 +112,22 @@ func (r *Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollection
 func (r *Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // RootCertificate is navigation property

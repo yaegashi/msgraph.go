@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -127,6 +128,22 @@ func (r *DataClassificationServiceClassifyFileCollectionRequest) Add(ctx context
 	return
 }
 
+// BatchGet adds Get operation to Batch for FileClassificationRequestObject collection
+func (r *DataClassificationServiceClassifyFileCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []FileClassificationRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for FileClassificationRequestObject collection
+func (r *DataClassificationServiceClassifyFileCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *FileClassificationRequestObject) error {
+	var resObj []FileClassificationRequestObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ClassifyFileJobs returns request builder for JobResponseBase collection
 func (b *DataClassificationServiceRequestBuilder) ClassifyFileJobs() *DataClassificationServiceClassifyFileJobsCollectionRequestBuilder {
 	bb := &DataClassificationServiceClassifyFileJobsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -227,6 +244,22 @@ func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Get(ctx con
 func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Add(ctx context.Context, reqObj *JobResponseBase) (resObj *JobResponseBase, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for JobResponseBase collection
+func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []JobResponseBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for JobResponseBase collection
+func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *JobResponseBase) error {
+	var resObj []JobResponseBase
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ClassifyText returns request builder for TextClassificationRequestObject collection
@@ -331,6 +364,22 @@ func (r *DataClassificationServiceClassifyTextCollectionRequest) Add(ctx context
 	return
 }
 
+// BatchGet adds Get operation to Batch for TextClassificationRequestObject collection
+func (r *DataClassificationServiceClassifyTextCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TextClassificationRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TextClassificationRequestObject collection
+func (r *DataClassificationServiceClassifyTextCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TextClassificationRequestObject) error {
+	var resObj []TextClassificationRequestObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ClassifyTextJobs returns request builder for JobResponseBase collection
 func (b *DataClassificationServiceRequestBuilder) ClassifyTextJobs() *DataClassificationServiceClassifyTextJobsCollectionRequestBuilder {
 	bb := &DataClassificationServiceClassifyTextJobsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -431,6 +480,22 @@ func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Get(ctx con
 func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Add(ctx context.Context, reqObj *JobResponseBase) (resObj *JobResponseBase, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for JobResponseBase collection
+func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []JobResponseBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for JobResponseBase collection
+func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *JobResponseBase) error {
+	var resObj []JobResponseBase
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // EvaluateDlpPoliciesJobs returns request builder for JobResponseBase collection
@@ -535,6 +600,22 @@ func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) Add(
 	return
 }
 
+// BatchGet adds Get operation to Batch for JobResponseBase collection
+func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []JobResponseBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for JobResponseBase collection
+func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *JobResponseBase) error {
+	var resObj []JobResponseBase
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // EvaluateLabelJobs returns request builder for JobResponseBase collection
 func (b *DataClassificationServiceRequestBuilder) EvaluateLabelJobs() *DataClassificationServiceEvaluateLabelJobsCollectionRequestBuilder {
 	bb := &DataClassificationServiceEvaluateLabelJobsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -635,6 +716,22 @@ func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Get(ctx co
 func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Add(ctx context.Context, reqObj *JobResponseBase) (resObj *JobResponseBase, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for JobResponseBase collection
+func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []JobResponseBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for JobResponseBase collection
+func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *JobResponseBase) error {
+	var resObj []JobResponseBase
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ExactMatchDataStores returns request builder for ExactMatchDataStore collection
@@ -739,6 +836,22 @@ func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Add(ctx
 	return
 }
 
+// BatchGet adds Get operation to Batch for ExactMatchDataStore collection
+func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ExactMatchDataStore
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ExactMatchDataStore collection
+func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ExactMatchDataStore) error {
+	var resObj []ExactMatchDataStore
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ExactMatchUploadAgents returns request builder for ExactMatchUploadAgent collection
 func (b *DataClassificationServiceRequestBuilder) ExactMatchUploadAgents() *DataClassificationServiceExactMatchUploadAgentsCollectionRequestBuilder {
 	bb := &DataClassificationServiceExactMatchUploadAgentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -839,6 +952,22 @@ func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Get(c
 func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Add(ctx context.Context, reqObj *ExactMatchUploadAgent) (resObj *ExactMatchUploadAgent, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ExactMatchUploadAgent collection
+func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ExactMatchUploadAgent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ExactMatchUploadAgent collection
+func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ExactMatchUploadAgent) error {
+	var resObj []ExactMatchUploadAgent
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Jobs returns request builder for JobResponseBase collection
@@ -943,6 +1072,22 @@ func (r *DataClassificationServiceJobsCollectionRequest) Add(ctx context.Context
 	return
 }
 
+// BatchGet adds Get operation to Batch for JobResponseBase collection
+func (r *DataClassificationServiceJobsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []JobResponseBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for JobResponseBase collection
+func (r *DataClassificationServiceJobsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *JobResponseBase) error {
+	var resObj []JobResponseBase
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // LabelsAndPoliciesEvaluationJobs returns request builder for JobResponseBase collection
 func (b *DataClassificationServiceRequestBuilder) LabelsAndPoliciesEvaluationJobs() *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder {
 	bb := &DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1043,6 +1188,22 @@ func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionReque
 func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) Add(ctx context.Context, reqObj *JobResponseBase) (resObj *JobResponseBase, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for JobResponseBase collection
+func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []JobResponseBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for JobResponseBase collection
+func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *JobResponseBase) error {
+	var resObj []JobResponseBase
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SensitiveTypes returns request builder for SensitiveType collection
@@ -1147,6 +1308,22 @@ func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Add(ctx conte
 	return
 }
 
+// BatchGet adds Get operation to Batch for SensitiveType collection
+func (r *DataClassificationServiceSensitiveTypesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SensitiveType
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SensitiveType collection
+func (r *DataClassificationServiceSensitiveTypesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SensitiveType) error {
+	var resObj []SensitiveType
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SensitivityLabels returns request builder for SensitivityLabel collection
 func (b *DataClassificationServiceRequestBuilder) SensitivityLabels() *DataClassificationServiceSensitivityLabelsCollectionRequestBuilder {
 	bb := &DataClassificationServiceSensitivityLabelsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1247,4 +1424,20 @@ func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Get(ctx co
 func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Add(ctx context.Context, reqObj *SensitivityLabel) (resObj *SensitivityLabel, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SensitivityLabel collection
+func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SensitivityLabel
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SensitivityLabel collection
+func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SensitivityLabel) error {
+	var resObj []SensitivityLabel
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

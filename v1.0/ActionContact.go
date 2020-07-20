@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *ContactExtensionsCollectionRequest) Add(ctx context.Context, reqObj *Ex
 	return
 }
 
+// BatchGet adds Get operation to Batch for Extension collection
+func (r *ContactExtensionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Extension
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Extension collection
+func (r *ContactExtensionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Extension) error {
+	var resObj []Extension
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MultiValueExtendedProperties returns request builder for MultiValueLegacyExtendedProperty collection
 func (b *ContactRequestBuilder) MultiValueExtendedProperties() *ContactMultiValueExtendedPropertiesCollectionRequestBuilder {
 	bb := &ContactMultiValueExtendedPropertiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,6 +230,22 @@ func (r *ContactMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.C
 func (r *ContactMultiValueExtendedPropertiesCollectionRequest) Add(ctx context.Context, reqObj *MultiValueLegacyExtendedProperty) (resObj *MultiValueLegacyExtendedProperty, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *ContactMultiValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *ContactMultiValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MultiValueLegacyExtendedProperty) error {
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Photo is navigation property
@@ -324,6 +357,22 @@ func (r *ContactSingleValueExtendedPropertiesCollectionRequest) Add(ctx context.
 	return
 }
 
+// BatchGet adds Get operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *ContactSingleValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *ContactSingleValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SingleValueLegacyExtendedProperty) error {
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ChildFolders returns request builder for ContactFolder collection
 func (b *ContactFolderRequestBuilder) ChildFolders() *ContactFolderChildFoldersCollectionRequestBuilder {
 	bb := &ContactFolderChildFoldersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -424,6 +473,22 @@ func (r *ContactFolderChildFoldersCollectionRequest) Get(ctx context.Context) ([
 func (r *ContactFolderChildFoldersCollectionRequest) Add(ctx context.Context, reqObj *ContactFolder) (resObj *ContactFolder, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ContactFolder collection
+func (r *ContactFolderChildFoldersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ContactFolder
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ContactFolder collection
+func (r *ContactFolderChildFoldersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ContactFolder) error {
+	var resObj []ContactFolder
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Contacts returns request builder for Contact collection
@@ -528,6 +593,22 @@ func (r *ContactFolderContactsCollectionRequest) Add(ctx context.Context, reqObj
 	return
 }
 
+// BatchGet adds Get operation to Batch for Contact collection
+func (r *ContactFolderContactsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Contact
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Contact collection
+func (r *ContactFolderContactsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Contact) error {
+	var resObj []Contact
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MultiValueExtendedProperties returns request builder for MultiValueLegacyExtendedProperty collection
 func (b *ContactFolderRequestBuilder) MultiValueExtendedProperties() *ContactFolderMultiValueExtendedPropertiesCollectionRequestBuilder {
 	bb := &ContactFolderMultiValueExtendedPropertiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -630,6 +711,22 @@ func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Add(ctx con
 	return
 }
 
+// BatchGet adds Get operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MultiValueLegacyExtendedProperty) error {
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SingleValueExtendedProperties returns request builder for SingleValueLegacyExtendedProperty collection
 func (b *ContactFolderRequestBuilder) SingleValueExtendedProperties() *ContactFolderSingleValueExtendedPropertiesCollectionRequestBuilder {
 	bb := &ContactFolderSingleValueExtendedPropertiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -730,4 +827,20 @@ func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Get(ctx co
 func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Add(ctx context.Context, reqObj *SingleValueLegacyExtendedProperty) (resObj *SingleValueLegacyExtendedProperty, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SingleValueLegacyExtendedProperty) error {
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

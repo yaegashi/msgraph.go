@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -123,6 +124,22 @@ func (r *DomainDomainNameReferencesCollectionRequest) Add(ctx context.Context, r
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *DomainDomainNameReferencesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *DomainDomainNameReferencesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ServiceConfigurationRecords returns request builder for DomainDNSRecord collection
 func (b *DomainRequestBuilder) ServiceConfigurationRecords() *DomainServiceConfigurationRecordsCollectionRequestBuilder {
 	bb := &DomainServiceConfigurationRecordsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -225,6 +242,22 @@ func (r *DomainServiceConfigurationRecordsCollectionRequest) Add(ctx context.Con
 	return
 }
 
+// BatchGet adds Get operation to Batch for DomainDNSRecord collection
+func (r *DomainServiceConfigurationRecordsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DomainDNSRecord
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DomainDNSRecord collection
+func (r *DomainServiceConfigurationRecordsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DomainDNSRecord) error {
+	var resObj []DomainDNSRecord
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // VerificationDNSRecords returns request builder for DomainDNSRecord collection
 func (b *DomainRequestBuilder) VerificationDNSRecords() *DomainVerificationDNSRecordsCollectionRequestBuilder {
 	bb := &DomainVerificationDNSRecordsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -325,4 +358,20 @@ func (r *DomainVerificationDNSRecordsCollectionRequest) Get(ctx context.Context)
 func (r *DomainVerificationDNSRecordsCollectionRequest) Add(ctx context.Context, reqObj *DomainDNSRecord) (resObj *DomainDNSRecord, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DomainDNSRecord collection
+func (r *DomainVerificationDNSRecordsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DomainDNSRecord
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DomainDNSRecord collection
+func (r *DomainVerificationDNSRecordsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DomainDNSRecord) error {
+	var resObj []DomainDNSRecord
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

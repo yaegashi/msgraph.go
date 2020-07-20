@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ChannelRequestBuilder is request builder for Channel
 type ChannelRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *ChannelRequest) Update(ctx context.Context, reqObj *Channel) error {
 // Delete performs DELETE request for Channel
 func (r *ChannelRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Channel
+func (r *ChannelRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Channel
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Channel
+func (r *ChannelRequest) BatchUpdate(batch *BatchRequest, reqObj *Channel) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Channel
+func (r *ChannelRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

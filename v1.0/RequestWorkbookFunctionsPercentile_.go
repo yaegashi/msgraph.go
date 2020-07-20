@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsPercentile_ExcRequestBuilder struct{ BaseRequestBuilder }
@@ -32,6 +35,12 @@ func (r *WorkbookFunctionsPercentile_ExcRequest) Post(ctx context.Context) (resO
 }
 
 //
+func (r *WorkbookFunctionsPercentile_ExcRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsPercentile_IncRequestBuilder struct{ BaseRequestBuilder }
 
 // Percentile_Inc action undocumented
@@ -56,4 +65,10 @@ func (b *WorkbookFunctionsPercentile_IncRequestBuilder) Request() *WorkbookFunct
 func (r *WorkbookFunctionsPercentile_IncRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsPercentile_IncRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

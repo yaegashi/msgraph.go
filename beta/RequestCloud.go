@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *CloudAppSecurityProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for CloudAppSecurityProfile
+func (r *CloudAppSecurityProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj CloudAppSecurityProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for CloudAppSecurityProfile
+func (r *CloudAppSecurityProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *CloudAppSecurityProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for CloudAppSecurityProfile
+func (r *CloudAppSecurityProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // CloudCommunicationsRequestBuilder is request builder for CloudCommunications
 type CloudCommunicationsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *CloudCommunicationsRequest) Update(ctx context.Context, reqObj *CloudCo
 // Delete performs DELETE request for CloudCommunications
 func (r *CloudCommunicationsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for CloudCommunications
+func (r *CloudCommunicationsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj CloudCommunications
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for CloudCommunications
+func (r *CloudCommunicationsRequest) BatchUpdate(batch *BatchRequest, reqObj *CloudCommunications) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for CloudCommunications
+func (r *CloudCommunicationsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -161,4 +202,10 @@ func (r *CloudCommunicationsGetPresencesByUserIDRequest) PostN(ctx context.Conte
 //
 func (r *CloudCommunicationsGetPresencesByUserIDRequest) Post(ctx context.Context) ([]Presence, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+func (r *CloudCommunicationsGetPresencesByUserIDRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []Presence
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

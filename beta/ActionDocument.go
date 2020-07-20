@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *DocumentCommentsCollectionRequest) Add(ctx context.Context, reqObj *Doc
 	return
 }
 
+// BatchGet adds Get operation to Batch for DocumentComment collection
+func (r *DocumentCommentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DocumentComment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DocumentComment collection
+func (r *DocumentCommentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DocumentComment) error {
+	var resObj []DocumentComment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Replies returns request builder for DocumentCommentReply collection
 func (b *DocumentCommentRequestBuilder) Replies() *DocumentCommentRepliesCollectionRequestBuilder {
 	bb := &DocumentCommentRepliesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,4 +230,20 @@ func (r *DocumentCommentRepliesCollectionRequest) Get(ctx context.Context) ([]Do
 func (r *DocumentCommentRepliesCollectionRequest) Add(ctx context.Context, reqObj *DocumentCommentReply) (resObj *DocumentCommentReply, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DocumentCommentReply collection
+func (r *DocumentCommentRepliesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DocumentCommentReply
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DocumentCommentReply collection
+func (r *DocumentCommentRepliesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DocumentCommentReply) error {
+	var resObj []DocumentCommentReply
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

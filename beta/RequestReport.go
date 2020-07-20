@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ReportRootRequestBuilder is request builder for ReportRoot
 type ReportRootRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *ReportRootRequest) Update(ctx context.Context, reqObj *ReportRoot) erro
 // Delete performs DELETE request for ReportRoot
 func (r *ReportRootRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ReportRoot
+func (r *ReportRootRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ReportRoot
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ReportRoot
+func (r *ReportRootRequest) BatchUpdate(batch *BatchRequest, reqObj *ReportRoot) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ReportRoot
+func (r *ReportRootRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

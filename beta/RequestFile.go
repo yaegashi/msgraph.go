@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // FileClassificationRequestObjectRequestBuilder is request builder for FileClassificationRequestObject
 type FileClassificationRequestObjectRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *FileClassificationRequestObjectRequest) Delete(ctx context.Context) err
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for FileClassificationRequestObject
+func (r *FileClassificationRequestObjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj FileClassificationRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for FileClassificationRequestObject
+func (r *FileClassificationRequestObjectRequest) BatchUpdate(batch *BatchRequest, reqObj *FileClassificationRequestObject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for FileClassificationRequestObject
+func (r *FileClassificationRequestObjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // FileSecurityProfileRequestBuilder is request builder for FileSecurityProfile
 type FileSecurityProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *FileSecurityProfileRequest) Update(ctx context.Context, reqObj *FileSec
 // Delete performs DELETE request for FileSecurityProfile
 func (r *FileSecurityProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for FileSecurityProfile
+func (r *FileSecurityProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj FileSecurityProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for FileSecurityProfile
+func (r *FileSecurityProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *FileSecurityProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for FileSecurityProfile
+func (r *FileSecurityProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

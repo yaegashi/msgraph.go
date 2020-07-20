@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -117,6 +118,22 @@ func (r *OutlookTaskAttachmentsCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for Attachment collection
+func (r *OutlookTaskAttachmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Attachment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Attachment collection
+func (r *OutlookTaskAttachmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Attachment) error {
+	var resObj []Attachment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MultiValueExtendedProperties returns request builder for MultiValueLegacyExtendedProperty collection
 func (b *OutlookTaskRequestBuilder) MultiValueExtendedProperties() *OutlookTaskMultiValueExtendedPropertiesCollectionRequestBuilder {
 	bb := &OutlookTaskMultiValueExtendedPropertiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -217,6 +234,22 @@ func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Get(ctx conte
 func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Add(ctx context.Context, reqObj *MultiValueLegacyExtendedProperty) (resObj *MultiValueLegacyExtendedProperty, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MultiValueLegacyExtendedProperty) error {
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SingleValueExtendedProperties returns request builder for SingleValueLegacyExtendedProperty collection
@@ -321,6 +354,22 @@ func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Add(ctx cont
 	return
 }
 
+// BatchGet adds Get operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SingleValueLegacyExtendedProperty) error {
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MultiValueExtendedProperties returns request builder for MultiValueLegacyExtendedProperty collection
 func (b *OutlookTaskFolderRequestBuilder) MultiValueExtendedProperties() *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequestBuilder {
 	bb := &OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -421,6 +470,22 @@ func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) Get(ctx
 func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) Add(ctx context.Context, reqObj *MultiValueLegacyExtendedProperty) (resObj *MultiValueLegacyExtendedProperty, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MultiValueLegacyExtendedProperty) error {
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SingleValueExtendedProperties returns request builder for SingleValueLegacyExtendedProperty collection
@@ -525,6 +590,22 @@ func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) Add(ct
 	return
 }
 
+// BatchGet adds Get operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SingleValueLegacyExtendedProperty) error {
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Tasks returns request builder for OutlookTask collection
 func (b *OutlookTaskFolderRequestBuilder) Tasks() *OutlookTaskFolderTasksCollectionRequestBuilder {
 	bb := &OutlookTaskFolderTasksCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -625,6 +706,22 @@ func (r *OutlookTaskFolderTasksCollectionRequest) Get(ctx context.Context) ([]Ou
 func (r *OutlookTaskFolderTasksCollectionRequest) Add(ctx context.Context, reqObj *OutlookTask) (resObj *OutlookTask, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for OutlookTask collection
+func (r *OutlookTaskFolderTasksCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OutlookTask
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OutlookTask collection
+func (r *OutlookTaskFolderTasksCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OutlookTask) error {
+	var resObj []OutlookTask
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // TaskFolders returns request builder for OutlookTaskFolder collection
@@ -729,6 +826,22 @@ func (r *OutlookTaskGroupTaskFoldersCollectionRequest) Add(ctx context.Context, 
 	return
 }
 
+// BatchGet adds Get operation to Batch for OutlookTaskFolder collection
+func (r *OutlookTaskGroupTaskFoldersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OutlookTaskFolder
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OutlookTaskFolder collection
+func (r *OutlookTaskGroupTaskFoldersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OutlookTaskFolder) error {
+	var resObj []OutlookTaskFolder
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MasterCategories returns request builder for OutlookCategory collection
 func (b *OutlookUserRequestBuilder) MasterCategories() *OutlookUserMasterCategoriesCollectionRequestBuilder {
 	bb := &OutlookUserMasterCategoriesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -829,6 +942,22 @@ func (r *OutlookUserMasterCategoriesCollectionRequest) Get(ctx context.Context) 
 func (r *OutlookUserMasterCategoriesCollectionRequest) Add(ctx context.Context, reqObj *OutlookCategory) (resObj *OutlookCategory, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for OutlookCategory collection
+func (r *OutlookUserMasterCategoriesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OutlookCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OutlookCategory collection
+func (r *OutlookUserMasterCategoriesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OutlookCategory) error {
+	var resObj []OutlookCategory
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // TaskFolders returns request builder for OutlookTaskFolder collection
@@ -933,6 +1062,22 @@ func (r *OutlookUserTaskFoldersCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for OutlookTaskFolder collection
+func (r *OutlookUserTaskFoldersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OutlookTaskFolder
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OutlookTaskFolder collection
+func (r *OutlookUserTaskFoldersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OutlookTaskFolder) error {
+	var resObj []OutlookTaskFolder
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // TaskGroups returns request builder for OutlookTaskGroup collection
 func (b *OutlookUserRequestBuilder) TaskGroups() *OutlookUserTaskGroupsCollectionRequestBuilder {
 	bb := &OutlookUserTaskGroupsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1035,6 +1180,22 @@ func (r *OutlookUserTaskGroupsCollectionRequest) Add(ctx context.Context, reqObj
 	return
 }
 
+// BatchGet adds Get operation to Batch for OutlookTaskGroup collection
+func (r *OutlookUserTaskGroupsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OutlookTaskGroup
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OutlookTaskGroup collection
+func (r *OutlookUserTaskGroupsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OutlookTaskGroup) error {
+	var resObj []OutlookTaskGroup
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Tasks returns request builder for OutlookTask collection
 func (b *OutlookUserRequestBuilder) Tasks() *OutlookUserTasksCollectionRequestBuilder {
 	bb := &OutlookUserTasksCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1135,4 +1296,20 @@ func (r *OutlookUserTasksCollectionRequest) Get(ctx context.Context) ([]OutlookT
 func (r *OutlookUserTasksCollectionRequest) Add(ctx context.Context, reqObj *OutlookTask) (resObj *OutlookTask, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for OutlookTask collection
+func (r *OutlookUserTasksCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OutlookTask
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OutlookTask collection
+func (r *OutlookUserTasksCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OutlookTask) error {
+	var resObj []OutlookTask
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

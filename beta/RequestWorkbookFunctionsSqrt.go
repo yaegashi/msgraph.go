@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsSqrtRequestBuilder struct{ BaseRequestBuilder }
@@ -32,6 +35,12 @@ func (r *WorkbookFunctionsSqrtRequest) Post(ctx context.Context) (resObj *Workbo
 }
 
 //
+func (r *WorkbookFunctionsSqrtRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsSqrtPiRequestBuilder struct{ BaseRequestBuilder }
 
 // SqrtPi action undocumented
@@ -56,4 +65,10 @@ func (b *WorkbookFunctionsSqrtPiRequestBuilder) Request() *WorkbookFunctionsSqrt
 func (r *WorkbookFunctionsSqrtPiRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsSqrtPiRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

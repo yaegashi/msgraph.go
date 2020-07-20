@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -111,4 +112,20 @@ func (r *InferenceClassificationOverridesCollectionRequest) Get(ctx context.Cont
 func (r *InferenceClassificationOverridesCollectionRequest) Add(ctx context.Context, reqObj *InferenceClassificationOverride) (resObj *InferenceClassificationOverride, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for InferenceClassificationOverride collection
+func (r *InferenceClassificationOverridesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []InferenceClassificationOverride
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for InferenceClassificationOverride collection
+func (r *InferenceClassificationOverridesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *InferenceClassificationOverride) error {
+	var resObj []InferenceClassificationOverride
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ConnectionOperationRequestBuilder is request builder for ConnectionOperation
 type ConnectionOperationRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *ConnectionOperationRequest) Update(ctx context.Context, reqObj *Connect
 // Delete performs DELETE request for ConnectionOperation
 func (r *ConnectionOperationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ConnectionOperation
+func (r *ConnectionOperationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ConnectionOperation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ConnectionOperation
+func (r *ConnectionOperationRequest) BatchUpdate(batch *BatchRequest, reqObj *ConnectionOperation) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ConnectionOperation
+func (r *ConnectionOperationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

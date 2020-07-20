@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // PostRequestBuilder is request builder for Post
 type PostRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *PostRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Post
+func (r *PostRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Post
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Post
+func (r *PostRequest) BatchUpdate(batch *BatchRequest, reqObj *Post) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Post
+func (r *PostRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type PostReplyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -64,6 +87,11 @@ func (r *PostReplyRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *PostReplyRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type PostForwardRequestBuilder struct{ BaseRequestBuilder }
 
 // Forward action undocumented
@@ -87,4 +115,9 @@ func (b *PostForwardRequestBuilder) Request() *PostForwardRequest {
 //
 func (r *PostForwardRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *PostForwardRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
