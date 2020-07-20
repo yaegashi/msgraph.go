@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *MobileAppRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MobileApp
+func (r *MobileAppRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MobileApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MobileApp
+func (r *MobileAppRequest) BatchUpdate(batch *BatchRequest, reqObj *MobileApp) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MobileApp
+func (r *MobileAppRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // MobileAppAssignmentRequestBuilder is request builder for MobileAppAssignment
 type MobileAppAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *MobileAppAssignmentRequest) Update(ctx context.Context, reqObj *MobileA
 // Delete performs DELETE request for MobileAppAssignment
 func (r *MobileAppAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for MobileAppAssignment
+func (r *MobileAppAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MobileAppAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MobileAppAssignment
+func (r *MobileAppAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *MobileAppAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MobileAppAssignment
+func (r *MobileAppAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // MobileAppCategoryRequestBuilder is request builder for MobileAppCategory
@@ -110,6 +151,26 @@ func (r *MobileAppCategoryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MobileAppCategory
+func (r *MobileAppCategoryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MobileAppCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MobileAppCategory
+func (r *MobileAppCategoryRequest) BatchUpdate(batch *BatchRequest, reqObj *MobileAppCategory) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MobileAppCategory
+func (r *MobileAppCategoryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // MobileAppContentRequestBuilder is request builder for MobileAppContent
 type MobileAppContentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -141,6 +202,26 @@ func (r *MobileAppContentRequest) Update(ctx context.Context, reqObj *MobileAppC
 // Delete performs DELETE request for MobileAppContent
 func (r *MobileAppContentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for MobileAppContent
+func (r *MobileAppContentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MobileAppContent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MobileAppContent
+func (r *MobileAppContentRequest) BatchUpdate(batch *BatchRequest, reqObj *MobileAppContent) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MobileAppContent
+func (r *MobileAppContentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // MobileAppContentFileRequestBuilder is request builder for MobileAppContentFile
@@ -176,6 +257,26 @@ func (r *MobileAppContentFileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MobileAppContentFile
+func (r *MobileAppContentFileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MobileAppContentFile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MobileAppContentFile
+func (r *MobileAppContentFileRequest) BatchUpdate(batch *BatchRequest, reqObj *MobileAppContentFile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MobileAppContentFile
+func (r *MobileAppContentFileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // MobileAppInstallStatusRequestBuilder is request builder for MobileAppInstallStatus
 type MobileAppInstallStatusRequestBuilder struct{ BaseRequestBuilder }
 
@@ -207,6 +308,26 @@ func (r *MobileAppInstallStatusRequest) Update(ctx context.Context, reqObj *Mobi
 // Delete performs DELETE request for MobileAppInstallStatus
 func (r *MobileAppInstallStatusRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for MobileAppInstallStatus
+func (r *MobileAppInstallStatusRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MobileAppInstallStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MobileAppInstallStatus
+func (r *MobileAppInstallStatusRequest) BatchUpdate(batch *BatchRequest, reqObj *MobileAppInstallStatus) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MobileAppInstallStatus
+func (r *MobileAppInstallStatusRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // MobileAppInstallSummaryRequestBuilder is request builder for MobileAppInstallSummary
@@ -242,6 +363,26 @@ func (r *MobileAppInstallSummaryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MobileAppInstallSummary
+func (r *MobileAppInstallSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MobileAppInstallSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MobileAppInstallSummary
+func (r *MobileAppInstallSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *MobileAppInstallSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MobileAppInstallSummary
+func (r *MobileAppInstallSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // MobileAppIntentAndStateRequestBuilder is request builder for MobileAppIntentAndState
 type MobileAppIntentAndStateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -273,6 +414,26 @@ func (r *MobileAppIntentAndStateRequest) Update(ctx context.Context, reqObj *Mob
 // Delete performs DELETE request for MobileAppIntentAndState
 func (r *MobileAppIntentAndStateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for MobileAppIntentAndState
+func (r *MobileAppIntentAndStateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MobileAppIntentAndState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MobileAppIntentAndState
+func (r *MobileAppIntentAndStateRequest) BatchUpdate(batch *BatchRequest, reqObj *MobileAppIntentAndState) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MobileAppIntentAndState
+func (r *MobileAppIntentAndStateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // MobileAppProvisioningConfigGroupAssignmentRequestBuilder is request builder for MobileAppProvisioningConfigGroupAssignment
@@ -308,6 +469,26 @@ func (r *MobileAppProvisioningConfigGroupAssignmentRequest) Delete(ctx context.C
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MobileAppProvisioningConfigGroupAssignment
+func (r *MobileAppProvisioningConfigGroupAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MobileAppProvisioningConfigGroupAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MobileAppProvisioningConfigGroupAssignment
+func (r *MobileAppProvisioningConfigGroupAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *MobileAppProvisioningConfigGroupAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MobileAppProvisioningConfigGroupAssignment
+func (r *MobileAppProvisioningConfigGroupAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // MobileAppRelationshipRequestBuilder is request builder for MobileAppRelationship
 type MobileAppRelationshipRequestBuilder struct{ BaseRequestBuilder }
 
@@ -339,6 +520,26 @@ func (r *MobileAppRelationshipRequest) Update(ctx context.Context, reqObj *Mobil
 // Delete performs DELETE request for MobileAppRelationship
 func (r *MobileAppRelationshipRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for MobileAppRelationship
+func (r *MobileAppRelationshipRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MobileAppRelationship
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MobileAppRelationship
+func (r *MobileAppRelationshipRequest) BatchUpdate(batch *BatchRequest, reqObj *MobileAppRelationship) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MobileAppRelationship
+func (r *MobileAppRelationshipRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // MobileAppTroubleshootingEventRequestBuilder is request builder for MobileAppTroubleshootingEvent
@@ -374,6 +575,26 @@ func (r *MobileAppTroubleshootingEventRequest) Delete(ctx context.Context) error
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MobileAppTroubleshootingEvent
+func (r *MobileAppTroubleshootingEventRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MobileAppTroubleshootingEvent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MobileAppTroubleshootingEvent
+func (r *MobileAppTroubleshootingEventRequest) BatchUpdate(batch *BatchRequest, reqObj *MobileAppTroubleshootingEvent) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MobileAppTroubleshootingEvent
+func (r *MobileAppTroubleshootingEventRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // MobileContainedAppRequestBuilder is request builder for MobileContainedApp
 type MobileContainedAppRequestBuilder struct{ BaseRequestBuilder }
 
@@ -405,6 +626,26 @@ func (r *MobileContainedAppRequest) Update(ctx context.Context, reqObj *MobileCo
 // Delete performs DELETE request for MobileContainedApp
 func (r *MobileContainedAppRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for MobileContainedApp
+func (r *MobileContainedAppRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MobileContainedApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MobileContainedApp
+func (r *MobileContainedAppRequest) BatchUpdate(batch *BatchRequest, reqObj *MobileContainedApp) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MobileContainedApp
+func (r *MobileContainedAppRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // MobileLobAppRequestBuilder is request builder for MobileLobApp
@@ -440,6 +681,26 @@ func (r *MobileLobAppRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MobileLobApp
+func (r *MobileLobAppRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MobileLobApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MobileLobApp
+func (r *MobileLobAppRequest) BatchUpdate(batch *BatchRequest, reqObj *MobileLobApp) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MobileLobApp
+func (r *MobileLobAppRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // MobileThreatDefenseConnectorRequestBuilder is request builder for MobileThreatDefenseConnector
 type MobileThreatDefenseConnectorRequestBuilder struct{ BaseRequestBuilder }
 
@@ -471,6 +732,26 @@ func (r *MobileThreatDefenseConnectorRequest) Update(ctx context.Context, reqObj
 // Delete performs DELETE request for MobileThreatDefenseConnector
 func (r *MobileThreatDefenseConnectorRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for MobileThreatDefenseConnector
+func (r *MobileThreatDefenseConnectorRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MobileThreatDefenseConnector
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MobileThreatDefenseConnector
+func (r *MobileThreatDefenseConnectorRequest) BatchUpdate(batch *BatchRequest, reqObj *MobileThreatDefenseConnector) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MobileThreatDefenseConnector
+func (r *MobileThreatDefenseConnectorRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -560,6 +841,12 @@ func (r *MobileAppCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([
 }
 
 //
+func (r *MobileAppCollectionHasPayloadLinksRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []HasPayloadLinkResultItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type MobileAppAssignRequestBuilder struct{ BaseRequestBuilder }
 
 // Assign action undocumented
@@ -583,6 +870,11 @@ func (b *MobileAppAssignRequestBuilder) Request() *MobileAppAssignRequest {
 //
 func (r *MobileAppAssignRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *MobileAppAssignRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -612,6 +904,11 @@ func (r *MobileAppUpdateRelationshipsRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *MobileAppUpdateRelationshipsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type MobileAppContentFileCommitRequestBuilder struct{ BaseRequestBuilder }
 
 // Commit action undocumented
@@ -638,6 +935,11 @@ func (r *MobileAppContentFileCommitRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *MobileAppContentFileCommitRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type MobileAppContentFileRenewUploadRequestBuilder struct{ BaseRequestBuilder }
 
 // RenewUpload action undocumented
@@ -661,4 +963,9 @@ func (b *MobileAppContentFileRenewUploadRequestBuilder) Request() *MobileAppCont
 //
 func (r *MobileAppContentFileRenewUploadRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *MobileAppContentFileRenewUploadRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

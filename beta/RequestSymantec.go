@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // SymantecCodeSigningCertificateRequestBuilder is request builder for SymantecCodeSigningCertificate
 type SymantecCodeSigningCertificateRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *SymantecCodeSigningCertificateRequest) Update(ctx context.Context, reqO
 // Delete performs DELETE request for SymantecCodeSigningCertificate
 func (r *SymantecCodeSigningCertificateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SymantecCodeSigningCertificate
+func (r *SymantecCodeSigningCertificateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SymantecCodeSigningCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SymantecCodeSigningCertificate
+func (r *SymantecCodeSigningCertificateRequest) BatchUpdate(batch *BatchRequest, reqObj *SymantecCodeSigningCertificate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SymantecCodeSigningCertificate
+func (r *SymantecCodeSigningCertificateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

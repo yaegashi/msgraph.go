@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // DomainRequestBuilder is request builder for Domain
 type DomainRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *DomainRequest) Update(ctx context.Context, reqObj *Domain) error {
 // Delete performs DELETE request for Domain
 func (r *DomainRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Domain
+func (r *DomainRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Domain
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Domain
+func (r *DomainRequest) BatchUpdate(batch *BatchRequest, reqObj *Domain) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Domain
+func (r *DomainRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DomainDNSRecordRequestBuilder is request builder for DomainDNSRecord
@@ -70,6 +93,26 @@ func (r *DomainDNSRecordRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DomainDNSRecord
+func (r *DomainDNSRecordRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DomainDNSRecord
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DomainDNSRecord
+func (r *DomainDNSRecordRequest) BatchUpdate(batch *BatchRequest, reqObj *DomainDNSRecord) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DomainDNSRecord
+func (r *DomainDNSRecordRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type DomainForceDeleteRequestBuilder struct{ BaseRequestBuilder }
 
@@ -97,6 +140,11 @@ func (r *DomainForceDeleteRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *DomainForceDeleteRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type DomainVerifyRequestBuilder struct{ BaseRequestBuilder }
 
 // Verify action undocumented
@@ -121,4 +169,10 @@ func (b *DomainVerifyRequestBuilder) Request() *DomainVerifyRequest {
 func (r *DomainVerifyRequest) Post(ctx context.Context) (resObj *Domain, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *DomainVerifyRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *Domain
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

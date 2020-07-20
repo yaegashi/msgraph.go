@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -162,6 +163,22 @@ func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Add(ctx context.C
 	return
 }
 
+// BatchGet adds Get operation to Batch for SalesCreditMemoLine collection
+func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SalesCreditMemoLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SalesCreditMemoLine collection
+func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SalesCreditMemoLine) error {
+	var resObj []SalesCreditMemoLine
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Account is navigation property
 func (b *SalesCreditMemoLineRequestBuilder) Account() *AccountRequestBuilder {
 	bb := &AccountRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -297,6 +314,22 @@ func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Get(ctx context.Context
 func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Add(ctx context.Context, reqObj *SalesInvoiceLine) (resObj *SalesInvoiceLine, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SalesInvoiceLine collection
+func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SalesInvoiceLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SalesInvoiceLine collection
+func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SalesInvoiceLine) error {
+	var resObj []SalesInvoiceLine
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ShipmentMethod is navigation property
@@ -443,6 +476,22 @@ func (r *SalesOrderSalesOrderLinesCollectionRequest) Add(ctx context.Context, re
 	return
 }
 
+// BatchGet adds Get operation to Batch for SalesOrderLine collection
+func (r *SalesOrderSalesOrderLinesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SalesOrderLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SalesOrderLine collection
+func (r *SalesOrderSalesOrderLinesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SalesOrderLine) error {
+	var resObj []SalesOrderLine
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Account is navigation property
 func (b *SalesOrderLineRequestBuilder) Account() *AccountRequestBuilder {
 	bb := &AccountRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -578,6 +627,22 @@ func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Get(ctx context.Context) ([
 func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Add(ctx context.Context, reqObj *SalesQuoteLine) (resObj *SalesQuoteLine, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SalesQuoteLine collection
+func (r *SalesQuoteSalesQuoteLinesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SalesQuoteLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SalesQuoteLine collection
+func (r *SalesQuoteSalesQuoteLinesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SalesQuoteLine) error {
+	var resObj []SalesQuoteLine
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ShipmentMethod is navigation property

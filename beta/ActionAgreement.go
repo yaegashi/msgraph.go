@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -111,4 +112,20 @@ func (r *AgreementFilesCollectionRequest) Get(ctx context.Context) ([]AgreementF
 func (r *AgreementFilesCollectionRequest) Add(ctx context.Context, reqObj *AgreementFile) (resObj *AgreementFile, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AgreementFile collection
+func (r *AgreementFilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AgreementFile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AgreementFile collection
+func (r *AgreementFilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AgreementFile) error {
+	var resObj []AgreementFile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

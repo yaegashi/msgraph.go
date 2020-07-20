@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -227,6 +228,22 @@ func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesC
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // IdentityCertificate is navigation property
 func (b *AndroidDeviceOwnerVPNConfigurationRequestBuilder) IdentityCertificate() *AndroidDeviceOwnerCertificateProfileBaseRequestBuilder {
 	bb := &AndroidDeviceOwnerCertificateProfileBaseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -392,6 +409,22 @@ func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStat
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
 func (b *AndroidForWorkPkcsCertificateProfileRequestBuilder) ManagedDeviceCertificateStates() *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder {
 	bb := &AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -494,6 +527,22 @@ func (r *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesColle
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
 func (b *AndroidForWorkScepCertificateProfileRequestBuilder) ManagedDeviceCertificateStates() *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder {
 	bb := &AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -594,6 +643,22 @@ func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesColle
 func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // IdentityCertificate is navigation property
@@ -705,6 +770,22 @@ func (r *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesColle
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Apps returns request builder for ManagedMobileApp collection
 func (b *AndroidManagedAppProtectionRequestBuilder) Apps() *AndroidManagedAppProtectionAppsCollectionRequestBuilder {
 	bb := &AndroidManagedAppProtectionAppsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -805,6 +886,22 @@ func (r *AndroidManagedAppProtectionAppsCollectionRequest) Get(ctx context.Conte
 func (r *AndroidManagedAppProtectionAppsCollectionRequest) Add(ctx context.Context, reqObj *ManagedMobileApp) (resObj *ManagedMobileApp, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedMobileApp collection
+func (r *AndroidManagedAppProtectionAppsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedMobileApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedMobileApp collection
+func (r *AndroidManagedAppProtectionAppsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedMobileApp) error {
+	var resObj []ManagedMobileApp
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeploymentSummary is navigation property
@@ -916,6 +1013,22 @@ func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRe
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
 func (b *AndroidScepCertificateProfileRequestBuilder) ManagedDeviceCertificateStates() *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder {
 	bb := &AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1016,6 +1129,22 @@ func (r *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRe
 func (r *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // IdentityCertificate is navigation property
@@ -1155,6 +1284,22 @@ func (r *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesC
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
 func (b *AndroidWorkProfileScepCertificateProfileRequestBuilder) ManagedDeviceCertificateStates() *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder {
 	bb := &AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1255,6 +1400,22 @@ func (r *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesC
 func (r *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // IdentityCertificate is navigation property

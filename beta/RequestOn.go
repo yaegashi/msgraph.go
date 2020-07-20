@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // OnPremisesAgentRequestBuilder is request builder for OnPremisesAgent
 type OnPremisesAgentRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *OnPremisesAgentRequest) Update(ctx context.Context, reqObj *OnPremisesA
 // Delete performs DELETE request for OnPremisesAgent
 func (r *OnPremisesAgentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for OnPremisesAgent
+func (r *OnPremisesAgentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OnPremisesAgent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OnPremisesAgent
+func (r *OnPremisesAgentRequest) BatchUpdate(batch *BatchRequest, reqObj *OnPremisesAgent) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OnPremisesAgent
+func (r *OnPremisesAgentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // OnPremisesAgentGroupRequestBuilder is request builder for OnPremisesAgentGroup
@@ -70,6 +93,26 @@ func (r *OnPremisesAgentGroupRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for OnPremisesAgentGroup
+func (r *OnPremisesAgentGroupRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OnPremisesAgentGroup
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OnPremisesAgentGroup
+func (r *OnPremisesAgentGroupRequest) BatchUpdate(batch *BatchRequest, reqObj *OnPremisesAgentGroup) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OnPremisesAgentGroup
+func (r *OnPremisesAgentGroupRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // OnPremisesConditionalAccessSettingsRequestBuilder is request builder for OnPremisesConditionalAccessSettings
 type OnPremisesConditionalAccessSettingsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -103,6 +146,26 @@ func (r *OnPremisesConditionalAccessSettingsRequest) Delete(ctx context.Context)
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for OnPremisesConditionalAccessSettings
+func (r *OnPremisesConditionalAccessSettingsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OnPremisesConditionalAccessSettings
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OnPremisesConditionalAccessSettings
+func (r *OnPremisesConditionalAccessSettingsRequest) BatchUpdate(batch *BatchRequest, reqObj *OnPremisesConditionalAccessSettings) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OnPremisesConditionalAccessSettings
+func (r *OnPremisesConditionalAccessSettingsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // OnPremisesPublishingProfileRequestBuilder is request builder for OnPremisesPublishingProfile
 type OnPremisesPublishingProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -134,4 +197,24 @@ func (r *OnPremisesPublishingProfileRequest) Update(ctx context.Context, reqObj 
 // Delete performs DELETE request for OnPremisesPublishingProfile
 func (r *OnPremisesPublishingProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for OnPremisesPublishingProfile
+func (r *OnPremisesPublishingProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OnPremisesPublishingProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OnPremisesPublishingProfile
+func (r *OnPremisesPublishingProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *OnPremisesPublishingProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OnPremisesPublishingProfile
+func (r *OnPremisesPublishingProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

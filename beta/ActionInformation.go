@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -153,6 +154,22 @@ func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) Add(c
 	return
 }
 
+// BatchGet adds Get operation to Batch for DataLossPreventionPolicy collection
+func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DataLossPreventionPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DataLossPreventionPolicy collection
+func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DataLossPreventionPolicy) error {
+	var resObj []DataLossPreventionPolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Policy is navigation property
 func (b *InformationProtectionRequestBuilder) Policy() *InformationProtectionPolicyRequestBuilder {
 	bb := &InformationProtectionPolicyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -260,6 +277,22 @@ func (r *InformationProtectionSensitivityLabelsCollectionRequest) Get(ctx contex
 func (r *InformationProtectionSensitivityLabelsCollectionRequest) Add(ctx context.Context, reqObj *SensitivityLabel) (resObj *SensitivityLabel, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SensitivityLabel collection
+func (r *InformationProtectionSensitivityLabelsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SensitivityLabel
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SensitivityLabel collection
+func (r *InformationProtectionSensitivityLabelsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SensitivityLabel) error {
+	var resObj []SensitivityLabel
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SensitivityPolicySettings is navigation property
@@ -371,6 +404,22 @@ func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) Add(ctx
 	return
 }
 
+// BatchGet adds Get operation to Batch for ThreatAssessmentRequestObject collection
+func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ThreatAssessmentRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ThreatAssessmentRequestObject collection
+func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ThreatAssessmentRequestObject) error {
+	var resObj []ThreatAssessmentRequestObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Labels returns request builder for InformationProtectionLabel collection
 func (b *InformationProtectionPolicyRequestBuilder) Labels() *InformationProtectionPolicyLabelsCollectionRequestBuilder {
 	bb := &InformationProtectionPolicyLabelsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -471,4 +520,20 @@ func (r *InformationProtectionPolicyLabelsCollectionRequest) Get(ctx context.Con
 func (r *InformationProtectionPolicyLabelsCollectionRequest) Add(ctx context.Context, reqObj *InformationProtectionLabel) (resObj *InformationProtectionLabel, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for InformationProtectionLabel collection
+func (r *InformationProtectionPolicyLabelsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []InformationProtectionLabel
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for InformationProtectionLabel collection
+func (r *InformationProtectionPolicyLabelsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *InformationProtectionLabel) error {
+	var resObj []InformationProtectionLabel
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

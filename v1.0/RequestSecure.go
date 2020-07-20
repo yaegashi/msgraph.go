@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // SecureScoreRequestBuilder is request builder for SecureScore
 type SecureScoreRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *SecureScoreRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for SecureScore
+func (r *SecureScoreRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SecureScore
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SecureScore
+func (r *SecureScoreRequest) BatchUpdate(batch *BatchRequest, reqObj *SecureScore) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SecureScore
+func (r *SecureScoreRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // SecureScoreControlProfileRequestBuilder is request builder for SecureScoreControlProfile
 type SecureScoreControlProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *SecureScoreControlProfileRequest) Update(ctx context.Context, reqObj *S
 // Delete performs DELETE request for SecureScoreControlProfile
 func (r *SecureScoreControlProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SecureScoreControlProfile
+func (r *SecureScoreControlProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SecureScoreControlProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SecureScoreControlProfile
+func (r *SecureScoreControlProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *SecureScoreControlProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SecureScoreControlProfile
+func (r *SecureScoreControlProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -42,6 +43,26 @@ func (r *SearchRequest) Update(ctx context.Context, reqObj *Search) error {
 // Delete performs DELETE request for Search
 func (r *SearchRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Search
+func (r *SearchRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Search
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Search
+func (r *SearchRequest) BatchUpdate(batch *BatchRequest, reqObj *Search) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Search
+func (r *SearchRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -128,4 +149,10 @@ func (r *SearchQueryRequest) PostN(ctx context.Context, n int) ([]SearchResponse
 //
 func (r *SearchQueryRequest) Post(ctx context.Context) ([]SearchResponse, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+func (r *SearchQueryRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []SearchResponse
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

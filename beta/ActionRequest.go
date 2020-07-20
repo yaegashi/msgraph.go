@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -125,6 +126,22 @@ func (r *RequestObjectDecisionsCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for AccessReviewDecision collection
+func (r *RequestObjectDecisionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessReviewDecision
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessReviewDecision collection
+func (r *RequestObjectDecisionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessReviewDecision) error {
+	var resObj []AccessReviewDecision
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MyDecisions returns request builder for AccessReviewDecision collection
 func (b *RequestObjectRequestBuilder) MyDecisions() *RequestObjectMyDecisionsCollectionRequestBuilder {
 	bb := &RequestObjectMyDecisionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -225,4 +242,20 @@ func (r *RequestObjectMyDecisionsCollectionRequest) Get(ctx context.Context) ([]
 func (r *RequestObjectMyDecisionsCollectionRequest) Add(ctx context.Context, reqObj *AccessReviewDecision) (resObj *AccessReviewDecision, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for AccessReviewDecision collection
+func (r *RequestObjectMyDecisionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AccessReviewDecision
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AccessReviewDecision collection
+func (r *RequestObjectMyDecisionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AccessReviewDecision) error {
+	var resObj []AccessReviewDecision
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

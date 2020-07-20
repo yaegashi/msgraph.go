@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ImpossibleTravelRiskEventRequestBuilder is request builder for ImpossibleTravelRiskEvent
 type ImpossibleTravelRiskEventRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *ImpossibleTravelRiskEventRequest) Update(ctx context.Context, reqObj *I
 // Delete performs DELETE request for ImpossibleTravelRiskEvent
 func (r *ImpossibleTravelRiskEventRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ImpossibleTravelRiskEvent
+func (r *ImpossibleTravelRiskEventRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ImpossibleTravelRiskEvent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ImpossibleTravelRiskEvent
+func (r *ImpossibleTravelRiskEventRequest) BatchUpdate(batch *BatchRequest, reqObj *ImpossibleTravelRiskEvent) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ImpossibleTravelRiskEvent
+func (r *ImpossibleTravelRiskEventRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

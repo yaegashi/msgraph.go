@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -118,6 +119,22 @@ func (r *ItemPictureCollectionRequest) Get(ctx context.Context) ([]Picture, erro
 func (r *ItemPictureCollectionRequest) Add(ctx context.Context, reqObj *Picture) (resObj *Picture, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Picture collection
+func (r *ItemPictureCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Picture
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Picture collection
+func (r *ItemPictureCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Picture) error {
+	var resObj []Picture
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DriveItem is navigation property
@@ -243,6 +260,22 @@ func (r *ItemActivityStatActivitiesCollectionRequest) Add(ctx context.Context, r
 	return
 }
 
+// BatchGet adds Get operation to Batch for ItemActivity collection
+func (r *ItemActivityStatActivitiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ItemActivity
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ItemActivity collection
+func (r *ItemActivityStatActivitiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ItemActivity) error {
+	var resObj []ItemActivity
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // AllTime is navigation property
 func (b *ItemAnalyticsRequestBuilder) AllTime() *ItemActivityStatRequestBuilder {
 	bb := &ItemActivityStatRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -350,6 +383,22 @@ func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Get(ctx context.Contex
 func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Add(ctx context.Context, reqObj *ItemActivityStat) (resObj *ItemActivityStat, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ItemActivityStat collection
+func (r *ItemAnalyticsItemActivityStatsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ItemActivityStat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ItemActivityStat collection
+func (r *ItemAnalyticsItemActivityStatsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ItemActivityStat) error {
+	var resObj []ItemActivityStat
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // LastSevenDays is navigation property

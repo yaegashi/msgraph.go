@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -111,4 +112,20 @@ func (r *ContentTypeColumnLinksCollectionRequest) Get(ctx context.Context) ([]Co
 func (r *ContentTypeColumnLinksCollectionRequest) Add(ctx context.Context, reqObj *ColumnLink) (resObj *ColumnLink, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ColumnLink collection
+func (r *ContentTypeColumnLinksCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ColumnLink
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ColumnLink collection
+func (r *ContentTypeColumnLinksCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ColumnLink) error {
+	var resObj []ColumnLink
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

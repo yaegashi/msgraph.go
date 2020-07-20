@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // IOSManagedAppProtectionRequestBuilder is request builder for IOSManagedAppProtection
 type IOSManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *IOSManagedAppProtectionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for IOSManagedAppProtection
+func (r *IOSManagedAppProtectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSManagedAppProtection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSManagedAppProtection
+func (r *IOSManagedAppProtectionRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSManagedAppProtection) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSManagedAppProtection
+func (r *IOSManagedAppProtectionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // IOSUpdateDeviceStatusRequestBuilder is request builder for IOSUpdateDeviceStatus
 type IOSUpdateDeviceStatusRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *IOSUpdateDeviceStatusRequest) Update(ctx context.Context, reqObj *IOSUp
 // Delete performs DELETE request for IOSUpdateDeviceStatus
 func (r *IOSUpdateDeviceStatusRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for IOSUpdateDeviceStatus
+func (r *IOSUpdateDeviceStatusRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSUpdateDeviceStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSUpdateDeviceStatus
+func (r *IOSUpdateDeviceStatusRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSUpdateDeviceStatus) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSUpdateDeviceStatus
+func (r *IOSUpdateDeviceStatusRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

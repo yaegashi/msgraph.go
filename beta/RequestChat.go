@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ChatRequestBuilder is request builder for Chat
 type ChatRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *ChatRequest) Update(ctx context.Context, reqObj *Chat) error {
 // Delete performs DELETE request for Chat
 func (r *ChatRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Chat
+func (r *ChatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Chat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Chat
+func (r *ChatRequest) BatchUpdate(batch *BatchRequest, reqObj *Chat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Chat
+func (r *ChatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ChatMessageRequestBuilder is request builder for ChatMessage
@@ -70,6 +93,26 @@ func (r *ChatMessageRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ChatMessage
+func (r *ChatMessageRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ChatMessage
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ChatMessage
+func (r *ChatMessageRequest) BatchUpdate(batch *BatchRequest, reqObj *ChatMessage) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ChatMessage
+func (r *ChatMessageRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ChatMessageHostedContentRequestBuilder is request builder for ChatMessageHostedContent
 type ChatMessageHostedContentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,4 +144,24 @@ func (r *ChatMessageHostedContentRequest) Update(ctx context.Context, reqObj *Ch
 // Delete performs DELETE request for ChatMessageHostedContent
 func (r *ChatMessageHostedContentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ChatMessageHostedContent
+func (r *ChatMessageHostedContentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ChatMessageHostedContent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ChatMessageHostedContent
+func (r *ChatMessageHostedContentRequest) BatchUpdate(batch *BatchRequest, reqObj *ChatMessageHostedContent) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ChatMessageHostedContent
+func (r *ChatMessageHostedContentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

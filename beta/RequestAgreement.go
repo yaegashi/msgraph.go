@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // AgreementRequestBuilder is request builder for Agreement
 type AgreementRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *AgreementRequest) Update(ctx context.Context, reqObj *Agreement) error 
 // Delete performs DELETE request for Agreement
 func (r *AgreementRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Agreement
+func (r *AgreementRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Agreement
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Agreement
+func (r *AgreementRequest) BatchUpdate(batch *BatchRequest, reqObj *Agreement) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Agreement
+func (r *AgreementRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AgreementAcceptanceRequestBuilder is request builder for AgreementAcceptance
@@ -70,6 +93,26 @@ func (r *AgreementAcceptanceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AgreementAcceptance
+func (r *AgreementAcceptanceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AgreementAcceptance
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AgreementAcceptance
+func (r *AgreementAcceptanceRequest) BatchUpdate(batch *BatchRequest, reqObj *AgreementAcceptance) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AgreementAcceptance
+func (r *AgreementAcceptanceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AgreementFileRequestBuilder is request builder for AgreementFile
 type AgreementFileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,4 +144,24 @@ func (r *AgreementFileRequest) Update(ctx context.Context, reqObj *AgreementFile
 // Delete performs DELETE request for AgreementFile
 func (r *AgreementFileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AgreementFile
+func (r *AgreementFileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AgreementFile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AgreementFile
+func (r *AgreementFileRequest) BatchUpdate(batch *BatchRequest, reqObj *AgreementFile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AgreementFile
+func (r *AgreementFileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

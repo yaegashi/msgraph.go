@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // PersonRequestBuilder is request builder for Person
 type PersonRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *PersonRequest) Update(ctx context.Context, reqObj *Person) error {
 // Delete performs DELETE request for Person
 func (r *PersonRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Person
+func (r *PersonRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Person
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Person
+func (r *PersonRequest) BatchUpdate(batch *BatchRequest, reqObj *Person) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Person
+func (r *PersonRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // PersonAnniversaryRequestBuilder is request builder for PersonAnniversary
@@ -70,6 +93,26 @@ func (r *PersonAnniversaryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PersonAnniversary
+func (r *PersonAnniversaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PersonAnniversary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PersonAnniversary
+func (r *PersonAnniversaryRequest) BatchUpdate(batch *BatchRequest, reqObj *PersonAnniversary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PersonAnniversary
+func (r *PersonAnniversaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // PersonInterestRequestBuilder is request builder for PersonInterest
 type PersonInterestRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *PersonInterestRequest) Update(ctx context.Context, reqObj *PersonIntere
 // Delete performs DELETE request for PersonInterest
 func (r *PersonInterestRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for PersonInterest
+func (r *PersonInterestRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PersonInterest
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PersonInterest
+func (r *PersonInterestRequest) BatchUpdate(batch *BatchRequest, reqObj *PersonInterest) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PersonInterest
+func (r *PersonInterestRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // PersonNameRequestBuilder is request builder for PersonName
@@ -136,6 +199,26 @@ func (r *PersonNameRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PersonName
+func (r *PersonNameRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PersonName
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PersonName
+func (r *PersonNameRequest) BatchUpdate(batch *BatchRequest, reqObj *PersonName) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PersonName
+func (r *PersonNameRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // PersonWebsiteRequestBuilder is request builder for PersonWebsite
 type PersonWebsiteRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,4 +250,24 @@ func (r *PersonWebsiteRequest) Update(ctx context.Context, reqObj *PersonWebsite
 // Delete performs DELETE request for PersonWebsite
 func (r *PersonWebsiteRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for PersonWebsite
+func (r *PersonWebsiteRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PersonWebsite
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PersonWebsite
+func (r *PersonWebsiteRequest) BatchUpdate(batch *BatchRequest, reqObj *PersonWebsite) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PersonWebsite
+func (r *PersonWebsiteRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

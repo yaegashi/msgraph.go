@@ -336,3 +336,174 @@ func NewClient(cli *http.Client) *GraphServiceRequestBuilder {
 		BaseRequestBuilder: BaseRequestBuilder{baseURL: defaultBaseURL, client: cli},
 	}
 }
+
+// BatchRequest is a batch request
+type BatchRequest struct {
+	BaseRequest
+	request batchRequest
+	results []BatchResult
+}
+
+// batchOneRequest is one request included in the batch request
+type batchOneRequest struct {
+	Id     string      `json:"id"`
+	Method string      `json:"method"`
+	Path   string      `json:"url"`
+	Header BatchHeader `json:"headers"`
+	Body   interface{} `json:"body,omitempty"`
+}
+
+// BatchHeader is the header of the individual request in Batch Request
+type BatchHeader struct {
+	ContentType string `json:"Content-Type"`
+}
+
+// batchRequest is the batch request
+type batchRequest struct {
+	Requests []batchOneRequest `json:"requests,omitempty"`
+}
+
+// batchOneResponse is one response included in the batch response
+type batchOneResponse struct {
+	Id     string `json:"id"`
+	Status int    `json:"status"`
+	Body   []byte `json:"body"`
+}
+
+// batchResponse is the batch response
+type batchResponse struct {
+	NextLink  string             `json:"nextLink"`
+	Responses []batchOneResponse `json:"responses,omitempty"`
+}
+
+// BatchResult is the one result derived from one response included in the batch response
+type BatchResult struct {
+	Error  error // Error might be non-200 http status code error or Unmarshal response error
+	Result interface{}
+}
+
+// Add adds a request into the BatchRequest
+func (r *BatchRequest) Add(method, path string, reqObj, resObj interface{}) error {
+	oneRequest := batchOneRequest{Id: strconv.Itoa(len(r.request.Requests)), Method: method, Path: path, Body: reqObj}
+	if reqObj != nil {
+		oneRequest.Header.ContentType = "application/json"
+	}
+	r.request.Requests = append(r.request.Requests, oneRequest)
+	r.results = append(r.results, BatchResult{Result: resObj})
+	return nil
+}
+
+// Run invokes the batch request
+func (r *BatchRequest) Run(ctx context.Context) ([]BatchResult, error) {
+	// Batch size is limited to 20 individual requests: https://docs.microsoft.com/en-us/graph/known-issues#limit-on-batch-size
+	const size = 20
+	for offset := 0; offset < (len(r.request.Requests)+size-1)/size; offset += size {
+		if err := r.run(ctx, offset, size); err != nil {
+			return nil, err
+		}
+	}
+	return r.results, nil
+}
+
+// run composes up to "size" individual requests from "offset" of the containing requests queue of the Batch and update its results internally.
+func (r *BatchRequest) run(ctx context.Context, offset int, size int) error {
+	if offset > len(r.request.Requests) {
+		return nil
+	}
+
+	stop := offset + size
+	if offset+size > len(r.request.Requests) {
+		stop = len(r.request.Requests)
+	}
+
+	var request batchRequest
+	for i := offset; i < stop; i++ {
+		request.Requests = append(request.Requests, r.request.Requests[i])
+	}
+
+	req, err := r.NewJSONRequest("POST", "", request)
+	if err != nil {
+		return err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return err
+	}
+
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return err
+			}
+			return errRes
+		}
+		var paging batchResponse
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return err
+		}
+		for _, response := range paging.Responses {
+			id, err := strconv.Atoi(response.Id)
+			if err != nil {
+				return fmt.Errorf("converting ID %s: %v", response.Id, err)
+			}
+			result := r.results[id]
+			if response.Status != http.StatusOK {
+				b, _ := ioutil.ReadAll(res.Body)
+				errRes := &ErrorResponse{Response: res}
+				err := jsonx.Unmarshal(b, errRes)
+				if err != nil {
+					result.Error = fmt.Errorf("%s: %s", res.Status, string(b))
+					continue
+				}
+				result.Error = errRes
+				continue
+			}
+			if result.Result != nil {
+				if err := jsonx.Unmarshal(response.Body, &result.Result); err != nil {
+					result.Error = fmt.Errorf("unmarshalling response: %v", err)
+					continue
+				}
+			}
+		}
+		if len(paging.NextLink) == 0 {
+			return nil
+		}
+		req, err = http.NewRequest("POST", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return err
+		}
+	}
+}
+
+// Rest resets the batch request
+func (r *BatchRequest) Reset() {
+	r.request.Requests = []batchOneRequest{}
+	r.results = []BatchResult{}
+}
+
+// BatchRequestBuilder is BatchRequest request builder
+type BatchRequestBuilder struct {
+	BaseRequestBuilder
+}
+
+// Request returns BatchRequest
+func (b *BatchRequestBuilder) Request() *BatchRequest {
+	return &BatchRequest{BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client}}
+}
+
+// NewBatch returns BatchRequestBuilder
+func NewBatch(cli *http.Client) *BatchRequestBuilder {
+	return &BatchRequestBuilder{BaseRequestBuilder: BaseRequestBuilder{baseURL: defaultBaseURL + "/$batch", client: cli}}
+}

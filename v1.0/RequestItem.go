@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ItemActivityRequestBuilder is request builder for ItemActivity
 type ItemActivityRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *ItemActivityRequest) Update(ctx context.Context, reqObj *ItemActivity) 
 // Delete performs DELETE request for ItemActivity
 func (r *ItemActivityRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ItemActivity
+func (r *ItemActivityRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ItemActivity
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ItemActivity
+func (r *ItemActivityRequest) BatchUpdate(batch *BatchRequest, reqObj *ItemActivity) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ItemActivity
+func (r *ItemActivityRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ItemActivityStatRequestBuilder is request builder for ItemActivityStat
@@ -70,6 +93,26 @@ func (r *ItemActivityStatRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ItemActivityStat
+func (r *ItemActivityStatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ItemActivityStat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ItemActivityStat
+func (r *ItemActivityStatRequest) BatchUpdate(batch *BatchRequest, reqObj *ItemActivityStat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ItemActivityStat
+func (r *ItemActivityStatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ItemAnalyticsRequestBuilder is request builder for ItemAnalytics
 type ItemAnalyticsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -103,6 +146,26 @@ func (r *ItemAnalyticsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ItemAnalytics
+func (r *ItemAnalyticsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ItemAnalytics
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ItemAnalytics
+func (r *ItemAnalyticsRequest) BatchUpdate(batch *BatchRequest, reqObj *ItemAnalytics) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ItemAnalytics
+func (r *ItemAnalyticsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ItemAttachmentRequestBuilder is request builder for ItemAttachment
 type ItemAttachmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -134,4 +197,24 @@ func (r *ItemAttachmentRequest) Update(ctx context.Context, reqObj *ItemAttachme
 // Delete performs DELETE request for ItemAttachment
 func (r *ItemAttachmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ItemAttachment
+func (r *ItemAttachmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ItemAttachment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ItemAttachment
+func (r *ItemAttachmentRequest) BatchUpdate(batch *BatchRequest, reqObj *ItemAttachment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ItemAttachment
+func (r *ItemAttachmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

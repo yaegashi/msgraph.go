@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -122,6 +123,22 @@ func (r *JournalJournalLinesCollectionRequest) Get(ctx context.Context) ([]Journ
 func (r *JournalJournalLinesCollectionRequest) Add(ctx context.Context, reqObj *JournalLine) (resObj *JournalLine, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for JournalLine collection
+func (r *JournalJournalLinesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []JournalLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for JournalLine collection
+func (r *JournalJournalLinesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *JournalLine) error {
+	var resObj []JournalLine
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Account is navigation property

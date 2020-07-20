@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ColumnDefinitionRequestBuilder is request builder for ColumnDefinition
 type ColumnDefinitionRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *ColumnDefinitionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ColumnDefinition
+func (r *ColumnDefinitionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ColumnDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ColumnDefinition
+func (r *ColumnDefinitionRequest) BatchUpdate(batch *BatchRequest, reqObj *ColumnDefinition) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ColumnDefinition
+func (r *ColumnDefinitionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ColumnLinkRequestBuilder is request builder for ColumnLink
 type ColumnLinkRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *ColumnLinkRequest) Update(ctx context.Context, reqObj *ColumnLink) erro
 // Delete performs DELETE request for ColumnLink
 func (r *ColumnLinkRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ColumnLink
+func (r *ColumnLinkRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ColumnLink
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ColumnLink
+func (r *ColumnLinkRequest) BatchUpdate(batch *BatchRequest, reqObj *ColumnLink) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ColumnLink
+func (r *ColumnLinkRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

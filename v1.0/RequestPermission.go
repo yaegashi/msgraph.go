@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // PermissionRequestBuilder is request builder for Permission
 type PermissionRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *PermissionRequest) Update(ctx context.Context, reqObj *Permission) erro
 // Delete performs DELETE request for Permission
 func (r *PermissionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Permission
+func (r *PermissionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Permission
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Permission
+func (r *PermissionRequest) BatchUpdate(batch *BatchRequest, reqObj *Permission) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Permission
+func (r *PermissionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

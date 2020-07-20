@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // AllowedDataLocationRequestBuilder is request builder for AllowedDataLocation
 type AllowedDataLocationRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *AllowedDataLocationRequest) Update(ctx context.Context, reqObj *Allowed
 // Delete performs DELETE request for AllowedDataLocation
 func (r *AllowedDataLocationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AllowedDataLocation
+func (r *AllowedDataLocationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AllowedDataLocation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AllowedDataLocation
+func (r *AllowedDataLocationRequest) BatchUpdate(batch *BatchRequest, reqObj *AllowedDataLocation) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AllowedDataLocation
+func (r *AllowedDataLocationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

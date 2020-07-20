@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // CredentialUserRegistrationDetailsRequestBuilder is request builder for CredentialUserRegistrationDetails
 type CredentialUserRegistrationDetailsRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *CredentialUserRegistrationDetailsRequest) Update(ctx context.Context, r
 // Delete performs DELETE request for CredentialUserRegistrationDetails
 func (r *CredentialUserRegistrationDetailsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for CredentialUserRegistrationDetails
+func (r *CredentialUserRegistrationDetailsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj CredentialUserRegistrationDetails
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for CredentialUserRegistrationDetails
+func (r *CredentialUserRegistrationDetailsRequest) BatchUpdate(batch *BatchRequest, reqObj *CredentialUserRegistrationDetails) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for CredentialUserRegistrationDetails
+func (r *CredentialUserRegistrationDetailsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

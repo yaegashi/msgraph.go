@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -119,6 +120,22 @@ func (r *ConversationThreadsCollectionRequest) Add(ctx context.Context, reqObj *
 	return
 }
 
+// BatchGet adds Get operation to Batch for ConversationThread collection
+func (r *ConversationThreadsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ConversationThread
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ConversationThread collection
+func (r *ConversationThreadsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ConversationThread) error {
+	var resObj []ConversationThread
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Posts returns request builder for Post collection
 func (b *ConversationThreadRequestBuilder) Posts() *ConversationThreadPostsCollectionRequestBuilder {
 	bb := &ConversationThreadPostsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -219,4 +236,20 @@ func (r *ConversationThreadPostsCollectionRequest) Get(ctx context.Context) ([]P
 func (r *ConversationThreadPostsCollectionRequest) Add(ctx context.Context, reqObj *Post) (resObj *Post, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Post collection
+func (r *ConversationThreadPostsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Post
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Post collection
+func (r *ConversationThreadPostsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Post) error {
+	var resObj []Post
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

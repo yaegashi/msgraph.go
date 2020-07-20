@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // IntuneBrandingProfileRequestBuilder is request builder for IntuneBrandingProfile
 type IntuneBrandingProfileRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *IntuneBrandingProfileRequest) Update(ctx context.Context, reqObj *Intun
 // Delete performs DELETE request for IntuneBrandingProfile
 func (r *IntuneBrandingProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for IntuneBrandingProfile
+func (r *IntuneBrandingProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IntuneBrandingProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IntuneBrandingProfile
+func (r *IntuneBrandingProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *IntuneBrandingProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IntuneBrandingProfile
+func (r *IntuneBrandingProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // IntuneBrandingProfileAssignmentRequestBuilder is request builder for IntuneBrandingProfileAssignment
@@ -70,6 +93,26 @@ func (r *IntuneBrandingProfileAssignmentRequest) Delete(ctx context.Context) err
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for IntuneBrandingProfileAssignment
+func (r *IntuneBrandingProfileAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IntuneBrandingProfileAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IntuneBrandingProfileAssignment
+func (r *IntuneBrandingProfileAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *IntuneBrandingProfileAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IntuneBrandingProfileAssignment
+func (r *IntuneBrandingProfileAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type IntuneBrandingProfileAssignRequestBuilder struct{ BaseRequestBuilder }
 
@@ -94,4 +137,9 @@ func (b *IntuneBrandingProfileAssignRequestBuilder) Request() *IntuneBrandingPro
 //
 func (r *IntuneBrandingProfileAssignRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *IntuneBrandingProfileAssignRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

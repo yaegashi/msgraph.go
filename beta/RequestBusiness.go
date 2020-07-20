@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // BusinessFlowRequestBuilder is request builder for BusinessFlow
 type BusinessFlowRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *BusinessFlowRequest) Update(ctx context.Context, reqObj *BusinessFlow) 
 // Delete performs DELETE request for BusinessFlow
 func (r *BusinessFlowRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for BusinessFlow
+func (r *BusinessFlowRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj BusinessFlow
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for BusinessFlow
+func (r *BusinessFlowRequest) BatchUpdate(batch *BatchRequest, reqObj *BusinessFlow) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for BusinessFlow
+func (r *BusinessFlowRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // BusinessFlowTemplateRequestBuilder is request builder for BusinessFlowTemplate
@@ -70,6 +93,26 @@ func (r *BusinessFlowTemplateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for BusinessFlowTemplate
+func (r *BusinessFlowTemplateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj BusinessFlowTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for BusinessFlowTemplate
+func (r *BusinessFlowTemplateRequest) BatchUpdate(batch *BatchRequest, reqObj *BusinessFlowTemplate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for BusinessFlowTemplate
+func (r *BusinessFlowTemplateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type BusinessFlowRecordDecisionsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -94,4 +137,9 @@ func (b *BusinessFlowRecordDecisionsRequestBuilder) Request() *BusinessFlowRecor
 //
 func (r *BusinessFlowRecordDecisionsRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *BusinessFlowRecordDecisionsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

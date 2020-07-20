@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsFloor_MathRequestBuilder struct{ BaseRequestBuilder }
@@ -32,6 +35,12 @@ func (r *WorkbookFunctionsFloor_MathRequest) Post(ctx context.Context) (resObj *
 }
 
 //
+func (r *WorkbookFunctionsFloor_MathRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsFloor_PreciseRequestBuilder struct{ BaseRequestBuilder }
 
 // Floor_Precise action undocumented
@@ -56,4 +65,10 @@ func (b *WorkbookFunctionsFloor_PreciseRequestBuilder) Request() *WorkbookFuncti
 func (r *WorkbookFunctionsFloor_PreciseRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsFloor_PreciseRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

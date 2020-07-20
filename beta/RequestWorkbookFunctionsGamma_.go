@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsGamma_DistRequestBuilder struct{ BaseRequestBuilder }
@@ -32,6 +35,12 @@ func (r *WorkbookFunctionsGamma_DistRequest) Post(ctx context.Context) (resObj *
 }
 
 //
+func (r *WorkbookFunctionsGamma_DistRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsGamma_InvRequestBuilder struct{ BaseRequestBuilder }
 
 // Gamma_Inv action undocumented
@@ -56,4 +65,10 @@ func (b *WorkbookFunctionsGamma_InvRequestBuilder) Request() *WorkbookFunctionsG
 func (r *WorkbookFunctionsGamma_InvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsGamma_InvRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

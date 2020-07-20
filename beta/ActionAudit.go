@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *AuditLogRootDirectoryAuditsCollectionRequest) Add(ctx context.Context, 
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryAudit collection
+func (r *AuditLogRootDirectoryAuditsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryAudit
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryAudit collection
+func (r *AuditLogRootDirectoryAuditsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryAudit) error {
+	var resObj []DirectoryAudit
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DirectoryProvisioning returns request builder for ProvisioningObjectSummary collection
 func (b *AuditLogRootRequestBuilder) DirectoryProvisioning() *AuditLogRootDirectoryProvisioningCollectionRequestBuilder {
 	bb := &AuditLogRootDirectoryProvisioningCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,6 +230,22 @@ func (r *AuditLogRootDirectoryProvisioningCollectionRequest) Get(ctx context.Con
 func (r *AuditLogRootDirectoryProvisioningCollectionRequest) Add(ctx context.Context, reqObj *ProvisioningObjectSummary) (resObj *ProvisioningObjectSummary, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ProvisioningObjectSummary collection
+func (r *AuditLogRootDirectoryProvisioningCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ProvisioningObjectSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ProvisioningObjectSummary collection
+func (r *AuditLogRootDirectoryProvisioningCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ProvisioningObjectSummary) error {
+	var resObj []ProvisioningObjectSummary
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Provisioning returns request builder for ProvisioningObjectSummary collection
@@ -317,6 +350,22 @@ func (r *AuditLogRootProvisioningCollectionRequest) Add(ctx context.Context, req
 	return
 }
 
+// BatchGet adds Get operation to Batch for ProvisioningObjectSummary collection
+func (r *AuditLogRootProvisioningCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ProvisioningObjectSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ProvisioningObjectSummary collection
+func (r *AuditLogRootProvisioningCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ProvisioningObjectSummary) error {
+	var resObj []ProvisioningObjectSummary
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // RestrictedSignIns returns request builder for RestrictedSignIn collection
 func (b *AuditLogRootRequestBuilder) RestrictedSignIns() *AuditLogRootRestrictedSignInsCollectionRequestBuilder {
 	bb := &AuditLogRootRestrictedSignInsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -419,6 +468,22 @@ func (r *AuditLogRootRestrictedSignInsCollectionRequest) Add(ctx context.Context
 	return
 }
 
+// BatchGet adds Get operation to Batch for RestrictedSignIn collection
+func (r *AuditLogRootRestrictedSignInsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []RestrictedSignIn
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for RestrictedSignIn collection
+func (r *AuditLogRootRestrictedSignInsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *RestrictedSignIn) error {
+	var resObj []RestrictedSignIn
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SignIns returns request builder for SignIn collection
 func (b *AuditLogRootRequestBuilder) SignIns() *AuditLogRootSignInsCollectionRequestBuilder {
 	bb := &AuditLogRootSignInsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -519,4 +584,20 @@ func (r *AuditLogRootSignInsCollectionRequest) Get(ctx context.Context) ([]SignI
 func (r *AuditLogRootSignInsCollectionRequest) Add(ctx context.Context, reqObj *SignIn) (resObj *SignIn, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SignIn collection
+func (r *AuditLogRootSignInsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SignIn
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SignIn collection
+func (r *AuditLogRootSignInsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SignIn) error {
+	var resObj []SignIn
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -295,6 +296,22 @@ func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Add(ctx context
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedAppPolicy collection
+func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedAppPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedAppPolicy collection
+func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedAppPolicy) error {
+	var resObj []ManagedAppPolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // IntendedPolicies returns request builder for ManagedAppPolicy collection
 func (b *ManagedAppRegistrationRequestBuilder) IntendedPolicies() *ManagedAppRegistrationIntendedPoliciesCollectionRequestBuilder {
 	bb := &ManagedAppRegistrationIntendedPoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -395,6 +412,22 @@ func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Get(ctx contex
 func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Add(ctx context.Context, reqObj *ManagedAppPolicy) (resObj *ManagedAppPolicy, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedAppPolicy collection
+func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedAppPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedAppPolicy collection
+func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedAppPolicy) error {
+	var resObj []ManagedAppPolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Operations returns request builder for ManagedAppOperation collection
@@ -499,6 +532,22 @@ func (r *ManagedAppRegistrationOperationsCollectionRequest) Add(ctx context.Cont
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedAppOperation collection
+func (r *ManagedAppRegistrationOperationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedAppOperation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedAppOperation collection
+func (r *ManagedAppRegistrationOperationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedAppOperation) error {
+	var resObj []ManagedAppOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DetectedApps returns request builder for DetectedApp collection
 func (b *ManagedDeviceRequestBuilder) DetectedApps() *ManagedDeviceDetectedAppsCollectionRequestBuilder {
 	bb := &ManagedDeviceDetectedAppsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -599,6 +648,22 @@ func (r *ManagedDeviceDetectedAppsCollectionRequest) Get(ctx context.Context) ([
 func (r *ManagedDeviceDetectedAppsCollectionRequest) Add(ctx context.Context, reqObj *DetectedApp) (resObj *DetectedApp, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DetectedApp collection
+func (r *ManagedDeviceDetectedAppsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DetectedApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DetectedApp collection
+func (r *ManagedDeviceDetectedAppsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DetectedApp) error {
+	var resObj []DetectedApp
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeviceCategory is navigation property
@@ -710,6 +775,22 @@ func (r *ManagedDeviceDeviceCompliancePolicyStatesCollectionRequest) Add(ctx con
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceCompliancePolicyState collection
+func (r *ManagedDeviceDeviceCompliancePolicyStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceCompliancePolicyState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceCompliancePolicyState collection
+func (r *ManagedDeviceDeviceCompliancePolicyStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceCompliancePolicyState) error {
+	var resObj []DeviceCompliancePolicyState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceConfigurationStates returns request builder for DeviceConfigurationState collection
 func (b *ManagedDeviceRequestBuilder) DeviceConfigurationStates() *ManagedDeviceDeviceConfigurationStatesCollectionRequestBuilder {
 	bb := &ManagedDeviceDeviceConfigurationStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -810,6 +891,22 @@ func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) Get(ctx contex
 func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceConfigurationState) (resObj *DeviceConfigurationState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceConfigurationState collection
+func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceConfigurationState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceConfigurationState collection
+func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceConfigurationState) error {
+	var resObj []DeviceConfigurationState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ManagedDeviceMobileAppConfigurationStates returns request builder for ManagedDeviceMobileAppConfigurationState collection
@@ -914,6 +1011,22 @@ func (r *ManagedDeviceManagedDeviceMobileAppConfigurationStatesCollectionRequest
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceMobileAppConfigurationState collection
+func (r *ManagedDeviceManagedDeviceMobileAppConfigurationStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceMobileAppConfigurationState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceMobileAppConfigurationState collection
+func (r *ManagedDeviceManagedDeviceMobileAppConfigurationStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceMobileAppConfigurationState) error {
+	var resObj []ManagedDeviceMobileAppConfigurationState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SecurityBaselineStates returns request builder for SecurityBaselineState collection
 func (b *ManagedDeviceRequestBuilder) SecurityBaselineStates() *ManagedDeviceSecurityBaselineStatesCollectionRequestBuilder {
 	bb := &ManagedDeviceSecurityBaselineStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1016,6 +1129,22 @@ func (r *ManagedDeviceSecurityBaselineStatesCollectionRequest) Add(ctx context.C
 	return
 }
 
+// BatchGet adds Get operation to Batch for SecurityBaselineState collection
+func (r *ManagedDeviceSecurityBaselineStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SecurityBaselineState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SecurityBaselineState collection
+func (r *ManagedDeviceSecurityBaselineStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SecurityBaselineState) error {
+	var resObj []SecurityBaselineState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Users returns request builder for User collection
 func (b *ManagedDeviceRequestBuilder) Users() *ManagedDeviceUsersCollectionRequestBuilder {
 	bb := &ManagedDeviceUsersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1116,6 +1245,22 @@ func (r *ManagedDeviceUsersCollectionRequest) Get(ctx context.Context) ([]User, 
 func (r *ManagedDeviceUsersCollectionRequest) Add(ctx context.Context, reqObj *User) (resObj *User, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for User collection
+func (r *ManagedDeviceUsersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []User
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for User collection
+func (r *ManagedDeviceUsersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *User) error {
+	var resObj []User
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // WindowsProtectionState is navigation property
@@ -1227,6 +1372,22 @@ func (r *ManagedDeviceMobileAppConfigurationAssignmentsCollectionRequest) Add(ct
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceMobileAppConfigurationAssignment collection
+func (r *ManagedDeviceMobileAppConfigurationAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceMobileAppConfigurationAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceMobileAppConfigurationAssignment collection
+func (r *ManagedDeviceMobileAppConfigurationAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceMobileAppConfigurationAssignment) error {
+	var resObj []ManagedDeviceMobileAppConfigurationAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceStatusSummary is navigation property
 func (b *ManagedDeviceMobileAppConfigurationRequestBuilder) DeviceStatusSummary() *ManagedDeviceMobileAppConfigurationDeviceSummaryRequestBuilder {
 	bb := &ManagedDeviceMobileAppConfigurationDeviceSummaryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1334,6 +1495,22 @@ func (r *ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequest) Get
 func (r *ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) (resObj *ManagedDeviceMobileAppConfigurationDeviceStatus, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceMobileAppConfigurationDeviceStatus collection
+func (r *ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceMobileAppConfigurationDeviceStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceMobileAppConfigurationDeviceStatus collection
+func (r *ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) error {
+	var resObj []ManagedDeviceMobileAppConfigurationDeviceStatus
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // UserStatusSummary is navigation property
@@ -1445,6 +1622,22 @@ func (r *ManagedDeviceMobileAppConfigurationUserStatusesCollectionRequest) Add(c
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceMobileAppConfigurationUserStatus collection
+func (r *ManagedDeviceMobileAppConfigurationUserStatusesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceMobileAppConfigurationUserStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceMobileAppConfigurationUserStatus collection
+func (r *ManagedDeviceMobileAppConfigurationUserStatusesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceMobileAppConfigurationUserStatus) error {
+	var resObj []ManagedDeviceMobileAppConfigurationUserStatus
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Assignments returns request builder for ManagedEBookAssignment collection
 func (b *ManagedEBookRequestBuilder) Assignments() *ManagedEBookAssignmentsCollectionRequestBuilder {
 	bb := &ManagedEBookAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1545,6 +1738,22 @@ func (r *ManagedEBookAssignmentsCollectionRequest) Get(ctx context.Context) ([]M
 func (r *ManagedEBookAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *ManagedEBookAssignment) (resObj *ManagedEBookAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedEBookAssignment collection
+func (r *ManagedEBookAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedEBookAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedEBookAssignment collection
+func (r *ManagedEBookAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedEBookAssignment) error {
+	var resObj []ManagedEBookAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Categories returns request builder for ManagedEBookCategory collection
@@ -1649,6 +1858,22 @@ func (r *ManagedEBookCategoriesCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedEBookCategory collection
+func (r *ManagedEBookCategoriesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedEBookCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedEBookCategory collection
+func (r *ManagedEBookCategoriesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedEBookCategory) error {
+	var resObj []ManagedEBookCategory
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceStates returns request builder for DeviceInstallState collection
 func (b *ManagedEBookRequestBuilder) DeviceStates() *ManagedEBookDeviceStatesCollectionRequestBuilder {
 	bb := &ManagedEBookDeviceStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1749,6 +1974,22 @@ func (r *ManagedEBookDeviceStatesCollectionRequest) Get(ctx context.Context) ([]
 func (r *ManagedEBookDeviceStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceInstallState) (resObj *DeviceInstallState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for DeviceInstallState collection
+func (r *ManagedEBookDeviceStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceInstallState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceInstallState collection
+func (r *ManagedEBookDeviceStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceInstallState) error {
+	var resObj []DeviceInstallState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // InstallSummary is navigation property
@@ -1860,6 +2101,22 @@ func (r *ManagedEBookUserStateSummaryCollectionRequest) Add(ctx context.Context,
 	return
 }
 
+// BatchGet adds Get operation to Batch for UserInstallStateSummary collection
+func (r *ManagedEBookUserStateSummaryCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []UserInstallStateSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for UserInstallStateSummary collection
+func (r *ManagedEBookUserStateSummaryCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *UserInstallStateSummary) error {
+	var resObj []UserInstallStateSummary
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ContentVersions returns request builder for MobileAppContent collection
 func (b *ManagedMobileLobAppRequestBuilder) ContentVersions() *ManagedMobileLobAppContentVersionsCollectionRequestBuilder {
 	bb := &ManagedMobileLobAppContentVersionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1960,4 +2217,20 @@ func (r *ManagedMobileLobAppContentVersionsCollectionRequest) Get(ctx context.Co
 func (r *ManagedMobileLobAppContentVersionsCollectionRequest) Add(ctx context.Context, reqObj *MobileAppContent) (resObj *MobileAppContent, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for MobileAppContent collection
+func (r *ManagedMobileLobAppContentVersionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MobileAppContent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MobileAppContent collection
+func (r *ManagedMobileLobAppContentVersionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MobileAppContent) error {
+	var resObj []MobileAppContent
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

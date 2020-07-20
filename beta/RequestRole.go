@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *RoleAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for RoleAssignment
+func (r *RoleAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj RoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for RoleAssignment
+func (r *RoleAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *RoleAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for RoleAssignment
+func (r *RoleAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // RoleDefinitionRequestBuilder is request builder for RoleDefinition
 type RoleDefinitionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *RoleDefinitionRequest) Update(ctx context.Context, reqObj *RoleDefiniti
 // Delete performs DELETE request for RoleDefinition
 func (r *RoleDefinitionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for RoleDefinition
+func (r *RoleDefinitionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj RoleDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for RoleDefinition
+func (r *RoleDefinitionRequest) BatchUpdate(batch *BatchRequest, reqObj *RoleDefinition) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for RoleDefinition
+func (r *RoleDefinitionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // RoleManagementRequestBuilder is request builder for RoleManagement
@@ -110,6 +151,26 @@ func (r *RoleManagementRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for RoleManagement
+func (r *RoleManagementRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj RoleManagement
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for RoleManagement
+func (r *RoleManagementRequest) BatchUpdate(batch *BatchRequest, reqObj *RoleManagement) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for RoleManagement
+func (r *RoleManagementRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // RoleScopeTagRequestBuilder is request builder for RoleScopeTag
 type RoleScopeTagRequestBuilder struct{ BaseRequestBuilder }
 
@@ -143,6 +204,26 @@ func (r *RoleScopeTagRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for RoleScopeTag
+func (r *RoleScopeTagRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj RoleScopeTag
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for RoleScopeTag
+func (r *RoleScopeTagRequest) BatchUpdate(batch *BatchRequest, reqObj *RoleScopeTag) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for RoleScopeTag
+func (r *RoleScopeTagRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // RoleScopeTagAutoAssignmentRequestBuilder is request builder for RoleScopeTagAutoAssignment
 type RoleScopeTagAutoAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -174,6 +255,26 @@ func (r *RoleScopeTagAutoAssignmentRequest) Update(ctx context.Context, reqObj *
 // Delete performs DELETE request for RoleScopeTagAutoAssignment
 func (r *RoleScopeTagAutoAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for RoleScopeTagAutoAssignment
+func (r *RoleScopeTagAutoAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj RoleScopeTagAutoAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for RoleScopeTagAutoAssignment
+func (r *RoleScopeTagAutoAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *RoleScopeTagAutoAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for RoleScopeTagAutoAssignment
+func (r *RoleScopeTagAutoAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -271,6 +372,12 @@ func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Post(ctx context.Con
 }
 
 //
+func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []RoleScopeTag
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type RoleScopeTagAssignRequestBuilder struct{ BaseRequestBuilder }
 
 // Assign action undocumented
@@ -354,4 +461,10 @@ func (r *RoleScopeTagAssignRequest) PostN(ctx context.Context, n int) ([]RoleSco
 //
 func (r *RoleScopeTagAssignRequest) Post(ctx context.Context) ([]RoleScopeTagAutoAssignment, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+func (r *RoleScopeTagAssignRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []RoleScopeTagAutoAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

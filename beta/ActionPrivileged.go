@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -157,6 +158,22 @@ func (r *PrivilegedAccessResourcesCollectionRequest) Add(ctx context.Context, re
 	return
 }
 
+// BatchGet adds Get operation to Batch for GovernanceResource collection
+func (r *PrivilegedAccessResourcesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GovernanceResource
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GovernanceResource collection
+func (r *PrivilegedAccessResourcesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GovernanceResource) error {
+	var resObj []GovernanceResource
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // RoleAssignmentRequests returns request builder for GovernanceRoleAssignmentRequestObject collection
 func (b *PrivilegedAccessRequestBuilder) RoleAssignmentRequests() *PrivilegedAccessRoleAssignmentRequestsCollectionRequestBuilder {
 	bb := &PrivilegedAccessRoleAssignmentRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -257,6 +274,22 @@ func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Get(ctx contex
 func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Add(ctx context.Context, reqObj *GovernanceRoleAssignmentRequestObject) (resObj *GovernanceRoleAssignmentRequestObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for GovernanceRoleAssignmentRequestObject collection
+func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GovernanceRoleAssignmentRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GovernanceRoleAssignmentRequestObject collection
+func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GovernanceRoleAssignmentRequestObject) error {
+	var resObj []GovernanceRoleAssignmentRequestObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // RoleAssignments returns request builder for GovernanceRoleAssignment collection
@@ -361,6 +394,22 @@ func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) Add(ctx context.Conte
 	return
 }
 
+// BatchGet adds Get operation to Batch for GovernanceRoleAssignment collection
+func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GovernanceRoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GovernanceRoleAssignment collection
+func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GovernanceRoleAssignment) error {
+	var resObj []GovernanceRoleAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // RoleDefinitions returns request builder for GovernanceRoleDefinition collection
 func (b *PrivilegedAccessRequestBuilder) RoleDefinitions() *PrivilegedAccessRoleDefinitionsCollectionRequestBuilder {
 	bb := &PrivilegedAccessRoleDefinitionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -463,6 +512,22 @@ func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) Add(ctx context.Conte
 	return
 }
 
+// BatchGet adds Get operation to Batch for GovernanceRoleDefinition collection
+func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GovernanceRoleDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GovernanceRoleDefinition collection
+func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GovernanceRoleDefinition) error {
+	var resObj []GovernanceRoleDefinition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // RoleSettings returns request builder for GovernanceRoleSetting collection
 func (b *PrivilegedAccessRequestBuilder) RoleSettings() *PrivilegedAccessRoleSettingsCollectionRequestBuilder {
 	bb := &PrivilegedAccessRoleSettingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -563,6 +628,22 @@ func (r *PrivilegedAccessRoleSettingsCollectionRequest) Get(ctx context.Context)
 func (r *PrivilegedAccessRoleSettingsCollectionRequest) Add(ctx context.Context, reqObj *GovernanceRoleSetting) (resObj *GovernanceRoleSetting, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for GovernanceRoleSetting collection
+func (r *PrivilegedAccessRoleSettingsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []GovernanceRoleSetting
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for GovernanceRoleSetting collection
+func (r *PrivilegedAccessRoleSettingsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *GovernanceRoleSetting) error {
+	var resObj []GovernanceRoleSetting
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // RequestNavigation is navigation property
@@ -679,6 +760,22 @@ func (r *PrivilegedRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([
 func (r *PrivilegedRoleAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *PrivilegedRoleAssignment) (resObj *PrivilegedRoleAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for PrivilegedRoleAssignment collection
+func (r *PrivilegedRoleAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PrivilegedRoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PrivilegedRoleAssignment collection
+func (r *PrivilegedRoleAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PrivilegedRoleAssignment) error {
+	var resObj []PrivilegedRoleAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Settings is navigation property

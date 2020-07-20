@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *GroupRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Group
+func (r *GroupRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Group
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Group
+func (r *GroupRequest) BatchUpdate(batch *BatchRequest, reqObj *Group) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Group
+func (r *GroupRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // GroupLifecyclePolicyRequestBuilder is request builder for GroupLifecyclePolicy
 type GroupLifecyclePolicyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *GroupLifecyclePolicyRequest) Update(ctx context.Context, reqObj *GroupL
 // Delete performs DELETE request for GroupLifecyclePolicy
 func (r *GroupLifecyclePolicyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for GroupLifecyclePolicy
+func (r *GroupLifecyclePolicyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GroupLifecyclePolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GroupLifecyclePolicy
+func (r *GroupLifecyclePolicyRequest) BatchUpdate(batch *BatchRequest, reqObj *GroupLifecyclePolicy) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GroupLifecyclePolicy
+func (r *GroupLifecyclePolicyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // GroupPolicyConfigurationRequestBuilder is request builder for GroupPolicyConfiguration
@@ -110,6 +151,26 @@ func (r *GroupPolicyConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for GroupPolicyConfiguration
+func (r *GroupPolicyConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GroupPolicyConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GroupPolicyConfiguration
+func (r *GroupPolicyConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *GroupPolicyConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GroupPolicyConfiguration
+func (r *GroupPolicyConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // GroupPolicyConfigurationAssignmentRequestBuilder is request builder for GroupPolicyConfigurationAssignment
 type GroupPolicyConfigurationAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -141,6 +202,26 @@ func (r *GroupPolicyConfigurationAssignmentRequest) Update(ctx context.Context, 
 // Delete performs DELETE request for GroupPolicyConfigurationAssignment
 func (r *GroupPolicyConfigurationAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for GroupPolicyConfigurationAssignment
+func (r *GroupPolicyConfigurationAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GroupPolicyConfigurationAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GroupPolicyConfigurationAssignment
+func (r *GroupPolicyConfigurationAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *GroupPolicyConfigurationAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GroupPolicyConfigurationAssignment
+func (r *GroupPolicyConfigurationAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // GroupPolicyDefinitionRequestBuilder is request builder for GroupPolicyDefinition
@@ -176,6 +257,26 @@ func (r *GroupPolicyDefinitionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for GroupPolicyDefinition
+func (r *GroupPolicyDefinitionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GroupPolicyDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GroupPolicyDefinition
+func (r *GroupPolicyDefinitionRequest) BatchUpdate(batch *BatchRequest, reqObj *GroupPolicyDefinition) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GroupPolicyDefinition
+func (r *GroupPolicyDefinitionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // GroupPolicyDefinitionFileRequestBuilder is request builder for GroupPolicyDefinitionFile
 type GroupPolicyDefinitionFileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -207,6 +308,26 @@ func (r *GroupPolicyDefinitionFileRequest) Update(ctx context.Context, reqObj *G
 // Delete performs DELETE request for GroupPolicyDefinitionFile
 func (r *GroupPolicyDefinitionFileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for GroupPolicyDefinitionFile
+func (r *GroupPolicyDefinitionFileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GroupPolicyDefinitionFile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GroupPolicyDefinitionFile
+func (r *GroupPolicyDefinitionFileRequest) BatchUpdate(batch *BatchRequest, reqObj *GroupPolicyDefinitionFile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GroupPolicyDefinitionFile
+func (r *GroupPolicyDefinitionFileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // GroupPolicyDefinitionValueRequestBuilder is request builder for GroupPolicyDefinitionValue
@@ -242,6 +363,26 @@ func (r *GroupPolicyDefinitionValueRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for GroupPolicyDefinitionValue
+func (r *GroupPolicyDefinitionValueRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GroupPolicyDefinitionValue
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GroupPolicyDefinitionValue
+func (r *GroupPolicyDefinitionValueRequest) BatchUpdate(batch *BatchRequest, reqObj *GroupPolicyDefinitionValue) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GroupPolicyDefinitionValue
+func (r *GroupPolicyDefinitionValueRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // GroupPolicyMigrationReportRequestBuilder is request builder for GroupPolicyMigrationReport
 type GroupPolicyMigrationReportRequestBuilder struct{ BaseRequestBuilder }
 
@@ -273,6 +414,26 @@ func (r *GroupPolicyMigrationReportRequest) Update(ctx context.Context, reqObj *
 // Delete performs DELETE request for GroupPolicyMigrationReport
 func (r *GroupPolicyMigrationReportRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for GroupPolicyMigrationReport
+func (r *GroupPolicyMigrationReportRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GroupPolicyMigrationReport
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GroupPolicyMigrationReport
+func (r *GroupPolicyMigrationReportRequest) BatchUpdate(batch *BatchRequest, reqObj *GroupPolicyMigrationReport) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GroupPolicyMigrationReport
+func (r *GroupPolicyMigrationReportRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // GroupPolicyPresentationRequestBuilder is request builder for GroupPolicyPresentation
@@ -308,6 +469,26 @@ func (r *GroupPolicyPresentationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for GroupPolicyPresentation
+func (r *GroupPolicyPresentationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GroupPolicyPresentation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GroupPolicyPresentation
+func (r *GroupPolicyPresentationRequest) BatchUpdate(batch *BatchRequest, reqObj *GroupPolicyPresentation) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GroupPolicyPresentation
+func (r *GroupPolicyPresentationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // GroupPolicyPresentationValueRequestBuilder is request builder for GroupPolicyPresentationValue
 type GroupPolicyPresentationValueRequestBuilder struct{ BaseRequestBuilder }
 
@@ -339,6 +520,26 @@ func (r *GroupPolicyPresentationValueRequest) Update(ctx context.Context, reqObj
 // Delete performs DELETE request for GroupPolicyPresentationValue
 func (r *GroupPolicyPresentationValueRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for GroupPolicyPresentationValue
+func (r *GroupPolicyPresentationValueRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GroupPolicyPresentationValue
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GroupPolicyPresentationValue
+func (r *GroupPolicyPresentationValueRequest) BatchUpdate(batch *BatchRequest, reqObj *GroupPolicyPresentationValue) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GroupPolicyPresentationValue
+func (r *GroupPolicyPresentationValueRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // GroupPolicySettingMappingRequestBuilder is request builder for GroupPolicySettingMapping
@@ -374,6 +575,26 @@ func (r *GroupPolicySettingMappingRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for GroupPolicySettingMapping
+func (r *GroupPolicySettingMappingRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj GroupPolicySettingMapping
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for GroupPolicySettingMapping
+func (r *GroupPolicySettingMappingRequest) BatchUpdate(batch *BatchRequest, reqObj *GroupPolicySettingMapping) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for GroupPolicySettingMapping
+func (r *GroupPolicySettingMappingRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type GroupCollectionEvaluateDynamicMembershipRequestBuilder struct{ BaseRequestBuilder }
 
@@ -399,6 +620,12 @@ func (b *GroupCollectionEvaluateDynamicMembershipRequestBuilder) Request() *Grou
 func (r *GroupCollectionEvaluateDynamicMembershipRequest) Post(ctx context.Context) (resObj *EvaluateDynamicMembershipResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *GroupCollectionEvaluateDynamicMembershipRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *EvaluateDynamicMembershipResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -429,6 +656,12 @@ func (r *GroupLifecyclePolicyCollectionRenewGroupRequest) Post(ctx context.Conte
 }
 
 //
+func (r *GroupLifecyclePolicyCollectionRenewGroupRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *bool
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type GroupPolicyMigrationReportCollectionCreateMigrationReportRequestBuilder struct{ BaseRequestBuilder }
 
 // CreateMigrationReport action undocumented
@@ -456,6 +689,12 @@ func (r *GroupPolicyMigrationReportCollectionCreateMigrationReportRequest) Post(
 }
 
 //
+func (r *GroupPolicyMigrationReportCollectionCreateMigrationReportRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *string
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type GroupValidatePropertiesRequestBuilder struct{ BaseRequestBuilder }
 
 // ValidateProperties action undocumented
@@ -479,6 +718,11 @@ func (b *GroupValidatePropertiesRequestBuilder) Request() *GroupValidateProperti
 //
 func (r *GroupValidatePropertiesRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *GroupValidatePropertiesRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -568,6 +812,12 @@ func (r *GroupCheckGrantedPermissionsForAppRequest) Post(ctx context.Context) ([
 }
 
 //
+func (r *GroupCheckGrantedPermissionsForAppRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []ResourceSpecificPermissionGrant
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type GroupAssignLicenseRequestBuilder struct{ BaseRequestBuilder }
 
 // AssignLicense action undocumented
@@ -592,6 +842,12 @@ func (b *GroupAssignLicenseRequestBuilder) Request() *GroupAssignLicenseRequest 
 func (r *GroupAssignLicenseRequest) Post(ctx context.Context) (resObj *Group, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *GroupAssignLicenseRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *Group
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -621,6 +877,11 @@ func (r *GroupSubscribeByMailRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *GroupSubscribeByMailRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type GroupUnsubscribeByMailRequestBuilder struct{ BaseRequestBuilder }
 
 // UnsubscribeByMail action undocumented
@@ -644,6 +905,11 @@ func (b *GroupUnsubscribeByMailRequestBuilder) Request() *GroupUnsubscribeByMail
 //
 func (r *GroupUnsubscribeByMailRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *GroupUnsubscribeByMailRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -673,6 +939,11 @@ func (r *GroupAddFavoriteRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *GroupAddFavoriteRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type GroupRemoveFavoriteRequestBuilder struct{ BaseRequestBuilder }
 
 // RemoveFavorite action undocumented
@@ -696,6 +967,11 @@ func (b *GroupRemoveFavoriteRequestBuilder) Request() *GroupRemoveFavoriteReques
 //
 func (r *GroupRemoveFavoriteRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *GroupRemoveFavoriteRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -725,6 +1001,11 @@ func (r *GroupResetUnseenCountRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *GroupResetUnseenCountRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type GroupRenewRequestBuilder struct{ BaseRequestBuilder }
 
 // Renew action undocumented
@@ -748,6 +1029,11 @@ func (b *GroupRenewRequestBuilder) Request() *GroupRenewRequest {
 //
 func (r *GroupRenewRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *GroupRenewRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -778,6 +1064,12 @@ func (r *GroupEvaluateDynamicMembershipRequest) Post(ctx context.Context) (resOb
 }
 
 //
+func (r *GroupEvaluateDynamicMembershipRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *EvaluateDynamicMembershipResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type GroupLifecyclePolicyAddGroupRequestBuilder struct{ BaseRequestBuilder }
 
 // AddGroup action undocumented
@@ -805,6 +1097,12 @@ func (r *GroupLifecyclePolicyAddGroupRequest) Post(ctx context.Context) (resObj 
 }
 
 //
+func (r *GroupLifecyclePolicyAddGroupRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *bool
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type GroupLifecyclePolicyRemoveGroupRequestBuilder struct{ BaseRequestBuilder }
 
 // RemoveGroup action undocumented
@@ -829,6 +1127,12 @@ func (b *GroupLifecyclePolicyRemoveGroupRequestBuilder) Request() *GroupLifecycl
 func (r *GroupLifecyclePolicyRemoveGroupRequest) Post(ctx context.Context) (resObj *bool, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *GroupLifecyclePolicyRemoveGroupRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *bool
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -918,6 +1222,12 @@ func (r *GroupPolicyConfigurationAssignRequest) Post(ctx context.Context) ([]Gro
 }
 
 //
+func (r *GroupPolicyConfigurationAssignRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []GroupPolicyConfigurationAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type GroupPolicyConfigurationUpdateDefinitionValuesRequestBuilder struct{ BaseRequestBuilder }
 
 // UpdateDefinitionValues action undocumented
@@ -941,4 +1251,9 @@ func (b *GroupPolicyConfigurationUpdateDefinitionValuesRequestBuilder) Request()
 //
 func (r *GroupPolicyConfigurationUpdateDefinitionValuesRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *GroupPolicyConfigurationUpdateDefinitionValuesRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

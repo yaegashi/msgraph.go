@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsCoupDayBsRequestBuilder struct{ BaseRequestBuilder }
@@ -29,6 +32,12 @@ func (b *WorkbookFunctionsCoupDayBsRequestBuilder) Request() *WorkbookFunctionsC
 func (r *WorkbookFunctionsCoupDayBsRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsCoupDayBsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -59,6 +68,12 @@ func (r *WorkbookFunctionsCoupDaysRequest) Post(ctx context.Context) (resObj *Wo
 }
 
 //
+func (r *WorkbookFunctionsCoupDaysRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsCoupDaysNcRequestBuilder struct{ BaseRequestBuilder }
 
 // CoupDaysNc action undocumented
@@ -83,6 +98,12 @@ func (b *WorkbookFunctionsCoupDaysNcRequestBuilder) Request() *WorkbookFunctions
 func (r *WorkbookFunctionsCoupDaysNcRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsCoupDaysNcRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -113,6 +134,12 @@ func (r *WorkbookFunctionsCoupNcdRequest) Post(ctx context.Context) (resObj *Wor
 }
 
 //
+func (r *WorkbookFunctionsCoupNcdRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsCoupNumRequestBuilder struct{ BaseRequestBuilder }
 
 // CoupNum action undocumented
@@ -140,6 +167,12 @@ func (r *WorkbookFunctionsCoupNumRequest) Post(ctx context.Context) (resObj *Wor
 }
 
 //
+func (r *WorkbookFunctionsCoupNumRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsCoupPcdRequestBuilder struct{ BaseRequestBuilder }
 
 // CoupPcd action undocumented
@@ -164,4 +197,10 @@ func (b *WorkbookFunctionsCoupPcdRequestBuilder) Request() *WorkbookFunctionsCou
 func (r *WorkbookFunctionsCoupPcdRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsCoupPcdRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // FilterOperatorSchemaRequestBuilder is request builder for FilterOperatorSchema
 type FilterOperatorSchemaRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *FilterOperatorSchemaRequest) Update(ctx context.Context, reqObj *Filter
 // Delete performs DELETE request for FilterOperatorSchema
 func (r *FilterOperatorSchemaRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for FilterOperatorSchema
+func (r *FilterOperatorSchemaRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj FilterOperatorSchema
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for FilterOperatorSchema
+func (r *FilterOperatorSchemaRequest) BatchUpdate(batch *BatchRequest, reqObj *FilterOperatorSchema) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for FilterOperatorSchema
+func (r *FilterOperatorSchemaRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

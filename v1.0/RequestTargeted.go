@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // TargetedManagedAppConfigurationRequestBuilder is request builder for TargetedManagedAppConfiguration
 type TargetedManagedAppConfigurationRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *TargetedManagedAppConfigurationRequest) Update(ctx context.Context, req
 // Delete performs DELETE request for TargetedManagedAppConfiguration
 func (r *TargetedManagedAppConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for TargetedManagedAppConfiguration
+func (r *TargetedManagedAppConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TargetedManagedAppConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TargetedManagedAppConfiguration
+func (r *TargetedManagedAppConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *TargetedManagedAppConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TargetedManagedAppConfiguration
+func (r *TargetedManagedAppConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // TargetedManagedAppPolicyAssignmentRequestBuilder is request builder for TargetedManagedAppPolicyAssignment
@@ -70,6 +93,26 @@ func (r *TargetedManagedAppPolicyAssignmentRequest) Delete(ctx context.Context) 
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for TargetedManagedAppPolicyAssignment
+func (r *TargetedManagedAppPolicyAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TargetedManagedAppPolicyAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TargetedManagedAppPolicyAssignment
+func (r *TargetedManagedAppPolicyAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *TargetedManagedAppPolicyAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TargetedManagedAppPolicyAssignment
+func (r *TargetedManagedAppPolicyAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // TargetedManagedAppProtectionRequestBuilder is request builder for TargetedManagedAppProtection
 type TargetedManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -103,6 +146,26 @@ func (r *TargetedManagedAppProtectionRequest) Delete(ctx context.Context) error 
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for TargetedManagedAppProtection
+func (r *TargetedManagedAppProtectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TargetedManagedAppProtection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TargetedManagedAppProtection
+func (r *TargetedManagedAppProtectionRequest) BatchUpdate(batch *BatchRequest, reqObj *TargetedManagedAppProtection) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TargetedManagedAppProtection
+func (r *TargetedManagedAppProtectionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type TargetedManagedAppConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
 
@@ -127,6 +190,11 @@ func (b *TargetedManagedAppConfigurationAssignRequestBuilder) Request() *Targete
 //
 func (r *TargetedManagedAppConfigurationAssignRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *TargetedManagedAppConfigurationAssignRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -156,6 +224,11 @@ func (r *TargetedManagedAppConfigurationTargetAppsRequest) Post(ctx context.Cont
 }
 
 //
+func (r *TargetedManagedAppConfigurationTargetAppsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type TargetedManagedAppProtectionAssignRequestBuilder struct{ BaseRequestBuilder }
 
 // Assign action undocumented
@@ -179,4 +252,9 @@ func (b *TargetedManagedAppProtectionAssignRequestBuilder) Request() *TargetedMa
 //
 func (r *TargetedManagedAppProtectionAssignRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *TargetedManagedAppProtectionAssignRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // TeamworkRequestBuilder is request builder for Teamwork
 type TeamworkRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *TeamworkRequest) Update(ctx context.Context, reqObj *Teamwork) error {
 // Delete performs DELETE request for Teamwork
 func (r *TeamworkRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Teamwork
+func (r *TeamworkRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Teamwork
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Teamwork
+func (r *TeamworkRequest) BatchUpdate(batch *BatchRequest, reqObj *Teamwork) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Teamwork
+func (r *TeamworkRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // SectionGroupRequestBuilder is request builder for SectionGroup
 type SectionGroupRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *SectionGroupRequest) Update(ctx context.Context, reqObj *SectionGroup) 
 // Delete performs DELETE request for SectionGroup
 func (r *SectionGroupRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SectionGroup
+func (r *SectionGroupRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SectionGroup
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SectionGroup
+func (r *SectionGroupRequest) BatchUpdate(batch *BatchRequest, reqObj *SectionGroup) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SectionGroup
+func (r *SectionGroupRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

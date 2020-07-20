@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // AnonymousIPRiskEventRequestBuilder is request builder for AnonymousIPRiskEvent
 type AnonymousIPRiskEventRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *AnonymousIPRiskEventRequest) Update(ctx context.Context, reqObj *Anonym
 // Delete performs DELETE request for AnonymousIPRiskEvent
 func (r *AnonymousIPRiskEventRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AnonymousIPRiskEvent
+func (r *AnonymousIPRiskEventRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AnonymousIPRiskEvent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AnonymousIPRiskEvent
+func (r *AnonymousIPRiskEventRequest) BatchUpdate(batch *BatchRequest, reqObj *AnonymousIPRiskEvent) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AnonymousIPRiskEvent
+func (r *AnonymousIPRiskEventRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

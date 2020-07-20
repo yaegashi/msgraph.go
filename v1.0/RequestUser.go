@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *UserRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for User
+func (r *UserRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj User
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for User
+func (r *UserRequest) BatchUpdate(batch *BatchRequest, reqObj *User) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for User
+func (r *UserRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // UserActivityRequestBuilder is request builder for UserActivity
 type UserActivityRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *UserActivityRequest) Update(ctx context.Context, reqObj *UserActivity) 
 // Delete performs DELETE request for UserActivity
 func (r *UserActivityRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for UserActivity
+func (r *UserActivityRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj UserActivity
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for UserActivity
+func (r *UserActivityRequest) BatchUpdate(batch *BatchRequest, reqObj *UserActivity) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for UserActivity
+func (r *UserActivityRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // UserInstallStateSummaryRequestBuilder is request builder for UserInstallStateSummary
@@ -110,6 +151,26 @@ func (r *UserInstallStateSummaryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for UserInstallStateSummary
+func (r *UserInstallStateSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj UserInstallStateSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for UserInstallStateSummary
+func (r *UserInstallStateSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *UserInstallStateSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for UserInstallStateSummary
+func (r *UserInstallStateSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // UserSettingsRequestBuilder is request builder for UserSettings
 type UserSettingsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -143,6 +204,26 @@ func (r *UserSettingsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for UserSettings
+func (r *UserSettingsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj UserSettings
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for UserSettings
+func (r *UserSettingsRequest) BatchUpdate(batch *BatchRequest, reqObj *UserSettings) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for UserSettings
+func (r *UserSettingsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type UserAssignLicenseRequestBuilder struct{ BaseRequestBuilder }
 
@@ -171,6 +252,12 @@ func (r *UserAssignLicenseRequest) Post(ctx context.Context) (resObj *User, err 
 }
 
 //
+func (r *UserAssignLicenseRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *User
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type UserChangePasswordRequestBuilder struct{ BaseRequestBuilder }
 
 // ChangePassword action undocumented
@@ -194,6 +281,11 @@ func (b *UserChangePasswordRequestBuilder) Request() *UserChangePasswordRequest 
 //
 func (r *UserChangePasswordRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *UserChangePasswordRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -224,6 +316,12 @@ func (r *UserRevokeSignInSessionsRequest) Post(ctx context.Context) (resObj *boo
 }
 
 //
+func (r *UserRevokeSignInSessionsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *bool
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type UserFindMeetingTimesRequestBuilder struct{ BaseRequestBuilder }
 
 // FindMeetingTimes action undocumented
@@ -251,6 +349,12 @@ func (r *UserFindMeetingTimesRequest) Post(ctx context.Context) (resObj *Meeting
 }
 
 //
+func (r *UserFindMeetingTimesRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *MeetingTimeSuggestionsResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type UserSendMailRequestBuilder struct{ BaseRequestBuilder }
 
 // SendMail action undocumented
@@ -274,6 +378,11 @@ func (b *UserSendMailRequestBuilder) Request() *UserSendMailRequest {
 //
 func (r *UserSendMailRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *UserSendMailRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -363,6 +472,12 @@ func (r *UserGetMailTipsRequest) Post(ctx context.Context) ([]MailTips, error) {
 }
 
 //
+func (r *UserGetMailTipsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []MailTips
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type UserTranslateExchangeIDsRequestBuilder struct{ BaseRequestBuilder }
 
 // TranslateExchangeIDs action undocumented
@@ -449,6 +564,12 @@ func (r *UserTranslateExchangeIDsRequest) Post(ctx context.Context) ([]ConvertID
 }
 
 //
+func (r *UserTranslateExchangeIDsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []ConvertIDResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type UserRemoveAllDevicesFromManagementRequestBuilder struct{ BaseRequestBuilder }
 
 // RemoveAllDevicesFromManagement action undocumented
@@ -472,6 +593,11 @@ func (b *UserRemoveAllDevicesFromManagementRequestBuilder) Request() *UserRemove
 //
 func (r *UserRemoveAllDevicesFromManagementRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *UserRemoveAllDevicesFromManagementRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -501,6 +627,11 @@ func (r *UserWipeManagedAppRegistrationsByDeviceTagRequest) Post(ctx context.Con
 }
 
 //
+func (r *UserWipeManagedAppRegistrationsByDeviceTagRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type UserExportPersonalDataRequestBuilder struct{ BaseRequestBuilder }
 
 // ExportPersonalData action undocumented
@@ -524,4 +655,9 @@ func (b *UserExportPersonalDataRequestBuilder) Request() *UserExportPersonalData
 //
 func (r *UserExportPersonalDataRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *UserExportPersonalDataRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

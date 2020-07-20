@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // MailFolderRequestBuilder is request builder for MailFolder
 type MailFolderRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *MailFolderRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for MailFolder
+func (r *MailFolderRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj MailFolder
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for MailFolder
+func (r *MailFolderRequest) BatchUpdate(batch *BatchRequest, reqObj *MailFolder) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for MailFolder
+func (r *MailFolderRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type MailFolderCopyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -65,6 +88,12 @@ func (r *MailFolderCopyRequest) Post(ctx context.Context) (resObj *MailFolder, e
 }
 
 //
+func (r *MailFolderCopyRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *MailFolder
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type MailFolderMoveRequestBuilder struct{ BaseRequestBuilder }
 
 // Move action undocumented
@@ -89,4 +118,10 @@ func (b *MailFolderMoveRequestBuilder) Request() *MailFolderMoveRequest {
 func (r *MailFolderMoveRequest) Post(ctx context.Context) (resObj *MailFolder, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *MailFolderMoveRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *MailFolder
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

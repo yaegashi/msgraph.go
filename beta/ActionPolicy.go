@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -131,6 +132,22 @@ func (r *PolicyAppliesToCollectionRequest) Add(ctx context.Context, reqObj *Dire
 	return
 }
 
+// BatchGet adds Get operation to Batch for DirectoryObject collection
+func (r *PolicyAppliesToCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DirectoryObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DirectoryObject collection
+func (r *PolicyAppliesToCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DirectoryObject) error {
+	var resObj []DirectoryObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Assignments returns request builder for PolicySetAssignment collection
 func (b *PolicySetRequestBuilder) Assignments() *PolicySetAssignmentsCollectionRequestBuilder {
 	bb := &PolicySetAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -233,6 +250,22 @@ func (r *PolicySetAssignmentsCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// BatchGet adds Get operation to Batch for PolicySetAssignment collection
+func (r *PolicySetAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PolicySetAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PolicySetAssignment collection
+func (r *PolicySetAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PolicySetAssignment) error {
+	var resObj []PolicySetAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Items returns request builder for PolicySetItem collection
 func (b *PolicySetRequestBuilder) Items() *PolicySetItemsCollectionRequestBuilder {
 	bb := &PolicySetItemsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -333,4 +366,20 @@ func (r *PolicySetItemsCollectionRequest) Get(ctx context.Context) ([]PolicySetI
 func (r *PolicySetItemsCollectionRequest) Add(ctx context.Context, reqObj *PolicySetItem) (resObj *PolicySetItem, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for PolicySetItem collection
+func (r *PolicySetItemsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PolicySetItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PolicySetItem collection
+func (r *PolicySetItemsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PolicySetItem) error {
+	var resObj []PolicySetItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

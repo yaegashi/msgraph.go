@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -249,6 +250,22 @@ func (r *CallAudioRoutingGroupsCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for AudioRoutingGroup collection
+func (r *CallAudioRoutingGroupsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []AudioRoutingGroup
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for AudioRoutingGroup collection
+func (r *CallAudioRoutingGroupsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *AudioRoutingGroup) error {
+	var resObj []AudioRoutingGroup
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Operations returns request builder for CommsOperation collection
 func (b *CallRequestBuilder) Operations() *CallOperationsCollectionRequestBuilder {
 	bb := &CallOperationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -351,6 +368,22 @@ func (r *CallOperationsCollectionRequest) Add(ctx context.Context, reqObj *Comms
 	return
 }
 
+// BatchGet adds Get operation to Batch for CommsOperation collection
+func (r *CallOperationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []CommsOperation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for CommsOperation collection
+func (r *CallOperationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *CommsOperation) error {
+	var resObj []CommsOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Participants returns request builder for Participant collection
 func (b *CallRequestBuilder) Participants() *CallParticipantsCollectionRequestBuilder {
 	bb := &CallParticipantsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -451,4 +484,20 @@ func (r *CallParticipantsCollectionRequest) Get(ctx context.Context) ([]Particip
 func (r *CallParticipantsCollectionRequest) Add(ctx context.Context, reqObj *Participant) (resObj *Participant, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Participant collection
+func (r *CallParticipantsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Participant
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Participant collection
+func (r *CallParticipantsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Participant) error {
+	var resObj []Participant
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // AttributeMappingFunctionSchemaRequestBuilder is request builder for AttributeMappingFunctionSchema
 type AttributeMappingFunctionSchemaRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *AttributeMappingFunctionSchemaRequest) Update(ctx context.Context, reqO
 // Delete performs DELETE request for AttributeMappingFunctionSchema
 func (r *AttributeMappingFunctionSchemaRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AttributeMappingFunctionSchema
+func (r *AttributeMappingFunctionSchemaRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AttributeMappingFunctionSchema
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AttributeMappingFunctionSchema
+func (r *AttributeMappingFunctionSchemaRequest) BatchUpdate(batch *BatchRequest, reqObj *AttributeMappingFunctionSchema) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AttributeMappingFunctionSchema
+func (r *AttributeMappingFunctionSchemaRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

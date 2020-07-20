@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -123,4 +124,20 @@ func (r *RiskyUserHistoryCollectionRequest) Get(ctx context.Context) ([]RiskyUse
 func (r *RiskyUserHistoryCollectionRequest) Add(ctx context.Context, reqObj *RiskyUserHistoryItem) (resObj *RiskyUserHistoryItem, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for RiskyUserHistoryItem collection
+func (r *RiskyUserHistoryCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []RiskyUserHistoryItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for RiskyUserHistoryItem collection
+func (r *RiskyUserHistoryCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *RiskyUserHistoryItem) error {
+	var resObj []RiskyUserHistoryItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

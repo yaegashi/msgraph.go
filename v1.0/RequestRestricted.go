@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // RestrictedSignInRequestBuilder is request builder for RestrictedSignIn
 type RestrictedSignInRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *RestrictedSignInRequest) Update(ctx context.Context, reqObj *Restricted
 // Delete performs DELETE request for RestrictedSignIn
 func (r *RestrictedSignInRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for RestrictedSignIn
+func (r *RestrictedSignInRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj RestrictedSignIn
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for RestrictedSignIn
+func (r *RestrictedSignInRequest) BatchUpdate(batch *BatchRequest, reqObj *RestrictedSignIn) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for RestrictedSignIn
+func (r *RestrictedSignInRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

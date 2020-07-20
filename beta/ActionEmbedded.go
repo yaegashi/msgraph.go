@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -119,6 +120,22 @@ func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Add(ctx cont
 	return
 }
 
+// BatchGet adds Get operation to Batch for EmbeddedSIMActivationCodePoolAssignment collection
+func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EmbeddedSIMActivationCodePoolAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EmbeddedSIMActivationCodePoolAssignment collection
+func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EmbeddedSIMActivationCodePoolAssignment) error {
+	var resObj []EmbeddedSIMActivationCodePoolAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceStates returns request builder for EmbeddedSIMDeviceState collection
 func (b *EmbeddedSIMActivationCodePoolRequestBuilder) DeviceStates() *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequestBuilder {
 	bb := &EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -219,4 +236,20 @@ func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Get(ctx con
 func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Add(ctx context.Context, reqObj *EmbeddedSIMDeviceState) (resObj *EmbeddedSIMDeviceState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for EmbeddedSIMDeviceState collection
+func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EmbeddedSIMDeviceState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EmbeddedSIMDeviceState collection
+func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EmbeddedSIMDeviceState) error {
+	var resObj []EmbeddedSIMDeviceState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

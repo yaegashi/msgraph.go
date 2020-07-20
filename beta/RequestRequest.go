@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // RequestObjectRequestBuilder is request builder for RequestObject
 type RequestObjectRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *RequestObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for RequestObject
+func (r *RequestObjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj RequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for RequestObject
+func (r *RequestObjectRequest) BatchUpdate(batch *BatchRequest, reqObj *RequestObject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for RequestObject
+func (r *RequestObjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type RequestObjectStopRequestBuilder struct{ BaseRequestBuilder }
 
@@ -64,6 +87,11 @@ func (r *RequestObjectStopRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *RequestObjectStopRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type RequestObjectRecordDecisionsRequestBuilder struct{ BaseRequestBuilder }
 
 // RecordDecisions action undocumented
@@ -87,4 +115,9 @@ func (b *RequestObjectRecordDecisionsRequestBuilder) Request() *RequestObjectRec
 //
 func (r *RequestObjectRecordDecisionsRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *RequestObjectRecordDecisionsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

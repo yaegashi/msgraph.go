@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // AppCatalogsRequestBuilder is request builder for AppCatalogs
 type AppCatalogsRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *AppCatalogsRequest) Update(ctx context.Context, reqObj *AppCatalogs) er
 // Delete performs DELETE request for AppCatalogs
 func (r *AppCatalogsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AppCatalogs
+func (r *AppCatalogsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AppCatalogs
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AppCatalogs
+func (r *AppCatalogsRequest) BatchUpdate(batch *BatchRequest, reqObj *AppCatalogs) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AppCatalogs
+func (r *AppCatalogsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AppLogCollectionRequestObjectRequestBuilder is request builder for AppLogCollectionRequestObject
@@ -70,6 +93,26 @@ func (r *AppLogCollectionRequestObjectRequest) Delete(ctx context.Context) error
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AppLogCollectionRequestObject
+func (r *AppLogCollectionRequestObjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AppLogCollectionRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AppLogCollectionRequestObject
+func (r *AppLogCollectionRequestObjectRequest) BatchUpdate(batch *BatchRequest, reqObj *AppLogCollectionRequestObject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AppLogCollectionRequestObject
+func (r *AppLogCollectionRequestObjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AppRoleAssignmentRequestBuilder is request builder for AppRoleAssignment
 type AppRoleAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *AppRoleAssignmentRequest) Update(ctx context.Context, reqObj *AppRoleAs
 // Delete performs DELETE request for AppRoleAssignment
 func (r *AppRoleAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AppRoleAssignment
+func (r *AppRoleAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AppRoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AppRoleAssignment
+func (r *AppRoleAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *AppRoleAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AppRoleAssignment
+func (r *AppRoleAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AppVulnerabilityManagedDeviceRequestBuilder is request builder for AppVulnerabilityManagedDevice
@@ -136,6 +199,26 @@ func (r *AppVulnerabilityManagedDeviceRequest) Delete(ctx context.Context) error
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AppVulnerabilityManagedDevice
+func (r *AppVulnerabilityManagedDeviceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AppVulnerabilityManagedDevice
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AppVulnerabilityManagedDevice
+func (r *AppVulnerabilityManagedDeviceRequest) BatchUpdate(batch *BatchRequest, reqObj *AppVulnerabilityManagedDevice) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AppVulnerabilityManagedDevice
+func (r *AppVulnerabilityManagedDeviceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // AppVulnerabilityMobileAppRequestBuilder is request builder for AppVulnerabilityMobileApp
 type AppVulnerabilityMobileAppRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,6 +250,26 @@ func (r *AppVulnerabilityMobileAppRequest) Update(ctx context.Context, reqObj *A
 // Delete performs DELETE request for AppVulnerabilityMobileApp
 func (r *AppVulnerabilityMobileAppRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for AppVulnerabilityMobileApp
+func (r *AppVulnerabilityMobileAppRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AppVulnerabilityMobileApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AppVulnerabilityMobileApp
+func (r *AppVulnerabilityMobileAppRequest) BatchUpdate(batch *BatchRequest, reqObj *AppVulnerabilityMobileApp) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AppVulnerabilityMobileApp
+func (r *AppVulnerabilityMobileAppRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // AppVulnerabilityTaskRequestBuilder is request builder for AppVulnerabilityTask
@@ -202,6 +305,26 @@ func (r *AppVulnerabilityTaskRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for AppVulnerabilityTask
+func (r *AppVulnerabilityTaskRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj AppVulnerabilityTask
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for AppVulnerabilityTask
+func (r *AppVulnerabilityTaskRequest) BatchUpdate(batch *BatchRequest, reqObj *AppVulnerabilityTask) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for AppVulnerabilityTask
+func (r *AppVulnerabilityTaskRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type AppLogCollectionRequestObjectCreateDownloadURLRequestBuilder struct{ BaseRequestBuilder }
 
@@ -227,4 +350,10 @@ func (b *AppLogCollectionRequestObjectCreateDownloadURLRequestBuilder) Request()
 func (r *AppLogCollectionRequestObjectCreateDownloadURLRequest) Post(ctx context.Context) (resObj *AppLogCollectionDownloadDetails, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *AppLogCollectionRequestObjectCreateDownloadURLRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *AppLogCollectionDownloadDetails
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

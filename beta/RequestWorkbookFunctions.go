@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // WorkbookFunctionsRequestBuilder is request builder for WorkbookFunctions
 type WorkbookFunctionsRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *WorkbookFunctionsRequest) Update(ctx context.Context, reqObj *WorkbookF
 // Delete performs DELETE request for WorkbookFunctions
 func (r *WorkbookFunctionsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookFunctions
+func (r *WorkbookFunctionsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookFunctions
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookFunctions
+func (r *WorkbookFunctionsRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookFunctions) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookFunctions
+func (r *WorkbookFunctionsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

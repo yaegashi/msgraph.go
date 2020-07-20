@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // WindowsInformationProtectionRequestBuilder is request builder for WindowsInformationProtection
 type WindowsInformationProtectionRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *WindowsInformationProtectionRequest) Update(ctx context.Context, reqObj
 // Delete performs DELETE request for WindowsInformationProtection
 func (r *WindowsInformationProtectionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WindowsInformationProtection
+func (r *WindowsInformationProtectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WindowsInformationProtection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WindowsInformationProtection
+func (r *WindowsInformationProtectionRequest) BatchUpdate(batch *BatchRequest, reqObj *WindowsInformationProtection) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WindowsInformationProtection
+func (r *WindowsInformationProtectionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WindowsInformationProtectionAppLearningSummaryRequestBuilder is request builder for WindowsInformationProtectionAppLearningSummary
@@ -70,6 +93,26 @@ func (r *WindowsInformationProtectionAppLearningSummaryRequest) Delete(ctx conte
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WindowsInformationProtectionAppLearningSummary
+func (r *WindowsInformationProtectionAppLearningSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WindowsInformationProtectionAppLearningSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WindowsInformationProtectionAppLearningSummary
+func (r *WindowsInformationProtectionAppLearningSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *WindowsInformationProtectionAppLearningSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WindowsInformationProtectionAppLearningSummary
+func (r *WindowsInformationProtectionAppLearningSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WindowsInformationProtectionAppLockerFileRequestBuilder is request builder for WindowsInformationProtectionAppLockerFile
 type WindowsInformationProtectionAppLockerFileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *WindowsInformationProtectionAppLockerFileRequest) Update(ctx context.Co
 // Delete performs DELETE request for WindowsInformationProtectionAppLockerFile
 func (r *WindowsInformationProtectionAppLockerFileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WindowsInformationProtectionAppLockerFile
+func (r *WindowsInformationProtectionAppLockerFileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WindowsInformationProtectionAppLockerFile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WindowsInformationProtectionAppLockerFile
+func (r *WindowsInformationProtectionAppLockerFileRequest) BatchUpdate(batch *BatchRequest, reqObj *WindowsInformationProtectionAppLockerFile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WindowsInformationProtectionAppLockerFile
+func (r *WindowsInformationProtectionAppLockerFileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WindowsInformationProtectionNetworkLearningSummaryRequestBuilder is request builder for WindowsInformationProtectionNetworkLearningSummary
@@ -136,6 +199,26 @@ func (r *WindowsInformationProtectionNetworkLearningSummaryRequest) Delete(ctx c
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WindowsInformationProtectionNetworkLearningSummary
+func (r *WindowsInformationProtectionNetworkLearningSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WindowsInformationProtectionNetworkLearningSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WindowsInformationProtectionNetworkLearningSummary
+func (r *WindowsInformationProtectionNetworkLearningSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *WindowsInformationProtectionNetworkLearningSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WindowsInformationProtectionNetworkLearningSummary
+func (r *WindowsInformationProtectionNetworkLearningSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WindowsInformationProtectionPolicyRequestBuilder is request builder for WindowsInformationProtectionPolicy
 type WindowsInformationProtectionPolicyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -169,6 +252,26 @@ func (r *WindowsInformationProtectionPolicyRequest) Delete(ctx context.Context) 
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WindowsInformationProtectionPolicy
+func (r *WindowsInformationProtectionPolicyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WindowsInformationProtectionPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WindowsInformationProtectionPolicy
+func (r *WindowsInformationProtectionPolicyRequest) BatchUpdate(batch *BatchRequest, reqObj *WindowsInformationProtectionPolicy) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WindowsInformationProtectionPolicy
+func (r *WindowsInformationProtectionPolicyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type WindowsInformationProtectionAssignRequestBuilder struct{ BaseRequestBuilder }
 
@@ -193,4 +296,9 @@ func (b *WindowsInformationProtectionAssignRequestBuilder) Request() *WindowsInf
 //
 func (r *WindowsInformationProtectionAssignRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WindowsInformationProtectionAssignRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

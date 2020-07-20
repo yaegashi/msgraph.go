@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -125,6 +126,22 @@ func (r *MailFolderChildFoldersCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for MailFolder collection
+func (r *MailFolderChildFoldersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MailFolder
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MailFolder collection
+func (r *MailFolderChildFoldersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MailFolder) error {
+	var resObj []MailFolder
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MessageRules returns request builder for MessageRule collection
 func (b *MailFolderRequestBuilder) MessageRules() *MailFolderMessageRulesCollectionRequestBuilder {
 	bb := &MailFolderMessageRulesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -225,6 +242,22 @@ func (r *MailFolderMessageRulesCollectionRequest) Get(ctx context.Context) ([]Me
 func (r *MailFolderMessageRulesCollectionRequest) Add(ctx context.Context, reqObj *MessageRule) (resObj *MessageRule, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for MessageRule collection
+func (r *MailFolderMessageRulesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MessageRule
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MessageRule collection
+func (r *MailFolderMessageRulesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MessageRule) error {
+	var resObj []MessageRule
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Messages returns request builder for Message collection
@@ -329,6 +362,22 @@ func (r *MailFolderMessagesCollectionRequest) Add(ctx context.Context, reqObj *M
 	return
 }
 
+// BatchGet adds Get operation to Batch for Message collection
+func (r *MailFolderMessagesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Message
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Message collection
+func (r *MailFolderMessagesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Message) error {
+	var resObj []Message
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MultiValueExtendedProperties returns request builder for MultiValueLegacyExtendedProperty collection
 func (b *MailFolderRequestBuilder) MultiValueExtendedProperties() *MailFolderMultiValueExtendedPropertiesCollectionRequestBuilder {
 	bb := &MailFolderMultiValueExtendedPropertiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -429,6 +478,22 @@ func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Get(ctx contex
 func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Add(ctx context.Context, reqObj *MultiValueLegacyExtendedProperty) (resObj *MultiValueLegacyExtendedProperty, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MultiValueLegacyExtendedProperty) error {
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SingleValueExtendedProperties returns request builder for SingleValueLegacyExtendedProperty collection
@@ -533,6 +598,22 @@ func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Add(ctx conte
 	return
 }
 
+// BatchGet adds Get operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SingleValueLegacyExtendedProperty) error {
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // UserConfigurations returns request builder for UserConfiguration collection
 func (b *MailFolderRequestBuilder) UserConfigurations() *MailFolderUserConfigurationsCollectionRequestBuilder {
 	bb := &MailFolderUserConfigurationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -633,4 +714,20 @@ func (r *MailFolderUserConfigurationsCollectionRequest) Get(ctx context.Context)
 func (r *MailFolderUserConfigurationsCollectionRequest) Add(ctx context.Context, reqObj *UserConfiguration) (resObj *UserConfiguration, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for UserConfiguration collection
+func (r *MailFolderUserConfigurationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []UserConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for UserConfiguration collection
+func (r *MailFolderUserConfigurationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *UserConfiguration) error {
+	var resObj []UserConfiguration
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // OfficeGraphInsightsRequestBuilder is request builder for OfficeGraphInsights
 type OfficeGraphInsightsRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *OfficeGraphInsightsRequest) Update(ctx context.Context, reqObj *OfficeG
 // Delete performs DELETE request for OfficeGraphInsights
 func (r *OfficeGraphInsightsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for OfficeGraphInsights
+func (r *OfficeGraphInsightsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OfficeGraphInsights
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OfficeGraphInsights
+func (r *OfficeGraphInsightsRequest) BatchUpdate(batch *BatchRequest, reqObj *OfficeGraphInsights) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OfficeGraphInsights
+func (r *OfficeGraphInsightsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

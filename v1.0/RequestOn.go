@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // OnPremisesConditionalAccessSettingsRequestBuilder is request builder for OnPremisesConditionalAccessSettings
 type OnPremisesConditionalAccessSettingsRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *OnPremisesConditionalAccessSettingsRequest) Update(ctx context.Context,
 // Delete performs DELETE request for OnPremisesConditionalAccessSettings
 func (r *OnPremisesConditionalAccessSettingsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for OnPremisesConditionalAccessSettings
+func (r *OnPremisesConditionalAccessSettingsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OnPremisesConditionalAccessSettings
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OnPremisesConditionalAccessSettings
+func (r *OnPremisesConditionalAccessSettingsRequest) BatchUpdate(batch *BatchRequest, reqObj *OnPremisesConditionalAccessSettings) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OnPremisesConditionalAccessSettings
+func (r *OnPremisesConditionalAccessSettingsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

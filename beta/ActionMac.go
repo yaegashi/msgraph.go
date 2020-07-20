@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -140,6 +141,22 @@ func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollect
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
 func (b *MacOSPkcsCertificateProfileRequestBuilder) ManagedDeviceCertificateStates() *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder {
 	bb := &MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -242,6 +259,22 @@ func (r *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
 func (b *MacOSScepCertificateProfileRequestBuilder) ManagedDeviceCertificateStates() *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder {
 	bb := &MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -342,6 +375,22 @@ func (r *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 func (r *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // RootCertificate is navigation property
@@ -472,4 +521,20 @@ func (r *MacOsVPPAppAssignedLicensesCollectionRequest) Get(ctx context.Context) 
 func (r *MacOsVPPAppAssignedLicensesCollectionRequest) Add(ctx context.Context, reqObj *MacOsVPPAppAssignedLicense) (resObj *MacOsVPPAppAssignedLicense, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for MacOsVPPAppAssignedLicense collection
+func (r *MacOsVPPAppAssignedLicensesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MacOsVPPAppAssignedLicense
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MacOsVPPAppAssignedLicense collection
+func (r *MacOsVPPAppAssignedLicensesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MacOsVPPAppAssignedLicense) error {
+	var resObj []MacOsVPPAppAssignedLicense
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

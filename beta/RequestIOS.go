@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *IOSCertificateProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for IOSCertificateProfile
+func (r *IOSCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSCertificateProfile
+func (r *IOSCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSCertificateProfile
+func (r *IOSCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // IOSCertificateProfileBaseRequestBuilder is request builder for IOSCertificateProfileBase
 type IOSCertificateProfileBaseRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *IOSCertificateProfileBaseRequest) Update(ctx context.Context, reqObj *I
 // Delete performs DELETE request for IOSCertificateProfileBase
 func (r *IOSCertificateProfileBaseRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for IOSCertificateProfileBase
+func (r *IOSCertificateProfileBaseRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSCertificateProfileBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSCertificateProfileBase
+func (r *IOSCertificateProfileBaseRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSCertificateProfileBase) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSCertificateProfileBase
+func (r *IOSCertificateProfileBaseRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // IOSDerivedCredentialAuthenticationConfigurationRequestBuilder is request builder for IOSDerivedCredentialAuthenticationConfiguration
@@ -110,6 +151,26 @@ func (r *IOSDerivedCredentialAuthenticationConfigurationRequest) Delete(ctx cont
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for IOSDerivedCredentialAuthenticationConfiguration
+func (r *IOSDerivedCredentialAuthenticationConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSDerivedCredentialAuthenticationConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSDerivedCredentialAuthenticationConfiguration
+func (r *IOSDerivedCredentialAuthenticationConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSDerivedCredentialAuthenticationConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSDerivedCredentialAuthenticationConfiguration
+func (r *IOSDerivedCredentialAuthenticationConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // IOSDeviceFeaturesConfigurationRequestBuilder is request builder for IOSDeviceFeaturesConfiguration
 type IOSDeviceFeaturesConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -141,6 +202,26 @@ func (r *IOSDeviceFeaturesConfigurationRequest) Update(ctx context.Context, reqO
 // Delete performs DELETE request for IOSDeviceFeaturesConfiguration
 func (r *IOSDeviceFeaturesConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for IOSDeviceFeaturesConfiguration
+func (r *IOSDeviceFeaturesConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSDeviceFeaturesConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSDeviceFeaturesConfiguration
+func (r *IOSDeviceFeaturesConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSDeviceFeaturesConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSDeviceFeaturesConfiguration
+func (r *IOSDeviceFeaturesConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // IOSEasEmailProfileConfigurationRequestBuilder is request builder for IOSEasEmailProfileConfiguration
@@ -176,6 +257,26 @@ func (r *IOSEasEmailProfileConfigurationRequest) Delete(ctx context.Context) err
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for IOSEasEmailProfileConfiguration
+func (r *IOSEasEmailProfileConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSEasEmailProfileConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSEasEmailProfileConfiguration
+func (r *IOSEasEmailProfileConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSEasEmailProfileConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSEasEmailProfileConfiguration
+func (r *IOSEasEmailProfileConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // IOSEnterpriseWiFiConfigurationRequestBuilder is request builder for IOSEnterpriseWiFiConfiguration
 type IOSEnterpriseWiFiConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -207,6 +308,26 @@ func (r *IOSEnterpriseWiFiConfigurationRequest) Update(ctx context.Context, reqO
 // Delete performs DELETE request for IOSEnterpriseWiFiConfiguration
 func (r *IOSEnterpriseWiFiConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for IOSEnterpriseWiFiConfiguration
+func (r *IOSEnterpriseWiFiConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSEnterpriseWiFiConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSEnterpriseWiFiConfiguration
+func (r *IOSEnterpriseWiFiConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSEnterpriseWiFiConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSEnterpriseWiFiConfiguration
+func (r *IOSEnterpriseWiFiConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // IOSImportedPFXCertificateProfileRequestBuilder is request builder for IOSImportedPFXCertificateProfile
@@ -242,6 +363,26 @@ func (r *IOSImportedPFXCertificateProfileRequest) Delete(ctx context.Context) er
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for IOSImportedPFXCertificateProfile
+func (r *IOSImportedPFXCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSImportedPFXCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSImportedPFXCertificateProfile
+func (r *IOSImportedPFXCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSImportedPFXCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSImportedPFXCertificateProfile
+func (r *IOSImportedPFXCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // IOSLobAppProvisioningConfigurationRequestBuilder is request builder for IOSLobAppProvisioningConfiguration
 type IOSLobAppProvisioningConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -273,6 +414,26 @@ func (r *IOSLobAppProvisioningConfigurationRequest) Update(ctx context.Context, 
 // Delete performs DELETE request for IOSLobAppProvisioningConfiguration
 func (r *IOSLobAppProvisioningConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for IOSLobAppProvisioningConfiguration
+func (r *IOSLobAppProvisioningConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSLobAppProvisioningConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSLobAppProvisioningConfiguration
+func (r *IOSLobAppProvisioningConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSLobAppProvisioningConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSLobAppProvisioningConfiguration
+func (r *IOSLobAppProvisioningConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // IOSLobAppProvisioningConfigurationAssignmentRequestBuilder is request builder for IOSLobAppProvisioningConfigurationAssignment
@@ -308,6 +469,26 @@ func (r *IOSLobAppProvisioningConfigurationAssignmentRequest) Delete(ctx context
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for IOSLobAppProvisioningConfigurationAssignment
+func (r *IOSLobAppProvisioningConfigurationAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSLobAppProvisioningConfigurationAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSLobAppProvisioningConfigurationAssignment
+func (r *IOSLobAppProvisioningConfigurationAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSLobAppProvisioningConfigurationAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSLobAppProvisioningConfigurationAssignment
+func (r *IOSLobAppProvisioningConfigurationAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // IOSManagedAppProtectionRequestBuilder is request builder for IOSManagedAppProtection
 type IOSManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -339,6 +520,26 @@ func (r *IOSManagedAppProtectionRequest) Update(ctx context.Context, reqObj *IOS
 // Delete performs DELETE request for IOSManagedAppProtection
 func (r *IOSManagedAppProtectionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for IOSManagedAppProtection
+func (r *IOSManagedAppProtectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSManagedAppProtection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSManagedAppProtection
+func (r *IOSManagedAppProtectionRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSManagedAppProtection) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSManagedAppProtection
+func (r *IOSManagedAppProtectionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // IOSPkcsCertificateProfileRequestBuilder is request builder for IOSPkcsCertificateProfile
@@ -374,6 +575,26 @@ func (r *IOSPkcsCertificateProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for IOSPkcsCertificateProfile
+func (r *IOSPkcsCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSPkcsCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSPkcsCertificateProfile
+func (r *IOSPkcsCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSPkcsCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSPkcsCertificateProfile
+func (r *IOSPkcsCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // IOSScepCertificateProfileRequestBuilder is request builder for IOSScepCertificateProfile
 type IOSScepCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -405,6 +626,26 @@ func (r *IOSScepCertificateProfileRequest) Update(ctx context.Context, reqObj *I
 // Delete performs DELETE request for IOSScepCertificateProfile
 func (r *IOSScepCertificateProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for IOSScepCertificateProfile
+func (r *IOSScepCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSScepCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSScepCertificateProfile
+func (r *IOSScepCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSScepCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSScepCertificateProfile
+func (r *IOSScepCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // IOSTrustedRootCertificateRequestBuilder is request builder for IOSTrustedRootCertificate
@@ -440,6 +681,26 @@ func (r *IOSTrustedRootCertificateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for IOSTrustedRootCertificate
+func (r *IOSTrustedRootCertificateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSTrustedRootCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSTrustedRootCertificate
+func (r *IOSTrustedRootCertificateRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSTrustedRootCertificate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSTrustedRootCertificate
+func (r *IOSTrustedRootCertificateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // IOSUpdateDeviceStatusRequestBuilder is request builder for IOSUpdateDeviceStatus
 type IOSUpdateDeviceStatusRequestBuilder struct{ BaseRequestBuilder }
 
@@ -471,6 +732,26 @@ func (r *IOSUpdateDeviceStatusRequest) Update(ctx context.Context, reqObj *IOSUp
 // Delete performs DELETE request for IOSUpdateDeviceStatus
 func (r *IOSUpdateDeviceStatusRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for IOSUpdateDeviceStatus
+func (r *IOSUpdateDeviceStatusRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSUpdateDeviceStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSUpdateDeviceStatus
+func (r *IOSUpdateDeviceStatusRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSUpdateDeviceStatus) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSUpdateDeviceStatus
+func (r *IOSUpdateDeviceStatusRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // IOSVPNConfigurationRequestBuilder is request builder for IOSVPNConfiguration
@@ -506,6 +787,26 @@ func (r *IOSVPNConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for IOSVPNConfiguration
+func (r *IOSVPNConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSVPNConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSVPNConfiguration
+func (r *IOSVPNConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSVPNConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSVPNConfiguration
+func (r *IOSVPNConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // IOSVPPAppRequestBuilder is request builder for IOSVPPApp
 type IOSVPPAppRequestBuilder struct{ BaseRequestBuilder }
 
@@ -539,6 +840,26 @@ func (r *IOSVPPAppRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for IOSVPPApp
+func (r *IOSVPPAppRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSVPPApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSVPPApp
+func (r *IOSVPPAppRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSVPPApp) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSVPPApp
+func (r *IOSVPPAppRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // IOSVPPAppAssignedLicenseRequestBuilder is request builder for IOSVPPAppAssignedLicense
 type IOSVPPAppAssignedLicenseRequestBuilder struct{ BaseRequestBuilder }
 
@@ -570,6 +891,26 @@ func (r *IOSVPPAppAssignedLicenseRequest) Update(ctx context.Context, reqObj *IO
 // Delete performs DELETE request for IOSVPPAppAssignedLicense
 func (r *IOSVPPAppAssignedLicenseRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for IOSVPPAppAssignedLicense
+func (r *IOSVPPAppAssignedLicenseRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj IOSVPPAppAssignedLicense
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for IOSVPPAppAssignedLicense
+func (r *IOSVPPAppAssignedLicenseRequest) BatchUpdate(batch *BatchRequest, reqObj *IOSVPPAppAssignedLicense) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for IOSVPPAppAssignedLicense
+func (r *IOSVPPAppAssignedLicenseRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -659,6 +1000,12 @@ func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Pos
 }
 
 //
+func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []HasPayloadLinkResultItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type IOSManagedAppProtectionCollectionHasPayloadLinksRequestBuilder struct{ BaseRequestBuilder }
 
 // HasPayloadLinks action undocumented
@@ -745,6 +1092,12 @@ func (r *IOSManagedAppProtectionCollectionHasPayloadLinksRequest) Post(ctx conte
 }
 
 //
+func (r *IOSManagedAppProtectionCollectionHasPayloadLinksRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []HasPayloadLinkResultItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type IOSLobAppProvisioningConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
 
 // Assign action undocumented
@@ -768,6 +1121,11 @@ func (b *IOSLobAppProvisioningConfigurationAssignRequestBuilder) Request() *IOSL
 //
 func (r *IOSLobAppProvisioningConfigurationAssignRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *IOSLobAppProvisioningConfigurationAssignRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -797,6 +1155,11 @@ func (r *IOSVPPAppRevokeAllLicensesRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *IOSVPPAppRevokeAllLicensesRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type IOSVPPAppRevokeUserLicenseRequestBuilder struct{ BaseRequestBuilder }
 
 // RevokeUserLicense action undocumented
@@ -823,6 +1186,11 @@ func (r *IOSVPPAppRevokeUserLicenseRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *IOSVPPAppRevokeUserLicenseRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type IOSVPPAppRevokeDeviceLicenseRequestBuilder struct{ BaseRequestBuilder }
 
 // RevokeDeviceLicense action undocumented
@@ -846,4 +1214,9 @@ func (b *IOSVPPAppRevokeDeviceLicenseRequestBuilder) Request() *IOSVPPAppRevokeD
 //
 func (r *IOSVPPAppRevokeDeviceLicenseRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *IOSVPPAppRevokeDeviceLicenseRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

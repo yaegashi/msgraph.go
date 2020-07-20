@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsConfidence_NormRequestBuilder struct{ BaseRequestBuilder }
@@ -32,6 +35,12 @@ func (r *WorkbookFunctionsConfidence_NormRequest) Post(ctx context.Context) (res
 }
 
 //
+func (r *WorkbookFunctionsConfidence_NormRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsConfidence_TRequestBuilder struct{ BaseRequestBuilder }
 
 // Confidence_T action undocumented
@@ -56,4 +65,10 @@ func (b *WorkbookFunctionsConfidence_TRequestBuilder) Request() *WorkbookFunctio
 func (r *WorkbookFunctionsConfidence_TRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsConfidence_TRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

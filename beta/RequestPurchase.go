@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // PurchaseInvoiceRequestBuilder is request builder for PurchaseInvoice
 type PurchaseInvoiceRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *PurchaseInvoiceRequest) Update(ctx context.Context, reqObj *PurchaseInv
 // Delete performs DELETE request for PurchaseInvoice
 func (r *PurchaseInvoiceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for PurchaseInvoice
+func (r *PurchaseInvoiceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PurchaseInvoice
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PurchaseInvoice
+func (r *PurchaseInvoiceRequest) BatchUpdate(batch *BatchRequest, reqObj *PurchaseInvoice) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PurchaseInvoice
+func (r *PurchaseInvoiceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // PurchaseInvoiceLineRequestBuilder is request builder for PurchaseInvoiceLine
@@ -70,6 +93,26 @@ func (r *PurchaseInvoiceLineRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for PurchaseInvoiceLine
+func (r *PurchaseInvoiceLineRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj PurchaseInvoiceLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for PurchaseInvoiceLine
+func (r *PurchaseInvoiceLineRequest) BatchUpdate(batch *BatchRequest, reqObj *PurchaseInvoiceLine) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for PurchaseInvoiceLine
+func (r *PurchaseInvoiceLineRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type PurchaseInvoicePostRequestBuilder struct{ BaseRequestBuilder }
 
@@ -94,4 +137,9 @@ func (b *PurchaseInvoicePostRequestBuilder) Request() *PurchaseInvoicePostReques
 //
 func (r *PurchaseInvoicePostRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *PurchaseInvoicePostRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

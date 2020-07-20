@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // SubscribedSKURequestBuilder is request builder for SubscribedSKU
 type SubscribedSKURequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *SubscribedSKURequest) Update(ctx context.Context, reqObj *SubscribedSKU
 // Delete performs DELETE request for SubscribedSKU
 func (r *SubscribedSKURequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SubscribedSKU
+func (r *SubscribedSKURequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SubscribedSKU
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SubscribedSKU
+func (r *SubscribedSKURequest) BatchUpdate(batch *BatchRequest, reqObj *SubscribedSKU) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SubscribedSKU
+func (r *SubscribedSKURequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

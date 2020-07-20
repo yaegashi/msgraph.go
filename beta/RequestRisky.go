@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // RiskyUserRequestBuilder is request builder for RiskyUser
 type RiskyUserRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *RiskyUserRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for RiskyUser
+func (r *RiskyUserRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj RiskyUser
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for RiskyUser
+func (r *RiskyUserRequest) BatchUpdate(batch *BatchRequest, reqObj *RiskyUser) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for RiskyUser
+func (r *RiskyUserRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // RiskyUserHistoryItemRequestBuilder is request builder for RiskyUserHistoryItem
 type RiskyUserHistoryItemRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *RiskyUserHistoryItemRequest) Update(ctx context.Context, reqObj *RiskyU
 // Delete performs DELETE request for RiskyUserHistoryItem
 func (r *RiskyUserHistoryItemRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for RiskyUserHistoryItem
+func (r *RiskyUserHistoryItemRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj RiskyUserHistoryItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for RiskyUserHistoryItem
+func (r *RiskyUserHistoryItemRequest) BatchUpdate(batch *BatchRequest, reqObj *RiskyUserHistoryItem) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for RiskyUserHistoryItem
+func (r *RiskyUserHistoryItemRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

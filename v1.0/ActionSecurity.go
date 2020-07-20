@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *SecurityAlertsCollectionRequest) Add(ctx context.Context, reqObj *Alert
 	return
 }
 
+// BatchGet adds Get operation to Batch for Alert collection
+func (r *SecurityAlertsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Alert
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Alert collection
+func (r *SecurityAlertsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Alert) error {
+	var resObj []Alert
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SecureScoreControlProfiles returns request builder for SecureScoreControlProfile collection
 func (b *SecurityRequestBuilder) SecureScoreControlProfiles() *SecuritySecureScoreControlProfilesCollectionRequestBuilder {
 	bb := &SecuritySecureScoreControlProfilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -215,6 +232,22 @@ func (r *SecuritySecureScoreControlProfilesCollectionRequest) Add(ctx context.Co
 	return
 }
 
+// BatchGet adds Get operation to Batch for SecureScoreControlProfile collection
+func (r *SecuritySecureScoreControlProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SecureScoreControlProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SecureScoreControlProfile collection
+func (r *SecuritySecureScoreControlProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SecureScoreControlProfile) error {
+	var resObj []SecureScoreControlProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SecureScores returns request builder for SecureScore collection
 func (b *SecurityRequestBuilder) SecureScores() *SecuritySecureScoresCollectionRequestBuilder {
 	bb := &SecuritySecureScoresCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -315,4 +348,20 @@ func (r *SecuritySecureScoresCollectionRequest) Get(ctx context.Context) ([]Secu
 func (r *SecuritySecureScoresCollectionRequest) Add(ctx context.Context, reqObj *SecureScore) (resObj *SecureScore, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SecureScore collection
+func (r *SecuritySecureScoresCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SecureScore
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SecureScore collection
+func (r *SecuritySecureScoresCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SecureScore) error {
+	var resObj []SecureScore
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ShipmentMethodRequestBuilder is request builder for ShipmentMethod
 type ShipmentMethodRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *ShipmentMethodRequest) Update(ctx context.Context, reqObj *ShipmentMeth
 // Delete performs DELETE request for ShipmentMethod
 func (r *ShipmentMethodRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ShipmentMethod
+func (r *ShipmentMethodRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ShipmentMethod
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ShipmentMethod
+func (r *ShipmentMethodRequest) BatchUpdate(batch *BatchRequest, reqObj *ShipmentMethod) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ShipmentMethod
+func (r *ShipmentMethodRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

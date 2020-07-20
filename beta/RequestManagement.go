@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ManagementConditionRequestBuilder is request builder for ManagementCondition
 type ManagementConditionRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *ManagementConditionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ManagementCondition
+func (r *ManagementConditionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagementCondition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagementCondition
+func (r *ManagementConditionRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagementCondition) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagementCondition
+func (r *ManagementConditionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ManagementConditionStatementRequestBuilder is request builder for ManagementConditionStatement
 type ManagementConditionStatementRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *ManagementConditionStatementRequest) Update(ctx context.Context, reqObj
 // Delete performs DELETE request for ManagementConditionStatement
 func (r *ManagementConditionStatementRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ManagementConditionStatement
+func (r *ManagementConditionStatementRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagementConditionStatement
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagementConditionStatement
+func (r *ManagementConditionStatementRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagementConditionStatement) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagementConditionStatement
+func (r *ManagementConditionStatementRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -185,6 +186,22 @@ func (r *MessageAttachmentsCollectionRequest) Add(ctx context.Context, reqObj *A
 	return
 }
 
+// BatchGet adds Get operation to Batch for Attachment collection
+func (r *MessageAttachmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Attachment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Attachment collection
+func (r *MessageAttachmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Attachment) error {
+	var resObj []Attachment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Extensions returns request builder for Extension collection
 func (b *MessageRequestBuilder) Extensions() *MessageExtensionsCollectionRequestBuilder {
 	bb := &MessageExtensionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -285,6 +302,22 @@ func (r *MessageExtensionsCollectionRequest) Get(ctx context.Context) ([]Extensi
 func (r *MessageExtensionsCollectionRequest) Add(ctx context.Context, reqObj *Extension) (resObj *Extension, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Extension collection
+func (r *MessageExtensionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Extension
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Extension collection
+func (r *MessageExtensionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Extension) error {
+	var resObj []Extension
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Mentions returns request builder for Mention collection
@@ -389,6 +422,22 @@ func (r *MessageMentionsCollectionRequest) Add(ctx context.Context, reqObj *Ment
 	return
 }
 
+// BatchGet adds Get operation to Batch for Mention collection
+func (r *MessageMentionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Mention
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Mention collection
+func (r *MessageMentionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Mention) error {
+	var resObj []Mention
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MultiValueExtendedProperties returns request builder for MultiValueLegacyExtendedProperty collection
 func (b *MessageRequestBuilder) MultiValueExtendedProperties() *MessageMultiValueExtendedPropertiesCollectionRequestBuilder {
 	bb := &MessageMultiValueExtendedPropertiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -491,6 +540,22 @@ func (r *MessageMultiValueExtendedPropertiesCollectionRequest) Add(ctx context.C
 	return
 }
 
+// BatchGet adds Get operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *MessageMultiValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *MessageMultiValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MultiValueLegacyExtendedProperty) error {
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // SingleValueExtendedProperties returns request builder for SingleValueLegacyExtendedProperty collection
 func (b *MessageRequestBuilder) SingleValueExtendedProperties() *MessageSingleValueExtendedPropertiesCollectionRequestBuilder {
 	bb := &MessageSingleValueExtendedPropertiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -591,4 +656,20 @@ func (r *MessageSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.
 func (r *MessageSingleValueExtendedPropertiesCollectionRequest) Add(ctx context.Context, reqObj *SingleValueLegacyExtendedProperty) (resObj *SingleValueLegacyExtendedProperty, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *MessageSingleValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *MessageSingleValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SingleValueLegacyExtendedProperty) error {
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

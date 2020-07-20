@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // SchedulingGroupRequestBuilder is request builder for SchedulingGroup
 type SchedulingGroupRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *SchedulingGroupRequest) Update(ctx context.Context, reqObj *SchedulingG
 // Delete performs DELETE request for SchedulingGroup
 func (r *SchedulingGroupRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SchedulingGroup
+func (r *SchedulingGroupRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SchedulingGroup
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SchedulingGroup
+func (r *SchedulingGroupRequest) BatchUpdate(batch *BatchRequest, reqObj *SchedulingGroup) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SchedulingGroup
+func (r *SchedulingGroupRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

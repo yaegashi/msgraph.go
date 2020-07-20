@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -111,4 +112,20 @@ func (r *RoomListRoomsCollectionRequest) Get(ctx context.Context) ([]Room, error
 func (r *RoomListRoomsCollectionRequest) Add(ctx context.Context, reqObj *Room) (resObj *Room, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Room collection
+func (r *RoomListRoomsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Room
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Room collection
+func (r *RoomListRoomsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Room) error {
+	var resObj []Room
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *ProfileAccountCollectionRequest) Add(ctx context.Context, reqObj *UserA
 	return
 }
 
+// BatchGet adds Get operation to Batch for UserAccountInformation collection
+func (r *ProfileAccountCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []UserAccountInformation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for UserAccountInformation collection
+func (r *ProfileAccountCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *UserAccountInformation) error {
+	var resObj []UserAccountInformation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Anniversaries returns request builder for PersonAnniversary collection
 func (b *ProfileRequestBuilder) Anniversaries() *ProfileAnniversariesCollectionRequestBuilder {
 	bb := &ProfileAnniversariesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,6 +230,22 @@ func (r *ProfileAnniversariesCollectionRequest) Get(ctx context.Context) ([]Pers
 func (r *ProfileAnniversariesCollectionRequest) Add(ctx context.Context, reqObj *PersonAnniversary) (resObj *PersonAnniversary, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for PersonAnniversary collection
+func (r *ProfileAnniversariesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PersonAnniversary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PersonAnniversary collection
+func (r *ProfileAnniversariesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PersonAnniversary) error {
+	var resObj []PersonAnniversary
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // EducationalActivities returns request builder for EducationalActivity collection
@@ -317,6 +350,22 @@ func (r *ProfileEducationalActivitiesCollectionRequest) Add(ctx context.Context,
 	return
 }
 
+// BatchGet adds Get operation to Batch for EducationalActivity collection
+func (r *ProfileEducationalActivitiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EducationalActivity
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EducationalActivity collection
+func (r *ProfileEducationalActivitiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EducationalActivity) error {
+	var resObj []EducationalActivity
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Emails returns request builder for ItemEmail collection
 func (b *ProfileRequestBuilder) Emails() *ProfileEmailsCollectionRequestBuilder {
 	bb := &ProfileEmailsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -417,6 +466,22 @@ func (r *ProfileEmailsCollectionRequest) Get(ctx context.Context) ([]ItemEmail, 
 func (r *ProfileEmailsCollectionRequest) Add(ctx context.Context, reqObj *ItemEmail) (resObj *ItemEmail, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ItemEmail collection
+func (r *ProfileEmailsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ItemEmail
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ItemEmail collection
+func (r *ProfileEmailsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ItemEmail) error {
+	var resObj []ItemEmail
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Interests returns request builder for PersonInterest collection
@@ -521,6 +586,22 @@ func (r *ProfileInterestsCollectionRequest) Add(ctx context.Context, reqObj *Per
 	return
 }
 
+// BatchGet adds Get operation to Batch for PersonInterest collection
+func (r *ProfileInterestsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PersonInterest
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PersonInterest collection
+func (r *ProfileInterestsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PersonInterest) error {
+	var resObj []PersonInterest
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Languages returns request builder for LanguageProficiency collection
 func (b *ProfileRequestBuilder) Languages() *ProfileLanguagesCollectionRequestBuilder {
 	bb := &ProfileLanguagesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -621,6 +702,22 @@ func (r *ProfileLanguagesCollectionRequest) Get(ctx context.Context) ([]Language
 func (r *ProfileLanguagesCollectionRequest) Add(ctx context.Context, reqObj *LanguageProficiency) (resObj *LanguageProficiency, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for LanguageProficiency collection
+func (r *ProfileLanguagesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []LanguageProficiency
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for LanguageProficiency collection
+func (r *ProfileLanguagesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *LanguageProficiency) error {
+	var resObj []LanguageProficiency
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Names returns request builder for PersonName collection
@@ -725,6 +822,22 @@ func (r *ProfileNamesCollectionRequest) Add(ctx context.Context, reqObj *PersonN
 	return
 }
 
+// BatchGet adds Get operation to Batch for PersonName collection
+func (r *ProfileNamesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PersonName
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PersonName collection
+func (r *ProfileNamesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PersonName) error {
+	var resObj []PersonName
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Phones returns request builder for ItemPhone collection
 func (b *ProfileRequestBuilder) Phones() *ProfilePhonesCollectionRequestBuilder {
 	bb := &ProfilePhonesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -825,6 +938,22 @@ func (r *ProfilePhonesCollectionRequest) Get(ctx context.Context) ([]ItemPhone, 
 func (r *ProfilePhonesCollectionRequest) Add(ctx context.Context, reqObj *ItemPhone) (resObj *ItemPhone, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ItemPhone collection
+func (r *ProfilePhonesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ItemPhone
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ItemPhone collection
+func (r *ProfilePhonesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ItemPhone) error {
+	var resObj []ItemPhone
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Positions returns request builder for WorkPosition collection
@@ -929,6 +1058,22 @@ func (r *ProfilePositionsCollectionRequest) Add(ctx context.Context, reqObj *Wor
 	return
 }
 
+// BatchGet adds Get operation to Batch for WorkPosition collection
+func (r *ProfilePositionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkPosition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkPosition collection
+func (r *ProfilePositionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkPosition) error {
+	var resObj []WorkPosition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Projects returns request builder for ProjectParticipation collection
 func (b *ProfileRequestBuilder) Projects() *ProfileProjectsCollectionRequestBuilder {
 	bb := &ProfileProjectsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1029,6 +1174,22 @@ func (r *ProfileProjectsCollectionRequest) Get(ctx context.Context) ([]ProjectPa
 func (r *ProfileProjectsCollectionRequest) Add(ctx context.Context, reqObj *ProjectParticipation) (resObj *ProjectParticipation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ProjectParticipation collection
+func (r *ProfileProjectsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ProjectParticipation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ProjectParticipation collection
+func (r *ProfileProjectsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ProjectParticipation) error {
+	var resObj []ProjectParticipation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Skills returns request builder for SkillProficiency collection
@@ -1133,6 +1294,22 @@ func (r *ProfileSkillsCollectionRequest) Add(ctx context.Context, reqObj *SkillP
 	return
 }
 
+// BatchGet adds Get operation to Batch for SkillProficiency collection
+func (r *ProfileSkillsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SkillProficiency
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SkillProficiency collection
+func (r *ProfileSkillsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SkillProficiency) error {
+	var resObj []SkillProficiency
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // WebAccounts returns request builder for WebAccount collection
 func (b *ProfileRequestBuilder) WebAccounts() *ProfileWebAccountsCollectionRequestBuilder {
 	bb := &ProfileWebAccountsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1235,6 +1412,22 @@ func (r *ProfileWebAccountsCollectionRequest) Add(ctx context.Context, reqObj *W
 	return
 }
 
+// BatchGet adds Get operation to Batch for WebAccount collection
+func (r *ProfileWebAccountsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WebAccount
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WebAccount collection
+func (r *ProfileWebAccountsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WebAccount) error {
+	var resObj []WebAccount
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Websites returns request builder for PersonWebsite collection
 func (b *ProfileRequestBuilder) Websites() *ProfileWebsitesCollectionRequestBuilder {
 	bb := &ProfileWebsitesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1335,4 +1528,20 @@ func (r *ProfileWebsitesCollectionRequest) Get(ctx context.Context) ([]PersonWeb
 func (r *ProfileWebsitesCollectionRequest) Add(ctx context.Context, reqObj *PersonWebsite) (resObj *PersonWebsite, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for PersonWebsite collection
+func (r *ProfileWebsitesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []PersonWebsite
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for PersonWebsite collection
+func (r *ProfileWebsitesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *PersonWebsite) error {
+	var resObj []PersonWebsite
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

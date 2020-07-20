@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // WorkbookRequestBuilder is request builder for Workbook
 type WorkbookRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *WorkbookRequest) Update(ctx context.Context, reqObj *Workbook) error {
 // Delete performs DELETE request for Workbook
 func (r *WorkbookRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Workbook
+func (r *WorkbookRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Workbook
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Workbook
+func (r *WorkbookRequest) BatchUpdate(batch *BatchRequest, reqObj *Workbook) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Workbook
+func (r *WorkbookRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookApplicationRequestBuilder is request builder for WorkbookApplication
@@ -70,6 +93,26 @@ func (r *WorkbookApplicationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookApplication
+func (r *WorkbookApplicationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookApplication
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookApplication
+func (r *WorkbookApplicationRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookApplication) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookApplication
+func (r *WorkbookApplicationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookChartRequestBuilder is request builder for WorkbookChart
 type WorkbookChartRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *WorkbookChartRequest) Update(ctx context.Context, reqObj *WorkbookChart
 // Delete performs DELETE request for WorkbookChart
 func (r *WorkbookChartRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookChart
+func (r *WorkbookChartRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChart
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChart
+func (r *WorkbookChartRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChart) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChart
+func (r *WorkbookChartRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookChartAreaFormatRequestBuilder is request builder for WorkbookChartAreaFormat
@@ -136,6 +199,26 @@ func (r *WorkbookChartAreaFormatRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookChartAreaFormat
+func (r *WorkbookChartAreaFormatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartAreaFormat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartAreaFormat
+func (r *WorkbookChartAreaFormatRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartAreaFormat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartAreaFormat
+func (r *WorkbookChartAreaFormatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookChartAxesRequestBuilder is request builder for WorkbookChartAxes
 type WorkbookChartAxesRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,6 +250,26 @@ func (r *WorkbookChartAxesRequest) Update(ctx context.Context, reqObj *WorkbookC
 // Delete performs DELETE request for WorkbookChartAxes
 func (r *WorkbookChartAxesRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookChartAxes
+func (r *WorkbookChartAxesRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartAxes
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartAxes
+func (r *WorkbookChartAxesRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartAxes) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartAxes
+func (r *WorkbookChartAxesRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookChartAxisRequestBuilder is request builder for WorkbookChartAxis
@@ -202,6 +305,26 @@ func (r *WorkbookChartAxisRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookChartAxis
+func (r *WorkbookChartAxisRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartAxis
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartAxis
+func (r *WorkbookChartAxisRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartAxis) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartAxis
+func (r *WorkbookChartAxisRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookChartAxisFormatRequestBuilder is request builder for WorkbookChartAxisFormat
 type WorkbookChartAxisFormatRequestBuilder struct{ BaseRequestBuilder }
 
@@ -233,6 +356,26 @@ func (r *WorkbookChartAxisFormatRequest) Update(ctx context.Context, reqObj *Wor
 // Delete performs DELETE request for WorkbookChartAxisFormat
 func (r *WorkbookChartAxisFormatRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookChartAxisFormat
+func (r *WorkbookChartAxisFormatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartAxisFormat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartAxisFormat
+func (r *WorkbookChartAxisFormatRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartAxisFormat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartAxisFormat
+func (r *WorkbookChartAxisFormatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookChartAxisTitleRequestBuilder is request builder for WorkbookChartAxisTitle
@@ -268,6 +411,26 @@ func (r *WorkbookChartAxisTitleRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookChartAxisTitle
+func (r *WorkbookChartAxisTitleRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartAxisTitle
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartAxisTitle
+func (r *WorkbookChartAxisTitleRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartAxisTitle) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartAxisTitle
+func (r *WorkbookChartAxisTitleRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookChartAxisTitleFormatRequestBuilder is request builder for WorkbookChartAxisTitleFormat
 type WorkbookChartAxisTitleFormatRequestBuilder struct{ BaseRequestBuilder }
 
@@ -299,6 +462,26 @@ func (r *WorkbookChartAxisTitleFormatRequest) Update(ctx context.Context, reqObj
 // Delete performs DELETE request for WorkbookChartAxisTitleFormat
 func (r *WorkbookChartAxisTitleFormatRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookChartAxisTitleFormat
+func (r *WorkbookChartAxisTitleFormatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartAxisTitleFormat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartAxisTitleFormat
+func (r *WorkbookChartAxisTitleFormatRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartAxisTitleFormat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartAxisTitleFormat
+func (r *WorkbookChartAxisTitleFormatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookChartDataLabelFormatRequestBuilder is request builder for WorkbookChartDataLabelFormat
@@ -334,6 +517,26 @@ func (r *WorkbookChartDataLabelFormatRequest) Delete(ctx context.Context) error 
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookChartDataLabelFormat
+func (r *WorkbookChartDataLabelFormatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartDataLabelFormat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartDataLabelFormat
+func (r *WorkbookChartDataLabelFormatRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartDataLabelFormat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartDataLabelFormat
+func (r *WorkbookChartDataLabelFormatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookChartDataLabelsRequestBuilder is request builder for WorkbookChartDataLabels
 type WorkbookChartDataLabelsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -365,6 +568,26 @@ func (r *WorkbookChartDataLabelsRequest) Update(ctx context.Context, reqObj *Wor
 // Delete performs DELETE request for WorkbookChartDataLabels
 func (r *WorkbookChartDataLabelsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookChartDataLabels
+func (r *WorkbookChartDataLabelsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartDataLabels
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartDataLabels
+func (r *WorkbookChartDataLabelsRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartDataLabels) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartDataLabels
+func (r *WorkbookChartDataLabelsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookChartFillRequestBuilder is request builder for WorkbookChartFill
@@ -400,6 +623,26 @@ func (r *WorkbookChartFillRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookChartFill
+func (r *WorkbookChartFillRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartFill
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartFill
+func (r *WorkbookChartFillRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartFill) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartFill
+func (r *WorkbookChartFillRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookChartFontRequestBuilder is request builder for WorkbookChartFont
 type WorkbookChartFontRequestBuilder struct{ BaseRequestBuilder }
 
@@ -431,6 +674,26 @@ func (r *WorkbookChartFontRequest) Update(ctx context.Context, reqObj *WorkbookC
 // Delete performs DELETE request for WorkbookChartFont
 func (r *WorkbookChartFontRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookChartFont
+func (r *WorkbookChartFontRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartFont
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartFont
+func (r *WorkbookChartFontRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartFont) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartFont
+func (r *WorkbookChartFontRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookChartGridlinesRequestBuilder is request builder for WorkbookChartGridlines
@@ -466,6 +729,26 @@ func (r *WorkbookChartGridlinesRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookChartGridlines
+func (r *WorkbookChartGridlinesRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartGridlines
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartGridlines
+func (r *WorkbookChartGridlinesRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartGridlines) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartGridlines
+func (r *WorkbookChartGridlinesRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookChartGridlinesFormatRequestBuilder is request builder for WorkbookChartGridlinesFormat
 type WorkbookChartGridlinesFormatRequestBuilder struct{ BaseRequestBuilder }
 
@@ -497,6 +780,26 @@ func (r *WorkbookChartGridlinesFormatRequest) Update(ctx context.Context, reqObj
 // Delete performs DELETE request for WorkbookChartGridlinesFormat
 func (r *WorkbookChartGridlinesFormatRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookChartGridlinesFormat
+func (r *WorkbookChartGridlinesFormatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartGridlinesFormat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartGridlinesFormat
+func (r *WorkbookChartGridlinesFormatRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartGridlinesFormat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartGridlinesFormat
+func (r *WorkbookChartGridlinesFormatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookChartLegendRequestBuilder is request builder for WorkbookChartLegend
@@ -532,6 +835,26 @@ func (r *WorkbookChartLegendRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookChartLegend
+func (r *WorkbookChartLegendRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartLegend
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartLegend
+func (r *WorkbookChartLegendRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartLegend) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartLegend
+func (r *WorkbookChartLegendRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookChartLegendFormatRequestBuilder is request builder for WorkbookChartLegendFormat
 type WorkbookChartLegendFormatRequestBuilder struct{ BaseRequestBuilder }
 
@@ -563,6 +886,26 @@ func (r *WorkbookChartLegendFormatRequest) Update(ctx context.Context, reqObj *W
 // Delete performs DELETE request for WorkbookChartLegendFormat
 func (r *WorkbookChartLegendFormatRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookChartLegendFormat
+func (r *WorkbookChartLegendFormatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartLegendFormat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartLegendFormat
+func (r *WorkbookChartLegendFormatRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartLegendFormat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartLegendFormat
+func (r *WorkbookChartLegendFormatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookChartLineFormatRequestBuilder is request builder for WorkbookChartLineFormat
@@ -598,6 +941,26 @@ func (r *WorkbookChartLineFormatRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookChartLineFormat
+func (r *WorkbookChartLineFormatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartLineFormat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartLineFormat
+func (r *WorkbookChartLineFormatRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartLineFormat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartLineFormat
+func (r *WorkbookChartLineFormatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookChartPointRequestBuilder is request builder for WorkbookChartPoint
 type WorkbookChartPointRequestBuilder struct{ BaseRequestBuilder }
 
@@ -629,6 +992,26 @@ func (r *WorkbookChartPointRequest) Update(ctx context.Context, reqObj *Workbook
 // Delete performs DELETE request for WorkbookChartPoint
 func (r *WorkbookChartPointRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookChartPoint
+func (r *WorkbookChartPointRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartPoint
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartPoint
+func (r *WorkbookChartPointRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartPoint) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartPoint
+func (r *WorkbookChartPointRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookChartPointFormatRequestBuilder is request builder for WorkbookChartPointFormat
@@ -664,6 +1047,26 @@ func (r *WorkbookChartPointFormatRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookChartPointFormat
+func (r *WorkbookChartPointFormatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartPointFormat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartPointFormat
+func (r *WorkbookChartPointFormatRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartPointFormat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartPointFormat
+func (r *WorkbookChartPointFormatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookChartSeriesRequestBuilder is request builder for WorkbookChartSeries
 type WorkbookChartSeriesRequestBuilder struct{ BaseRequestBuilder }
 
@@ -695,6 +1098,26 @@ func (r *WorkbookChartSeriesRequest) Update(ctx context.Context, reqObj *Workboo
 // Delete performs DELETE request for WorkbookChartSeries
 func (r *WorkbookChartSeriesRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookChartSeries
+func (r *WorkbookChartSeriesRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartSeries
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartSeries
+func (r *WorkbookChartSeriesRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartSeries) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartSeries
+func (r *WorkbookChartSeriesRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookChartSeriesFormatRequestBuilder is request builder for WorkbookChartSeriesFormat
@@ -730,6 +1153,26 @@ func (r *WorkbookChartSeriesFormatRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookChartSeriesFormat
+func (r *WorkbookChartSeriesFormatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartSeriesFormat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartSeriesFormat
+func (r *WorkbookChartSeriesFormatRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartSeriesFormat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartSeriesFormat
+func (r *WorkbookChartSeriesFormatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookChartTitleRequestBuilder is request builder for WorkbookChartTitle
 type WorkbookChartTitleRequestBuilder struct{ BaseRequestBuilder }
 
@@ -761,6 +1204,26 @@ func (r *WorkbookChartTitleRequest) Update(ctx context.Context, reqObj *Workbook
 // Delete performs DELETE request for WorkbookChartTitle
 func (r *WorkbookChartTitleRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookChartTitle
+func (r *WorkbookChartTitleRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartTitle
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartTitle
+func (r *WorkbookChartTitleRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartTitle) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartTitle
+func (r *WorkbookChartTitleRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookChartTitleFormatRequestBuilder is request builder for WorkbookChartTitleFormat
@@ -796,6 +1259,26 @@ func (r *WorkbookChartTitleFormatRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookChartTitleFormat
+func (r *WorkbookChartTitleFormatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookChartTitleFormat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookChartTitleFormat
+func (r *WorkbookChartTitleFormatRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookChartTitleFormat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookChartTitleFormat
+func (r *WorkbookChartTitleFormatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookCommentRequestBuilder is request builder for WorkbookComment
 type WorkbookCommentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -827,6 +1310,26 @@ func (r *WorkbookCommentRequest) Update(ctx context.Context, reqObj *WorkbookCom
 // Delete performs DELETE request for WorkbookComment
 func (r *WorkbookCommentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookComment
+func (r *WorkbookCommentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookComment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookComment
+func (r *WorkbookCommentRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookComment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookComment
+func (r *WorkbookCommentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookCommentReplyRequestBuilder is request builder for WorkbookCommentReply
@@ -862,6 +1365,26 @@ func (r *WorkbookCommentReplyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookCommentReply
+func (r *WorkbookCommentReplyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookCommentReply
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookCommentReply
+func (r *WorkbookCommentReplyRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookCommentReply) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookCommentReply
+func (r *WorkbookCommentReplyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookFilterRequestBuilder is request builder for WorkbookFilter
 type WorkbookFilterRequestBuilder struct{ BaseRequestBuilder }
 
@@ -893,6 +1416,26 @@ func (r *WorkbookFilterRequest) Update(ctx context.Context, reqObj *WorkbookFilt
 // Delete performs DELETE request for WorkbookFilter
 func (r *WorkbookFilterRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookFilter
+func (r *WorkbookFilterRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookFilter
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookFilter
+func (r *WorkbookFilterRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookFilter) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookFilter
+func (r *WorkbookFilterRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookFormatProtectionRequestBuilder is request builder for WorkbookFormatProtection
@@ -928,6 +1471,26 @@ func (r *WorkbookFormatProtectionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookFormatProtection
+func (r *WorkbookFormatProtectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookFormatProtection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookFormatProtection
+func (r *WorkbookFormatProtectionRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookFormatProtection) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookFormatProtection
+func (r *WorkbookFormatProtectionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookNamedItemRequestBuilder is request builder for WorkbookNamedItem
 type WorkbookNamedItemRequestBuilder struct{ BaseRequestBuilder }
 
@@ -959,6 +1522,26 @@ func (r *WorkbookNamedItemRequest) Update(ctx context.Context, reqObj *WorkbookN
 // Delete performs DELETE request for WorkbookNamedItem
 func (r *WorkbookNamedItemRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookNamedItem
+func (r *WorkbookNamedItemRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookNamedItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookNamedItem
+func (r *WorkbookNamedItemRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookNamedItem) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookNamedItem
+func (r *WorkbookNamedItemRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookPivotTableRequestBuilder is request builder for WorkbookPivotTable
@@ -994,6 +1577,26 @@ func (r *WorkbookPivotTableRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookPivotTable
+func (r *WorkbookPivotTableRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookPivotTable
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookPivotTable
+func (r *WorkbookPivotTableRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookPivotTable) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookPivotTable
+func (r *WorkbookPivotTableRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookRangeRequestBuilder is request builder for WorkbookRange
 type WorkbookRangeRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1025,6 +1628,26 @@ func (r *WorkbookRangeRequest) Update(ctx context.Context, reqObj *WorkbookRange
 // Delete performs DELETE request for WorkbookRange
 func (r *WorkbookRangeRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookRange
+func (r *WorkbookRangeRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookRange
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookRange
+func (r *WorkbookRangeRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookRange) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookRange
+func (r *WorkbookRangeRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookRangeBorderRequestBuilder is request builder for WorkbookRangeBorder
@@ -1060,6 +1683,26 @@ func (r *WorkbookRangeBorderRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookRangeBorder
+func (r *WorkbookRangeBorderRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookRangeBorder
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookRangeBorder
+func (r *WorkbookRangeBorderRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookRangeBorder) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookRangeBorder
+func (r *WorkbookRangeBorderRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookRangeFillRequestBuilder is request builder for WorkbookRangeFill
 type WorkbookRangeFillRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1091,6 +1734,26 @@ func (r *WorkbookRangeFillRequest) Update(ctx context.Context, reqObj *WorkbookR
 // Delete performs DELETE request for WorkbookRangeFill
 func (r *WorkbookRangeFillRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookRangeFill
+func (r *WorkbookRangeFillRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookRangeFill
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookRangeFill
+func (r *WorkbookRangeFillRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookRangeFill) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookRangeFill
+func (r *WorkbookRangeFillRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookRangeFontRequestBuilder is request builder for WorkbookRangeFont
@@ -1126,6 +1789,26 @@ func (r *WorkbookRangeFontRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookRangeFont
+func (r *WorkbookRangeFontRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookRangeFont
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookRangeFont
+func (r *WorkbookRangeFontRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookRangeFont) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookRangeFont
+func (r *WorkbookRangeFontRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookRangeFormatRequestBuilder is request builder for WorkbookRangeFormat
 type WorkbookRangeFormatRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1157,6 +1840,26 @@ func (r *WorkbookRangeFormatRequest) Update(ctx context.Context, reqObj *Workboo
 // Delete performs DELETE request for WorkbookRangeFormat
 func (r *WorkbookRangeFormatRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookRangeFormat
+func (r *WorkbookRangeFormatRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookRangeFormat
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookRangeFormat
+func (r *WorkbookRangeFormatRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookRangeFormat) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookRangeFormat
+func (r *WorkbookRangeFormatRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookRangeSortRequestBuilder is request builder for WorkbookRangeSort
@@ -1192,6 +1895,26 @@ func (r *WorkbookRangeSortRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookRangeSort
+func (r *WorkbookRangeSortRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookRangeSort
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookRangeSort
+func (r *WorkbookRangeSortRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookRangeSort) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookRangeSort
+func (r *WorkbookRangeSortRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookRangeViewRequestBuilder is request builder for WorkbookRangeView
 type WorkbookRangeViewRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1223,6 +1946,26 @@ func (r *WorkbookRangeViewRequest) Update(ctx context.Context, reqObj *WorkbookR
 // Delete performs DELETE request for WorkbookRangeView
 func (r *WorkbookRangeViewRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookRangeView
+func (r *WorkbookRangeViewRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookRangeView
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookRangeView
+func (r *WorkbookRangeViewRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookRangeView) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookRangeView
+func (r *WorkbookRangeViewRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookTableRequestBuilder is request builder for WorkbookTable
@@ -1258,6 +2001,26 @@ func (r *WorkbookTableRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookTable
+func (r *WorkbookTableRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookTable
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookTable
+func (r *WorkbookTableRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookTable) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookTable
+func (r *WorkbookTableRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookTableColumnRequestBuilder is request builder for WorkbookTableColumn
 type WorkbookTableColumnRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1289,6 +2052,26 @@ func (r *WorkbookTableColumnRequest) Update(ctx context.Context, reqObj *Workboo
 // Delete performs DELETE request for WorkbookTableColumn
 func (r *WorkbookTableColumnRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookTableColumn
+func (r *WorkbookTableColumnRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookTableColumn
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookTableColumn
+func (r *WorkbookTableColumnRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookTableColumn) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookTableColumn
+func (r *WorkbookTableColumnRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookTableRowRequestBuilder is request builder for WorkbookTableRow
@@ -1324,6 +2107,26 @@ func (r *WorkbookTableRowRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookTableRow
+func (r *WorkbookTableRowRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookTableRow
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookTableRow
+func (r *WorkbookTableRowRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookTableRow) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookTableRow
+func (r *WorkbookTableRowRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookTableSortRequestBuilder is request builder for WorkbookTableSort
 type WorkbookTableSortRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1355,6 +2158,26 @@ func (r *WorkbookTableSortRequest) Update(ctx context.Context, reqObj *WorkbookT
 // Delete performs DELETE request for WorkbookTableSort
 func (r *WorkbookTableSortRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkbookTableSort
+func (r *WorkbookTableSortRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookTableSort
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookTableSort
+func (r *WorkbookTableSortRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookTableSort) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookTableSort
+func (r *WorkbookTableSortRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // WorkbookWorksheetRequestBuilder is request builder for WorkbookWorksheet
@@ -1390,6 +2213,26 @@ func (r *WorkbookWorksheetRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookWorksheet
+func (r *WorkbookWorksheetRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookWorksheet
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookWorksheet
+func (r *WorkbookWorksheetRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookWorksheet) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookWorksheet
+func (r *WorkbookWorksheetRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // WorkbookWorksheetProtectionRequestBuilder is request builder for WorkbookWorksheetProtection
 type WorkbookWorksheetProtectionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1423,6 +2266,26 @@ func (r *WorkbookWorksheetProtectionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for WorkbookWorksheetProtection
+func (r *WorkbookWorksheetProtectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkbookWorksheetProtection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkbookWorksheetProtection
+func (r *WorkbookWorksheetProtectionRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkbookWorksheetProtection) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkbookWorksheetProtection
+func (r *WorkbookWorksheetProtectionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type WorkbookChartCollectionAddRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1448,6 +2311,12 @@ func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartColle
 func (r *WorkbookChartCollectionAddRequest) Post(ctx context.Context) (resObj *WorkbookChart, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookChartCollectionAddRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookChart
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -1486,6 +2355,12 @@ func (r *WorkbookNamedItemCollectionAddRequest) Post(ctx context.Context) (resOb
 }
 
 //
+func (r *WorkbookNamedItemCollectionAddRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookNamedItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder struct{ BaseRequestBuilder }
 
 // AddFormulaLocal action undocumented
@@ -1521,6 +2396,12 @@ func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Post(ctx context.Con
 }
 
 //
+func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookNamedItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookPivotTableCollectionRefreshAllRequestBuilder struct{ BaseRequestBuilder }
 
 // RefreshAll action undocumented
@@ -1544,6 +2425,11 @@ func (b *WorkbookPivotTableCollectionRefreshAllRequestBuilder) Request() *Workbo
 //
 func (r *WorkbookPivotTableCollectionRefreshAllRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookPivotTableCollectionRefreshAllRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1582,6 +2468,12 @@ func (r *WorkbookTableCollectionAddRequest) Post(ctx context.Context) (resObj *W
 }
 
 //
+func (r *WorkbookTableCollectionAddRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookTable
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookTableColumnCollectionAddRequestBuilder struct{ BaseRequestBuilder }
 
 // Add action undocumented
@@ -1606,6 +2498,12 @@ func (b *WorkbookTableColumnCollectionAddRequestBuilder) Request() *WorkbookTabl
 func (r *WorkbookTableColumnCollectionAddRequest) Post(ctx context.Context) (resObj *WorkbookTableColumn, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookTableColumnCollectionAddRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookTableColumn
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -1636,6 +2534,12 @@ func (r *WorkbookTableRowCollectionAddRequest) Post(ctx context.Context) (resObj
 }
 
 //
+func (r *WorkbookTableRowCollectionAddRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookTableRow
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookWorksheetCollectionAddRequestBuilder struct{ BaseRequestBuilder }
 
 // Add action undocumented
@@ -1660,6 +2564,12 @@ func (b *WorkbookWorksheetCollectionAddRequestBuilder) Request() *WorkbookWorksh
 func (r *WorkbookWorksheetCollectionAddRequest) Post(ctx context.Context) (resObj *WorkbookWorksheet, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookWorksheetCollectionAddRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookWorksheet
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -1690,6 +2600,12 @@ func (r *WorkbookCreateSessionRequest) Post(ctx context.Context) (resObj *Workbo
 }
 
 //
+func (r *WorkbookCreateSessionRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookSessionInfo
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookCloseSessionRequestBuilder struct{ BaseRequestBuilder }
 
 // CloseSession action undocumented
@@ -1713,6 +2629,11 @@ func (b *WorkbookCloseSessionRequestBuilder) Request() *WorkbookCloseSessionRequ
 //
 func (r *WorkbookCloseSessionRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookCloseSessionRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1742,6 +2663,11 @@ func (r *WorkbookRefreshSessionRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *WorkbookRefreshSessionRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookApplicationCalculateRequestBuilder struct{ BaseRequestBuilder }
 
 // Calculate action undocumented
@@ -1765,6 +2691,11 @@ func (b *WorkbookApplicationCalculateRequestBuilder) Request() *WorkbookApplicat
 //
 func (r *WorkbookApplicationCalculateRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookApplicationCalculateRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1794,6 +2725,11 @@ func (r *WorkbookChartSetDataRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *WorkbookChartSetDataRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookChartSetPositionRequestBuilder struct{ BaseRequestBuilder }
 
 // SetPosition action undocumented
@@ -1817,6 +2753,11 @@ func (b *WorkbookChartSetPositionRequestBuilder) Request() *WorkbookChartSetPosi
 //
 func (r *WorkbookChartSetPositionRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookChartSetPositionRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1846,6 +2787,11 @@ func (r *WorkbookChartFillClearRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *WorkbookChartFillClearRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookChartFillSetSolidColorRequestBuilder struct{ BaseRequestBuilder }
 
 // SetSolidColor action undocumented
@@ -1869,6 +2815,11 @@ func (b *WorkbookChartFillSetSolidColorRequestBuilder) Request() *WorkbookChartF
 //
 func (r *WorkbookChartFillSetSolidColorRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookChartFillSetSolidColorRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1898,6 +2849,11 @@ func (r *WorkbookChartLineFormatClearRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *WorkbookChartLineFormatClearRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookFilterApplyRequestBuilder struct{ BaseRequestBuilder }
 
 // Apply action undocumented
@@ -1921,6 +2877,11 @@ func (b *WorkbookFilterApplyRequestBuilder) Request() *WorkbookFilterApplyReques
 //
 func (r *WorkbookFilterApplyRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookFilterApplyRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1950,6 +2911,11 @@ func (r *WorkbookFilterApplyBottomItemsFilterRequest) Post(ctx context.Context) 
 }
 
 //
+func (r *WorkbookFilterApplyBottomItemsFilterRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookFilterApplyBottomPercentFilterRequestBuilder struct{ BaseRequestBuilder }
 
 // ApplyBottomPercentFilter action undocumented
@@ -1973,6 +2939,11 @@ func (b *WorkbookFilterApplyBottomPercentFilterRequestBuilder) Request() *Workbo
 //
 func (r *WorkbookFilterApplyBottomPercentFilterRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookFilterApplyBottomPercentFilterRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -2002,6 +2973,11 @@ func (r *WorkbookFilterApplyCellColorFilterRequest) Post(ctx context.Context) er
 }
 
 //
+func (r *WorkbookFilterApplyCellColorFilterRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookFilterApplyCustomFilterRequestBuilder struct{ BaseRequestBuilder }
 
 // ApplyCustomFilter action undocumented
@@ -2025,6 +3001,11 @@ func (b *WorkbookFilterApplyCustomFilterRequestBuilder) Request() *WorkbookFilte
 //
 func (r *WorkbookFilterApplyCustomFilterRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookFilterApplyCustomFilterRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -2054,6 +3035,11 @@ func (r *WorkbookFilterApplyDynamicFilterRequest) Post(ctx context.Context) erro
 }
 
 //
+func (r *WorkbookFilterApplyDynamicFilterRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookFilterApplyFontColorFilterRequestBuilder struct{ BaseRequestBuilder }
 
 // ApplyFontColorFilter action undocumented
@@ -2077,6 +3063,11 @@ func (b *WorkbookFilterApplyFontColorFilterRequestBuilder) Request() *WorkbookFi
 //
 func (r *WorkbookFilterApplyFontColorFilterRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookFilterApplyFontColorFilterRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -2106,6 +3097,11 @@ func (r *WorkbookFilterApplyIconFilterRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *WorkbookFilterApplyIconFilterRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookFilterApplyTopItemsFilterRequestBuilder struct{ BaseRequestBuilder }
 
 // ApplyTopItemsFilter action undocumented
@@ -2129,6 +3125,11 @@ func (b *WorkbookFilterApplyTopItemsFilterRequestBuilder) Request() *WorkbookFil
 //
 func (r *WorkbookFilterApplyTopItemsFilterRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookFilterApplyTopItemsFilterRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -2158,6 +3159,11 @@ func (r *WorkbookFilterApplyTopPercentFilterRequest) Post(ctx context.Context) e
 }
 
 //
+func (r *WorkbookFilterApplyTopPercentFilterRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookFilterApplyValuesFilterRequestBuilder struct{ BaseRequestBuilder }
 
 // ApplyValuesFilter action undocumented
@@ -2181,6 +3187,11 @@ func (b *WorkbookFilterApplyValuesFilterRequestBuilder) Request() *WorkbookFilte
 //
 func (r *WorkbookFilterApplyValuesFilterRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookFilterApplyValuesFilterRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -2210,6 +3221,11 @@ func (r *WorkbookFilterClearRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *WorkbookFilterClearRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookPivotTableRefreshRequestBuilder struct{ BaseRequestBuilder }
 
 // Refresh action undocumented
@@ -2233,6 +3249,11 @@ func (b *WorkbookPivotTableRefreshRequestBuilder) Request() *WorkbookPivotTableR
 //
 func (r *WorkbookPivotTableRefreshRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookPivotTableRefreshRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -2262,6 +3283,11 @@ func (r *WorkbookRangeClearRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *WorkbookRangeClearRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookRangeDeleteRequestBuilder struct{ BaseRequestBuilder }
 
 // Delete action undocumented
@@ -2285,6 +3311,11 @@ func (b *WorkbookRangeDeleteRequestBuilder) Request() *WorkbookRangeDeleteReques
 //
 func (r *WorkbookRangeDeleteRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookRangeDeleteRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -2315,6 +3346,12 @@ func (r *WorkbookRangeInsertRequest) Post(ctx context.Context) (resObj *Workbook
 }
 
 //
+func (r *WorkbookRangeInsertRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookRange
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookRangeMergeRequestBuilder struct{ BaseRequestBuilder }
 
 // Merge action undocumented
@@ -2338,6 +3375,11 @@ func (b *WorkbookRangeMergeRequestBuilder) Request() *WorkbookRangeMergeRequest 
 //
 func (r *WorkbookRangeMergeRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookRangeMergeRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -2367,6 +3409,11 @@ func (r *WorkbookRangeUnmergeRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *WorkbookRangeUnmergeRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookRangeFillClearRequestBuilder struct{ BaseRequestBuilder }
 
 // Clear action undocumented
@@ -2390,6 +3437,11 @@ func (b *WorkbookRangeFillClearRequestBuilder) Request() *WorkbookRangeFillClear
 //
 func (r *WorkbookRangeFillClearRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookRangeFillClearRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -2419,6 +3471,11 @@ func (r *WorkbookRangeFormatAutofitColumnsRequest) Post(ctx context.Context) err
 }
 
 //
+func (r *WorkbookRangeFormatAutofitColumnsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookRangeFormatAutofitRowsRequestBuilder struct{ BaseRequestBuilder }
 
 // AutofitRows action undocumented
@@ -2442,6 +3499,11 @@ func (b *WorkbookRangeFormatAutofitRowsRequestBuilder) Request() *WorkbookRangeF
 //
 func (r *WorkbookRangeFormatAutofitRowsRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookRangeFormatAutofitRowsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -2471,6 +3533,11 @@ func (r *WorkbookRangeSortApplyRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *WorkbookRangeSortApplyRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookTableClearFiltersRequestBuilder struct{ BaseRequestBuilder }
 
 // ClearFilters action undocumented
@@ -2494,6 +3561,11 @@ func (b *WorkbookTableClearFiltersRequestBuilder) Request() *WorkbookTableClearF
 //
 func (r *WorkbookTableClearFiltersRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookTableClearFiltersRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -2524,6 +3596,12 @@ func (r *WorkbookTableConvertToRangeRequest) Post(ctx context.Context) (resObj *
 }
 
 //
+func (r *WorkbookTableConvertToRangeRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookRange
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookTableReapplyFiltersRequestBuilder struct{ BaseRequestBuilder }
 
 // ReapplyFilters action undocumented
@@ -2547,6 +3625,11 @@ func (b *WorkbookTableReapplyFiltersRequestBuilder) Request() *WorkbookTableReap
 //
 func (r *WorkbookTableReapplyFiltersRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookTableReapplyFiltersRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -2576,6 +3659,11 @@ func (r *WorkbookTableSortApplyRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *WorkbookTableSortApplyRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookTableSortClearRequestBuilder struct{ BaseRequestBuilder }
 
 // Clear action undocumented
@@ -2599,6 +3687,11 @@ func (b *WorkbookTableSortClearRequestBuilder) Request() *WorkbookTableSortClear
 //
 func (r *WorkbookTableSortClearRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookTableSortClearRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -2628,6 +3721,11 @@ func (r *WorkbookTableSortReapplyRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *WorkbookTableSortReapplyRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookWorksheetProtectionProtectRequestBuilder struct{ BaseRequestBuilder }
 
 // Protect action undocumented
@@ -2654,6 +3752,11 @@ func (r *WorkbookWorksheetProtectionProtectRequest) Post(ctx context.Context) er
 }
 
 //
+func (r *WorkbookWorksheetProtectionProtectRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type WorkbookWorksheetProtectionUnprotectRequestBuilder struct{ BaseRequestBuilder }
 
 // Unprotect action undocumented
@@ -2677,4 +3780,9 @@ func (b *WorkbookWorksheetProtectionUnprotectRequestBuilder) Request() *Workbook
 //
 func (r *WorkbookWorksheetProtectionUnprotectRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *WorkbookWorksheetProtectionUnprotectRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -111,4 +112,20 @@ func (r *DetectedAppManagedDevicesCollectionRequest) Get(ctx context.Context) ([
 func (r *DetectedAppManagedDevicesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDevice) (resObj *ManagedDevice, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedDevice collection
+func (r *DetectedAppManagedDevicesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDevice
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDevice collection
+func (r *DetectedAppManagedDevicesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDevice) error {
+	var resObj []ManagedDevice
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

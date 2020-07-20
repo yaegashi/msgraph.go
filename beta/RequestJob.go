@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // JobResponseBaseRequestBuilder is request builder for JobResponseBase
 type JobResponseBaseRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *JobResponseBaseRequest) Update(ctx context.Context, reqObj *JobResponse
 // Delete performs DELETE request for JobResponseBase
 func (r *JobResponseBaseRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for JobResponseBase
+func (r *JobResponseBaseRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj JobResponseBase
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for JobResponseBase
+func (r *JobResponseBaseRequest) BatchUpdate(batch *BatchRequest, reqObj *JobResponseBase) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for JobResponseBase
+func (r *JobResponseBaseRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

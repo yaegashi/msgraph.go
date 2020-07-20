@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ActivityHistoryItemRequestBuilder is request builder for ActivityHistoryItem
 type ActivityHistoryItemRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *ActivityHistoryItemRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ActivityHistoryItem
+func (r *ActivityHistoryItemRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ActivityHistoryItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ActivityHistoryItem
+func (r *ActivityHistoryItemRequest) BatchUpdate(batch *BatchRequest, reqObj *ActivityHistoryItem) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ActivityHistoryItem
+func (r *ActivityHistoryItemRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ActivityStatisticsRequestBuilder is request builder for ActivityStatistics
 type ActivityStatisticsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *ActivityStatisticsRequest) Update(ctx context.Context, reqObj *Activity
 // Delete performs DELETE request for ActivityStatistics
 func (r *ActivityStatisticsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ActivityStatistics
+func (r *ActivityStatisticsRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ActivityStatistics
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ActivityStatistics
+func (r *ActivityStatisticsRequest) BatchUpdate(batch *BatchRequest, reqObj *ActivityStatistics) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ActivityStatistics
+func (r *ActivityStatisticsRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -132,6 +133,22 @@ func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Add(ctx context.Context
 	return
 }
 
+// BatchGet adds Get operation to Batch for RoleAssignment collection
+func (r *RoleDefinitionRoleAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []RoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for RoleAssignment collection
+func (r *RoleDefinitionRoleAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *RoleAssignment) error {
+	var resObj []RoleAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Directory is navigation property
 func (b *RoleManagementRequestBuilder) Directory() *RbacApplicationRequestBuilder {
 	bb := &RbacApplicationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -239,4 +256,20 @@ func (r *RoleScopeTagAssignmentsCollectionRequest) Get(ctx context.Context) ([]R
 func (r *RoleScopeTagAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *RoleScopeTagAutoAssignment) (resObj *RoleScopeTagAutoAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for RoleScopeTagAutoAssignment collection
+func (r *RoleScopeTagAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []RoleScopeTagAutoAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for RoleScopeTagAutoAssignment collection
+func (r *RoleScopeTagAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *RoleScopeTagAutoAssignment) error {
+	var resObj []RoleScopeTagAutoAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

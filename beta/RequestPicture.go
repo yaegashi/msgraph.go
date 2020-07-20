@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // PictureRequestBuilder is request builder for Picture
 type PictureRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *PictureRequest) Update(ctx context.Context, reqObj *Picture) error {
 // Delete performs DELETE request for Picture
 func (r *PictureRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Picture
+func (r *PictureRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Picture
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Picture
+func (r *PictureRequest) BatchUpdate(batch *BatchRequest, reqObj *Picture) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Picture
+func (r *PictureRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // NotebookRequestBuilder is request builder for Notebook
 type NotebookRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *NotebookRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Notebook
+func (r *NotebookRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Notebook
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Notebook
+func (r *NotebookRequest) BatchUpdate(batch *BatchRequest, reqObj *Notebook) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Notebook
+func (r *NotebookRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type NotebookCollectionGetNotebookFromWebURLRequestBuilder struct{ BaseRequestBuilder }
 
@@ -65,6 +88,12 @@ func (r *NotebookCollectionGetNotebookFromWebURLRequest) Post(ctx context.Contex
 }
 
 //
+func (r *NotebookCollectionGetNotebookFromWebURLRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *CopyNotebookModel
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type NotebookCopyNotebookRequestBuilder struct{ BaseRequestBuilder }
 
 // CopyNotebook action undocumented
@@ -89,4 +118,10 @@ func (b *NotebookCopyNotebookRequestBuilder) Request() *NotebookCopyNotebookRequ
 func (r *NotebookCopyNotebookRequest) Post(ctx context.Context) (resObj *OnenoteOperation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *NotebookCopyNotebookRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *OnenoteOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

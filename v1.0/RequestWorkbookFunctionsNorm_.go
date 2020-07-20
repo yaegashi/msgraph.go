@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsNorm_DistRequestBuilder struct{ BaseRequestBuilder }
@@ -29,6 +32,12 @@ func (b *WorkbookFunctionsNorm_DistRequestBuilder) Request() *WorkbookFunctionsN
 func (r *WorkbookFunctionsNorm_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsNorm_DistRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -59,6 +68,12 @@ func (r *WorkbookFunctionsNorm_InvRequest) Post(ctx context.Context) (resObj *Wo
 }
 
 //
+func (r *WorkbookFunctionsNorm_InvRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsNorm_S_DistRequestBuilder struct{ BaseRequestBuilder }
 
 // Norm_S_Dist action undocumented
@@ -86,6 +101,12 @@ func (r *WorkbookFunctionsNorm_S_DistRequest) Post(ctx context.Context) (resObj 
 }
 
 //
+func (r *WorkbookFunctionsNorm_S_DistRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsNorm_S_InvRequestBuilder struct{ BaseRequestBuilder }
 
 // Norm_S_Inv action undocumented
@@ -110,4 +131,10 @@ func (b *WorkbookFunctionsNorm_S_InvRequestBuilder) Request() *WorkbookFunctions
 func (r *WorkbookFunctionsNorm_S_InvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsNorm_S_InvRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

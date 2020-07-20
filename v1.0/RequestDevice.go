@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *DeviceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Device
+func (r *DeviceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Device
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Device
+func (r *DeviceRequest) BatchUpdate(batch *BatchRequest, reqObj *Device) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Device
+func (r *DeviceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceAndAppManagementRoleAssignmentRequestBuilder is request builder for DeviceAndAppManagementRoleAssignment
 type DeviceAndAppManagementRoleAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *DeviceAndAppManagementRoleAssignmentRequest) Update(ctx context.Context
 // Delete performs DELETE request for DeviceAndAppManagementRoleAssignment
 func (r *DeviceAndAppManagementRoleAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DeviceAndAppManagementRoleAssignment
+func (r *DeviceAndAppManagementRoleAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceAndAppManagementRoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceAndAppManagementRoleAssignment
+func (r *DeviceAndAppManagementRoleAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceAndAppManagementRoleAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceAndAppManagementRoleAssignment
+func (r *DeviceAndAppManagementRoleAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DeviceAppManagementRequestBuilder is request builder for DeviceAppManagement
@@ -110,6 +151,26 @@ func (r *DeviceAppManagementRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceAppManagement
+func (r *DeviceAppManagementRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceAppManagement
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceAppManagement
+func (r *DeviceAppManagementRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceAppManagement) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceAppManagement
+func (r *DeviceAppManagementRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceCategoryRequestBuilder is request builder for DeviceCategory
 type DeviceCategoryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -141,6 +202,26 @@ func (r *DeviceCategoryRequest) Update(ctx context.Context, reqObj *DeviceCatego
 // Delete performs DELETE request for DeviceCategory
 func (r *DeviceCategoryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DeviceCategory
+func (r *DeviceCategoryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceCategory
+func (r *DeviceCategoryRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceCategory) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceCategory
+func (r *DeviceCategoryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DeviceComplianceActionItemRequestBuilder is request builder for DeviceComplianceActionItem
@@ -176,6 +257,26 @@ func (r *DeviceComplianceActionItemRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceComplianceActionItem
+func (r *DeviceComplianceActionItemRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceComplianceActionItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceComplianceActionItem
+func (r *DeviceComplianceActionItemRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceComplianceActionItem) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceComplianceActionItem
+func (r *DeviceComplianceActionItemRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceComplianceDeviceOverviewRequestBuilder is request builder for DeviceComplianceDeviceOverview
 type DeviceComplianceDeviceOverviewRequestBuilder struct{ BaseRequestBuilder }
 
@@ -207,6 +308,26 @@ func (r *DeviceComplianceDeviceOverviewRequest) Update(ctx context.Context, reqO
 // Delete performs DELETE request for DeviceComplianceDeviceOverview
 func (r *DeviceComplianceDeviceOverviewRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DeviceComplianceDeviceOverview
+func (r *DeviceComplianceDeviceOverviewRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceComplianceDeviceOverview
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceComplianceDeviceOverview
+func (r *DeviceComplianceDeviceOverviewRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceComplianceDeviceOverview) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceComplianceDeviceOverview
+func (r *DeviceComplianceDeviceOverviewRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DeviceComplianceDeviceStatusRequestBuilder is request builder for DeviceComplianceDeviceStatus
@@ -242,6 +363,26 @@ func (r *DeviceComplianceDeviceStatusRequest) Delete(ctx context.Context) error 
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceComplianceDeviceStatus
+func (r *DeviceComplianceDeviceStatusRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceComplianceDeviceStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceComplianceDeviceStatus
+func (r *DeviceComplianceDeviceStatusRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceComplianceDeviceStatus) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceComplianceDeviceStatus
+func (r *DeviceComplianceDeviceStatusRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceCompliancePolicyRequestBuilder is request builder for DeviceCompliancePolicy
 type DeviceCompliancePolicyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -273,6 +414,26 @@ func (r *DeviceCompliancePolicyRequest) Update(ctx context.Context, reqObj *Devi
 // Delete performs DELETE request for DeviceCompliancePolicy
 func (r *DeviceCompliancePolicyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DeviceCompliancePolicy
+func (r *DeviceCompliancePolicyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceCompliancePolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceCompliancePolicy
+func (r *DeviceCompliancePolicyRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceCompliancePolicy) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceCompliancePolicy
+func (r *DeviceCompliancePolicyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DeviceCompliancePolicyAssignmentRequestBuilder is request builder for DeviceCompliancePolicyAssignment
@@ -308,6 +469,26 @@ func (r *DeviceCompliancePolicyAssignmentRequest) Delete(ctx context.Context) er
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceCompliancePolicyAssignment
+func (r *DeviceCompliancePolicyAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceCompliancePolicyAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceCompliancePolicyAssignment
+func (r *DeviceCompliancePolicyAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceCompliancePolicyAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceCompliancePolicyAssignment
+func (r *DeviceCompliancePolicyAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceCompliancePolicyDeviceStateSummaryRequestBuilder is request builder for DeviceCompliancePolicyDeviceStateSummary
 type DeviceCompliancePolicyDeviceStateSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -339,6 +520,26 @@ func (r *DeviceCompliancePolicyDeviceStateSummaryRequest) Update(ctx context.Con
 // Delete performs DELETE request for DeviceCompliancePolicyDeviceStateSummary
 func (r *DeviceCompliancePolicyDeviceStateSummaryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DeviceCompliancePolicyDeviceStateSummary
+func (r *DeviceCompliancePolicyDeviceStateSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceCompliancePolicyDeviceStateSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceCompliancePolicyDeviceStateSummary
+func (r *DeviceCompliancePolicyDeviceStateSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceCompliancePolicyDeviceStateSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceCompliancePolicyDeviceStateSummary
+func (r *DeviceCompliancePolicyDeviceStateSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DeviceCompliancePolicySettingStateSummaryRequestBuilder is request builder for DeviceCompliancePolicySettingStateSummary
@@ -374,6 +575,26 @@ func (r *DeviceCompliancePolicySettingStateSummaryRequest) Delete(ctx context.Co
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceCompliancePolicySettingStateSummary
+func (r *DeviceCompliancePolicySettingStateSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceCompliancePolicySettingStateSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceCompliancePolicySettingStateSummary
+func (r *DeviceCompliancePolicySettingStateSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceCompliancePolicySettingStateSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceCompliancePolicySettingStateSummary
+func (r *DeviceCompliancePolicySettingStateSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceCompliancePolicyStateRequestBuilder is request builder for DeviceCompliancePolicyState
 type DeviceCompliancePolicyStateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -405,6 +626,26 @@ func (r *DeviceCompliancePolicyStateRequest) Update(ctx context.Context, reqObj 
 // Delete performs DELETE request for DeviceCompliancePolicyState
 func (r *DeviceCompliancePolicyStateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DeviceCompliancePolicyState
+func (r *DeviceCompliancePolicyStateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceCompliancePolicyState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceCompliancePolicyState
+func (r *DeviceCompliancePolicyStateRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceCompliancePolicyState) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceCompliancePolicyState
+func (r *DeviceCompliancePolicyStateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DeviceComplianceScheduledActionForRuleRequestBuilder is request builder for DeviceComplianceScheduledActionForRule
@@ -440,6 +681,26 @@ func (r *DeviceComplianceScheduledActionForRuleRequest) Delete(ctx context.Conte
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceComplianceScheduledActionForRule
+func (r *DeviceComplianceScheduledActionForRuleRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceComplianceScheduledActionForRule
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceComplianceScheduledActionForRule
+func (r *DeviceComplianceScheduledActionForRuleRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceComplianceScheduledActionForRule) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceComplianceScheduledActionForRule
+func (r *DeviceComplianceScheduledActionForRuleRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceComplianceSettingStateRequestBuilder is request builder for DeviceComplianceSettingState
 type DeviceComplianceSettingStateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -471,6 +732,26 @@ func (r *DeviceComplianceSettingStateRequest) Update(ctx context.Context, reqObj
 // Delete performs DELETE request for DeviceComplianceSettingState
 func (r *DeviceComplianceSettingStateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DeviceComplianceSettingState
+func (r *DeviceComplianceSettingStateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceComplianceSettingState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceComplianceSettingState
+func (r *DeviceComplianceSettingStateRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceComplianceSettingState) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceComplianceSettingState
+func (r *DeviceComplianceSettingStateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DeviceComplianceUserOverviewRequestBuilder is request builder for DeviceComplianceUserOverview
@@ -506,6 +787,26 @@ func (r *DeviceComplianceUserOverviewRequest) Delete(ctx context.Context) error 
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceComplianceUserOverview
+func (r *DeviceComplianceUserOverviewRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceComplianceUserOverview
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceComplianceUserOverview
+func (r *DeviceComplianceUserOverviewRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceComplianceUserOverview) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceComplianceUserOverview
+func (r *DeviceComplianceUserOverviewRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceComplianceUserStatusRequestBuilder is request builder for DeviceComplianceUserStatus
 type DeviceComplianceUserStatusRequestBuilder struct{ BaseRequestBuilder }
 
@@ -537,6 +838,26 @@ func (r *DeviceComplianceUserStatusRequest) Update(ctx context.Context, reqObj *
 // Delete performs DELETE request for DeviceComplianceUserStatus
 func (r *DeviceComplianceUserStatusRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DeviceComplianceUserStatus
+func (r *DeviceComplianceUserStatusRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceComplianceUserStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceComplianceUserStatus
+func (r *DeviceComplianceUserStatusRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceComplianceUserStatus) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceComplianceUserStatus
+func (r *DeviceComplianceUserStatusRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DeviceConfigurationRequestBuilder is request builder for DeviceConfiguration
@@ -572,6 +893,26 @@ func (r *DeviceConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceConfiguration
+func (r *DeviceConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceConfiguration
+func (r *DeviceConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceConfiguration
+func (r *DeviceConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceConfigurationAssignmentRequestBuilder is request builder for DeviceConfigurationAssignment
 type DeviceConfigurationAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -603,6 +944,26 @@ func (r *DeviceConfigurationAssignmentRequest) Update(ctx context.Context, reqOb
 // Delete performs DELETE request for DeviceConfigurationAssignment
 func (r *DeviceConfigurationAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DeviceConfigurationAssignment
+func (r *DeviceConfigurationAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceConfigurationAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceConfigurationAssignment
+func (r *DeviceConfigurationAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceConfigurationAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceConfigurationAssignment
+func (r *DeviceConfigurationAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DeviceConfigurationDeviceOverviewRequestBuilder is request builder for DeviceConfigurationDeviceOverview
@@ -638,6 +999,26 @@ func (r *DeviceConfigurationDeviceOverviewRequest) Delete(ctx context.Context) e
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceConfigurationDeviceOverview
+func (r *DeviceConfigurationDeviceOverviewRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceConfigurationDeviceOverview
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceConfigurationDeviceOverview
+func (r *DeviceConfigurationDeviceOverviewRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceConfigurationDeviceOverview) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceConfigurationDeviceOverview
+func (r *DeviceConfigurationDeviceOverviewRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceConfigurationDeviceStateSummaryRequestBuilder is request builder for DeviceConfigurationDeviceStateSummary
 type DeviceConfigurationDeviceStateSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -669,6 +1050,26 @@ func (r *DeviceConfigurationDeviceStateSummaryRequest) Update(ctx context.Contex
 // Delete performs DELETE request for DeviceConfigurationDeviceStateSummary
 func (r *DeviceConfigurationDeviceStateSummaryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DeviceConfigurationDeviceStateSummary
+func (r *DeviceConfigurationDeviceStateSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceConfigurationDeviceStateSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceConfigurationDeviceStateSummary
+func (r *DeviceConfigurationDeviceStateSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceConfigurationDeviceStateSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceConfigurationDeviceStateSummary
+func (r *DeviceConfigurationDeviceStateSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DeviceConfigurationDeviceStatusRequestBuilder is request builder for DeviceConfigurationDeviceStatus
@@ -704,6 +1105,26 @@ func (r *DeviceConfigurationDeviceStatusRequest) Delete(ctx context.Context) err
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceConfigurationDeviceStatus
+func (r *DeviceConfigurationDeviceStatusRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceConfigurationDeviceStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceConfigurationDeviceStatus
+func (r *DeviceConfigurationDeviceStatusRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceConfigurationDeviceStatus) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceConfigurationDeviceStatus
+func (r *DeviceConfigurationDeviceStatusRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceConfigurationStateRequestBuilder is request builder for DeviceConfigurationState
 type DeviceConfigurationStateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -735,6 +1156,26 @@ func (r *DeviceConfigurationStateRequest) Update(ctx context.Context, reqObj *De
 // Delete performs DELETE request for DeviceConfigurationState
 func (r *DeviceConfigurationStateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DeviceConfigurationState
+func (r *DeviceConfigurationStateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceConfigurationState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceConfigurationState
+func (r *DeviceConfigurationStateRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceConfigurationState) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceConfigurationState
+func (r *DeviceConfigurationStateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DeviceConfigurationUserOverviewRequestBuilder is request builder for DeviceConfigurationUserOverview
@@ -770,6 +1211,26 @@ func (r *DeviceConfigurationUserOverviewRequest) Delete(ctx context.Context) err
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceConfigurationUserOverview
+func (r *DeviceConfigurationUserOverviewRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceConfigurationUserOverview
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceConfigurationUserOverview
+func (r *DeviceConfigurationUserOverviewRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceConfigurationUserOverview) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceConfigurationUserOverview
+func (r *DeviceConfigurationUserOverviewRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceConfigurationUserStatusRequestBuilder is request builder for DeviceConfigurationUserStatus
 type DeviceConfigurationUserStatusRequestBuilder struct{ BaseRequestBuilder }
 
@@ -801,6 +1262,26 @@ func (r *DeviceConfigurationUserStatusRequest) Update(ctx context.Context, reqOb
 // Delete performs DELETE request for DeviceConfigurationUserStatus
 func (r *DeviceConfigurationUserStatusRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DeviceConfigurationUserStatus
+func (r *DeviceConfigurationUserStatusRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceConfigurationUserStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceConfigurationUserStatus
+func (r *DeviceConfigurationUserStatusRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceConfigurationUserStatus) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceConfigurationUserStatus
+func (r *DeviceConfigurationUserStatusRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DeviceEnrollmentConfigurationRequestBuilder is request builder for DeviceEnrollmentConfiguration
@@ -836,6 +1317,26 @@ func (r *DeviceEnrollmentConfigurationRequest) Delete(ctx context.Context) error
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceEnrollmentConfiguration
+func (r *DeviceEnrollmentConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceEnrollmentConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceEnrollmentConfiguration
+func (r *DeviceEnrollmentConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceEnrollmentConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceEnrollmentConfiguration
+func (r *DeviceEnrollmentConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceInstallStateRequestBuilder is request builder for DeviceInstallState
 type DeviceInstallStateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -867,6 +1368,26 @@ func (r *DeviceInstallStateRequest) Update(ctx context.Context, reqObj *DeviceIn
 // Delete performs DELETE request for DeviceInstallState
 func (r *DeviceInstallStateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DeviceInstallState
+func (r *DeviceInstallStateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceInstallState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceInstallState
+func (r *DeviceInstallStateRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceInstallState) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceInstallState
+func (r *DeviceInstallStateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DeviceManagementRequestBuilder is request builder for DeviceManagement
@@ -902,6 +1423,26 @@ func (r *DeviceManagementRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagement
+func (r *DeviceManagementRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceManagement
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceManagement
+func (r *DeviceManagementRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceManagement) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceManagement
+func (r *DeviceManagementRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceManagementExchangeConnectorRequestBuilder is request builder for DeviceManagementExchangeConnector
 type DeviceManagementExchangeConnectorRequestBuilder struct{ BaseRequestBuilder }
 
@@ -933,6 +1474,26 @@ func (r *DeviceManagementExchangeConnectorRequest) Update(ctx context.Context, r
 // Delete performs DELETE request for DeviceManagementExchangeConnector
 func (r *DeviceManagementExchangeConnectorRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DeviceManagementExchangeConnector
+func (r *DeviceManagementExchangeConnectorRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceManagementExchangeConnector
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceManagementExchangeConnector
+func (r *DeviceManagementExchangeConnectorRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceManagementExchangeConnector) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceManagementExchangeConnector
+func (r *DeviceManagementExchangeConnectorRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DeviceManagementPartnerRequestBuilder is request builder for DeviceManagementPartner
@@ -968,6 +1529,26 @@ func (r *DeviceManagementPartnerRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementPartner
+func (r *DeviceManagementPartnerRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceManagementPartner
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceManagementPartner
+func (r *DeviceManagementPartnerRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceManagementPartner) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceManagementPartner
+func (r *DeviceManagementPartnerRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DeviceManagementTroubleshootingEventRequestBuilder is request builder for DeviceManagementTroubleshootingEvent
 type DeviceManagementTroubleshootingEventRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1001,6 +1582,26 @@ func (r *DeviceManagementTroubleshootingEventRequest) Delete(ctx context.Context
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DeviceManagementTroubleshootingEvent
+func (r *DeviceManagementTroubleshootingEventRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DeviceManagementTroubleshootingEvent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DeviceManagementTroubleshootingEvent
+func (r *DeviceManagementTroubleshootingEventRequest) BatchUpdate(batch *BatchRequest, reqObj *DeviceManagementTroubleshootingEvent) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DeviceManagementTroubleshootingEvent
+func (r *DeviceManagementTroubleshootingEventRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1025,6 +1626,11 @@ func (b *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder) Req
 //
 func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1114,6 +1720,12 @@ func (r *DeviceCompliancePolicyAssignRequest) Post(ctx context.Context) ([]Devic
 }
 
 //
+func (r *DeviceCompliancePolicyAssignRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []DeviceCompliancePolicyAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder struct{ BaseRequestBuilder }
 
 // ScheduleActionsForRules action undocumented
@@ -1137,6 +1749,11 @@ func (b *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder) Request() 
 //
 func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1226,6 +1843,12 @@ func (r *DeviceConfigurationAssignRequest) Post(ctx context.Context) ([]DeviceCo
 }
 
 //
+func (r *DeviceConfigurationAssignRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []DeviceConfigurationAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type DeviceEnrollmentConfigurationSetPriorityRequestBuilder struct{ BaseRequestBuilder }
 
 // SetPriority action undocumented
@@ -1249,6 +1872,11 @@ func (b *DeviceEnrollmentConfigurationSetPriorityRequestBuilder) Request() *Devi
 //
 func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *DeviceEnrollmentConfigurationSetPriorityRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1278,6 +1906,11 @@ func (r *DeviceEnrollmentConfigurationAssignRequest) Post(ctx context.Context) e
 }
 
 //
+func (r *DeviceEnrollmentConfigurationAssignRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type DeviceManagementExchangeConnectorSyncRequestBuilder struct{ BaseRequestBuilder }
 
 // Sync action undocumented
@@ -1301,4 +1934,9 @@ func (b *DeviceManagementExchangeConnectorSyncRequestBuilder) Request() *DeviceM
 //
 func (r *DeviceManagementExchangeConnectorSyncRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *DeviceManagementExchangeConnectorSyncRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

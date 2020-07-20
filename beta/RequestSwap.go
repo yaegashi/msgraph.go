@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // SwapShiftsChangeRequestObjectRequestBuilder is request builder for SwapShiftsChangeRequestObject
 type SwapShiftsChangeRequestObjectRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *SwapShiftsChangeRequestObjectRequest) Update(ctx context.Context, reqOb
 // Delete performs DELETE request for SwapShiftsChangeRequestObject
 func (r *SwapShiftsChangeRequestObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SwapShiftsChangeRequestObject
+func (r *SwapShiftsChangeRequestObjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SwapShiftsChangeRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SwapShiftsChangeRequestObject
+func (r *SwapShiftsChangeRequestObjectRequest) BatchUpdate(batch *BatchRequest, reqObj *SwapShiftsChangeRequestObject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SwapShiftsChangeRequestObject
+func (r *SwapShiftsChangeRequestObjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

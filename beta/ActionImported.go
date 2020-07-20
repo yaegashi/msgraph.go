@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -139,4 +140,20 @@ func (r *ImportedWindowsAutopilotDeviceIdentityUploadDeviceIdentitiesCollectionR
 func (r *ImportedWindowsAutopilotDeviceIdentityUploadDeviceIdentitiesCollectionRequest) Add(ctx context.Context, reqObj *ImportedWindowsAutopilotDeviceIdentity) (resObj *ImportedWindowsAutopilotDeviceIdentity, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ImportedWindowsAutopilotDeviceIdentity collection
+func (r *ImportedWindowsAutopilotDeviceIdentityUploadDeviceIdentitiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ImportedWindowsAutopilotDeviceIdentity
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ImportedWindowsAutopilotDeviceIdentity collection
+func (r *ImportedWindowsAutopilotDeviceIdentityUploadDeviceIdentitiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ImportedWindowsAutopilotDeviceIdentity) error {
+	var resObj []ImportedWindowsAutopilotDeviceIdentity
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

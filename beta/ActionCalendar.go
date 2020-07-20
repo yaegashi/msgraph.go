@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -129,6 +130,22 @@ func (r *CalendarCalendarPermissionsCollectionRequest) Add(ctx context.Context, 
 	return
 }
 
+// BatchGet adds Get operation to Batch for CalendarPermission collection
+func (r *CalendarCalendarPermissionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []CalendarPermission
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for CalendarPermission collection
+func (r *CalendarCalendarPermissionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *CalendarPermission) error {
+	var resObj []CalendarPermission
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // CalendarView returns request builder for Event collection
 func (b *CalendarRequestBuilder) CalendarView() *CalendarCalendarViewCollectionRequestBuilder {
 	bb := &CalendarCalendarViewCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -229,6 +246,22 @@ func (r *CalendarCalendarViewCollectionRequest) Get(ctx context.Context) ([]Even
 func (r *CalendarCalendarViewCollectionRequest) Add(ctx context.Context, reqObj *Event) (resObj *Event, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Event collection
+func (r *CalendarCalendarViewCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Event
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Event collection
+func (r *CalendarCalendarViewCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Event) error {
+	var resObj []Event
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Events returns request builder for Event collection
@@ -333,6 +366,22 @@ func (r *CalendarEventsCollectionRequest) Add(ctx context.Context, reqObj *Event
 	return
 }
 
+// BatchGet adds Get operation to Batch for Event collection
+func (r *CalendarEventsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Event
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Event collection
+func (r *CalendarEventsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Event) error {
+	var resObj []Event
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // MultiValueExtendedProperties returns request builder for MultiValueLegacyExtendedProperty collection
 func (b *CalendarRequestBuilder) MultiValueExtendedProperties() *CalendarMultiValueExtendedPropertiesCollectionRequestBuilder {
 	bb := &CalendarMultiValueExtendedPropertiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -433,6 +482,22 @@ func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.
 func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Add(ctx context.Context, reqObj *MultiValueLegacyExtendedProperty) (resObj *MultiValueLegacyExtendedProperty, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MultiValueLegacyExtendedProperty collection
+func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MultiValueLegacyExtendedProperty) error {
+	var resObj []MultiValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SingleValueExtendedProperties returns request builder for SingleValueLegacyExtendedProperty collection
@@ -537,6 +602,22 @@ func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) Add(ctx context
 	return
 }
 
+// BatchGet adds Get operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SingleValueLegacyExtendedProperty collection
+func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SingleValueLegacyExtendedProperty) error {
+	var resObj []SingleValueLegacyExtendedProperty
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Calendars returns request builder for Calendar collection
 func (b *CalendarGroupRequestBuilder) Calendars() *CalendarGroupCalendarsCollectionRequestBuilder {
 	bb := &CalendarGroupCalendarsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -637,4 +718,20 @@ func (r *CalendarGroupCalendarsCollectionRequest) Get(ctx context.Context) ([]Ca
 func (r *CalendarGroupCalendarsCollectionRequest) Add(ctx context.Context, reqObj *Calendar) (resObj *Calendar, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Calendar collection
+func (r *CalendarGroupCalendarsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Calendar
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Calendar collection
+func (r *CalendarGroupCalendarsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Calendar) error {
+	var resObj []Calendar
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

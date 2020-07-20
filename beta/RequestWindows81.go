@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // Windows81SCEPCertificateProfileRequestBuilder is request builder for Windows81SCEPCertificateProfile
 type Windows81SCEPCertificateProfileRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *Windows81SCEPCertificateProfileRequest) Delete(ctx context.Context) err
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for Windows81SCEPCertificateProfile
+func (r *Windows81SCEPCertificateProfileRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Windows81SCEPCertificateProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Windows81SCEPCertificateProfile
+func (r *Windows81SCEPCertificateProfileRequest) BatchUpdate(batch *BatchRequest, reqObj *Windows81SCEPCertificateProfile) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Windows81SCEPCertificateProfile
+func (r *Windows81SCEPCertificateProfileRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // Windows81TrustedRootCertificateRequestBuilder is request builder for Windows81TrustedRootCertificate
 type Windows81TrustedRootCertificateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *Windows81TrustedRootCertificateRequest) Update(ctx context.Context, req
 // Delete performs DELETE request for Windows81TrustedRootCertificate
 func (r *Windows81TrustedRootCertificateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Windows81TrustedRootCertificate
+func (r *Windows81TrustedRootCertificateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Windows81TrustedRootCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Windows81TrustedRootCertificate
+func (r *Windows81TrustedRootCertificateRequest) BatchUpdate(batch *BatchRequest, reqObj *Windows81TrustedRootCertificate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Windows81TrustedRootCertificate
+func (r *Windows81TrustedRootCertificateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

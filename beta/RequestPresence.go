@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // PresenceRequestBuilder is request builder for Presence
 type PresenceRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *PresenceRequest) Update(ctx context.Context, reqObj *Presence) error {
 // Delete performs DELETE request for Presence
 func (r *PresenceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Presence
+func (r *PresenceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Presence
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Presence
+func (r *PresenceRequest) BatchUpdate(batch *BatchRequest, reqObj *Presence) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Presence
+func (r *PresenceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

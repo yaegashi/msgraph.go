@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ThreatAssessmentRequestObjectRequestBuilder is request builder for ThreatAssessmentRequestObject
 type ThreatAssessmentRequestObjectRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *ThreatAssessmentRequestObjectRequest) Delete(ctx context.Context) error
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ThreatAssessmentRequestObject
+func (r *ThreatAssessmentRequestObjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ThreatAssessmentRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ThreatAssessmentRequestObject
+func (r *ThreatAssessmentRequestObjectRequest) BatchUpdate(batch *BatchRequest, reqObj *ThreatAssessmentRequestObject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ThreatAssessmentRequestObject
+func (r *ThreatAssessmentRequestObjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ThreatAssessmentResultRequestBuilder is request builder for ThreatAssessmentResult
 type ThreatAssessmentResultRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *ThreatAssessmentResultRequest) Update(ctx context.Context, reqObj *Thre
 // Delete performs DELETE request for ThreatAssessmentResult
 func (r *ThreatAssessmentResultRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ThreatAssessmentResult
+func (r *ThreatAssessmentResultRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ThreatAssessmentResult
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ThreatAssessmentResult
+func (r *ThreatAssessmentResultRequest) BatchUpdate(batch *BatchRequest, reqObj *ThreatAssessmentResult) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ThreatAssessmentResult
+func (r *ThreatAssessmentResultRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

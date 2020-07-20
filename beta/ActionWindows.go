@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -197,6 +198,22 @@ func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Add(
 	return
 }
 
+// BatchGet adds Get operation to Batch for WindowsAutopilotDeviceIdentity collection
+func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsAutopilotDeviceIdentity
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsAutopilotDeviceIdentity collection
+func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsAutopilotDeviceIdentity) error {
+	var resObj []WindowsAutopilotDeviceIdentity
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Assignments returns request builder for WindowsAutopilotDeploymentProfileAssignment collection
 func (b *WindowsAutopilotDeploymentProfileRequestBuilder) Assignments() *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequestBuilder {
 	bb := &WindowsAutopilotDeploymentProfileAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -297,6 +314,22 @@ func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Get(ctx 
 func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *WindowsAutopilotDeploymentProfileAssignment) (resObj *WindowsAutopilotDeploymentProfileAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WindowsAutopilotDeploymentProfileAssignment collection
+func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsAutopilotDeploymentProfileAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsAutopilotDeploymentProfileAssignment collection
+func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsAutopilotDeploymentProfileAssignment) error {
+	var resObj []WindowsAutopilotDeploymentProfileAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeploymentProfile is navigation property
@@ -415,6 +448,22 @@ func (r *WindowsDefenderApplicationControlSupplementalPolicyAssignmentsCollectio
 	return
 }
 
+// BatchGet adds Get operation to Batch for WindowsDefenderApplicationControlSupplementalPolicyAssignment collection
+func (r *WindowsDefenderApplicationControlSupplementalPolicyAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsDefenderApplicationControlSupplementalPolicyAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsDefenderApplicationControlSupplementalPolicyAssignment collection
+func (r *WindowsDefenderApplicationControlSupplementalPolicyAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsDefenderApplicationControlSupplementalPolicyAssignment) error {
+	var resObj []WindowsDefenderApplicationControlSupplementalPolicyAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeploySummary is navigation property
 func (b *WindowsDefenderApplicationControlSupplementalPolicyRequestBuilder) DeploySummary() *WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummaryRequestBuilder {
 	bb := &WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummaryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -522,6 +571,22 @@ func (r *WindowsDefenderApplicationControlSupplementalPolicyDeviceStatusesCollec
 func (r *WindowsDefenderApplicationControlSupplementalPolicyDeviceStatusesCollectionRequest) Add(ctx context.Context, reqObj *WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus) (resObj *WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus collection
+func (r *WindowsDefenderApplicationControlSupplementalPolicyDeviceStatusesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus collection
+func (r *WindowsDefenderApplicationControlSupplementalPolicyDeviceStatusesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus) error {
+	var resObj []WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Policy is navigation property
@@ -633,6 +698,22 @@ func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequ
 	return
 }
 
+// BatchGet adds Get operation to Batch for DeviceConfiguration collection
+func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []DeviceConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for DeviceConfiguration collection
+func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *DeviceConfiguration) error {
+	var resObj []DeviceConfiguration
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Assignments returns request builder for WindowsFeatureUpdateProfileAssignment collection
 func (b *WindowsFeatureUpdateProfileRequestBuilder) Assignments() *WindowsFeatureUpdateProfileAssignmentsCollectionRequestBuilder {
 	bb := &WindowsFeatureUpdateProfileAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -733,6 +814,22 @@ func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Get(ctx contex
 func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *WindowsFeatureUpdateProfileAssignment) (resObj *WindowsFeatureUpdateProfileAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WindowsFeatureUpdateProfileAssignment collection
+func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsFeatureUpdateProfileAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsFeatureUpdateProfileAssignment collection
+func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsFeatureUpdateProfileAssignment) error {
+	var resObj []WindowsFeatureUpdateProfileAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeviceUpdateStates returns request builder for WindowsUpdateState collection
@@ -837,6 +934,22 @@ func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Add(ctx
 	return
 }
 
+// BatchGet adds Get operation to Batch for WindowsUpdateState collection
+func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsUpdateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsUpdateState collection
+func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsUpdateState) error {
+	var resObj []WindowsUpdateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Assignments returns request builder for TargetedManagedAppPolicyAssignment collection
 func (b *WindowsInformationProtectionRequestBuilder) Assignments() *WindowsInformationProtectionAssignmentsCollectionRequestBuilder {
 	bb := &WindowsInformationProtectionAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -937,6 +1050,22 @@ func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Get(ctx conte
 func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *TargetedManagedAppPolicyAssignment) (resObj *TargetedManagedAppPolicyAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for TargetedManagedAppPolicyAssignment collection
+func (r *WindowsInformationProtectionAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TargetedManagedAppPolicyAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TargetedManagedAppPolicyAssignment collection
+func (r *WindowsInformationProtectionAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TargetedManagedAppPolicyAssignment) error {
+	var resObj []TargetedManagedAppPolicyAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ExemptAppLockerFiles returns request builder for WindowsInformationProtectionAppLockerFile collection
@@ -1041,6 +1170,22 @@ func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Add(
 	return
 }
 
+// BatchGet adds Get operation to Batch for WindowsInformationProtectionAppLockerFile collection
+func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsInformationProtectionAppLockerFile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsInformationProtectionAppLockerFile collection
+func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsInformationProtectionAppLockerFile) error {
+	var resObj []WindowsInformationProtectionAppLockerFile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ProtectedAppLockerFiles returns request builder for WindowsInformationProtectionAppLockerFile collection
 func (b *WindowsInformationProtectionRequestBuilder) ProtectedAppLockerFiles() *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequestBuilder {
 	bb := &WindowsInformationProtectionProtectedAppLockerFilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1141,6 +1286,22 @@ func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) G
 func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Add(ctx context.Context, reqObj *WindowsInformationProtectionAppLockerFile) (resObj *WindowsInformationProtectionAppLockerFile, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WindowsInformationProtectionAppLockerFile collection
+func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsInformationProtectionAppLockerFile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsInformationProtectionAppLockerFile collection
+func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsInformationProtectionAppLockerFile) error {
+	var resObj []WindowsInformationProtectionAppLockerFile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // WindowsDevicesProtectionState returns request builder for WindowsProtectionState collection
@@ -1245,6 +1406,22 @@ func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest
 	return
 }
 
+// BatchGet adds Get operation to Batch for WindowsProtectionState collection
+func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsProtectionState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsProtectionState collection
+func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsProtectionState) error {
+	var resObj []WindowsProtectionState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // HealthStates returns request builder for WindowsManagementAppHealthState collection
 func (b *WindowsManagementAppRequestBuilder) HealthStates() *WindowsManagementAppHealthStatesCollectionRequestBuilder {
 	bb := &WindowsManagementAppHealthStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1345,6 +1522,22 @@ func (r *WindowsManagementAppHealthStatesCollectionRequest) Get(ctx context.Cont
 func (r *WindowsManagementAppHealthStatesCollectionRequest) Add(ctx context.Context, reqObj *WindowsManagementAppHealthState) (resObj *WindowsManagementAppHealthState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WindowsManagementAppHealthState collection
+func (r *WindowsManagementAppHealthStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsManagementAppHealthState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsManagementAppHealthState collection
+func (r *WindowsManagementAppHealthStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsManagementAppHealthState) error {
+	var resObj []WindowsManagementAppHealthState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
@@ -1449,6 +1642,22 @@ func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStat
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
 func (b *WindowsPhone81SCEPCertificateProfileRequestBuilder) ManagedDeviceCertificateStates() *WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder {
 	bb := &WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1549,6 +1758,22 @@ func (r *WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesColle
 func (r *WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // RootCertificate is navigation property
@@ -1667,6 +1892,22 @@ func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Add(ctx co
 	return
 }
 
+// BatchGet adds Get operation to Batch for WindowsDeviceMalwareState collection
+func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsDeviceMalwareState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsDeviceMalwareState collection
+func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsDeviceMalwareState) error {
+	var resObj []WindowsDeviceMalwareState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // CommittedContainedApps returns request builder for MobileContainedApp collection
 func (b *WindowsUniversalAppXRequestBuilder) CommittedContainedApps() *WindowsUniversalAppXCommittedContainedAppsCollectionRequestBuilder {
 	bb := &WindowsUniversalAppXCommittedContainedAppsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1769,6 +2010,22 @@ func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) Add(ctx co
 	return
 }
 
+// BatchGet adds Get operation to Batch for MobileContainedApp collection
+func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MobileContainedApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MobileContainedApp collection
+func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MobileContainedApp) error {
+	var resObj []MobileContainedApp
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceUpdateStates returns request builder for WindowsUpdateState collection
 func (b *WindowsUpdateForBusinessConfigurationRequestBuilder) DeviceUpdateStates() *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequestBuilder {
 	bb := &WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1869,6 +2126,22 @@ func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionReques
 func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Add(ctx context.Context, reqObj *WindowsUpdateState) (resObj *WindowsUpdateState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WindowsUpdateState collection
+func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WindowsUpdateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WindowsUpdateState collection
+func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WindowsUpdateState) error {
+	var resObj []WindowsUpdateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // IdentityCertificateForClientAuthentication is navigation property
@@ -1978,4 +2251,20 @@ func (r *WindowsWiFiEnterpriseEAPConfigurationRootCertificatesForServerValidatio
 func (r *WindowsWiFiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) Add(ctx context.Context, reqObj *Windows81TrustedRootCertificate) (resObj *Windows81TrustedRootCertificate, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Windows81TrustedRootCertificate collection
+func (r *WindowsWiFiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Windows81TrustedRootCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Windows81TrustedRootCertificate collection
+func (r *WindowsWiFiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Windows81TrustedRootCertificate) error {
+	var resObj []Windows81TrustedRootCertificate
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -136,6 +137,22 @@ func (r *SiteColumnsCollectionRequest) Add(ctx context.Context, reqObj *ColumnDe
 	return
 }
 
+// BatchGet adds Get operation to Batch for ColumnDefinition collection
+func (r *SiteColumnsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ColumnDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ColumnDefinition collection
+func (r *SiteColumnsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ColumnDefinition) error {
+	var resObj []ColumnDefinition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ContentTypes returns request builder for ContentType collection
 func (b *SiteRequestBuilder) ContentTypes() *SiteContentTypesCollectionRequestBuilder {
 	bb := &SiteContentTypesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -236,6 +253,22 @@ func (r *SiteContentTypesCollectionRequest) Get(ctx context.Context) ([]ContentT
 func (r *SiteContentTypesCollectionRequest) Add(ctx context.Context, reqObj *ContentType) (resObj *ContentType, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ContentType collection
+func (r *SiteContentTypesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ContentType
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ContentType collection
+func (r *SiteContentTypesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ContentType) error {
+	var resObj []ContentType
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Drive is navigation property
@@ -347,6 +380,22 @@ func (r *SiteDrivesCollectionRequest) Add(ctx context.Context, reqObj *Drive) (r
 	return
 }
 
+// BatchGet adds Get operation to Batch for Drive collection
+func (r *SiteDrivesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Drive
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Drive collection
+func (r *SiteDrivesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Drive) error {
+	var resObj []Drive
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Items returns request builder for BaseItem collection
 func (b *SiteRequestBuilder) Items() *SiteItemsCollectionRequestBuilder {
 	bb := &SiteItemsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -449,6 +498,22 @@ func (r *SiteItemsCollectionRequest) Add(ctx context.Context, reqObj *BaseItem) 
 	return
 }
 
+// BatchGet adds Get operation to Batch for BaseItem collection
+func (r *SiteItemsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []BaseItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for BaseItem collection
+func (r *SiteItemsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *BaseItem) error {
+	var resObj []BaseItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Lists returns request builder for List collection
 func (b *SiteRequestBuilder) Lists() *SiteListsCollectionRequestBuilder {
 	bb := &SiteListsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -549,6 +614,22 @@ func (r *SiteListsCollectionRequest) Get(ctx context.Context) ([]List, error) {
 func (r *SiteListsCollectionRequest) Add(ctx context.Context, reqObj *List) (resObj *List, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for List collection
+func (r *SiteListsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []List
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for List collection
+func (r *SiteListsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *List) error {
+	var resObj []List
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Onenote is navigation property
@@ -660,6 +741,22 @@ func (r *SitePagesCollectionRequest) Add(ctx context.Context, reqObj *SitePage) 
 	return
 }
 
+// BatchGet adds Get operation to Batch for SitePage collection
+func (r *SitePagesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SitePage
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SitePage collection
+func (r *SitePagesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SitePage) error {
+	var resObj []SitePage
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Sites returns request builder for Site collection
 func (b *SiteRequestBuilder) Sites() *SiteSitesCollectionRequestBuilder {
 	bb := &SiteSitesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -760,4 +857,20 @@ func (r *SiteSitesCollectionRequest) Get(ctx context.Context) ([]Site, error) {
 func (r *SiteSitesCollectionRequest) Add(ctx context.Context, reqObj *Site) (resObj *Site, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Site collection
+func (r *SiteSitesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Site
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Site collection
+func (r *SiteSitesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Site) error {
+	var resObj []Site
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

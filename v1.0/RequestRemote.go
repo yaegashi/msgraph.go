@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // RemoteAssistancePartnerRequestBuilder is request builder for RemoteAssistancePartner
 type RemoteAssistancePartnerRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *RemoteAssistancePartnerRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for RemoteAssistancePartner
+func (r *RemoteAssistancePartnerRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj RemoteAssistancePartner
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for RemoteAssistancePartner
+func (r *RemoteAssistancePartnerRequest) BatchUpdate(batch *BatchRequest, reqObj *RemoteAssistancePartner) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for RemoteAssistancePartner
+func (r *RemoteAssistancePartnerRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type RemoteAssistancePartnerBeginOnboardingRequestBuilder struct{ BaseRequestBuilder }
 
@@ -64,6 +87,11 @@ func (r *RemoteAssistancePartnerBeginOnboardingRequest) Post(ctx context.Context
 }
 
 //
+func (r *RemoteAssistancePartnerBeginOnboardingRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type RemoteAssistancePartnerDisconnectRequestBuilder struct{ BaseRequestBuilder }
 
 // Disconnect action undocumented
@@ -87,4 +115,9 @@ func (b *RemoteAssistancePartnerDisconnectRequestBuilder) Request() *RemoteAssis
 //
 func (r *RemoteAssistancePartnerDisconnectRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *RemoteAssistancePartnerDisconnectRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

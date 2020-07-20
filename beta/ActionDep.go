@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -147,6 +148,22 @@ func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Add(ctx contex
 	return
 }
 
+// BatchGet adds Get operation to Batch for EnrollmentProfile collection
+func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []EnrollmentProfile
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for EnrollmentProfile collection
+func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *EnrollmentProfile) error {
+	var resObj []EnrollmentProfile
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ImportedAppleDeviceIdentities returns request builder for ImportedAppleDeviceIdentity collection
 func (b *DepOnboardingSettingRequestBuilder) ImportedAppleDeviceIdentities() *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequestBuilder {
 	bb := &DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -247,4 +264,20 @@ func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Get
 func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Add(ctx context.Context, reqObj *ImportedAppleDeviceIdentity) (resObj *ImportedAppleDeviceIdentity, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ImportedAppleDeviceIdentity collection
+func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ImportedAppleDeviceIdentity
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ImportedAppleDeviceIdentity collection
+func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ImportedAppleDeviceIdentity) error {
+	var resObj []ImportedAppleDeviceIdentity
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

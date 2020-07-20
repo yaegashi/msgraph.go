@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // DataClassificationServiceRequestBuilder is request builder for DataClassificationService
 type DataClassificationServiceRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *DataClassificationServiceRequest) Update(ctx context.Context, reqObj *D
 // Delete performs DELETE request for DataClassificationService
 func (r *DataClassificationServiceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DataClassificationService
+func (r *DataClassificationServiceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DataClassificationService
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DataClassificationService
+func (r *DataClassificationServiceRequest) BatchUpdate(batch *BatchRequest, reqObj *DataClassificationService) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DataClassificationService
+func (r *DataClassificationServiceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DataLossPreventionPolicyRequestBuilder is request builder for DataLossPreventionPolicy
@@ -70,6 +93,26 @@ func (r *DataLossPreventionPolicyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DataLossPreventionPolicy
+func (r *DataLossPreventionPolicyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DataLossPreventionPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DataLossPreventionPolicy
+func (r *DataLossPreventionPolicyRequest) BatchUpdate(batch *BatchRequest, reqObj *DataLossPreventionPolicy) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DataLossPreventionPolicy
+func (r *DataLossPreventionPolicyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // DataPolicyOperationRequestBuilder is request builder for DataPolicyOperation
 type DataPolicyOperationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *DataPolicyOperationRequest) Update(ctx context.Context, reqObj *DataPol
 // Delete performs DELETE request for DataPolicyOperation
 func (r *DataPolicyOperationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DataPolicyOperation
+func (r *DataPolicyOperationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DataPolicyOperation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DataPolicyOperation
+func (r *DataPolicyOperationRequest) BatchUpdate(batch *BatchRequest, reqObj *DataPolicyOperation) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DataPolicyOperation
+func (r *DataPolicyOperationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // DataSharingConsentRequestBuilder is request builder for DataSharingConsent
@@ -136,6 +199,26 @@ func (r *DataSharingConsentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for DataSharingConsent
+func (r *DataSharingConsentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DataSharingConsent
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DataSharingConsent
+func (r *DataSharingConsentRequest) BatchUpdate(batch *BatchRequest, reqObj *DataSharingConsent) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DataSharingConsent
+func (r *DataSharingConsentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type DataLossPreventionPolicyCollectionEvaluateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -164,6 +247,12 @@ func (r *DataLossPreventionPolicyCollectionEvaluateRequest) Post(ctx context.Con
 }
 
 //
+func (r *DataLossPreventionPolicyCollectionEvaluateRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *DlpEvaluatePoliciesJobResponse
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type DataSharingConsentConsentToDataSharingRequestBuilder struct{ BaseRequestBuilder }
 
 // ConsentToDataSharing action undocumented
@@ -188,4 +277,10 @@ func (b *DataSharingConsentConsentToDataSharingRequestBuilder) Request() *DataSh
 func (r *DataSharingConsentConsentToDataSharingRequest) Post(ctx context.Context) (resObj *DataSharingConsent, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *DataSharingConsentConsentToDataSharingRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *DataSharingConsent
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ManagedAllDeviceCertificateStateRequestBuilder is request builder for ManagedAllDeviceCertificateState
 type ManagedAllDeviceCertificateStateRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *ManagedAllDeviceCertificateStateRequest) Update(ctx context.Context, re
 // Delete performs DELETE request for ManagedAllDeviceCertificateState
 func (r *ManagedAllDeviceCertificateStateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ManagedAllDeviceCertificateState
+func (r *ManagedAllDeviceCertificateStateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedAllDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedAllDeviceCertificateState
+func (r *ManagedAllDeviceCertificateStateRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedAllDeviceCertificateState) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedAllDeviceCertificateState
+func (r *ManagedAllDeviceCertificateStateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ManagedAppOperationRequestBuilder is request builder for ManagedAppOperation
@@ -70,6 +93,26 @@ func (r *ManagedAppOperationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ManagedAppOperation
+func (r *ManagedAppOperationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedAppOperation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedAppOperation
+func (r *ManagedAppOperationRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedAppOperation) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedAppOperation
+func (r *ManagedAppOperationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ManagedAppPolicyRequestBuilder is request builder for ManagedAppPolicy
 type ManagedAppPolicyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *ManagedAppPolicyRequest) Update(ctx context.Context, reqObj *ManagedApp
 // Delete performs DELETE request for ManagedAppPolicy
 func (r *ManagedAppPolicyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ManagedAppPolicy
+func (r *ManagedAppPolicyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedAppPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedAppPolicy
+func (r *ManagedAppPolicyRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedAppPolicy) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedAppPolicy
+func (r *ManagedAppPolicyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ManagedAppPolicyDeploymentSummaryRequestBuilder is request builder for ManagedAppPolicyDeploymentSummary
@@ -136,6 +199,26 @@ func (r *ManagedAppPolicyDeploymentSummaryRequest) Delete(ctx context.Context) e
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ManagedAppPolicyDeploymentSummary
+func (r *ManagedAppPolicyDeploymentSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedAppPolicyDeploymentSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedAppPolicyDeploymentSummary
+func (r *ManagedAppPolicyDeploymentSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedAppPolicyDeploymentSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedAppPolicyDeploymentSummary
+func (r *ManagedAppPolicyDeploymentSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ManagedAppProtectionRequestBuilder is request builder for ManagedAppProtection
 type ManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,6 +250,26 @@ func (r *ManagedAppProtectionRequest) Update(ctx context.Context, reqObj *Manage
 // Delete performs DELETE request for ManagedAppProtection
 func (r *ManagedAppProtectionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ManagedAppProtection
+func (r *ManagedAppProtectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedAppProtection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedAppProtection
+func (r *ManagedAppProtectionRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedAppProtection) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedAppProtection
+func (r *ManagedAppProtectionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ManagedAppRegistrationRequestBuilder is request builder for ManagedAppRegistration
@@ -202,6 +305,26 @@ func (r *ManagedAppRegistrationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ManagedAppRegistration
+func (r *ManagedAppRegistrationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedAppRegistration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedAppRegistration
+func (r *ManagedAppRegistrationRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedAppRegistration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedAppRegistration
+func (r *ManagedAppRegistrationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ManagedAppStatusRequestBuilder is request builder for ManagedAppStatus
 type ManagedAppStatusRequestBuilder struct{ BaseRequestBuilder }
 
@@ -233,6 +356,26 @@ func (r *ManagedAppStatusRequest) Update(ctx context.Context, reqObj *ManagedApp
 // Delete performs DELETE request for ManagedAppStatus
 func (r *ManagedAppStatusRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ManagedAppStatus
+func (r *ManagedAppStatusRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedAppStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedAppStatus
+func (r *ManagedAppStatusRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedAppStatus) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedAppStatus
+func (r *ManagedAppStatusRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ManagedDeviceRequestBuilder is request builder for ManagedDevice
@@ -268,6 +411,26 @@ func (r *ManagedDeviceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ManagedDevice
+func (r *ManagedDeviceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedDevice
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedDevice
+func (r *ManagedDeviceRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedDevice) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedDevice
+func (r *ManagedDeviceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ManagedDeviceCertificateStateRequestBuilder is request builder for ManagedDeviceCertificateState
 type ManagedDeviceCertificateStateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -299,6 +462,26 @@ func (r *ManagedDeviceCertificateStateRequest) Update(ctx context.Context, reqOb
 // Delete performs DELETE request for ManagedDeviceCertificateState
 func (r *ManagedDeviceCertificateStateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState
+func (r *ManagedDeviceCertificateStateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedDeviceCertificateState
+func (r *ManagedDeviceCertificateStateRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedDeviceCertificateState
+func (r *ManagedDeviceCertificateStateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ManagedDeviceEncryptionStateRequestBuilder is request builder for ManagedDeviceEncryptionState
@@ -334,6 +517,26 @@ func (r *ManagedDeviceEncryptionStateRequest) Delete(ctx context.Context) error 
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceEncryptionState
+func (r *ManagedDeviceEncryptionStateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedDeviceEncryptionState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedDeviceEncryptionState
+func (r *ManagedDeviceEncryptionStateRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedDeviceEncryptionState) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedDeviceEncryptionState
+func (r *ManagedDeviceEncryptionStateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ManagedDeviceMobileAppConfigurationRequestBuilder is request builder for ManagedDeviceMobileAppConfiguration
 type ManagedDeviceMobileAppConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -365,6 +568,26 @@ func (r *ManagedDeviceMobileAppConfigurationRequest) Update(ctx context.Context,
 // Delete performs DELETE request for ManagedDeviceMobileAppConfiguration
 func (r *ManagedDeviceMobileAppConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceMobileAppConfiguration
+func (r *ManagedDeviceMobileAppConfigurationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedDeviceMobileAppConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedDeviceMobileAppConfiguration
+func (r *ManagedDeviceMobileAppConfigurationRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedDeviceMobileAppConfiguration) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedDeviceMobileAppConfiguration
+func (r *ManagedDeviceMobileAppConfigurationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ManagedDeviceMobileAppConfigurationAssignmentRequestBuilder is request builder for ManagedDeviceMobileAppConfigurationAssignment
@@ -400,6 +623,26 @@ func (r *ManagedDeviceMobileAppConfigurationAssignmentRequest) Delete(ctx contex
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceMobileAppConfigurationAssignment
+func (r *ManagedDeviceMobileAppConfigurationAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedDeviceMobileAppConfigurationAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedDeviceMobileAppConfigurationAssignment
+func (r *ManagedDeviceMobileAppConfigurationAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedDeviceMobileAppConfigurationAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedDeviceMobileAppConfigurationAssignment
+func (r *ManagedDeviceMobileAppConfigurationAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ManagedDeviceMobileAppConfigurationDeviceStatusRequestBuilder is request builder for ManagedDeviceMobileAppConfigurationDeviceStatus
 type ManagedDeviceMobileAppConfigurationDeviceStatusRequestBuilder struct{ BaseRequestBuilder }
 
@@ -431,6 +674,26 @@ func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Update(ctx cont
 // Delete performs DELETE request for ManagedDeviceMobileAppConfigurationDeviceStatus
 func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceMobileAppConfigurationDeviceStatus
+func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedDeviceMobileAppConfigurationDeviceStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedDeviceMobileAppConfigurationDeviceStatus
+func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedDeviceMobileAppConfigurationDeviceStatus
+func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ManagedDeviceMobileAppConfigurationDeviceSummaryRequestBuilder is request builder for ManagedDeviceMobileAppConfigurationDeviceSummary
@@ -466,6 +729,26 @@ func (r *ManagedDeviceMobileAppConfigurationDeviceSummaryRequest) Delete(ctx con
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceMobileAppConfigurationDeviceSummary
+func (r *ManagedDeviceMobileAppConfigurationDeviceSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedDeviceMobileAppConfigurationDeviceSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedDeviceMobileAppConfigurationDeviceSummary
+func (r *ManagedDeviceMobileAppConfigurationDeviceSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedDeviceMobileAppConfigurationDeviceSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedDeviceMobileAppConfigurationDeviceSummary
+func (r *ManagedDeviceMobileAppConfigurationDeviceSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ManagedDeviceMobileAppConfigurationStateRequestBuilder is request builder for ManagedDeviceMobileAppConfigurationState
 type ManagedDeviceMobileAppConfigurationStateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -497,6 +780,26 @@ func (r *ManagedDeviceMobileAppConfigurationStateRequest) Update(ctx context.Con
 // Delete performs DELETE request for ManagedDeviceMobileAppConfigurationState
 func (r *ManagedDeviceMobileAppConfigurationStateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceMobileAppConfigurationState
+func (r *ManagedDeviceMobileAppConfigurationStateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedDeviceMobileAppConfigurationState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedDeviceMobileAppConfigurationState
+func (r *ManagedDeviceMobileAppConfigurationStateRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedDeviceMobileAppConfigurationState) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedDeviceMobileAppConfigurationState
+func (r *ManagedDeviceMobileAppConfigurationStateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ManagedDeviceMobileAppConfigurationUserStatusRequestBuilder is request builder for ManagedDeviceMobileAppConfigurationUserStatus
@@ -532,6 +835,26 @@ func (r *ManagedDeviceMobileAppConfigurationUserStatusRequest) Delete(ctx contex
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceMobileAppConfigurationUserStatus
+func (r *ManagedDeviceMobileAppConfigurationUserStatusRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedDeviceMobileAppConfigurationUserStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedDeviceMobileAppConfigurationUserStatus
+func (r *ManagedDeviceMobileAppConfigurationUserStatusRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedDeviceMobileAppConfigurationUserStatus) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedDeviceMobileAppConfigurationUserStatus
+func (r *ManagedDeviceMobileAppConfigurationUserStatusRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ManagedDeviceMobileAppConfigurationUserSummaryRequestBuilder is request builder for ManagedDeviceMobileAppConfigurationUserSummary
 type ManagedDeviceMobileAppConfigurationUserSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -563,6 +886,26 @@ func (r *ManagedDeviceMobileAppConfigurationUserSummaryRequest) Update(ctx conte
 // Delete performs DELETE request for ManagedDeviceMobileAppConfigurationUserSummary
 func (r *ManagedDeviceMobileAppConfigurationUserSummaryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceMobileAppConfigurationUserSummary
+func (r *ManagedDeviceMobileAppConfigurationUserSummaryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedDeviceMobileAppConfigurationUserSummary
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedDeviceMobileAppConfigurationUserSummary
+func (r *ManagedDeviceMobileAppConfigurationUserSummaryRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedDeviceMobileAppConfigurationUserSummary) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedDeviceMobileAppConfigurationUserSummary
+func (r *ManagedDeviceMobileAppConfigurationUserSummaryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ManagedDeviceOverviewRequestBuilder is request builder for ManagedDeviceOverview
@@ -598,6 +941,26 @@ func (r *ManagedDeviceOverviewRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceOverview
+func (r *ManagedDeviceOverviewRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedDeviceOverview
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedDeviceOverview
+func (r *ManagedDeviceOverviewRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedDeviceOverview) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedDeviceOverview
+func (r *ManagedDeviceOverviewRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ManagedEBookRequestBuilder is request builder for ManagedEBook
 type ManagedEBookRequestBuilder struct{ BaseRequestBuilder }
 
@@ -629,6 +992,26 @@ func (r *ManagedEBookRequest) Update(ctx context.Context, reqObj *ManagedEBook) 
 // Delete performs DELETE request for ManagedEBook
 func (r *ManagedEBookRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ManagedEBook
+func (r *ManagedEBookRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedEBook
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedEBook
+func (r *ManagedEBookRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedEBook) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedEBook
+func (r *ManagedEBookRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ManagedEBookAssignmentRequestBuilder is request builder for ManagedEBookAssignment
@@ -664,6 +1047,26 @@ func (r *ManagedEBookAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ManagedEBookAssignment
+func (r *ManagedEBookAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedEBookAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedEBookAssignment
+func (r *ManagedEBookAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedEBookAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedEBookAssignment
+func (r *ManagedEBookAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ManagedEBookCategoryRequestBuilder is request builder for ManagedEBookCategory
 type ManagedEBookCategoryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -695,6 +1098,26 @@ func (r *ManagedEBookCategoryRequest) Update(ctx context.Context, reqObj *Manage
 // Delete performs DELETE request for ManagedEBookCategory
 func (r *ManagedEBookCategoryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ManagedEBookCategory
+func (r *ManagedEBookCategoryRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedEBookCategory
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedEBookCategory
+func (r *ManagedEBookCategoryRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedEBookCategory) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedEBookCategory
+func (r *ManagedEBookCategoryRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ManagedMobileAppRequestBuilder is request builder for ManagedMobileApp
@@ -730,6 +1153,26 @@ func (r *ManagedMobileAppRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ManagedMobileApp
+func (r *ManagedMobileAppRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedMobileApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedMobileApp
+func (r *ManagedMobileAppRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedMobileApp) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedMobileApp
+func (r *ManagedMobileAppRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ManagedMobileLobAppRequestBuilder is request builder for ManagedMobileLobApp
 type ManagedMobileLobAppRequestBuilder struct{ BaseRequestBuilder }
 
@@ -761,6 +1204,26 @@ func (r *ManagedMobileLobAppRequest) Update(ctx context.Context, reqObj *Managed
 // Delete performs DELETE request for ManagedMobileLobApp
 func (r *ManagedMobileLobAppRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ManagedMobileLobApp
+func (r *ManagedMobileLobAppRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ManagedMobileLobApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ManagedMobileLobApp
+func (r *ManagedMobileLobAppRequest) BatchUpdate(batch *BatchRequest, reqObj *ManagedMobileLobApp) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ManagedMobileLobApp
+func (r *ManagedMobileLobAppRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -807,6 +1270,12 @@ func (r *ManagedDeviceCollectionExecuteActionRequest) Post(ctx context.Context) 
 }
 
 //
+func (r *ManagedDeviceCollectionExecuteActionRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *BulkManagedDeviceActionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type ManagedAppPolicyTargetAppsRequestBuilder struct{ BaseRequestBuilder }
 
 // TargetApps action undocumented
@@ -830,6 +1299,11 @@ func (b *ManagedAppPolicyTargetAppsRequestBuilder) Request() *ManagedAppPolicyTa
 //
 func (r *ManagedAppPolicyTargetAppsRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedAppPolicyTargetAppsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -859,6 +1333,11 @@ func (r *ManagedAppProtectionTargetAppsRequest) Post(ctx context.Context) error 
 }
 
 //
+func (r *ManagedAppProtectionTargetAppsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedDeviceOverrideComplianceStateRequestBuilder struct{ BaseRequestBuilder }
 
 // OverrideComplianceState action undocumented
@@ -882,6 +1361,11 @@ func (b *ManagedDeviceOverrideComplianceStateRequestBuilder) Request() *ManagedD
 //
 func (r *ManagedDeviceOverrideComplianceStateRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedDeviceOverrideComplianceStateRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -911,6 +1395,11 @@ func (r *ManagedDeviceEnableLostModeRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *ManagedDeviceEnableLostModeRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedDevicePlayLostModeSoundRequestBuilder struct{ BaseRequestBuilder }
 
 // PlayLostModeSound action undocumented
@@ -934,6 +1423,11 @@ func (b *ManagedDevicePlayLostModeSoundRequestBuilder) Request() *ManagedDeviceP
 //
 func (r *ManagedDevicePlayLostModeSoundRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedDevicePlayLostModeSoundRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -963,6 +1457,11 @@ func (r *ManagedDeviceSetDeviceNameRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *ManagedDeviceSetDeviceNameRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedDeviceRotateFileVaultKeyRequestBuilder struct{ BaseRequestBuilder }
 
 // RotateFileVaultKey action undocumented
@@ -986,6 +1485,11 @@ func (b *ManagedDeviceRotateFileVaultKeyRequestBuilder) Request() *ManagedDevice
 //
 func (r *ManagedDeviceRotateFileVaultKeyRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedDeviceRotateFileVaultKeyRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1015,6 +1519,11 @@ func (r *ManagedDeviceRetireRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *ManagedDeviceRetireRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedDeviceWipeRequestBuilder struct{ BaseRequestBuilder }
 
 // Wipe action undocumented
@@ -1038,6 +1547,11 @@ func (b *ManagedDeviceWipeRequestBuilder) Request() *ManagedDeviceWipeRequest {
 //
 func (r *ManagedDeviceWipeRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedDeviceWipeRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1067,6 +1581,11 @@ func (r *ManagedDeviceResetPasscodeRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *ManagedDeviceResetPasscodeRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedDeviceRemoteLockRequestBuilder struct{ BaseRequestBuilder }
 
 // RemoteLock action undocumented
@@ -1090,6 +1609,11 @@ func (b *ManagedDeviceRemoteLockRequestBuilder) Request() *ManagedDeviceRemoteLo
 //
 func (r *ManagedDeviceRemoteLockRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedDeviceRemoteLockRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1119,6 +1643,11 @@ func (r *ManagedDeviceRequestRemoteAssistanceRequest) Post(ctx context.Context) 
 }
 
 //
+func (r *ManagedDeviceRequestRemoteAssistanceRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedDeviceDisableLostModeRequestBuilder struct{ BaseRequestBuilder }
 
 // DisableLostMode action undocumented
@@ -1142,6 +1671,11 @@ func (b *ManagedDeviceDisableLostModeRequestBuilder) Request() *ManagedDeviceDis
 //
 func (r *ManagedDeviceDisableLostModeRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedDeviceDisableLostModeRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1171,6 +1705,11 @@ func (r *ManagedDeviceLocateDeviceRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *ManagedDeviceLocateDeviceRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedDeviceBypassActivationLockRequestBuilder struct{ BaseRequestBuilder }
 
 // BypassActivationLock action undocumented
@@ -1194,6 +1733,11 @@ func (b *ManagedDeviceBypassActivationLockRequestBuilder) Request() *ManagedDevi
 //
 func (r *ManagedDeviceBypassActivationLockRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedDeviceBypassActivationLockRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1223,6 +1767,11 @@ func (r *ManagedDeviceRebootNowRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *ManagedDeviceRebootNowRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedDeviceShutDownRequestBuilder struct{ BaseRequestBuilder }
 
 // ShutDown action undocumented
@@ -1246,6 +1795,11 @@ func (b *ManagedDeviceShutDownRequestBuilder) Request() *ManagedDeviceShutDownRe
 //
 func (r *ManagedDeviceShutDownRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedDeviceShutDownRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1275,6 +1829,11 @@ func (r *ManagedDeviceRecoverPasscodeRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *ManagedDeviceRecoverPasscodeRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedDeviceCleanWindowsDeviceRequestBuilder struct{ BaseRequestBuilder }
 
 // CleanWindowsDevice action undocumented
@@ -1298,6 +1857,11 @@ func (b *ManagedDeviceCleanWindowsDeviceRequestBuilder) Request() *ManagedDevice
 //
 func (r *ManagedDeviceCleanWindowsDeviceRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedDeviceCleanWindowsDeviceRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1327,6 +1891,11 @@ func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Post(ctx context
 }
 
 //
+func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder struct{ BaseRequestBuilder }
 
 // DeleteUserFromSharedAppleDevice action undocumented
@@ -1350,6 +1919,11 @@ func (b *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder) Request() *
 //
 func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1379,6 +1953,11 @@ func (r *ManagedDeviceSyncDeviceRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *ManagedDeviceSyncDeviceRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedDeviceWindowsDefenderScanRequestBuilder struct{ BaseRequestBuilder }
 
 // WindowsDefenderScan action undocumented
@@ -1402,6 +1981,11 @@ func (b *ManagedDeviceWindowsDefenderScanRequestBuilder) Request() *ManagedDevic
 //
 func (r *ManagedDeviceWindowsDefenderScanRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedDeviceWindowsDefenderScanRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1431,6 +2015,11 @@ func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Post(ctx context.C
 }
 
 //
+func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder struct{ BaseRequestBuilder }
 
 // UpdateWindowsDeviceAccount action undocumented
@@ -1454,6 +2043,11 @@ func (b *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder) Request() *Manag
 //
 func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1483,6 +2077,11 @@ func (r *ManagedDeviceRevokeAppleVPPLicensesRequest) Post(ctx context.Context) e
 }
 
 //
+func (r *ManagedDeviceRevokeAppleVPPLicensesRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedDeviceRotateBitLockerKeysRequestBuilder struct{ BaseRequestBuilder }
 
 // RotateBitLockerKeys action undocumented
@@ -1506,6 +2105,11 @@ func (b *ManagedDeviceRotateBitLockerKeysRequestBuilder) Request() *ManagedDevic
 //
 func (r *ManagedDeviceRotateBitLockerKeysRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedDeviceRotateBitLockerKeysRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1535,6 +2139,11 @@ func (r *ManagedDeviceSendCustomNotificationToCompanyPortalRequest) Post(ctx con
 }
 
 //
+func (r *ManagedDeviceSendCustomNotificationToCompanyPortalRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedDeviceTriggerConfigurationManagerActionRequestBuilder struct{ BaseRequestBuilder }
 
 // TriggerConfigurationManagerAction action undocumented
@@ -1558,6 +2167,11 @@ func (b *ManagedDeviceTriggerConfigurationManagerActionRequestBuilder) Request()
 //
 func (r *ManagedDeviceTriggerConfigurationManagerActionRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedDeviceTriggerConfigurationManagerActionRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -1587,6 +2201,11 @@ func (r *ManagedDeviceMobileAppConfigurationAssignRequest) Post(ctx context.Cont
 }
 
 //
+func (r *ManagedDeviceMobileAppConfigurationAssignRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ManagedEBookAssignRequestBuilder struct{ BaseRequestBuilder }
 
 // Assign action undocumented
@@ -1610,4 +2229,9 @@ func (b *ManagedEBookAssignRequestBuilder) Request() *ManagedEBookAssignRequest 
 //
 func (r *ManagedEBookAssignRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ManagedEBookAssignRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

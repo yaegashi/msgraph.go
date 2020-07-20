@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *ConditionalAccessRootNamedLocationsCollectionRequest) Add(ctx context.C
 	return
 }
 
+// BatchGet adds Get operation to Batch for NamedLocation collection
+func (r *ConditionalAccessRootNamedLocationsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []NamedLocation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for NamedLocation collection
+func (r *ConditionalAccessRootNamedLocationsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *NamedLocation) error {
+	var resObj []NamedLocation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Policies returns request builder for ConditionalAccessPolicy collection
 func (b *ConditionalAccessRootRequestBuilder) Policies() *ConditionalAccessRootPoliciesCollectionRequestBuilder {
 	bb := &ConditionalAccessRootPoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,4 +230,20 @@ func (r *ConditionalAccessRootPoliciesCollectionRequest) Get(ctx context.Context
 func (r *ConditionalAccessRootPoliciesCollectionRequest) Add(ctx context.Context, reqObj *ConditionalAccessPolicy) (resObj *ConditionalAccessPolicy, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ConditionalAccessPolicy collection
+func (r *ConditionalAccessRootPoliciesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ConditionalAccessPolicy
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ConditionalAccessPolicy collection
+func (r *ConditionalAccessRootPoliciesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ConditionalAccessPolicy) error {
+	var resObj []ConditionalAccessPolicy
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

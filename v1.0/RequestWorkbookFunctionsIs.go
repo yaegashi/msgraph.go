@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 //
 type WorkbookFunctionsIsErrRequestBuilder struct{ BaseRequestBuilder }
@@ -29,6 +32,12 @@ func (b *WorkbookFunctionsIsErrRequestBuilder) Request() *WorkbookFunctionsIsErr
 func (r *WorkbookFunctionsIsErrRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsIsErrRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -59,6 +68,12 @@ func (r *WorkbookFunctionsIsErrorRequest) Post(ctx context.Context) (resObj *Wor
 }
 
 //
+func (r *WorkbookFunctionsIsErrorRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsIsEvenRequestBuilder struct{ BaseRequestBuilder }
 
 // IsEven action undocumented
@@ -83,6 +98,12 @@ func (b *WorkbookFunctionsIsEvenRequestBuilder) Request() *WorkbookFunctionsIsEv
 func (r *WorkbookFunctionsIsEvenRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsIsEvenRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -113,6 +134,12 @@ func (r *WorkbookFunctionsIsFormulaRequest) Post(ctx context.Context) (resObj *W
 }
 
 //
+func (r *WorkbookFunctionsIsFormulaRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsIsLogicalRequestBuilder struct{ BaseRequestBuilder }
 
 // IsLogical action undocumented
@@ -137,6 +164,12 @@ func (b *WorkbookFunctionsIsLogicalRequestBuilder) Request() *WorkbookFunctionsI
 func (r *WorkbookFunctionsIsLogicalRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsIsLogicalRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -167,6 +200,12 @@ func (r *WorkbookFunctionsIsNARequest) Post(ctx context.Context) (resObj *Workbo
 }
 
 //
+func (r *WorkbookFunctionsIsNARequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsIsNonTextRequestBuilder struct{ BaseRequestBuilder }
 
 // IsNonText action undocumented
@@ -191,6 +230,12 @@ func (b *WorkbookFunctionsIsNonTextRequestBuilder) Request() *WorkbookFunctionsI
 func (r *WorkbookFunctionsIsNonTextRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsIsNonTextRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -221,6 +266,12 @@ func (r *WorkbookFunctionsIsNumberRequest) Post(ctx context.Context) (resObj *Wo
 }
 
 //
+func (r *WorkbookFunctionsIsNumberRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsIsOddRequestBuilder struct{ BaseRequestBuilder }
 
 // IsOdd action undocumented
@@ -248,6 +299,12 @@ func (r *WorkbookFunctionsIsOddRequest) Post(ctx context.Context) (resObj *Workb
 }
 
 //
+func (r *WorkbookFunctionsIsOddRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type WorkbookFunctionsIsTextRequestBuilder struct{ BaseRequestBuilder }
 
 // IsText action undocumented
@@ -272,4 +329,10 @@ func (b *WorkbookFunctionsIsTextRequestBuilder) Request() *WorkbookFunctionsIsTe
 func (r *WorkbookFunctionsIsTextRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *WorkbookFunctionsIsTextRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *WorkbookFunctionResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

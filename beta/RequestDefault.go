@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // DefaultManagedAppProtectionRequestBuilder is request builder for DefaultManagedAppProtection
 type DefaultManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *DefaultManagedAppProtectionRequest) Update(ctx context.Context, reqObj 
 // Delete performs DELETE request for DefaultManagedAppProtection
 func (r *DefaultManagedAppProtectionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for DefaultManagedAppProtection
+func (r *DefaultManagedAppProtectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj DefaultManagedAppProtection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for DefaultManagedAppProtection
+func (r *DefaultManagedAppProtectionRequest) BatchUpdate(batch *BatchRequest, reqObj *DefaultManagedAppProtection) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for DefaultManagedAppProtection
+func (r *DefaultManagedAppProtectionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

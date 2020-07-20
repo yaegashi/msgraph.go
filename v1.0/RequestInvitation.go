@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // InvitationRequestBuilder is request builder for Invitation
 type InvitationRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *InvitationRequest) Update(ctx context.Context, reqObj *Invitation) erro
 // Delete performs DELETE request for Invitation
 func (r *InvitationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Invitation
+func (r *InvitationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Invitation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Invitation
+func (r *InvitationRequest) BatchUpdate(batch *BatchRequest, reqObj *Invitation) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Invitation
+func (r *InvitationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -44,6 +45,26 @@ func (r *ImportedAppleDeviceIdentityRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ImportedAppleDeviceIdentity
+func (r *ImportedAppleDeviceIdentityRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ImportedAppleDeviceIdentity
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ImportedAppleDeviceIdentity
+func (r *ImportedAppleDeviceIdentityRequest) BatchUpdate(batch *BatchRequest, reqObj *ImportedAppleDeviceIdentity) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ImportedAppleDeviceIdentity
+func (r *ImportedAppleDeviceIdentityRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ImportedDeviceIdentityRequestBuilder is request builder for ImportedDeviceIdentity
 type ImportedDeviceIdentityRequestBuilder struct{ BaseRequestBuilder }
 
@@ -75,6 +96,26 @@ func (r *ImportedDeviceIdentityRequest) Update(ctx context.Context, reqObj *Impo
 // Delete performs DELETE request for ImportedDeviceIdentity
 func (r *ImportedDeviceIdentityRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ImportedDeviceIdentity
+func (r *ImportedDeviceIdentityRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ImportedDeviceIdentity
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ImportedDeviceIdentity
+func (r *ImportedDeviceIdentityRequest) BatchUpdate(batch *BatchRequest, reqObj *ImportedDeviceIdentity) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ImportedDeviceIdentity
+func (r *ImportedDeviceIdentityRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // ImportedWindowsAutopilotDeviceIdentityRequestBuilder is request builder for ImportedWindowsAutopilotDeviceIdentity
@@ -110,6 +151,26 @@ func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Delete(ctx context.Conte
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ImportedWindowsAutopilotDeviceIdentity
+func (r *ImportedWindowsAutopilotDeviceIdentityRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ImportedWindowsAutopilotDeviceIdentity
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ImportedWindowsAutopilotDeviceIdentity
+func (r *ImportedWindowsAutopilotDeviceIdentityRequest) BatchUpdate(batch *BatchRequest, reqObj *ImportedWindowsAutopilotDeviceIdentity) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ImportedWindowsAutopilotDeviceIdentity
+func (r *ImportedWindowsAutopilotDeviceIdentityRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // ImportedWindowsAutopilotDeviceIdentityUploadRequestBuilder is request builder for ImportedWindowsAutopilotDeviceIdentityUpload
 type ImportedWindowsAutopilotDeviceIdentityUploadRequestBuilder struct{ BaseRequestBuilder }
 
@@ -141,6 +202,26 @@ func (r *ImportedWindowsAutopilotDeviceIdentityUploadRequest) Update(ctx context
 // Delete performs DELETE request for ImportedWindowsAutopilotDeviceIdentityUpload
 func (r *ImportedWindowsAutopilotDeviceIdentityUploadRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ImportedWindowsAutopilotDeviceIdentityUpload
+func (r *ImportedWindowsAutopilotDeviceIdentityUploadRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ImportedWindowsAutopilotDeviceIdentityUpload
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ImportedWindowsAutopilotDeviceIdentityUpload
+func (r *ImportedWindowsAutopilotDeviceIdentityUploadRequest) BatchUpdate(batch *BatchRequest, reqObj *ImportedWindowsAutopilotDeviceIdentityUpload) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ImportedWindowsAutopilotDeviceIdentityUpload
+func (r *ImportedWindowsAutopilotDeviceIdentityUploadRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 //
@@ -230,6 +311,12 @@ func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListReque
 }
 
 //
+func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []ImportedAppleDeviceIdentityResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type ImportedDeviceIdentityCollectionImportDeviceIdentityListRequestBuilder struct{ BaseRequestBuilder }
 
 // ImportDeviceIdentityList action undocumented
@@ -316,6 +403,12 @@ func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Post(c
 }
 
 //
+func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []ImportedDeviceIdentityResult
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequestBuilder struct{ BaseRequestBuilder }
 
 // SearchExistingIdentities action undocumented
@@ -399,6 +492,12 @@ func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) PostN(
 //
 func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Post(ctx context.Context) ([]ImportedDeviceIdentity, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []ImportedDeviceIdentity
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -493,4 +592,10 @@ func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) PostN(ct
 //
 func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Post(ctx context.Context) ([]ImportedWindowsAutopilotDeviceIdentity, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) BatchPost(batch *BatchRequest) error {
+	var resObj []ImportedWindowsAutopilotDeviceIdentity
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

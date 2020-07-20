@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -117,6 +118,22 @@ func (r *OrganizationBrandingsCollectionRequest) Add(ctx context.Context, reqObj
 	return
 }
 
+// BatchGet adds Get operation to Batch for OrganizationalBranding collection
+func (r *OrganizationBrandingsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OrganizationalBranding
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OrganizationalBranding collection
+func (r *OrganizationBrandingsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OrganizationalBranding) error {
+	var resObj []OrganizationalBranding
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // CertificateBasedAuthConfiguration returns request builder for CertificateBasedAuthConfiguration collection
 func (b *OrganizationRequestBuilder) CertificateBasedAuthConfiguration() *OrganizationCertificateBasedAuthConfigurationCollectionRequestBuilder {
 	bb := &OrganizationCertificateBasedAuthConfigurationCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -219,6 +236,22 @@ func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) Add(ctx
 	return
 }
 
+// BatchGet adds Get operation to Batch for CertificateBasedAuthConfiguration collection
+func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []CertificateBasedAuthConfiguration
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for CertificateBasedAuthConfiguration collection
+func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *CertificateBasedAuthConfiguration) error {
+	var resObj []CertificateBasedAuthConfiguration
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Extensions returns request builder for Extension collection
 func (b *OrganizationRequestBuilder) Extensions() *OrganizationExtensionsCollectionRequestBuilder {
 	bb := &OrganizationExtensionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -319,4 +352,20 @@ func (r *OrganizationExtensionsCollectionRequest) Get(ctx context.Context) ([]Ex
 func (r *OrganizationExtensionsCollectionRequest) Add(ctx context.Context, reqObj *Extension) (resObj *Extension, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Extension collection
+func (r *OrganizationExtensionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Extension
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Extension collection
+func (r *OrganizationExtensionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Extension) error {
+	var resObj []Extension
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

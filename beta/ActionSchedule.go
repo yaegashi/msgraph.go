@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
@@ -136,6 +137,22 @@ func (r *ScheduleOpenShiftChangeRequestsCollectionRequest) Add(ctx context.Conte
 	return
 }
 
+// BatchGet adds Get operation to Batch for OpenShiftChangeRequestObject collection
+func (r *ScheduleOpenShiftChangeRequestsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OpenShiftChangeRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OpenShiftChangeRequestObject collection
+func (r *ScheduleOpenShiftChangeRequestsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OpenShiftChangeRequestObject) error {
+	var resObj []OpenShiftChangeRequestObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // OpenShifts returns request builder for OpenShift collection
 func (b *ScheduleRequestBuilder) OpenShifts() *ScheduleOpenShiftsCollectionRequestBuilder {
 	bb := &ScheduleOpenShiftsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -236,6 +253,22 @@ func (r *ScheduleOpenShiftsCollectionRequest) Get(ctx context.Context) ([]OpenSh
 func (r *ScheduleOpenShiftsCollectionRequest) Add(ctx context.Context, reqObj *OpenShift) (resObj *OpenShift, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for OpenShift collection
+func (r *ScheduleOpenShiftsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OpenShift
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OpenShift collection
+func (r *ScheduleOpenShiftsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OpenShift) error {
+	var resObj []OpenShift
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SchedulingGroups returns request builder for SchedulingGroup collection
@@ -340,6 +373,22 @@ func (r *ScheduleSchedulingGroupsCollectionRequest) Add(ctx context.Context, req
 	return
 }
 
+// BatchGet adds Get operation to Batch for SchedulingGroup collection
+func (r *ScheduleSchedulingGroupsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SchedulingGroup
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SchedulingGroup collection
+func (r *ScheduleSchedulingGroupsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SchedulingGroup) error {
+	var resObj []SchedulingGroup
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Shifts returns request builder for Shift collection
 func (b *ScheduleRequestBuilder) Shifts() *ScheduleShiftsCollectionRequestBuilder {
 	bb := &ScheduleShiftsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -440,6 +489,22 @@ func (r *ScheduleShiftsCollectionRequest) Get(ctx context.Context) ([]Shift, err
 func (r *ScheduleShiftsCollectionRequest) Add(ctx context.Context, reqObj *Shift) (resObj *Shift, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Shift collection
+func (r *ScheduleShiftsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Shift
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Shift collection
+func (r *ScheduleShiftsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Shift) error {
+	var resObj []Shift
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // SwapShiftsChangeRequests returns request builder for SwapShiftsChangeRequestObject collection
@@ -544,6 +609,22 @@ func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Add(ctx context.Cont
 	return
 }
 
+// BatchGet adds Get operation to Batch for SwapShiftsChangeRequestObject collection
+func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SwapShiftsChangeRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SwapShiftsChangeRequestObject collection
+func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SwapShiftsChangeRequestObject) error {
+	var resObj []SwapShiftsChangeRequestObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // TimeOffReasons returns request builder for TimeOffReason collection
 func (b *ScheduleRequestBuilder) TimeOffReasons() *ScheduleTimeOffReasonsCollectionRequestBuilder {
 	bb := &ScheduleTimeOffReasonsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -644,6 +725,22 @@ func (r *ScheduleTimeOffReasonsCollectionRequest) Get(ctx context.Context) ([]Ti
 func (r *ScheduleTimeOffReasonsCollectionRequest) Add(ctx context.Context, reqObj *TimeOffReason) (resObj *TimeOffReason, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for TimeOffReason collection
+func (r *ScheduleTimeOffReasonsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TimeOffReason
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TimeOffReason collection
+func (r *ScheduleTimeOffReasonsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TimeOffReason) error {
+	var resObj []TimeOffReason
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // TimeOffRequests returns request builder for TimeOffRequestObject collection
@@ -748,6 +845,22 @@ func (r *ScheduleTimeOffRequestsCollectionRequest) Add(ctx context.Context, reqO
 	return
 }
 
+// BatchGet adds Get operation to Batch for TimeOffRequestObject collection
+func (r *ScheduleTimeOffRequestsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TimeOffRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TimeOffRequestObject collection
+func (r *ScheduleTimeOffRequestsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TimeOffRequestObject) error {
+	var resObj []TimeOffRequestObject
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // TimesOff returns request builder for TimeOff collection
 func (b *ScheduleRequestBuilder) TimesOff() *ScheduleTimesOffCollectionRequestBuilder {
 	bb := &ScheduleTimesOffCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -848,4 +961,20 @@ func (r *ScheduleTimesOffCollectionRequest) Get(ctx context.Context) ([]TimeOff,
 func (r *ScheduleTimesOffCollectionRequest) Add(ctx context.Context, reqObj *TimeOff) (resObj *TimeOff, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for TimeOff collection
+func (r *ScheduleTimesOffCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []TimeOff
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for TimeOff collection
+func (r *ScheduleTimesOffCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *TimeOff) error {
+	var resObj []TimeOff
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -113,6 +114,22 @@ func (r *RbacApplicationRoleAssignmentsCollectionRequest) Add(ctx context.Contex
 	return
 }
 
+// BatchGet adds Get operation to Batch for UnifiedRoleAssignment collection
+func (r *RbacApplicationRoleAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []UnifiedRoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for UnifiedRoleAssignment collection
+func (r *RbacApplicationRoleAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *UnifiedRoleAssignment) error {
+	var resObj []UnifiedRoleAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // RoleDefinitions returns request builder for UnifiedRoleDefinition collection
 func (b *RbacApplicationRequestBuilder) RoleDefinitions() *RbacApplicationRoleDefinitionsCollectionRequestBuilder {
 	bb := &RbacApplicationRoleDefinitionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,4 +230,20 @@ func (r *RbacApplicationRoleDefinitionsCollectionRequest) Get(ctx context.Contex
 func (r *RbacApplicationRoleDefinitionsCollectionRequest) Add(ctx context.Context, reqObj *UnifiedRoleDefinition) (resObj *UnifiedRoleDefinition, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for UnifiedRoleDefinition collection
+func (r *RbacApplicationRoleDefinitionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []UnifiedRoleDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for UnifiedRoleDefinition collection
+func (r *RbacApplicationRoleDefinitionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *UnifiedRoleDefinition) error {
+	var resObj []UnifiedRoleDefinition
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

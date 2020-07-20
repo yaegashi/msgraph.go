@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // SalesCreditMemoRequestBuilder is request builder for SalesCreditMemo
 type SalesCreditMemoRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *SalesCreditMemoRequest) Update(ctx context.Context, reqObj *SalesCredit
 // Delete performs DELETE request for SalesCreditMemo
 func (r *SalesCreditMemoRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SalesCreditMemo
+func (r *SalesCreditMemoRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SalesCreditMemo
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SalesCreditMemo
+func (r *SalesCreditMemoRequest) BatchUpdate(batch *BatchRequest, reqObj *SalesCreditMemo) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SalesCreditMemo
+func (r *SalesCreditMemoRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // SalesCreditMemoLineRequestBuilder is request builder for SalesCreditMemoLine
@@ -70,6 +93,26 @@ func (r *SalesCreditMemoLineRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for SalesCreditMemoLine
+func (r *SalesCreditMemoLineRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SalesCreditMemoLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SalesCreditMemoLine
+func (r *SalesCreditMemoLineRequest) BatchUpdate(batch *BatchRequest, reqObj *SalesCreditMemoLine) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SalesCreditMemoLine
+func (r *SalesCreditMemoLineRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // SalesInvoiceRequestBuilder is request builder for SalesInvoice
 type SalesInvoiceRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *SalesInvoiceRequest) Update(ctx context.Context, reqObj *SalesInvoice) 
 // Delete performs DELETE request for SalesInvoice
 func (r *SalesInvoiceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SalesInvoice
+func (r *SalesInvoiceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SalesInvoice
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SalesInvoice
+func (r *SalesInvoiceRequest) BatchUpdate(batch *BatchRequest, reqObj *SalesInvoice) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SalesInvoice
+func (r *SalesInvoiceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // SalesInvoiceLineRequestBuilder is request builder for SalesInvoiceLine
@@ -136,6 +199,26 @@ func (r *SalesInvoiceLineRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for SalesInvoiceLine
+func (r *SalesInvoiceLineRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SalesInvoiceLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SalesInvoiceLine
+func (r *SalesInvoiceLineRequest) BatchUpdate(batch *BatchRequest, reqObj *SalesInvoiceLine) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SalesInvoiceLine
+func (r *SalesInvoiceLineRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // SalesOrderRequestBuilder is request builder for SalesOrder
 type SalesOrderRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,6 +250,26 @@ func (r *SalesOrderRequest) Update(ctx context.Context, reqObj *SalesOrder) erro
 // Delete performs DELETE request for SalesOrder
 func (r *SalesOrderRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SalesOrder
+func (r *SalesOrderRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SalesOrder
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SalesOrder
+func (r *SalesOrderRequest) BatchUpdate(batch *BatchRequest, reqObj *SalesOrder) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SalesOrder
+func (r *SalesOrderRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // SalesOrderLineRequestBuilder is request builder for SalesOrderLine
@@ -202,6 +305,26 @@ func (r *SalesOrderLineRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for SalesOrderLine
+func (r *SalesOrderLineRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SalesOrderLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SalesOrderLine
+func (r *SalesOrderLineRequest) BatchUpdate(batch *BatchRequest, reqObj *SalesOrderLine) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SalesOrderLine
+func (r *SalesOrderLineRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // SalesQuoteRequestBuilder is request builder for SalesQuote
 type SalesQuoteRequestBuilder struct{ BaseRequestBuilder }
 
@@ -233,6 +356,26 @@ func (r *SalesQuoteRequest) Update(ctx context.Context, reqObj *SalesQuote) erro
 // Delete performs DELETE request for SalesQuote
 func (r *SalesQuoteRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SalesQuote
+func (r *SalesQuoteRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SalesQuote
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SalesQuote
+func (r *SalesQuoteRequest) BatchUpdate(batch *BatchRequest, reqObj *SalesQuote) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SalesQuote
+func (r *SalesQuoteRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // SalesQuoteLineRequestBuilder is request builder for SalesQuoteLine
@@ -268,6 +411,26 @@ func (r *SalesQuoteLineRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for SalesQuoteLine
+func (r *SalesQuoteLineRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SalesQuoteLine
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SalesQuoteLine
+func (r *SalesQuoteLineRequest) BatchUpdate(batch *BatchRequest, reqObj *SalesQuoteLine) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SalesQuoteLine
+func (r *SalesQuoteLineRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type SalesInvoiceCancelAndSendRequestBuilder struct{ BaseRequestBuilder }
 
@@ -292,6 +455,11 @@ func (b *SalesInvoiceCancelAndSendRequestBuilder) Request() *SalesInvoiceCancelA
 //
 func (r *SalesInvoiceCancelAndSendRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *SalesInvoiceCancelAndSendRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -321,6 +489,11 @@ func (r *SalesInvoiceCancelRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *SalesInvoiceCancelRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type SalesInvoicePostAndSendRequestBuilder struct{ BaseRequestBuilder }
 
 // PostAndSend action undocumented
@@ -344,6 +517,11 @@ func (b *SalesInvoicePostAndSendRequestBuilder) Request() *SalesInvoicePostAndSe
 //
 func (r *SalesInvoicePostAndSendRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *SalesInvoicePostAndSendRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -373,6 +551,11 @@ func (r *SalesInvoicePostRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *SalesInvoicePostRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type SalesInvoiceSendRequestBuilder struct{ BaseRequestBuilder }
 
 // Send action undocumented
@@ -396,6 +579,11 @@ func (b *SalesInvoiceSendRequestBuilder) Request() *SalesInvoiceSendRequest {
 //
 func (r *SalesInvoiceSendRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *SalesInvoiceSendRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -425,6 +613,11 @@ func (r *SalesQuoteMakeInvoiceRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *SalesQuoteMakeInvoiceRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type SalesQuoteSendRequestBuilder struct{ BaseRequestBuilder }
 
 // Send action undocumented
@@ -448,4 +641,9 @@ func (b *SalesQuoteSendRequestBuilder) Request() *SalesQuoteSendRequest {
 //
 func (r *SalesQuoteSendRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *SalesQuoteSendRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

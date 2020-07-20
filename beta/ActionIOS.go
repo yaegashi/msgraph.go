@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -218,6 +219,22 @@ func (r *IOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollec
 	return
 }
 
+// BatchGet adds Get operation to Batch for IOSTrustedRootCertificate collection
+func (r *IOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []IOSTrustedRootCertificate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for IOSTrustedRootCertificate collection
+func (r *IOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *IOSTrustedRootCertificate) error {
+	var resObj []IOSTrustedRootCertificate
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
 func (b *IOSImportedPFXCertificateProfileRequestBuilder) ManagedDeviceCertificateStates() *IOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder {
 	bb := &IOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -318,6 +335,22 @@ func (r *IOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectio
 func (r *IOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *IOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *IOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Assignments returns request builder for IOSLobAppProvisioningConfigurationAssignment collection
@@ -422,6 +455,22 @@ func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) Add(ctx
 	return
 }
 
+// BatchGet adds Get operation to Batch for IOSLobAppProvisioningConfigurationAssignment collection
+func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []IOSLobAppProvisioningConfigurationAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for IOSLobAppProvisioningConfigurationAssignment collection
+func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *IOSLobAppProvisioningConfigurationAssignment) error {
+	var resObj []IOSLobAppProvisioningConfigurationAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // DeviceStatuses returns request builder for ManagedDeviceMobileAppConfigurationDeviceStatus collection
 func (b *IOSLobAppProvisioningConfigurationRequestBuilder) DeviceStatuses() *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequestBuilder {
 	bb := &IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -522,6 +571,22 @@ func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Get(
 func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) (resObj *ManagedDeviceMobileAppConfigurationDeviceStatus, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceMobileAppConfigurationDeviceStatus collection
+func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceMobileAppConfigurationDeviceStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceMobileAppConfigurationDeviceStatus collection
+func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) error {
+	var resObj []ManagedDeviceMobileAppConfigurationDeviceStatus
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // GroupAssignments returns request builder for MobileAppProvisioningConfigGroupAssignment collection
@@ -626,6 +691,22 @@ func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) Ad
 	return
 }
 
+// BatchGet adds Get operation to Batch for MobileAppProvisioningConfigGroupAssignment collection
+func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []MobileAppProvisioningConfigGroupAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for MobileAppProvisioningConfigGroupAssignment collection
+func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *MobileAppProvisioningConfigGroupAssignment) error {
+	var resObj []MobileAppProvisioningConfigGroupAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // UserStatuses returns request builder for ManagedDeviceMobileAppConfigurationUserStatus collection
 func (b *IOSLobAppProvisioningConfigurationRequestBuilder) UserStatuses() *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequestBuilder {
 	bb := &IOSLobAppProvisioningConfigurationUserStatusesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -728,6 +809,22 @@ func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) Add(ct
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceMobileAppConfigurationUserStatus collection
+func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceMobileAppConfigurationUserStatus
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceMobileAppConfigurationUserStatus collection
+func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceMobileAppConfigurationUserStatus) error {
+	var resObj []ManagedDeviceMobileAppConfigurationUserStatus
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Apps returns request builder for ManagedMobileApp collection
 func (b *IOSManagedAppProtectionRequestBuilder) Apps() *IOSManagedAppProtectionAppsCollectionRequestBuilder {
 	bb := &IOSManagedAppProtectionAppsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -828,6 +925,22 @@ func (r *IOSManagedAppProtectionAppsCollectionRequest) Get(ctx context.Context) 
 func (r *IOSManagedAppProtectionAppsCollectionRequest) Add(ctx context.Context, reqObj *ManagedMobileApp) (resObj *ManagedMobileApp, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedMobileApp collection
+func (r *IOSManagedAppProtectionAppsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedMobileApp
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedMobileApp collection
+func (r *IOSManagedAppProtectionAppsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedMobileApp) error {
+	var resObj []ManagedMobileApp
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // DeploymentSummary is navigation property
@@ -939,6 +1052,22 @@ func (r *IOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionReques
 	return
 }
 
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *IOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *IOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
 func (b *IOSScepCertificateProfileRequestBuilder) ManagedDeviceCertificateStates() *IOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder {
 	bb := &IOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1039,6 +1168,22 @@ func (r *IOSScepCertificateProfileManagedDeviceCertificateStatesCollectionReques
 func (r *IOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for ManagedDeviceCertificateState collection
+func (r *IOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for ManagedDeviceCertificateState collection
+func (r *IOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *ManagedDeviceCertificateState) error {
+	var resObj []ManagedDeviceCertificateState
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // RootCertificate is navigation property
@@ -1162,4 +1307,20 @@ func (r *IOSVPPAppAssignedLicensesCollectionRequest) Get(ctx context.Context) ([
 func (r *IOSVPPAppAssignedLicensesCollectionRequest) Add(ctx context.Context, reqObj *IOSVPPAppAssignedLicense) (resObj *IOSVPPAppAssignedLicense, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for IOSVPPAppAssignedLicense collection
+func (r *IOSVPPAppAssignedLicensesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []IOSVPPAppAssignedLicense
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for IOSVPPAppAssignedLicense collection
+func (r *IOSVPPAppAssignedLicensesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *IOSVPPAppAssignedLicense) error {
+	var resObj []IOSVPPAppAssignedLicense
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

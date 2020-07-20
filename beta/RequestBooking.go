@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // BookingAppointmentRequestBuilder is request builder for BookingAppointment
 type BookingAppointmentRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *BookingAppointmentRequest) Update(ctx context.Context, reqObj *BookingA
 // Delete performs DELETE request for BookingAppointment
 func (r *BookingAppointmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for BookingAppointment
+func (r *BookingAppointmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj BookingAppointment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for BookingAppointment
+func (r *BookingAppointmentRequest) BatchUpdate(batch *BatchRequest, reqObj *BookingAppointment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for BookingAppointment
+func (r *BookingAppointmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // BookingBusinessRequestBuilder is request builder for BookingBusiness
@@ -70,6 +93,26 @@ func (r *BookingBusinessRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for BookingBusiness
+func (r *BookingBusinessRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj BookingBusiness
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for BookingBusiness
+func (r *BookingBusinessRequest) BatchUpdate(batch *BatchRequest, reqObj *BookingBusiness) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for BookingBusiness
+func (r *BookingBusinessRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // BookingCurrencyRequestBuilder is request builder for BookingCurrency
 type BookingCurrencyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *BookingCurrencyRequest) Update(ctx context.Context, reqObj *BookingCurr
 // Delete performs DELETE request for BookingCurrency
 func (r *BookingCurrencyRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for BookingCurrency
+func (r *BookingCurrencyRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj BookingCurrency
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for BookingCurrency
+func (r *BookingCurrencyRequest) BatchUpdate(batch *BatchRequest, reqObj *BookingCurrency) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for BookingCurrency
+func (r *BookingCurrencyRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // BookingCustomerRequestBuilder is request builder for BookingCustomer
@@ -136,6 +199,26 @@ func (r *BookingCustomerRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for BookingCustomer
+func (r *BookingCustomerRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj BookingCustomer
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for BookingCustomer
+func (r *BookingCustomerRequest) BatchUpdate(batch *BatchRequest, reqObj *BookingCustomer) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for BookingCustomer
+func (r *BookingCustomerRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // BookingServiceRequestBuilder is request builder for BookingService
 type BookingServiceRequestBuilder struct{ BaseRequestBuilder }
 
@@ -167,6 +250,26 @@ func (r *BookingServiceRequest) Update(ctx context.Context, reqObj *BookingServi
 // Delete performs DELETE request for BookingService
 func (r *BookingServiceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for BookingService
+func (r *BookingServiceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj BookingService
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for BookingService
+func (r *BookingServiceRequest) BatchUpdate(batch *BatchRequest, reqObj *BookingService) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for BookingService
+func (r *BookingServiceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // BookingStaffMemberRequestBuilder is request builder for BookingStaffMember
@@ -202,6 +305,26 @@ func (r *BookingStaffMemberRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for BookingStaffMember
+func (r *BookingStaffMemberRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj BookingStaffMember
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for BookingStaffMember
+func (r *BookingStaffMemberRequest) BatchUpdate(batch *BatchRequest, reqObj *BookingStaffMember) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for BookingStaffMember
+func (r *BookingStaffMemberRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type BookingAppointmentCancelRequestBuilder struct{ BaseRequestBuilder }
 
@@ -226,6 +349,11 @@ func (b *BookingAppointmentCancelRequestBuilder) Request() *BookingAppointmentCa
 //
 func (r *BookingAppointmentCancelRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *BookingAppointmentCancelRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -255,6 +383,11 @@ func (r *BookingBusinessPublishRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *BookingBusinessPublishRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type BookingBusinessUnpublishRequestBuilder struct{ BaseRequestBuilder }
 
 // Unpublish action undocumented
@@ -278,4 +411,9 @@ func (b *BookingBusinessUnpublishRequestBuilder) Request() *BookingBusinessUnpub
 //
 func (r *BookingBusinessUnpublishRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *BookingBusinessUnpublishRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

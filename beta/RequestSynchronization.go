@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // SynchronizationRequestBuilder is request builder for Synchronization
 type SynchronizationRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *SynchronizationRequest) Update(ctx context.Context, reqObj *Synchroniza
 // Delete performs DELETE request for Synchronization
 func (r *SynchronizationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Synchronization
+func (r *SynchronizationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Synchronization
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Synchronization
+func (r *SynchronizationRequest) BatchUpdate(batch *BatchRequest, reqObj *Synchronization) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Synchronization
+func (r *SynchronizationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // SynchronizationJobRequestBuilder is request builder for SynchronizationJob
@@ -70,6 +93,26 @@ func (r *SynchronizationJobRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for SynchronizationJob
+func (r *SynchronizationJobRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SynchronizationJob
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SynchronizationJob
+func (r *SynchronizationJobRequest) BatchUpdate(batch *BatchRequest, reqObj *SynchronizationJob) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SynchronizationJob
+func (r *SynchronizationJobRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // SynchronizationSchemaRequestBuilder is request builder for SynchronizationSchema
 type SynchronizationSchemaRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *SynchronizationSchemaRequest) Update(ctx context.Context, reqObj *Synch
 // Delete performs DELETE request for SynchronizationSchema
 func (r *SynchronizationSchemaRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for SynchronizationSchema
+func (r *SynchronizationSchemaRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SynchronizationSchema
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SynchronizationSchema
+func (r *SynchronizationSchemaRequest) BatchUpdate(batch *BatchRequest, reqObj *SynchronizationSchema) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SynchronizationSchema
+func (r *SynchronizationSchemaRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // SynchronizationTemplateRequestBuilder is request builder for SynchronizationTemplate
@@ -136,6 +199,26 @@ func (r *SynchronizationTemplateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for SynchronizationTemplate
+func (r *SynchronizationTemplateRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj SynchronizationTemplate
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for SynchronizationTemplate
+func (r *SynchronizationTemplateRequest) BatchUpdate(batch *BatchRequest, reqObj *SynchronizationTemplate) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for SynchronizationTemplate
+func (r *SynchronizationTemplateRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type SynchronizationJobCollectionValidateCredentialsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -160,6 +243,11 @@ func (b *SynchronizationJobCollectionValidateCredentialsRequestBuilder) Request(
 //
 func (r *SynchronizationJobCollectionValidateCredentialsRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *SynchronizationJobCollectionValidateCredentialsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -189,6 +277,11 @@ func (r *SynchronizationJobPauseRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *SynchronizationJobPauseRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type SynchronizationJobStartRequestBuilder struct{ BaseRequestBuilder }
 
 // Start action undocumented
@@ -212,6 +305,11 @@ func (b *SynchronizationJobStartRequestBuilder) Request() *SynchronizationJobSta
 //
 func (r *SynchronizationJobStartRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *SynchronizationJobStartRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -241,6 +339,11 @@ func (r *SynchronizationJobStopRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *SynchronizationJobStopRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type SynchronizationJobApplyRequestBuilder struct{ BaseRequestBuilder }
 
 // Apply action undocumented
@@ -264,6 +367,11 @@ func (b *SynchronizationJobApplyRequestBuilder) Request() *SynchronizationJobApp
 //
 func (r *SynchronizationJobApplyRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *SynchronizationJobApplyRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -293,6 +401,11 @@ func (r *SynchronizationJobRestartRequest) Post(ctx context.Context) error {
 }
 
 //
+func (r *SynchronizationJobRestartRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type SynchronizationJobValidateCredentialsRequestBuilder struct{ BaseRequestBuilder }
 
 // ValidateCredentials action undocumented
@@ -316,6 +429,11 @@ func (b *SynchronizationJobValidateCredentialsRequestBuilder) Request() *Synchro
 //
 func (r *SynchronizationJobValidateCredentialsRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *SynchronizationJobValidateCredentialsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -343,4 +461,10 @@ func (b *SynchronizationSchemaParseExpressionRequestBuilder) Request() *Synchron
 func (r *SynchronizationSchemaParseExpressionRequest) Post(ctx context.Context) (resObj *ParseExpressionResponse, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *SynchronizationSchemaParseExpressionRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *ParseExpressionResponse
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

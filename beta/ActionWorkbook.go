@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -3503,6 +3504,22 @@ func (r *WorkbookCommentsCollectionRequest) Add(ctx context.Context, reqObj *Wor
 	return
 }
 
+// BatchGet adds Get operation to Batch for WorkbookComment collection
+func (r *WorkbookCommentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookComment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookComment collection
+func (r *WorkbookCommentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookComment) error {
+	var resObj []WorkbookComment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Functions is navigation property
 func (b *WorkbookRequestBuilder) Functions() *WorkbookFunctionsRequestBuilder {
 	bb := &WorkbookFunctionsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -3612,6 +3629,22 @@ func (r *WorkbookNamesCollectionRequest) Add(ctx context.Context, reqObj *Workbo
 	return
 }
 
+// BatchGet adds Get operation to Batch for WorkbookNamedItem collection
+func (r *WorkbookNamesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookNamedItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookNamedItem collection
+func (r *WorkbookNamesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookNamedItem) error {
+	var resObj []WorkbookNamedItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Tables returns request builder for WorkbookTable collection
 func (b *WorkbookRequestBuilder) Tables() *WorkbookTablesCollectionRequestBuilder {
 	bb := &WorkbookTablesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -3714,6 +3747,22 @@ func (r *WorkbookTablesCollectionRequest) Add(ctx context.Context, reqObj *Workb
 	return
 }
 
+// BatchGet adds Get operation to Batch for WorkbookTable collection
+func (r *WorkbookTablesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookTable
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookTable collection
+func (r *WorkbookTablesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookTable) error {
+	var resObj []WorkbookTable
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Worksheets returns request builder for WorkbookWorksheet collection
 func (b *WorkbookRequestBuilder) Worksheets() *WorkbookWorksheetsCollectionRequestBuilder {
 	bb := &WorkbookWorksheetsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -3814,6 +3863,22 @@ func (r *WorkbookWorksheetsCollectionRequest) Get(ctx context.Context) ([]Workbo
 func (r *WorkbookWorksheetsCollectionRequest) Add(ctx context.Context, reqObj *WorkbookWorksheet) (resObj *WorkbookWorksheet, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WorkbookWorksheet collection
+func (r *WorkbookWorksheetsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookWorksheet
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookWorksheet collection
+func (r *WorkbookWorksheetsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookWorksheet) error {
+	var resObj []WorkbookWorksheet
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Axes is navigation property
@@ -3944,6 +4009,22 @@ func (r *WorkbookChartSeriesCollectionRequest) Get(ctx context.Context) ([]Workb
 func (r *WorkbookChartSeriesCollectionRequest) Add(ctx context.Context, reqObj *WorkbookChartSeries) (resObj *WorkbookChartSeries, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WorkbookChartSeries collection
+func (r *WorkbookChartSeriesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookChartSeries
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookChartSeries collection
+func (r *WorkbookChartSeriesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookChartSeries) error {
+	var resObj []WorkbookChartSeries
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Title is navigation property
@@ -4230,6 +4311,22 @@ func (r *WorkbookChartSeriesPointsCollectionRequest) Add(ctx context.Context, re
 	return
 }
 
+// BatchGet adds Get operation to Batch for WorkbookChartPoint collection
+func (r *WorkbookChartSeriesPointsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookChartPoint
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookChartPoint collection
+func (r *WorkbookChartSeriesPointsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookChartPoint) error {
+	var resObj []WorkbookChartPoint
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Fill is navigation property
 func (b *WorkbookChartSeriesFormatRequestBuilder) Fill() *WorkbookChartFillRequestBuilder {
 	bb := &WorkbookChartFillRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -4365,6 +4462,22 @@ func (r *WorkbookCommentRepliesCollectionRequest) Get(ctx context.Context) ([]Wo
 func (r *WorkbookCommentRepliesCollectionRequest) Add(ctx context.Context, reqObj *WorkbookCommentReply) (resObj *WorkbookCommentReply, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WorkbookCommentReply collection
+func (r *WorkbookCommentRepliesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookCommentReply
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookCommentReply collection
+func (r *WorkbookCommentRepliesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookCommentReply) error {
+	var resObj []WorkbookCommentReply
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Worksheet is navigation property
@@ -4504,6 +4617,22 @@ func (r *WorkbookRangeFormatBordersCollectionRequest) Add(ctx context.Context, r
 	return
 }
 
+// BatchGet adds Get operation to Batch for WorkbookRangeBorder collection
+func (r *WorkbookRangeFormatBordersCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookRangeBorder
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookRangeBorder collection
+func (r *WorkbookRangeFormatBordersCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookRangeBorder) error {
+	var resObj []WorkbookRangeBorder
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Fill is navigation property
 func (b *WorkbookRangeFormatRequestBuilder) Fill() *WorkbookRangeFillRequestBuilder {
 	bb := &WorkbookRangeFillRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -4627,6 +4756,22 @@ func (r *WorkbookRangeViewRowsCollectionRequest) Add(ctx context.Context, reqObj
 	return
 }
 
+// BatchGet adds Get operation to Batch for WorkbookRangeView collection
+func (r *WorkbookRangeViewRowsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookRangeView
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookRangeView collection
+func (r *WorkbookRangeViewRowsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookRangeView) error {
+	var resObj []WorkbookRangeView
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Columns returns request builder for WorkbookTableColumn collection
 func (b *WorkbookTableRequestBuilder) Columns() *WorkbookTableColumnsCollectionRequestBuilder {
 	bb := &WorkbookTableColumnsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -4729,6 +4874,22 @@ func (r *WorkbookTableColumnsCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// BatchGet adds Get operation to Batch for WorkbookTableColumn collection
+func (r *WorkbookTableColumnsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookTableColumn
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookTableColumn collection
+func (r *WorkbookTableColumnsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookTableColumn) error {
+	var resObj []WorkbookTableColumn
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Rows returns request builder for WorkbookTableRow collection
 func (b *WorkbookTableRequestBuilder) Rows() *WorkbookTableRowsCollectionRequestBuilder {
 	bb := &WorkbookTableRowsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -4829,6 +4990,22 @@ func (r *WorkbookTableRowsCollectionRequest) Get(ctx context.Context) ([]Workboo
 func (r *WorkbookTableRowsCollectionRequest) Add(ctx context.Context, reqObj *WorkbookTableRow) (resObj *WorkbookTableRow, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WorkbookTableRow collection
+func (r *WorkbookTableRowsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookTableRow
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookTableRow collection
+func (r *WorkbookTableRowsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookTableRow) error {
+	var resObj []WorkbookTableRow
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Sort is navigation property
@@ -4954,6 +5131,22 @@ func (r *WorkbookWorksheetChartsCollectionRequest) Add(ctx context.Context, reqO
 	return
 }
 
+// BatchGet adds Get operation to Batch for WorkbookChart collection
+func (r *WorkbookWorksheetChartsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookChart
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookChart collection
+func (r *WorkbookWorksheetChartsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookChart) error {
+	var resObj []WorkbookChart
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Names returns request builder for WorkbookNamedItem collection
 func (b *WorkbookWorksheetRequestBuilder) Names() *WorkbookWorksheetNamesCollectionRequestBuilder {
 	bb := &WorkbookWorksheetNamesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -5056,6 +5249,22 @@ func (r *WorkbookWorksheetNamesCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// BatchGet adds Get operation to Batch for WorkbookNamedItem collection
+func (r *WorkbookWorksheetNamesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookNamedItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookNamedItem collection
+func (r *WorkbookWorksheetNamesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookNamedItem) error {
+	var resObj []WorkbookNamedItem
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // PivotTables returns request builder for WorkbookPivotTable collection
 func (b *WorkbookWorksheetRequestBuilder) PivotTables() *WorkbookWorksheetPivotTablesCollectionRequestBuilder {
 	bb := &WorkbookWorksheetPivotTablesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -5156,6 +5365,22 @@ func (r *WorkbookWorksheetPivotTablesCollectionRequest) Get(ctx context.Context)
 func (r *WorkbookWorksheetPivotTablesCollectionRequest) Add(ctx context.Context, reqObj *WorkbookPivotTable) (resObj *WorkbookPivotTable, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WorkbookPivotTable collection
+func (r *WorkbookWorksheetPivotTablesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookPivotTable
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookPivotTable collection
+func (r *WorkbookWorksheetPivotTablesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookPivotTable) error {
+	var resObj []WorkbookPivotTable
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }
 
 // Protection is navigation property
@@ -5265,4 +5490,20 @@ func (r *WorkbookWorksheetTablesCollectionRequest) Get(ctx context.Context) ([]W
 func (r *WorkbookWorksheetTablesCollectionRequest) Add(ctx context.Context, reqObj *WorkbookTable) (resObj *WorkbookTable, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for WorkbookTable collection
+func (r *WorkbookWorksheetTablesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []WorkbookTable
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for WorkbookTable collection
+func (r *WorkbookWorksheetTablesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *WorkbookTable) error {
+	var resObj []WorkbookTable
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

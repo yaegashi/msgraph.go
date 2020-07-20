@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -111,4 +112,20 @@ func (r *FinancialsCompaniesCollectionRequest) Get(ctx context.Context) ([]Compa
 func (r *FinancialsCompaniesCollectionRequest) Add(ctx context.Context, reqObj *Company) (resObj *Company, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for Company collection
+func (r *FinancialsCompaniesCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Company
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Company collection
+func (r *FinancialsCompaniesCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Company) error {
+	var resObj []Company
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

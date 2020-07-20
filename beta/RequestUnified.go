@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // UnifiedRoleAssignmentRequestBuilder is request builder for UnifiedRoleAssignment
 type UnifiedRoleAssignmentRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *UnifiedRoleAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for UnifiedRoleAssignment
+func (r *UnifiedRoleAssignmentRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj UnifiedRoleAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for UnifiedRoleAssignment
+func (r *UnifiedRoleAssignmentRequest) BatchUpdate(batch *BatchRequest, reqObj *UnifiedRoleAssignment) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for UnifiedRoleAssignment
+func (r *UnifiedRoleAssignmentRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // UnifiedRoleDefinitionRequestBuilder is request builder for UnifiedRoleDefinition
 type UnifiedRoleDefinitionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +91,24 @@ func (r *UnifiedRoleDefinitionRequest) Update(ctx context.Context, reqObj *Unifi
 // Delete performs DELETE request for UnifiedRoleDefinition
 func (r *UnifiedRoleDefinitionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for UnifiedRoleDefinition
+func (r *UnifiedRoleDefinitionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj UnifiedRoleDefinition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for UnifiedRoleDefinition
+func (r *UnifiedRoleDefinitionRequest) BatchUpdate(batch *BatchRequest, reqObj *UnifiedRoleDefinition) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for UnifiedRoleDefinition
+func (r *UnifiedRoleDefinitionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

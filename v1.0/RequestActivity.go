@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ActivityHistoryItemRequestBuilder is request builder for ActivityHistoryItem
 type ActivityHistoryItemRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *ActivityHistoryItemRequest) Update(ctx context.Context, reqObj *Activit
 // Delete performs DELETE request for ActivityHistoryItem
 func (r *ActivityHistoryItemRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ActivityHistoryItem
+func (r *ActivityHistoryItemRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ActivityHistoryItem
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ActivityHistoryItem
+func (r *ActivityHistoryItemRequest) BatchUpdate(batch *BatchRequest, reqObj *ActivityHistoryItem) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ActivityHistoryItem
+func (r *ActivityHistoryItemRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

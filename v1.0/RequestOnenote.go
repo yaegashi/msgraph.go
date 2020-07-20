@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // OnenoteRequestBuilder is request builder for Onenote
 type OnenoteRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *OnenoteRequest) Update(ctx context.Context, reqObj *Onenote) error {
 // Delete performs DELETE request for Onenote
 func (r *OnenoteRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for Onenote
+func (r *OnenoteRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj Onenote
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for Onenote
+func (r *OnenoteRequest) BatchUpdate(batch *BatchRequest, reqObj *Onenote) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for Onenote
+func (r *OnenoteRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // OnenoteOperationRequestBuilder is request builder for OnenoteOperation
@@ -70,6 +93,26 @@ func (r *OnenoteOperationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for OnenoteOperation
+func (r *OnenoteOperationRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OnenoteOperation
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OnenoteOperation
+func (r *OnenoteOperationRequest) BatchUpdate(batch *BatchRequest, reqObj *OnenoteOperation) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OnenoteOperation
+func (r *OnenoteOperationRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // OnenotePageRequestBuilder is request builder for OnenotePage
 type OnenotePageRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,6 +144,26 @@ func (r *OnenotePageRequest) Update(ctx context.Context, reqObj *OnenotePage) er
 // Delete performs DELETE request for OnenotePage
 func (r *OnenotePageRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for OnenotePage
+func (r *OnenotePageRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OnenotePage
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OnenotePage
+func (r *OnenotePageRequest) BatchUpdate(batch *BatchRequest, reqObj *OnenotePage) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OnenotePage
+func (r *OnenotePageRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // OnenoteResourceRequestBuilder is request builder for OnenoteResource
@@ -136,6 +199,26 @@ func (r *OnenoteResourceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for OnenoteResource
+func (r *OnenoteResourceRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OnenoteResource
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OnenoteResource
+func (r *OnenoteResourceRequest) BatchUpdate(batch *BatchRequest, reqObj *OnenoteResource) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OnenoteResource
+func (r *OnenoteResourceRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // OnenoteSectionRequestBuilder is request builder for OnenoteSection
 type OnenoteSectionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -169,6 +252,26 @@ func (r *OnenoteSectionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for OnenoteSection
+func (r *OnenoteSectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj OnenoteSection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for OnenoteSection
+func (r *OnenoteSectionRequest) BatchUpdate(batch *BatchRequest, reqObj *OnenoteSection) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for OnenoteSection
+func (r *OnenoteSectionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type OnenotePageOnenotePatchContentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -193,6 +296,11 @@ func (b *OnenotePageOnenotePatchContentRequestBuilder) Request() *OnenotePageOne
 //
 func (r *OnenotePageOnenotePatchContentRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *OnenotePageOnenotePatchContentRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }
 
 //
@@ -223,6 +331,12 @@ func (r *OnenotePageCopyToSectionRequest) Post(ctx context.Context) (resObj *One
 }
 
 //
+func (r *OnenotePageCopyToSectionRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *OnenoteOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type OnenoteSectionCopyToNotebookRequestBuilder struct{ BaseRequestBuilder }
 
 // CopyToNotebook action undocumented
@@ -250,6 +364,12 @@ func (r *OnenoteSectionCopyToNotebookRequest) Post(ctx context.Context) (resObj 
 }
 
 //
+func (r *OnenoteSectionCopyToNotebookRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *OnenoteOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type OnenoteSectionCopyToSectionGroupRequestBuilder struct{ BaseRequestBuilder }
 
 // CopyToSectionGroup action undocumented
@@ -274,4 +394,10 @@ func (b *OnenoteSectionCopyToSectionGroupRequestBuilder) Request() *OnenoteSecti
 func (r *OnenoteSectionCopyToSectionGroupRequest) Post(ctx context.Context) (resObj *OnenoteOperation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *OnenoteSectionCopyToSectionGroupRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *OnenoteOperation
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }

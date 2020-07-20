@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // WorkPositionRequestBuilder is request builder for WorkPosition
 type WorkPositionRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *WorkPositionRequest) Update(ctx context.Context, reqObj *WorkPosition) 
 // Delete performs DELETE request for WorkPosition
 func (r *WorkPositionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for WorkPosition
+func (r *WorkPositionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj WorkPosition
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for WorkPosition
+func (r *WorkPositionRequest) BatchUpdate(batch *BatchRequest, reqObj *WorkPosition) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for WorkPosition
+func (r *WorkPositionRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

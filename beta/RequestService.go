@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ServicePrincipalRequestBuilder is request builder for ServicePrincipal
 type ServicePrincipalRequestBuilder struct{ BaseRequestBuilder }
@@ -37,6 +40,26 @@ func (r *ServicePrincipalRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for ServicePrincipal
+func (r *ServicePrincipalRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ServicePrincipal
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ServicePrincipal
+func (r *ServicePrincipalRequest) BatchUpdate(batch *BatchRequest, reqObj *ServicePrincipal) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ServicePrincipal
+func (r *ServicePrincipalRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 //
 type ServicePrincipalCreatePasswordSingleSignOnCredentialsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -62,6 +85,12 @@ func (b *ServicePrincipalCreatePasswordSingleSignOnCredentialsRequestBuilder) Re
 func (r *ServicePrincipalCreatePasswordSingleSignOnCredentialsRequest) Post(ctx context.Context) (resObj *PasswordSingleSignOnCredentialSet, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
+}
+
+//
+func (r *ServicePrincipalCreatePasswordSingleSignOnCredentialsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *PasswordSingleSignOnCredentialSet
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
 }
 
 //
@@ -92,6 +121,12 @@ func (r *ServicePrincipalGetPasswordSingleSignOnCredentialsRequest) Post(ctx con
 }
 
 //
+func (r *ServicePrincipalGetPasswordSingleSignOnCredentialsRequest) BatchPost(batch *BatchRequest) error {
+	var resObj *PasswordSingleSignOnCredentialSet
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}
+
+//
 type ServicePrincipalDeletePasswordSingleSignOnCredentialsRequestBuilder struct{ BaseRequestBuilder }
 
 // DeletePasswordSingleSignOnCredentials action undocumented
@@ -118,6 +153,11 @@ func (r *ServicePrincipalDeletePasswordSingleSignOnCredentialsRequest) Post(ctx 
 }
 
 //
+func (r *ServicePrincipalDeletePasswordSingleSignOnCredentialsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
+}
+
+//
 type ServicePrincipalUpdatePasswordSingleSignOnCredentialsRequestBuilder struct{ BaseRequestBuilder }
 
 // UpdatePasswordSingleSignOnCredentials action undocumented
@@ -141,4 +181,9 @@ func (b *ServicePrincipalUpdatePasswordSingleSignOnCredentialsRequestBuilder) Re
 //
 func (r *ServicePrincipalUpdatePasswordSingleSignOnCredentialsRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+func (r *ServicePrincipalUpdatePasswordSingleSignOnCredentialsRequest) BatchPost(batch *BatchRequest) error {
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, nil)
 }

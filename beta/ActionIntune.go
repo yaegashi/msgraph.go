@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -117,4 +118,20 @@ func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Get(ctx context.Cont
 func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *IntuneBrandingProfileAssignment) (resObj *IntuneBrandingProfileAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for IntuneBrandingProfileAssignment collection
+func (r *IntuneBrandingProfileAssignmentsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []IntuneBrandingProfileAssignment
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for IntuneBrandingProfileAssignment collection
+func (r *IntuneBrandingProfileAssignmentsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *IntuneBrandingProfileAssignment) error {
+	var resObj []IntuneBrandingProfileAssignment
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

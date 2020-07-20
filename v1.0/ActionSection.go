@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -127,6 +128,22 @@ func (r *SectionGroupSectionGroupsCollectionRequest) Add(ctx context.Context, re
 	return
 }
 
+// BatchGet adds Get operation to Batch for SectionGroup collection
+func (r *SectionGroupSectionGroupsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []SectionGroup
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for SectionGroup collection
+func (r *SectionGroupSectionGroupsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *SectionGroup) error {
+	var resObj []SectionGroup
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // Sections returns request builder for OnenoteSection collection
 func (b *SectionGroupRequestBuilder) Sections() *SectionGroupSectionsCollectionRequestBuilder {
 	bb := &SectionGroupSectionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -227,4 +244,20 @@ func (r *SectionGroupSectionsCollectionRequest) Get(ctx context.Context) ([]Onen
 func (r *SectionGroupSectionsCollectionRequest) Add(ctx context.Context, reqObj *OnenoteSection) (resObj *OnenoteSection, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for OnenoteSection collection
+func (r *SectionGroupSectionsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OnenoteSection
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OnenoteSection collection
+func (r *SectionGroupSectionsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OnenoteSection) error {
+	var resObj []OnenoteSection
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -119,6 +120,22 @@ func (r *CloudCommunicationsCallsCollectionRequest) Add(ctx context.Context, req
 	return
 }
 
+// BatchGet adds Get operation to Batch for Call collection
+func (r *CloudCommunicationsCallsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []Call
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for Call collection
+func (r *CloudCommunicationsCallsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *Call) error {
+	var resObj []Call
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+
 // OnlineMeetings returns request builder for OnlineMeeting collection
 func (b *CloudCommunicationsRequestBuilder) OnlineMeetings() *CloudCommunicationsOnlineMeetingsCollectionRequestBuilder {
 	bb := &CloudCommunicationsOnlineMeetingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -219,4 +236,20 @@ func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Get(ctx context.Con
 func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Add(ctx context.Context, reqObj *OnlineMeeting) (resObj *OnlineMeeting, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// BatchGet adds Get operation to Batch for OnlineMeeting collection
+func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj []OnlineMeeting
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for OnlineMeeting collection
+func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) BatchAdd(batch *BatchRequest, reqObj *OnlineMeeting) error {
+	var resObj []OnlineMeeting
+	return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
 }

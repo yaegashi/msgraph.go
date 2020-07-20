@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // TimeOffRequestBuilder is request builder for TimeOff
 type TimeOffRequestBuilder struct{ BaseRequestBuilder }
@@ -35,6 +38,26 @@ func (r *TimeOffRequest) Update(ctx context.Context, reqObj *TimeOff) error {
 // Delete performs DELETE request for TimeOff
 func (r *TimeOffRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for TimeOff
+func (r *TimeOffRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TimeOff
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TimeOff
+func (r *TimeOffRequest) BatchUpdate(batch *BatchRequest, reqObj *TimeOff) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TimeOff
+func (r *TimeOffRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
 
 // TimeOffReasonRequestBuilder is request builder for TimeOffReason
@@ -70,6 +93,26 @@ func (r *TimeOffReasonRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// BatchGet adds Get operation to Batch for TimeOffReason
+func (r *TimeOffReasonRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TimeOffReason
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TimeOffReason
+func (r *TimeOffReasonRequest) BatchUpdate(batch *BatchRequest, reqObj *TimeOffReason) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TimeOffReason
+func (r *TimeOffReasonRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
+
 // TimeOffRequestObjectRequestBuilder is request builder for TimeOffRequestObject
 type TimeOffRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -101,4 +144,24 @@ func (r *TimeOffRequestObjectRequest) Update(ctx context.Context, reqObj *TimeOf
 // Delete performs DELETE request for TimeOffRequestObject
 func (r *TimeOffRequestObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for TimeOffRequestObject
+func (r *TimeOffRequestObjectRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj TimeOffRequestObject
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for TimeOffRequestObject
+func (r *TimeOffRequestObjectRequest) BatchUpdate(batch *BatchRequest, reqObj *TimeOffRequestObject) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for TimeOffRequestObject
+func (r *TimeOffRequestObjectRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }

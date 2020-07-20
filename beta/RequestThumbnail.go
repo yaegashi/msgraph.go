@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"strings"
+)
 
 // ThumbnailSetRequestBuilder is request builder for ThumbnailSet
 type ThumbnailSetRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +38,24 @@ func (r *ThumbnailSetRequest) Update(ctx context.Context, reqObj *ThumbnailSet) 
 // Delete performs DELETE request for ThumbnailSet
 func (r *ThumbnailSetRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// BatchGet adds Get operation to Batch for ThumbnailSet
+func (r *ThumbnailSetRequest) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	var resObj ThumbnailSet
+	return batch.Add("GET", strings.TrimPrefix(r.baseURL+query, defaultBaseURL), nil, resObj)
+}
+
+// BatchUpdate adds Update operation to Batch for ThumbnailSet
+func (r *ThumbnailSetRequest) BatchUpdate(batch *BatchRequest, reqObj *ThumbnailSet) error {
+	return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for ThumbnailSet
+func (r *ThumbnailSetRequest) BatchDelete(batch *BatchRequest) error {
+	return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
 }
