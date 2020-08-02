@@ -4,11 +4,11 @@
 
 |v1.0|beta|
 |---|---|
-|[![go.dev](https://img.shields.io/badge/go.dev-reference-000000?logo=go)](https://pkg.go.dev/github.com/yaegashi/msgraph.go/v1.0)|[![go.dev](https://img.shields.io/badge/go.dev-reference_(missing)-000000?logo=go)](https://pkg.go.dev/github.com/yaegashi/msgraph.go/beta)|
+|[![pkg.go.dev](https://pkg.go.dev/badge/github.com/yaegashi/msgraph.go/v1.0)](https://pkg.go.dev/github.com/yaegashi/msgraph.go/v1.0)|[![pkg.go.dev](https://pkg.go.dev/badge/github.com/yaegashi/msgraph.go/beta)](https://pkg.go.dev/github.com/yaegashi/msgraph.go/beta)|
 
-(Online reference generation is broken due to huge number of files in the package)
+(The online references at pkg.go.dev above are not shown due to huge size of packages - [#23](https://github.com/yaegashi/msgraph.go/issues/23))
 
-## Introduction 
+## Introduction
 
 [Microsoft Graph] client library for Go.  Still in PoC or pre-alpha stage.
 Don't use in production.
@@ -58,25 +58,28 @@ Code examples in the repository:
 
 Run `go generate ./gen` to download the metadata and generate library code from it.
 
-You need `goimports` to format outputs and fix imports of them.
-
 ```console
-$ go get golang.org/x/tools/cmd/goimports
-$ rm gen/*.xml
 $ go generate ./gen
-2019/10/23 03:56:06 Downloading https://graph.microsoft.com/v1.0/$metadata to metadata-v1.0.xml
-2019/10/23 03:56:07 Downloading https://graph.microsoft.com/beta/$metadata to metadata-beta.xml
-2019/10/23 03:56:07 Creating directory ../v1.0
-2019/10/23 03:56:07 Removing ../v1.0/InstallIntentEnum.go
-2019/10/23 03:56:07 Removing ../v1.0/EditionUpgradeConfigurationModel.go
-2019/10/23 03:56:07 Removing ../v1.0/AssignedPlanModel.go
+2020/08/02 19:46:20 Downloading https://graph.microsoft.com/v1.0/$metadata to metadata/v1.0.xml
+2020/08/02 19:46:20 metadata/v1.0.xml already exists, skipping
+2020/08/02 19:46:21 Downloading https://graph.microsoft.com/beta/$metadata to metadata/beta.xml
+2020/08/02 19:46:21 metadata/beta.xml already exists, skipping
+2020/08/02 19:46:21 Creating directory ../v1.0
+2020/08/02 19:46:21 Removing ../v1.0/ModelAverage.go
+2020/08/02 19:46:21 Removing ../v1.0/RequestSchema.go
+2020/08/02 19:46:21 Removing ../v1.0/RequestAndroid.go.go
 ...
-2019/10/23 03:56:07 Creating ../v1.0/msgraph.go
-2019/10/23 03:56:07 Creating ../v1.0/ActionStateEnum.go
-2019/10/23 03:56:07 Creating ../v1.0/ActivityDomainEnum.go
+2020/08/02 19:47:06 Creating ../v1.0/extensions.go
+2020/08/02 19:47:06 Creating ../v1.0/msgraph.go
+2020/08/02 19:47:06 Creating ../v1.0/const.go
+2020/08/02 19:47:06 Creating ../v1.0/EnumAction.gonEnum.go
 ...
-2019/10/23 03:56:10 Formatting ../v1.0/ContentTypeModel.go ../v1.0/AuditLogRootRequest.go ../v1.0/DeviceComplianceScheduledActionForRuleRequest.go ...
+2020/08/02 19:47:07 Formatting ../v1.0/ModelMedia.go
+2020/08/02 19:47:07 Formatting ../v1.0/RequestWorkbookFunctionsN.go
+2020/08/02 19:47:07 Formatting ../v1.0/EnumReject.go
 ```
+
+(Currently code generation from the latest metadata is broken - [#22](https://github.com/yaegashi/msgraph.go/issues/22))
 
 ## Todo
 
@@ -91,7 +94,7 @@ $ go generate ./gen
 - [x] Provide easy way to generate pointers to constants
 - [x] Provide easy way to add queries like `$expand` `$select` `$filter`
 - [x] Every request method should take a ctx as the first arg for better control
-- [ ] Online API docs (the output is too big for pkg.go.dev to handle)
+- [ ] Online API docs (the output is too big for pkg.go.dev to handle - [#23](https://github.com/yaegashi/msgraph.go/issues/23))
 - [ ] Unit tests
 - [x] CI
 - [x] Persist OAuth2 tokens in file

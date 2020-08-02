@@ -1,5 +1,13 @@
+// +build templates
+
+// This file is a part of msgraph.go/gen/templates.
+// Anything until the first appearance of "// BEGIN" line will be ignored.
+
+package msgraph
+
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -9,12 +17,11 @@ import (
 	"strconv"
 	"time"
 
-        "github.com/rickb777/date/period"
+	"github.com/rickb777/date/period"
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-const (
-	defaultBaseURL = "{{.BaseURL}}"
-)
+// BEGIN - everything below this line will be copied to the output
 
 // Binary is type alias for Edm.Binary
 type Binary []byte
@@ -74,8 +81,8 @@ func (d *Duration) Time() (time.Duration, error) {
 
 // Object is the common ancestor of all models
 type Object struct {
-    // AdditionalData contains all other fields not defined above
-    AdditionalData map[string]interface{} `json:"-" jsonx:"true"`
+	// AdditionalData contains all other fields not defined above
+	AdditionalData map[string]interface{} `json:"-" jsonx:"true"`
 }
 
 // SetAdditionalData sets object's additional data
@@ -304,19 +311,19 @@ func (r *BaseRequest) DecodeJSONResponse(res *http.Response, obj interface{}) er
 
 // JSONRequest issues HTTP request with JSON payload
 func (r *BaseRequest) JSONRequest(ctx context.Context, method, path string, reqObj, resObj interface{}) error {
-        req, err := r.NewJSONRequest(method, path, reqObj)
-        if err != nil {
-                return err
-        }
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-        res, err := r.client.Do(req)
-        if err != nil {
-                return err
-        }
-        defer res.Body.Close()
-        return r.DecodeJSONResponse(res, resObj)
+	req, err := r.NewJSONRequest(method, path, reqObj)
+	if err != nil {
+		return err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return err
+	}
+	defer res.Body.Close()
+	return r.DecodeJSONResponse(res, resObj)
 }
 
 // GraphServiceRequestBuilder is GraphService reuqest builder
