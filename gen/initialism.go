@@ -38,7 +38,7 @@ var commonInitialisms = map[string]string{
 	"MDM":    "MDM",
 	"MFA":    "MFA",
 	"NDES":   "NDES",
-	"OAUTH2": "OAuth2",
+	"OAUTH":  "OAuth",
 	"OMA":    "OMA",
 	"QPS":    "QPS",
 	"RAM":    "RAM",
