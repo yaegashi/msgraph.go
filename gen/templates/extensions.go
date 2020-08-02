@@ -1,3 +1,19 @@
+// +build templates
+
+// This file is a part of msgraph.go/gen/templates.
+// Anything until the first appearance of "// BEGIN" line will be ignored.
+
+package msgraph
+
+import (
+	"context"
+	"fmt"
+	"net/url"
+	"strings"
+)
+
+// BEGIN - everything below this line will be copied to the output
+
 // ItemWithPath returns DriveItemRequestBuilder addressed by relative path
 func (b *DriveItemRequestBuilder) ItemWithPath(path string) *DriveItemRequestBuilder {
 	bb := &DriveItemRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
