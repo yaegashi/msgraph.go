@@ -101,7 +101,6 @@ func (g *Generator) Generate() error {
 		return err
 	}
 
-	schema := o.Elems[0].Elems[0]
 	enumTypeMap := map[string]*EnumType{}
 	entityTypeMap := map[string]*EntityType{}
 	actionTypeMap := map[string][]*ActionType{}
@@ -110,120 +109,132 @@ func (g *Generator) Generate() error {
 	requestModelMap := map[string]bool{}
 	actionRequestBuilderMap := map[string][]string{}
 
-	for _, x := range schema.Elems {
-		switch x.XMLName.Local {
-		case "EnumType":
-			m := x.AttrMap()
-			n := m["Name"]
-			t := &EnumType{Name: n, Sym: exported(n), Description: "undocumented"}
-			for _, y := range x.Elems {
-				n := y.Attrs[0].Value
-				// ex. Collection(String) -> StringCollection
-				if strings.HasPrefix(n, colPrefix) {
-					n = n[len(colPrefix):len(n)-1] + "Collection"
-				}
-				v := y.Attrs[1].Value
-				m := &EnumTypeMember{Name: n, Sym: exported(n), Value: v, Description: "undocumented"}
-				t.Members = append(t.Members, m)
+	for _, schema := range o.Elems[0].Elems {
+		sm := schema.AttrMap()
+		ns, nsok := sm["Namespace"]
+		if nsok {
+			typeMap := make(map[string]string)
+			g.SymTypeMap[ns] = typeMap
+
+			if a, ok := sm["Alias"]; ok {
+				g.SymTypeMap[a] = typeMap
 			}
-			enumTypeMap[n] = t
-		case "EntityType", "ComplexType":
-			m := x.AttrMap()
-			n := m["Name"]
-			if _, ok := reservedTypeTable[n]; ok {
-				continue
-			}
-			t := nsPrefix + n
-			b, _ := m["BaseType"]
-			et := &EntityType{Name: n, Sym: exported(n), Type: t, Base: b, Description: "undocumented"}
-			if strings.HasSuffix(et.Sym, "Request") {
-				et.Sym += "Object"
-				g.SymTypeMap[t] = et.Sym
-			}
-			for _, y := range x.Elems {
-				ma := y.AttrMap()
-				switch y.XMLName.Local {
-				case "Property":
-					n := ma["Name"]
-					t := ma["Type"]
-					m := &EntityTypeMember{Name: n, Sym: exported(n), Type: t, Description: "undocumented"}
-					et.Members = append(et.Members, m)
-				case "NavigationProperty":
-					n := ma["Name"]
-					t := ma["Type"]
-					m := &EntityTypeNavigation{Name: n, Sym: exported(n), Type: t, Description: "undocumented"}
-					if strings.HasSuffix(m.Sym, "Request") {
-						m.Sym += "Navigation"
+		}
+		for _, x := range schema.Elems {
+			switch x.XMLName.Local {
+			case "EnumType":
+				m := x.AttrMap()
+				n := m["Name"]
+				t := &EnumType{Name: n, Sym: exported(n), Description: "undocumented"}
+				for _, y := range x.Elems {
+					n := y.Attrs[0].Value
+					// ex. Collection(String) -> StringCollection
+					if strings.HasPrefix(n, colPrefix) {
+						n = n[len(colPrefix):len(n)-1] + "Collection"
 					}
-					et.Navigations = append(et.Navigations, m)
+					v := y.Attrs[1].Value
+					m := &EnumTypeMember{Name: n, Sym: exported(n), Value: v, Description: "undocumented"}
+					t.Members = append(t.Members, m)
 				}
-			}
-			entityTypeMap[et.Name] = et
-		case "Action":
-			m := x.AttrMap()
-			n := m["Name"]
-			at := &ActionType{Name: n, Sym: exported(n), Description: "undocumented"}
-			if strings.HasSuffix(at.Sym, "Request") {
-				at.Sym += "Action"
-			}
-			for _, y := range x.Elems {
-				ma := y.AttrMap()
-				switch y.XMLName.Local {
-				case "Parameter":
-					n := ma["Name"]
-					t := ma["Type"]
-					m := &ActionTypeParameter{Name: n, Sym: exported(n), Type: t, Description: "undocumented"}
-					at.Parameters = append(at.Parameters, m)
-				case "ReturnType":
-					at.ReturnType = ma["Type"]
+				enumTypeMap[n] = t
+			case "EntityType", "ComplexType":
+				m := x.AttrMap()
+				n := m["Name"]
+				if _, ok := reservedTypeTable[n]; ok {
+					continue
 				}
-			}
-			at.BindingParameterType = at.Parameters[0].Type
-			at.Parameters = at.Parameters[1:]
-			actionTypeMap[at.BindingParameterType] = append(actionTypeMap[at.BindingParameterType], at)
-		case "EntityContainer":
-			for _, y := range x.Elems {
-				ma := y.AttrMap()
-				switch y.XMLName.Local {
-				case "EntitySet":
-					s := &EntitySet{
-						Name: ma["Name"],
-						Sym:  exported(ma["Name"]),
-						Type: ma["EntityType"],
-					}
-					entitySetMap[s.Name] = s
-				case "Singleton":
-					s := &Singleton{
-						Name: ma["Name"],
-						Sym:  exported(ma["Name"]),
-						Type: ma["Type"],
-					}
-					singletonMap[s.Name] = s
+				t := ns + n
+				b, _ := m["BaseType"]
+				et := &EntityType{Name: n, Sym: exported(n), Type: t, Base: b, Description: "undocumented"}
+				if strings.HasSuffix(et.Sym, "Request") {
+					et.Sym += "Object"
+					g.SymTypeMap[ns][t] = et.Sym
 				}
-			}
-		case "Annotations":
-			mas := x.AttrMap()
-			target, _ := stripNSPrefix(mas["Target"])
-			targetList := strings.Split(target, "/")
-			targetMember := ""
-			if len(targetList) > 1 {
-				target = targetList[0]
-				targetMember = targetList[1]
-			}
-			for _, y := range x.Elems {
-				switch y.XMLName.Local {
-				case "Annotation":
+				for _, y := range x.Elems {
 					ma := y.AttrMap()
-					term, _ := ma["Term"]
-					str, _ := ma["String"]
-					if term == "Org.OData.Core.V1.Description" {
-						if e, ok := entityTypeMap[target]; ok {
-							if targetMember == "" {
-								e.Description = str
-							} else {
-								for _, mem := range e.Members {
-									if mem.Name == targetMember {
-										mem.Description = str
+					switch y.XMLName.Local {
+					case "Property":
+						n := ma["Name"]
+						t := ma["Type"]
+						m := &EntityTypeMember{Name: n, Sym: exported(n), Type: t, Description: "undocumented"}
+						et.Members = append(et.Members, m)
+					case "NavigationProperty":
+						n := ma["Name"]
+						t := ma["Type"]
+						m := &EntityTypeNavigation{Name: n, Sym: exported(n), Type: t, Description: "undocumented"}
+						if strings.HasSuffix(m.Sym, "Request") {
+							m.Sym += "Navigation"
+						}
+						et.Navigations = append(et.Navigations, m)
+					}
+				}
+				entityTypeMap[et.Name] = et
+			case "Action":
+				m := x.AttrMap()
+				n := m["Name"]
+				at := &ActionType{Name: n, Sym: exported(n), Description: "undocumented"}
+				if strings.HasSuffix(at.Sym, "Request") {
+					at.Sym += "Action"
+				}
+				for _, y := range x.Elems {
+					ma := y.AttrMap()
+					switch y.XMLName.Local {
+					case "Parameter":
+						n := ma["Name"]
+						t := ma["Type"]
+						m := &ActionTypeParameter{Name: n, Sym: exported(n), Type: t, Description: "undocumented"}
+						at.Parameters = append(at.Parameters, m)
+					case "ReturnType":
+						at.ReturnType = ma["Type"]
+					}
+				}
+				at.BindingParameterType = at.Parameters[0].Type
+				at.Parameters = at.Parameters[1:]
+				actionTypeMap[at.BindingParameterType] = append(actionTypeMap[at.BindingParameterType], at)
+			case "EntityContainer":
+				for _, y := range x.Elems {
+					ma := y.AttrMap()
+					switch y.XMLName.Local {
+					case "EntitySet":
+						s := &EntitySet{
+							Name: ma["Name"],
+							Sym:  exported(ma["Name"]),
+							Type: ma["EntityType"],
+						}
+						entitySetMap[s.Name] = s
+					case "Singleton":
+						s := &Singleton{
+							Name: ma["Name"],
+							Sym:  exported(ma["Name"]),
+							Type: ma["Type"],
+						}
+						singletonMap[s.Name] = s
+					}
+				}
+			case "Annotations":
+				mas := x.AttrMap()
+				_, target := sepNamespaceAndType(mas["Target"])
+				targetList := strings.Split(target, "/")
+				targetMember := ""
+				if len(targetList) > 1 {
+					target = targetList[0]
+					targetMember = targetList[1]
+				}
+				for _, y := range x.Elems {
+					switch y.XMLName.Local {
+					case "Annotation":
+						ma := y.AttrMap()
+						term, _ := ma["Term"]
+						str, _ := ma["String"]
+						if term == "Org.OData.Core.V1.Description" {
+							if e, ok := entityTypeMap[target]; ok {
+								if targetMember == "" {
+									e.Description = str
+								} else {
+									for _, mem := range e.Members {
+										if mem.Name == targetMember {
+											mem.Description = str
+										}
 									}
 								}
 							}

@@ -13,8 +13,10 @@ import (
 )
 
 func main() {
-	g := &Generator{Created: map[string]bool{}, SymTypeMap: map[string]string{}}
-
+	g := &Generator{
+		Created:    map[string]bool{},
+		SymTypeMap: map[string]map[string]string{},
+	}
 	flag.StringVar(&g.BaseURL, "baseURL", "https://graph.microsoft.com/v1.0", "Base URL")
 	flag.StringVar(&g.In, "in", "metadata/v1.0.xml", "Input file name")
 	flag.StringVar(&g.Out, "out", "out", "Output folder name")
