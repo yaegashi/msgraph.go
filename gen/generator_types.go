@@ -6,7 +6,6 @@ import (
 )
 
 const (
-	nsPrefix  = "microsoft.graph."
 	colPrefix = "Collection("
 )
 
@@ -38,12 +37,16 @@ func ptrType(t string) string {
 	return "*" + t
 }
 
-func stripNSPrefix(t string) (string, bool) {
-	ok := strings.HasPrefix(t, nsPrefix)
-	if ok {
-		t = t[len(nsPrefix):]
+func sepNamespaceAndType(t string) (string, string) {
+	parts := strings.Split(t, ".")
+	if strings.HasPrefix(t, "Collection") {
+		fmt.Println()
 	}
-	return t, ok
+	var ns string
+	if len(parts) > 1 {
+		ns = strings.Join(parts[:len(parts)-1], ".")
+	}
+	return ns, parts[len(parts)-1]
 }
 
 func exported(n string) string {
@@ -55,27 +58,30 @@ func isCollectionType(t string) bool {
 }
 
 func (g *Generator) SymBaseType(t string) string {
-	if x, ok := g.SymTypeMap[t]; ok {
-		return x
-	}
-	if x, ok := stripNSPrefix(t); ok {
-		return exported(x)
-	}
 	if strings.HasPrefix(t, colPrefix) {
 		return g.SymBaseType(t[len(colPrefix) : len(t)-1])
+	}
+	ns, typ := sepNamespaceAndType(t)
+	if x, ok := g.SymTypeMap[ns][typ]; ok {
+		return x
+	}
+	if ns != "" {
+		return exported(typ)
 	}
 	panic(fmt.Errorf("Unknown type %s", t))
 }
 
 func (g *Generator) SymFromType(t string) string {
-	if x, ok := g.SymTypeMap[t]; ok {
-		return x
-	}
-	if x, ok := stripNSPrefix(t); ok {
-		return exported(x)
-	}
 	if strings.HasPrefix(t, colPrefix) {
 		return g.SymBaseType(t[len(colPrefix):len(t)-1]) + "Collection"
+	}
+	ns, typ := sepNamespaceAndType(t)
+	tm := g.SymTypeMap[ns]
+	if x, ok := tm[typ]; ok {
+		return x
+	}
+	if ns != "" {
+		return exported(typ)
 	}
 	panic(fmt.Errorf("Unknown type %s", t))
 }
@@ -84,14 +90,17 @@ func (g *Generator) TypeFromType(t string) string {
 	if x, ok := reservedTypeTable[t]; ok {
 		return ptrType(x)
 	}
-	if x, ok := g.SymTypeMap[t]; ok {
-		return ptrType(x)
-	}
-	if x, ok := stripNSPrefix(t); ok {
-		return ptrType(exported(x))
-	}
+
 	if strings.HasPrefix(t, colPrefix) {
 		return "[]" + g.TypeFromType(t[len(colPrefix) : len(t)-1])[1:]
+	}
+	ns, typ := sepNamespaceAndType(t)
+	tm := g.SymTypeMap[ns]
+	if x, ok := tm[typ]; ok {
+		return ptrType(x)
+	}
+	if ns != "" {
+		return ptrType(exported(typ))
 	}
 	panic(fmt.Errorf("Unknown type %s", t))
 }
